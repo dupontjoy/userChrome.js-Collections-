@@ -1,0 +1,535 @@
+<?xml version="1.0"?>
+<!DOCTYPE overlay>
+<!--
+// ==UserScript==
+// @name           SnapLinksMod.uc.xul
+// @namespace      http://d.hatena.ne.jp/Griever/
+// @description    Snap Links for userChromeJS
+// @include        main
+// @charset        UTF-8
+// @version        2014.9.6
+// @homepageURL    https://github.com/ywzhaiqi/userChromeJS/blob/master/SnapLinksMod.uc.xul
+// @downloadURL    https://raw.githubusercontent.com/ywzhaiqi/userChromeJS/master/SnapLinksMod.uc.xul
+// @note           2014/05/21 增加百度盘的特殊多选框的批量点击
+// @note           2012/08/22 add copy links Reverse by ywzhaiqi
+// @note           2012/06/28 add radiobox options.
+// @note           2012/06/01 hide entry menu on link, image, text input area or context selected.
+// @note           2012/04/02 fixed by lastdream2013, add display count, fix open/copy url order, add context menu and fix memory leak
+// @note           CSS が適用されていなかったのを修正
+// @note           2012/03/08 フレーム跨いだりツールチップ使うのをやめた
+// ==/UserScript==
+ -->
+<!--
+
+FireGestures や keyconfig で snapLinks(); を実行
+
+引数に eventを送るとすぐに四角を描くようになる（MouseEvent限定）
+snapLinks.init();
+
+-->
+<?xml-stylesheet href="data:text/css;charset=utf-8,@namespace%20url('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul');
+
+%23snapLinksMenupopup.hasLink .hasLink,
+%23snapLinksMenupopup.hasImageLink .hasImageLink,
+%23snapLinksMenupopup.hasCheckbox .hasCheckbox,
+%23snapLinksMenupopup.hasRadio .hasRadio,
+%23snapLinksMenupopup.hasSpecialLink .hasSpecialLink
+  { display: -moz-box !important; }
+
+%23snapLinksMenupopup:not(.hasLink) .hasLink,
+%23snapLinksMenupopup:not(.hasImageLink) .hasImageLink,
+%23snapLinksMenupopup:not(.hasCheckbox) .hasCheckbox,
+%23snapLinksMenupopup:not(.hasRadio) .hasRadio,
+%23snapLinksMenupopup:not(.hasSpecialLink) .hasSpecialLink
+  { display: none !important; }
+
+" type="text/css"?>
+
+<overlay id="SnapLinks_overlay"  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<popupset id="mainPopupSet">
+		<menupopup id="snapLinksMenupopup"
+			        onpopuphidden="this.className = ''; snapLinks.lowlightAll();">
+			<menuitem label="在新标签打开所有链接"
+			           id="SnapLinksOpenLinks"
+			          class="hasLink"
+			          oncommand="snapLinks.openLinks();" />
+			<menuitem label="复制所有链接URL"
+				id="SnapLinksCopyLinks"
+			          class="hasLink"
+			          oncommand="snapLinks.copyLinks();" />
+            <menuitem label="复制所有链接URL（反向）"
+                id="SnapLinksCopyLinksReverse"
+                      class="hasLink"
+                      oncommand="snapLinks.copyLinks(null, true);" />
+            <menuitem label="复制所有链接标题 + URL"
+                id="SnapLinksCopyLinksAndTitles"
+                      class="hasLink"
+                      oncommand="snapLinks.copyLinks(null, false, '%t\n%u');" />
+            <menuitem label="复制所有链接标题 + URL (MD)"
+                id="SnapLinksCopyLinksAndTitlesMD"
+                      class="hasLink"
+                      oncommand="snapLinks.copyLinks(null, false, '[%t](%u)');" />
+            <menuitem label="复制所有链接标题 + URL (BBS)"
+                id="SnapLinksCopyLinksAndTitlesBBS"
+                      class="hasLink"
+                      oncommand="snapLinks.copyLinks(null, false, '[url=%u]%t[/url]');" />
+            <menuitem label="复制所有链接标题 + URL (筛选)"
+                id="SnapLinksCopyLinksRegExp"
+                      class="hasLink"
+                      oncommand="var reg=prompt('请输入需要筛选的 RegExp', '');snapLinks.copyLinks(new RegExp(reg));" />
+            <menuitem label="复制所有链接标题 + URL (设置复制格式)"
+                id="SnapLinksCopyLinksSetFormat"
+                      class="hasLink" />
+			<menuitem label="在新标签页打开所有图片链接" hidden="true"
+			          id="SnapLinksOpenImageLinks"
+			          class="hasImageLink"
+			          oncommand="snapLinks.openLinks(/\.(jpe?g|png|gif|bmp)$/i);" />
+			<menuitem label="在一个标签页显示所有图片链接"
+		            	id="SnapLinksImageLinksOnePage"
+			          class="hasImageLink"
+			          oncommand="snapLinks.imageOnePage();" />
+			<menuseparator class="hasLink hasCheckbox hasRadio" />
+			<menuitem label="复选框 - 选中"
+			      	id="SnapLinksCheckBoxSelect"
+			          class="hasCheckbox"
+			          oncommand="snapLinks.checkbox(true);" />
+			<menuitem label="复选框 - 取消"
+		                 id="SnapLinksCheckBoxCancel"
+			          class="hasCheckbox"
+			          oncommand="snapLinks.checkbox(false);" />
+			<menuitem label="复选框 - 反选"
+				id="SnapLinksCheckBoxTaggle"
+			          class="hasCheckbox"
+			          oncommand="snapLinks.checkbox();" />
+			<menuitem label="单选框 - 选中"
+			      	id="SnapLinksRadioSelect"
+			          class="hasRadio"
+			          oncommand="snapLinks.radio(true);" />
+			<menuitem label="单选框 - 取消"
+		                 id="SnapLinksRadioCancel"
+			          class="hasRadio"
+			          oncommand="snapLinks.radio(false);" />
+			<menuitem label="特殊单选框 - 选中"
+			      	id="SnapLinksClickLinks"
+			          class="hasSpecialLink"
+			          oncommand="snapLinks.clickLinks();" />
+			</menupopup>
+            <popup id="contentAreaContextMenu">
+				<menuitem id="snaplinksMenuEntry"
+						label="批量操作"
+				oncommand="snapLinks.init();"
+						insertbefore="context-selectall"
+				class="menuitem-iconic"
+				image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAUVBMVEUArNz6+vrb29vz+vzt7e06vuPW3d8Jrty03eh4zuZtyuQ9veGm2OdBweXF3eRVw+EetN46ud0MsN0Grtzj9frg6+/p6eljxuI1vOInt98QsN2hkWIgAAAAVElEQVQY053KSw6AIAxF0aqoSBFQ/O9/oTYtkBgnxjN7Nw8+GhuxlFAlOcytOGSeFzzgivQxAzEctHLaR8U47JvBAFYTC8wHeOlFzHvqhCuhTuCPG6fjAvTD7V1+AAAAAElFTkSuQmCC"
+                />
+    		</popup>
+	</popupset>
+
+	<script type="application/x-javascript" xmlns="http://www.w3.org/1999/xhtml"><![CDATA[
+
+
+var snapLinks = {
+	timer: null,
+	button: 0,
+
+	init: function() {
+		if (!snapLinks.inited) {
+			var menuitem = document.getElementById("SnapLinksCopyLinksSetFormat");
+			if (menuitem) {
+				var func = function() {
+					var format = prompt('请输入需要设置的格式（%t：标题，%u：链接，%n：序号，%r：反向序号）', 
+						'<a href="%u">%r. %t</a><br>');
+					snapLinks.copyLinks(null, false, format);
+				};
+				menuitem.addEventListener('command', func, false);
+			}
+
+			snapLinks.inited = true;
+		}
+		
+
+		this.win = document.commandDispatcher.focusedWindow;
+		if (this.win == window) this.win = content;
+		this.doc = this.win.document;
+		this.body = this.doc.body;
+		if (!this.body instanceof HTMLBodyElement){
+			alert("Can not snaplinks.");
+			return false;
+		}
+
+		this.root = this.doc.documentElement;
+		this.utils = this.win.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindowUtils);
+		this.popup = document.getElementById("snapLinksMenupopup");
+
+		this.bodyCursor = this.body.style.cursor;
+		this.rootCursor = this.root.style.cursor;
+		this.body.style.setProperty("cursor", "crosshair", "important");
+		this.root.style.setProperty("cursor", "crosshair", "important");
+
+		this.highlights = [];
+		this.elements = [];
+
+		this.doc.addEventListener("mousedown", this, true);
+		this.doc.addEventListener("pagehide", this, true);
+	},
+	uninit: function() {
+		this.doc.removeEventListener("mousedown", this, true);
+		this.doc.removeEventListener("mousemove", this, true);
+		this.doc.removeEventListener("pagehide", this, true);
+		removeEventListener("mouseup", this, true);
+		setTimeout(function(self){
+			self.doc.removeEventListener("click", self, true);
+		}, 10, this);
+
+		if (this.box && this.box.parentNode)
+			this.box.parentNode.removeChild(this.box);
+		this.box = null;
+		this.body.style.cursor = this.bodyCursor;
+		this.root.style.cursor = this.rootCursor;
+	},
+	destroy: function() {
+		this.uninit();
+		this.lowlightAll();
+	},
+	handleEvent: function(event) {
+		switch(event.type){
+			case "mousedown":
+				if (event.button != 0 || event.ctrlKey || event.shiftKey || event.altKey) return;
+				event.preventDefault();
+				event.stopPropagation();
+
+				this.draw(event);
+				break;
+			case "mousemove":
+				event.preventDefault();
+				event.stopPropagation();
+				var moveX = event.pageX;
+				var moveY = event.pageY;
+				if (this.downX > moveX) this.box.style.left = moveX + "px";
+				if (this.downY > moveY) this.box.style.top  = moveY + "px";
+				this.box.style.width  = Math.abs(moveX - this.downX) + "px";
+				this.box.style.height = Math.abs(moveY - this.downY) + "px";
+
+				if (this.timer) {
+					clearTimeout(this.timer);
+					this.timer = null;
+				}
+				var timeStamp = new Date().getTime();
+				if (timeStamp - this.lastHiglightedTime > 150) {
+					this.boxRect = this.box.getBoundingClientRect();
+					this.highlightAll();
+				} else {
+					var self = this;
+					this.timer = setTimeout(function() {
+						self.boxRect = self.box.getBoundingClientRect();
+						self.highlightAll();
+					}, 200);
+				}
+				break;
+			case "mouseup":
+				if (event.button != this.button || event.ctrlKey || event.shiftKey) return;
+				event.preventDefault();
+				event.stopPropagation();
+
+				if (this.timer) {
+					clearTimeout(this.timer);
+					this.timer = null;
+				}
+				this.boxRect = this.box.getBoundingClientRect();
+				this.highlightAll();
+
+				for (let [i, e] in Iterator(this.highlights)) {
+					if (e instanceof HTMLImageElement) {
+						let link = this.doc.evaluate(
+							'ancestor::*[@href]', e, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+						if (this.highlights.indexOf(link) === -1) {
+							this.elements[this.elements.length] = link;
+						}
+						continue;
+					}
+					this.elements[this.elements.length] = e;
+				}
+				this.elements = this.elements;
+				this.uninit();
+				this.showPopup(event);
+				break;
+			case "click":
+				event.preventDefault();
+				event.stopPropagation();
+				break;
+			case "pagehide":
+				this.destroy();
+				break;
+		}
+	},
+	draw: function(aEvent) {
+		this.lastHiglightedTime = new Date().getTime();
+		this.downX = aEvent.pageX;
+		this.downY = aEvent.pageY;
+		this.box = this.doc.createElement("div");
+		this.box.id = "snap-links-box";
+		this.box.style.cssText = [
+			'background-color: rgba(0,128,255,.1) !important;'
+			,'border: 1px solid rgb(255,255,0) !important;'
+			,'box-sizing: border-box !important;'
+			,'-moz-box-sizing: border-box !important;'
+			,'position: absolute !important;'
+			,'z-index: 2147483647 !important;'
+			,'top:' + this.downY + 'px;'
+			,'left:' + this.downX + 'px;'
+			,'cursor: crosshair !important;'
+			,'margin: 0px !important;'
+			,'padding: 0px !important;'
+			,'outline: none !important;'
+		].join(" ");
+		this.body.appendChild(this.box);
+
+		this.doc.removeEventListener("mousedown", this, true);
+		this.doc.addEventListener("mousemove", this, true);
+		addEventListener("mouseup", this, true);
+		this.doc.addEventListener("click", this, true);
+	},
+	highlightAll: function() {
+		var a = '[href]:not([href^="javascript:"]):not([href^="mailto:"]):not([href^="#"])';
+		var selector = a + ', ' + a + ' img, input[type="checkbox"],  input[type="radio"]';
+		selector += ', a.b-in-blk.input-cbx[href^="javascript:"]';  // 百度盘的特殊多选框
+
+		var contains = this.getContainsElements();
+		contains.reverse();
+		var matches = [];
+		for (let [i, e] in Iterator(contains)) {
+			if (e.nodeType !== 1 || !e.mozMatchesSelector(selector))
+				continue;
+
+			if (e.hasAttribute('href')) {
+				let imgs = Array.slice(e.getElementsByTagName('img'));
+				if (imgs[0]) {
+					[].push.apply(contains, imgs);
+					continue;
+				}
+			}
+
+			if (!("defStyle" in e))
+				this.highlight(e);
+			matches[matches.length] = e;
+		}
+
+		this.highlights.forEach(function(e, i, a){
+			if (matches.indexOf(e) === -1)
+				this.lowlight(e);
+		}, this);
+
+		this.highlights = matches;
+		this.lastHiglightedTime = new Date().getTime();
+	},
+	lowlightAll: function() {
+		this.highlights.forEach(function(e){
+			this.lowlight(e);
+		}, this);
+	},
+	highlight: function(elem) {
+		if (!('defStyle' in elem))
+			elem.defStyle = elem.getAttribute('style');
+		elem.style.setProperty('outline', '2px solid #ff0000', 'important');
+		elem.style.setProperty('outline-offset', '-1px', 'important');
+	},
+	lowlight: function(elem) {
+		if ("defStyle" in elem) {
+			elem.defStyle?
+				elem.style.cssText = elem.defStyle:
+				elem.removeAttribute("style");
+			delete elem.defStyle;
+		}
+	},
+	getContainsElements: function() {
+		if (!this.boxRect) return;
+		var { top, right, bottom, left, width, height } = this.boxRect;
+		// http://piro.sakura.ne.jp/latest/blosxom/mozilla/xul/2010-07-07_nodesfromrect.htm
+		// nsIDOMNodeList nodesFromRect(in float aX,
+		//                              in float aY,
+		//                              in float aTopSize,
+		//                              in float aRightSize,
+		//                              in float aBottomSize,
+		//                              in float aLeftSize,
+		//                              in boolean aIgnoreRootScrollFrame,
+		//                              in boolean aFlushLayout);
+		return Array.slice(this.utils.nodesFromRect(left, top, 0, width, height, 0, true, false));
+	},
+
+
+	showPopup: function(aEvent) {
+		var cls = [];
+
+		var linkcount = 0;
+		var specialLinkCount = 0;  // 特殊的类似多选框的链接
+		var imagecount = 0;
+		var checkboxcount = 0;
+		var radiocount = 0;
+		for (let [i, elem] in Iterator(this.elements)) {
+			if (elem instanceof HTMLAnchorElement) 
+			   elem.href.indexOf('javascript:') == 0 ? specialLinkCount++ : linkcount++;
+		}
+		for (let [i, elem] in Iterator(this.elements)) {
+			if (elem instanceof HTMLAnchorElement && /\.(jpe?g|png|gif|bmp)$/i.test(elem.href))
+				imagecount++;
+		}
+		for (let [i, elem] in Iterator(this.elements)) {
+			if (elem instanceof HTMLInputElement && elem.type === 'checkbox') {
+ 				checkboxcount++;
+			}
+		}
+		for (let [i, elem] in Iterator(this.elements)) {
+			if (elem instanceof HTMLInputElement && elem.type === 'radio') {
+ 				radiocount++;
+			}
+		}
+		if ( linkcount > 0 ) cls.push("hasLink");
+		if ( imagecount > 0 ) cls.push("hasImageLink");
+		if ( checkboxcount > 0 ) cls.push("hasCheckbox");
+		if ( radiocount > 0 ) cls.push("hasRadio");
+		if ( specialLinkCount > 0 ) cls.push("hasSpecialLink");
+
+		var setCount = function(id, label){
+			let currentEntry = document.getElementById(id);
+			if(currentEntry)
+				currentEntry.setAttribute("label", label);
+		};
+
+		var data = {
+			"SnapLinksOpenLinks": "在新标签打开所有链接 (" + linkcount + ")",
+			"SnapLinksCopyLinks": "复制所有链接URL (" + linkcount + ")",
+			"SnapLinksCopyLinksReverse": "复制所有链接URL (" + linkcount + ") (反向)",
+			"SnapLinksCopyLinksAndTitles": "复制所有链接标题 + URL (" + linkcount + ")",
+			"SnapLinksCopyLinksAndTitlesMD": "复制所有链接标题 + URL (" + linkcount + ") (MD)",
+			"SnapLinksCopyLinksAndTitlesBBS": "复制所有链接标题 + URL (" + linkcount + ") (BBS)",
+			"SnapLinksCopyLinksRegExp": "复制所有链接标题 + URL (" + linkcount + ") (筛选)",
+			"SnapLinksCopyLinksSetFormat": "复制所有链接标题 + URL (" + linkcount + ") (设置复制格式)",
+			"SnapLinksOpenImageLinks": "在新标签页打开所有图片链接 (" + imagecount + ")",
+			"SnapLinksImageLinksOnePage": "在一个标签页显示所有图片链接 (" + imagecount + ")",
+			"SnapLinksCheckBoxSelect": "复选框 - 选中 (" + checkboxcount + ")",
+			"SnapLinksCheckBoxCancel": "复选框 - 取消 (" + checkboxcount + ")",
+			"SnapLinksCheckBoxTaggle": "复选框 - 反选 (" + checkboxcount + ")",
+			"SnapLinksRadioSelect": "单选框 - 选中 (" + radiocount + ")",
+			"SnapLinksRadioCancel": "单选框 - 取消 (" + radiocount + ")",
+			"SnapLinksClickLinks": "特殊单选框 - 选中 (" + specialLinkCount + ")",
+		};
+
+		for(let id in data){
+			setCount(id, data[id]);
+		}
+
+		if (cls.length > 0) {
+			this.popup.className = cls.join(' ');
+			this.popup.openPopupAtScreen(aEvent.screenX, aEvent.screenY);
+		} else {
+			this.lowlightAll();
+		}
+	},
+	openLinks : function(regexp){
+		var obj = {};
+		for (let [i, elem] in Iterator(this.elements)) {
+			if (!elem.href || /^(?:javascript:|mailto:|#)/i.test(elem.href)) continue;
+			if (!regexp || regexp.test(elem.href))
+				obj[elem.href] = true;
+		}
+		for (let [key, val] in Iterator(obj)) {
+			gBrowser.addTab(key, { ownerTab: gBrowser.mCurrentTab });
+		}
+	},
+	clickLinks : function(){
+		for (let [i, elem] in Iterator(this.elements)) {
+			if (!elem.href || /^(?:javascript:|mailto:|#)/i.test(elem.href)) {
+				elem.click();
+			}
+		}
+	},
+	copyLinks : function(regexp, reverse, format){
+		var links = this.elements.filter(function(elem){
+			return elem instanceof HTMLAnchorElement && (!regexp || regexp.test(elem.href))
+		});
+		var num = 1,
+			numReverse = links.length;
+		links = links.map(function(e) {
+			if (format) {
+				return format.replace(/%t/g, e.textContent)
+							 .replace(/%u/g, e.href)
+							 .replace(/%r/g, numReverse--)
+							 .replace(/%n/g, num++);
+			}
+			return e.href;
+		});
+
+        // 筛选出重复的
+        links = this.unique(links);
+
+        if(reverse)
+        	links = links.reverse();
+
+		if (links.length){
+			Components.classes["@mozilla.org/widget/clipboardhelper;1"]
+				.getService(Components.interfaces.nsIClipboardHelper)
+                .copyString(links.join('\n'));
+		}
+	},
+	imageOnePage : function(){
+		var htmlsrc = [
+			'<style>'
+			,'img { max-width: 100%; max-height: 100%; }'
+			,'</style>'].join('');
+		for (let [i, elem] in Iterator(this.elements)) {
+			if (elem instanceof HTMLAnchorElement && /\.(jpe?g|png|gif|bmp)$/i.test(elem.href))
+				htmlsrc += '\n<img src="' + elem.href + '">'
+		}
+		gBrowser.addTab("data:text/html;charset=utf-8," +
+			'<html><head><title>' + this.doc.domain + ' 图象列表</title><body>' +
+			encodeURIComponent(htmlsrc));
+	},
+	checkbox : function(bool){
+		for (let [i, elem] in Iterator(this.elements)) {
+			if (elem instanceof HTMLInputElement && elem.type === 'checkbox') {
+				elem.checked = arguments.length == 0?
+					!elem.checked :
+					bool;
+			}
+		}
+	},
+	radio : function(bool){
+		for (let [i, elem] in Iterator(this.elements)) {
+			if (elem instanceof HTMLInputElement && elem.type === 'radio') {
+				elem.checked = arguments.length == 0?
+					!elem.checked :
+					bool;
+			}
+		}
+	},
+	unique: function(a){
+		var o = {},
+			r = [],
+			t;
+		for (var i = 0, l = a.length; i < l; i++) {
+			t = a[i];
+			if(!o[t]){
+				o[t] = true;
+				r.push(t);
+			}
+		}
+		return r;
+	}
+};
+(function () {
+	function optionsShowHide() {
+		if (gContextMenu) {
+			var isViewable = true;
+			var SubMenu = document.getElementById("snaplinksMenuEntry");
+			if (gContextMenu.onLink || gContextMenu.onImage || gContextMenu.onTextInput || gContextMenu.onMailtoLink || gContextMenu.isContentSelected) {
+				isViewable = false;
+			}
+			if (SubMenu)
+				SubMenu.hidden = !isViewable;
+		}
+	}
+	var menu = document.getElementById("contentAreaContextMenu");
+	menu.addEventListener("popupshowing", optionsShowHide, false);
+})();
+	]]></script>
+</overlay>
