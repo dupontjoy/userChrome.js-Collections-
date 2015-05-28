@@ -4,7 +4,7 @@
 // @include        main
 // @charset        UTF-8
 
-// @note           2015.05.26 10:00 小調內存颜色值
+// @note           2015.05.28 19:00 小調內存颜色值
 // @note           2015.05.25 21:00 Mod by zhulinxizi，美化边框
 // @note           2014.11.04 23:30 设置其位置在地址栏前/後（可选）
 // @note           2014.02.10 删除自动重启功能，修复分级颜色显示：正常显示为黑色，超过预警值的0.6倍为蓝色，超出预警值显示为红色
@@ -16,12 +16,10 @@ var ucjsMM = {
 	//内存刷新周期, 单位 ms
 	_Warningvalue : 900,  //内存预警值, 单位 MB
 	_Warningcolor : 'red',//red 或 #f46060
-	_Stdvalue3 : 700,  //颜色3
-	_Stdcolor3 : 'orange',//orange 或 #ed6c44
-	_Stdvalue2 : 500,  //颜色2
-	_Stdcolor2 : 'blue',//blue 或 #69cc56
-	_Stdvalue1 : 300,  //颜色1
-	_Stdcolor1 : 'green',//green 或 #5bb1ec
+	_Stdvalue2 : 700,  //颜色2
+	_Stdcolor2 : 'orange',//orange 或 #ed6c44
+	_Stdvalue1 : 500,  //颜色1
+	_Stdcolor1 : 'green',//blue 或 #69cc56
 	_MemoryValue : 0,  //内存初始值
 	_Memorycolor : 'grey',//grey 或 #3e3e3e
 	_prefix : 'MB',    //内存单位
