@@ -28,7 +28,10 @@ myNewTab-Classic
 > user_pref("browser.newtab.url",
 > "chrome://userchromejs/content/myNewTab/index.html");//本地Html
 
-![myNewTab-Classic预览图][2]
+![文件夹位置示意图][2]
+
+![myNewTab-Classic预览图][3]
 
   [1]: http://bbs.kafan.cn/thread-1759418-1-1.html
-  [2]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/myNewTab-Classic/myNewTab-Classic.jpg
+  [2]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/myNewTab-Classic/img/position.jpg
+  [3]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/myNewTab-Classic/img/myNewTab-Classic.jpg
