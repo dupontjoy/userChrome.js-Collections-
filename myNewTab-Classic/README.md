@@ -12,6 +12,8 @@ myNewTab-Classic
 
 [原作者發佈地址][1]
 
+**媽媽再也不用擔心我被升級了**
+
 ![myNewTab-Classic预览图][2]
 
   [1]: http://bbs.kafan.cn/thread-1759418-1-1.html
