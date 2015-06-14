@@ -1,6 +1,6 @@
 myNewTab-Classic
 =============
-**by Defpt**
+**by Defpt & ywzhaiqi**
 
 此版爲原始版，功能較單一，當然也有它的好處：
 
@@ -10,7 +10,7 @@ myNewTab-Classic
 
 **3:**個人調整：加入日曆；Favicon可以用在線形式
 
-![Baidu][1]
+![myNewTab-Classic预览图][1]
 
 
-  [1]: https://www.baidu.com/img/bd_logo1.png
+  [1]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/myNewTab-Classic/myNewTab-Classic.jpg
