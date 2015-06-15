@@ -8,9 +8,18 @@ ucjsPermission2.uc.xul
 
 ![第三方脚本示意图][2]
 
-**個人[第三方腳本白名單][3]**
+**使用方法：**
+
+第一步、将两个uc.xul文件复制到『chrome\xul』文件夹下面
+
+第二步、将exexcept复制到『extensions\userChromeJS@mozdev.org\content』文件夹下面
+
+![文件夹位置示意图][3]
+
+其它资源：**個人[第三方腳本白名單][4]**
 
 [1]: http://www.economist.com/
 [2]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/ucjsPermission2.uc.xul/img/ucjsPermission2.jpg
-[3]: https://github.com/dupontjoy/customization/blob/master/Rules/ucjsPermission-Whitelist.txt
+[3]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/ucjsPermission2.uc.xul/img/ucjsPermission2-position.jpg
+[4]: https://github.com/dupontjoy/customization/blob/master/Rules/ucjsPermission-Whitelist.txt
 
