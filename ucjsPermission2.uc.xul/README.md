@@ -1,6 +1,6 @@
 ucjsPermission2.uc.xul
 =============
-by Alice0775 & dannylee
+**by Alice0775 & dannylee**
 
 利用Firefox自带**permissions.sqlite**管理第三方腳本，样式，图片，等等。数据是保存在permissions.sqlite这个文件中的，当你清理cookie时，数据就会被清理掉。因此，请做好备份！
 
