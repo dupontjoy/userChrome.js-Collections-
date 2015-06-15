@@ -8,7 +8,7 @@ ucjsPermission2.uc.xul
 
 ![第三方脚本示意图][2]
 
-個人[第三方腳本白名單][3]
+**個人[第三方腳本白名單]**[3]
 
 [1]: http://www.economist.com/
 [2]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/ucjsPermission2.uc.xul/img/ucjsPermission2.jpg
