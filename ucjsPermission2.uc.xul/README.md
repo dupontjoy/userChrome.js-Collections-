@@ -18,10 +18,21 @@ ucjsPermission2.uc.xul
 
 ![文件夹位置示意图][3]
 
-其它资源：**個人[第三方腳本白名單][4]**
+至此，脚本安装完成！
+
+**操作步骤：**
+
+**左键单击**图标，选择要放行的脚本（或其他元素）
+
+**右键单击**图标，可查看自己设置的列表：
+
+![列表示意图][4]
+
+其它资源：**個人[第三方腳本白名單][5]**
 
 [1]: http://www.economist.com/
 [2]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/ucjsPermission2.uc.xul/img/ucjsPermission2.jpg
 [3]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/ucjsPermission2.uc.xul/img/ucjsPermission2-position.jpg
-[4]: https://github.com/dupontjoy/customization/blob/master/Rules/ucjsPermission-Whitelist.txt
+[4]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/ucjsPermission2.uc.xul/img/ucjsPermission2-list.jpg
+[5]: https://github.com/dupontjoy/customization/blob/master/Rules/ucjsPermission-Whitelist.txt
 
