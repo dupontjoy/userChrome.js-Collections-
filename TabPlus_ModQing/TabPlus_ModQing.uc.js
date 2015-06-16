@@ -2,6 +2,7 @@
 // @description  Tab Plus 标签页增强
 // @include      chrome://browser/content/browser.xul
 
+// 2015.06.16 08:00 加入Copy Gif（直接複製圖像即可）
 // 2015.04.21 14:00 加入滾輪切換，自動聚焦
 // 2015.04.02 10:00 精簡
 // 2015.03.19 16:00 open_in_new_tab更新到GOLF-AT 2.1.20150305版
@@ -184,3 +185,25 @@ location == "chrome://browser/content/browser.xul" && document.querySelector("#c
     },
     false); 
 */
+
+//CopyGIF by kidzgy
+(function () {
+    // copy gif
+    var copyimage = document.querySelector("#context-copyimage-contents");
+    copyimage.addEventListener("command", function() {
+        var selection = content.getSelection();
+        var ranges = [];
+        for (var i = 0; i < selection.rangeCount; i++)
+            ranges.push(selection.getRangeAt(i));
+ 
+        var range = document.createRange();
+        range.selectNode(document.popupNode);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        goDoCommand("cmd_copy");
+        selection.removeAllRanges();
+         
+        for (i in ranges)
+            selection.addRange(ranges[i]);
+    }, false);
+})()
