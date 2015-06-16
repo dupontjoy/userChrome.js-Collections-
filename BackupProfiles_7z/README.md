@@ -24,7 +24,7 @@ BackupProfiles_7z
 
 ![打包结束][2]
 
-**注意：**
+**<font color="red">注意：</font>**
 
 我的配置文件夹结构：
 
