@@ -1,20 +1,20 @@
-myNewTab-Classic
+myNewTab-Deepin
 =============
-**by Defpt & ywzhaiqi**
+**Originate by Defpt & ywzhaiqi**
 
-此版爲原始版，功能較單一，當然也有它的好處：
+**Deepin Mod by Hero Anonymous**
 
-**1:** 保存下來的圖片是原文件名
+**Fix image download by Qing**
 
-**2:** 文件體積小
+此版爲Deepin界面版：
 
-**3:** 個人調整：加入日曆
+仿：[http://start.linuxdeepin.com/index.zh_cn.html][1]
 
-**4: 媽媽再也不用擔心我被升級了**
+**1:** 從擴展版中提取
 
-原來Favicon可以用在線形式，用了快一年才知道。。。
+**2:** 修复下載圖片爲0KB的問題
 
-[**原作者發佈地址**][1]
+**3: 媽媽再也不用擔心我被升級了**
 
 **使用方法：**
 
@@ -34,6 +34,6 @@ myNewTab-Classic
 
 ![myNewTab-Classic预览图][3]
 
-  [1]: http://bbs.kafan.cn/thread-1759418-1-1.html
-  [2]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/myNewTab-Classic/img/position.jpg
-  [3]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/myNewTab-Classic/img/myNewTab-Classic.jpg
+[1]:http://start.linuxdeepin.com/index.zh_cn.html
+[2]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/myNewTab-Classic/img/position.jpg
+[3]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/myNewTab-Deepin/img/myNewTab-Deepin.jpg
