@@ -167,7 +167,7 @@
     	var overlay = '\
       <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" \
                xmlns:html="http://www.w3.org/1999/xhtml"> \
-          <toolbarpalette id="urlbar-icons">\
+          <toolbarpalette id="addon-bar">\
                <toolbarbutton id="RPBT-icon" label="Requestpolicy_blocksite" \
                              class="toolbarbutton-1 chromeclass-toolbar-additional" type="menu" removable="true"\
                              image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACZUlEQVQ4ja3SP0gbURwH8O/iIg46OLSKpAQPYmxOe0lPLu2l8a4eeIG6iEhVbLVoS7dsboU0UP9AkjZEEpBY09YIAXWS6FqnJ+rSToKFhqziltDy7SCaWKdCv/DgDe/3+f147wH/JY/QBANhDKCIQQiEIDAEgWEIjEJgHAKTEJiGwAyKmEUYw2iqAQbCzc+aT5wRZ8Udd1NOyvSmvdSyGvWcTiNv0CpYtDdtmhtmpSPacYJZhGvAAIrOiLPS9qaNjqiDnfOd7FroomfJQyWhUE2p9Gf8DKwGaKwbNDfMCl6hWAMGIdxxNx1RB6UFia55F0tnJf6d8nmZwY9BhrZDxEuIGhCCkJPyRef5Lk7mJm8UX0Zf0Wlv2cRsPTAE4U176Vqodfa983EsN8adbzvXAH/aT6tgETP1wDCEltXoWfJcHaz+qvLw5yFH1ka4872GqCmVRt4gXtQDoxB6TqeSUEiS4lQw+D7I5a/LPCodceLTxBWgJBTqOZ2YrgfGIYy8QTWlXhu3/0M/q7+r7FvsI0mWzkqU4zK1rEY8rwcmcGwVLPoz/mvAwY+Dq/3U+hQ9MQ/dMTd9GR8xiuMa8BT79qbNwGqA5fPyjZsvnZUox2R2x7spLUqUkzJhY7/+FfbML2bFWDcYXAtSX9HpT/upplQqCYVyXKY75qa0KF38lahUgRd7NeAx5tpft5+an81KaDtEe8umVbBo5A3qOZ1aVqMv46OclCm9lSotT1pOcQdzl+WNaEAvehDBQ+ziAQQ0CKgQuA8BBQL3INADgbsQcGEXtxAB0AugEQAaALQCuP2PqxVAwx/qWbCIUSY0IQAAAABJRU5ErkJggg==" \
@@ -1272,9 +1272,9 @@
     },
     
     getRPUserDir : function() {
-      var profileDir = CC["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", CI.nsIFile);
+      var profileDir = CC["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfD", CI.nsIFile);
       var file = profileDir.clone().QueryInterface(CI.nsILocalFile);
-      file.appendRelativePath("UCProfileDir");
+      file.appendRelativePath("adblockplus");
       file.appendRelativePath(REQUESTPOLICY_DIR);
       if(!file.exists()) {
         file.create(CI.nsIFile.DIRECTORY_TYPE, 0700);
