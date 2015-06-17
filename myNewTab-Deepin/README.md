@@ -10,7 +10,7 @@ myNewTab-Deepin
 
 仿：[http://start.linuxdeepin.com/index.zh_cn.html][1]
 
-**1:** 從擴展版中提取
+**1:** 從[擴展版][4]中提取
 
 **2:** 修复下載圖片爲0KB的問題
 
@@ -34,6 +34,7 @@ myNewTab-Deepin
 
 ![myNewTab-Classic预览图][3]
 
-[1]:http://start.linuxdeepin.com/index.zh_cn.html
+[1]: http://start.linuxdeepin.com/index.zh_cn.html
 [2]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/myNewTab-Classic/img/position.jpg
 [3]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/myNewTab-Deepin/img/myNewTab-Deepin.jpg
+[4]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/myNewTab-Deepin/xpi
