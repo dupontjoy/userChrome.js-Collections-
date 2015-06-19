@@ -2,13 +2,15 @@ myNewTab-Deepin
 =============
 **Originate by Defpt & ywzhaiqi**
 
-**Deepin Mod by Hero Anonymous**
+**Deepin Mod by 12101111**
 
 **Fix image download by Qing**
 
-此版爲Deepin界面版：
-
 仿：[http://start.linuxdeepin.com/index.zh_cn.html][1]
+
+12101111兄修改仿Deepin界面，[发布页][5]。
+
+此版爲Deepin界面版：
 
 **1:** 從[擴展版][4]中提取
 
@@ -38,3 +40,4 @@ myNewTab-Deepin
 [2]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/myNewTab-Classic/img/position.jpg
 [3]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/myNewTab-Deepin/img/myNewTab-Deepin.jpg
 [4]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/myNewTab-Deepin/xpi
+[5]: http://bbs.kafan.cn/thread-1765402-1-1.html
