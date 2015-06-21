@@ -6,4 +6,5 @@
 
 
 [1]: https://github.com/agunchan/autoproxy
-[2]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/ucjsPermission2.uc.xul/img/ucjsPermission2-list.jpg
+[2]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/000——xpi/Autoproxy_Mod.xpi/agunchan%28气吞寰宇%29/img/AutoProxy-Version.jpg
+[3]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/000——xpi/Autoproxy_Mod.xpi/agunchan%28气吞寰宇%29/img/AutoProxy-List.jpg
