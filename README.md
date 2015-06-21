@@ -12,25 +12,31 @@ userChrome.js(Collections)
 
 一些UC腳本作者（原作及修改）發佈地址：
 
-[https://github.com/alice0775/userChrome.js][1]
+（两大腳本收集狂↓）
 
-[https://github.com/ardiman/userChrome.js][2]
+alice0775: [https://github.com/alice0775/userChrome.js][1]
 
-[https://github.com/ywzhaiqi/userChromeJS][3]
+ardiman: [https://github.com/ardiman/userChrome.js][2]
 
-[https://github.com/feiruo/userChromeJS][4]
+（一些腳本大神↓）
 
-[https://github.com/Drager-oos/userChrome][5]
+ywzhaiqi: [https://github.com/ywzhaiqi/userChromeJS][3]
 
-[https://github.com/skofkyo/userChromeJS][6]
+feiruo: [https://github.com/feiruo/userChromeJS][4]
 
-[https://github.com/GH-Kelo/userChromeJS][7]
+Drager-oos: [https://github.com/Drager-oos/userChrome][5]
 
-[http://git.oschina.net/Coolkid/userscript][8]
+skofkyo: [https://github.com/skofkyo/userChromeJS][6]
 
-[http://git.oschina.net/halflife/list][9]
+GH-Kelo: [https://github.com/GH-Kelo/userChromeJS][7]
 
-[http://firefoxbar.github.io/][10]
+Coolkid: [http://git.oschina.net/Coolkid/userscript][8]
+
+halflife: [http://git.oschina.net/halflife/list][9]
+
+（狐吧作品↓）
+
+Firefox吧: [http://firefoxbar.github.io/][10]
 
 [1]: https://github.com/alice0775/userChrome.js
 [2]: https://github.com/ardiman/userChrome.js
