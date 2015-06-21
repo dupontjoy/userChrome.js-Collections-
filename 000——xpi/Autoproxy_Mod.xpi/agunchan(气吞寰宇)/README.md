@@ -1,4 +1,4 @@
-发布页：[https://github.com/agunchan/autoproxy][1]
+原作者发布页：[https://github.com/agunchan/autoproxy][1]
 
 ![Version][2]
 
