@@ -26,6 +26,8 @@ BackupProfiles_7z
 
 ![打包结束][2]
 
+![打包结束-2][8]
+
 **<font color="red">注意：</font>**
 
 我的配置文件夹结构：
@@ -55,4 +57,5 @@ BackupProfiles_7z
 [5]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/BackupProfiles_7z/img/bat-to-Pofiles-2.jpg
 [6]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/BackupProfiles_7z/img/bat-to-Firefox-1.jpg
 [7]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/BackupProfiles_7z/img/bat-to-Firefox-2.jpg
+[8]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/BackupProfiles_7z/img/BackupFullProfiles-End.jpg
 
