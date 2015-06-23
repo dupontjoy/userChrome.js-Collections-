@@ -14,6 +14,6 @@ QingFox
 
 
 [1]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/QingFox/img/QingFox-Icon.jpg
-[2]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/blob/master/QingFox/img/QingFox-Preview.jpg
+[2]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/QingFox/img/QingFox-Preview.jpg
 [3]: http://bbs.kafan.cn/thread-1792671-1-1.html
 
