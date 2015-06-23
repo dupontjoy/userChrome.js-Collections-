@@ -13,11 +13,17 @@ QingFox
 **特色功能：**
 
 （标签计数↓）
+
 ![QingFox-TabNumber][3]
+
 （标签加载进度条 ↓）
+
 ![QingFox-Progressbar][4]
+
 （文件夹結构 ↓）
+
 ![QingFox-FolderStructure][5]
+
 [詳細說明及發佈地址][6]
 
 
