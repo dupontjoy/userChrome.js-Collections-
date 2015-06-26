@@ -28,7 +28,7 @@ Redirector.uc.js及規則
 [2]: https://github.com/Drager-oos/userChrome/blob/master/MainScript/Redirector.uc.js
 [3]: https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
 [4]: http://bbs.kafan.cn/thread-1769934-1-1.html
-[5]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/Redirector/img/Redirector-Rules.jpg
+[5]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/Redirector/img/Redirector-Rules.jpg
 [6]: http://bbs.kafan.cn/thread-1814510-1-1.html
 [7]: http://bbs.kafan.cn/thread-1822205-1-1.html
 [8]: http://bbs.kafan.cn/thread-1799098-1-1.html

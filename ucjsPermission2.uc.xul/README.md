@@ -31,8 +31,8 @@ ucjsPermission2.uc.xul
 其它资源：**個人[第三方腳本白名單][5]**
 
 [1]: http://www.economist.com/
-[2]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/ucjsPermission2.uc.xul/img/ucjsPermission2.jpg
-[3]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/ucjsPermission2.uc.xul/img/ucjsPermission2-position.jpg
-[4]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/ucjsPermission2.uc.xul/img/ucjsPermission2-list.jpg
+[2]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/ucjsPermission2.uc.xul/img/ucjsPermission2.jpg
+[3]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/ucjsPermission2.uc.xul/img/ucjsPermission2-position.jpg
+[4]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/ucjsPermission2.uc.xul/img/ucjsPermission2-list.jpg
 [5]: https://github.com/dupontjoy/customization/blob/master/Rules/ucjsPermission-Whitelist.txt
 
