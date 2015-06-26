@@ -62,12 +62,12 @@ BackupProfiles_7z
 
 ![批处理到Firefox-2][7]
 
-[1]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/BackupProfiles_7z/img/BackupProfiles-Start.jpg
-[2]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/BackupProfiles_7z/img/BackupProfiles-End.jpg
-[3]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/BackupProfiles_7z/img/Folder-Structure.jpg
-[4]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/BackupProfiles_7z/img/bat-to-Pofiles-1.jpg
-[5]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/BackupProfiles_7z/img/bat-to-Pofiles-2.jpg
-[6]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/BackupProfiles_7z/img/bat-to-Firefox-1.jpg
-[7]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/BackupProfiles_7z/img/bat-to-Firefox-2.jpg
-[8]: https://github.com/dupontjoy/userChrome.js-Collections-/blob/master/BackupProfiles_7z/img/BackupFullProfiles-End.jpg
+[1]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BackupProfiles_7z/img/BackupProfiles-Start.jpg
+[2]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BackupProfiles_7z/img/BackupProfiles-End.jpg
+[3]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/QingFox/img/QingFox-FolderStructure.jpg
+[4]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BackupProfiles_7z/img/bat-to-Pofiles-1.jpg
+[5]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BackupProfiles_7z/img/bat-to-Pofiles-2.jpg
+[6]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BackupProfiles_7z/img/bat-to-Firefox-1.jpg
+[7]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BackupProfiles_7z/img/bat-to-Firefox-2.jpg
+[8]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BackupProfiles_7z/img/BackupFullProfiles-End.jpg
 
