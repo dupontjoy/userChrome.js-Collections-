@@ -12,7 +12,7 @@
 
 此版爲Deepin界面版：
 
-**1:** 從[擴展版](/xpi)中提取
+**1:** 從[擴展版](/myNewTab-Deepin/xpi)中提取
 
 **2:** 修复下載圖片爲0KB的問題
 
@@ -22,7 +22,7 @@
 
 第1步、解压后，把myNewTab整个文件夹复制到『extensions\userChromeJS@mozdev.org\content』下面，如图：
  
-![文件夹位置示意图](img/position.jpg)
+![文件夹位置示意图][3]
 
 第2步、修改这两条参数：
 
@@ -38,4 +38,4 @@
 
 [1]: http://start.linuxdeepin.com/index.zh_cn.html
 [2]: http://bbs.kafan.cn/thread-1765402-1-1.html
-[3]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/myNewTab-Deepin/xpi
+[3]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/myNewTab-Classic/img/position.jpg
