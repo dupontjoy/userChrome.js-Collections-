@@ -1,5 +1,5 @@
-ucjsPermission2.uc.xul
-=============
+##ucjsPermission2.uc.xul
+
 **by Alice0775 & dannylee**
 
 利用Firefox自带**permissions.sqlite**管理第三方腳本，样式，图片，等等。数据是保存在permissions.sqlite这个文件中的，当你清理cookie时，数据就会被清理掉。因此，请做好备份！
@@ -10,7 +10,7 @@ ucjsPermission2.uc.xul
 
 ![第三方脚本示意图][2]
 
-**使用方法：**
+##使用方法：
 
 第一步、将两个uc.xul文件复制到『chrome\xul』文件夹下面
 
@@ -20,15 +20,16 @@ ucjsPermission2.uc.xul
 
 至此，脚本安装完成！
 
-**操作步骤：**
+##操作步骤：
 
 **左键单击**图标，选择要放行的脚本（或其他元素）
 
 **右键单击**图标，可查看自己设置的列表：
 
 ![列表示意图][4]
-
-其它资源：**個人[第三方腳本白名單][5]**
+| | |
+| --- | :--- |
+| 其它资源 | **個人[第三方腳本白名單][5]** |
 
 [1]: http://www.economist.com/
 [2]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/ucjsPermission2.uc.xul/img/ucjsPermission2.jpg
