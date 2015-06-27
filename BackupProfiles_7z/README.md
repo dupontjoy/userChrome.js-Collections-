@@ -4,7 +4,6 @@
 
 內含：
 
-| | |
 | --- | :--- |
 | 一键制作 配置包 | BackupProfiles_7z.bat |
 | 一键制作 完整包 | BackupFullProfiles_7z.bat |
