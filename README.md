@@ -12,11 +12,11 @@ userChrome.js(Collections)
 
 一些UC腳本作者（原作及修改）發佈地址：
 
-（两大腳本收集狂↓）
+| | |
+| --- | --- |
+|| 两大腳本收集狂 || alice0775: https://github.com/alice0775/userChrome.js ardiman: https://github.com/ardiman/userChrome.js|
 
-alice0775: https://github.com/alice0775/userChrome.js
 
-ardiman: https://github.com/ardiman/userChrome.js
 
 （一些腳本大神↓）
 
@@ -36,6 +36,4 @@ halflife: http://git.oschina.net/halflife/list
 
 （狐吧作品↓）
 
-Firefox吧: [http://firefoxbar.github.io/][1]
-
-[1]: http://firefoxbar.github.io/
+Firefox吧: http://firefoxbar.github.io/
