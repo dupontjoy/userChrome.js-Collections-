@@ -3,16 +3,15 @@ BackupProfiles_7z
 **Mod by Qing**
 
 內含：
-
-(1) 一键制作 配置包 批处理
-
-(2) 一键制作 完整包 批处理
-
-(3) 一键提取 32位Flash 批处理
+| | |
+| 一键制作 配置包 | BackupProfiles_7z.bat |
+| 一键制作 完整包 | BackupFullProfiles_7z.bat |
+| 一键备份 插件和软件包 | BackupPlugins-n-Software_7z.bat |
+| 一键提取 32位Flash | 提取Flash32位插件.bat |
 
 **注意：**文件夹相对结构要调整好。不会调整的就只能按我的结构来了。
 
-**特点：**
+##特点：
 
 1. 自定义需要备份的「文件夹」和「文件」，二者表达有小差別，已分组便于查找和修改
 
@@ -24,7 +23,7 @@ BackupProfiles_7z
 
 5. 备份结束后重启Firefox
 
-**更新歷史：**
+##更新歷史：
 
 2015.06.25 實現獲取Flash版本號
 
