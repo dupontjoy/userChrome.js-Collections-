@@ -13,28 +13,14 @@ userChrome.js(Collections)
 一些UC腳本作者（原作及修改）發佈地址：
 
 | | |
-| :---: | :--- |
-| 两大腳本收集狂 | alice0775: https://github.com/alice0775/userChrome.js |
+| :--- | :--- |
+| 两大腳本收集狂↓ | alice0775: https://github.com/alice0775/userChrome.js |
 | | ardiman: https://github.com/ardiman/userChrome.js |
-
-
-
-（一些腳本大神↓）
-
-ywzhaiqi: https://github.com/ywzhaiqi/userChromeJS
-
-feiruo: https://github.com/feiruo/userChromeJS
-
-Drager-oos: https://github.com/Drager-oos/userChrome
-
-skofkyo: https://github.com/skofkyo/userChromeJS
-
-GH-Kelo: https://github.com/GH-Kelo/userChromeJS
-
-Coolkid: http://git.oschina.net/Coolkid/userscript
-
-halflife: http://git.oschina.net/halflife/list
-
-（狐吧作品↓）
-
-Firefox吧: http://firefoxbar.github.io/
+| 一些腳本大神↓ | ywzhaiqi: https://github.com/ywzhaiqi/userChromeJS |
+| | feiruo: https://github.com/feiruo/userChromeJS |
+| | Drager-oos: https://github.com/Drager-oos/userChrome |
+| | skofkyo: https://github.com/skofkyo/userChromeJS |
+| | GH-Kelo: https://github.com/GH-Kelo/userChromeJS |
+| | Coolkid: http://git.oschina.net/Coolkid/userscript |
+| | halflife: http://git.oschina.net/halflife/list |
+| 狐吧作品↓ | Firefox吧: http://firefoxbar.github.io/ |
