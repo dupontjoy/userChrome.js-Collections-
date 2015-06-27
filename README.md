@@ -16,35 +16,26 @@ userChrome.js(Collections)
 
 alice0775: https://github.com/alice0775/userChrome.js
 
-ardiman: [https://github.com/ardiman/userChrome.js][2]
+ardiman: https://github.com/ardiman/userChrome.js
 
 （一些腳本大神↓）
 
-ywzhaiqi: [https://github.com/ywzhaiqi/userChromeJS][3]
+ywzhaiqi: https://github.com/ywzhaiqi/userChromeJS
 
-feiruo: [https://github.com/feiruo/userChromeJS][4]
+feiruo: https://github.com/feiruo/userChromeJS
 
-Drager-oos: [https://github.com/Drager-oos/userChrome][5]
+Drager-oos: https://github.com/Drager-oos/userChrome
 
-skofkyo: [https://github.com/skofkyo/userChromeJS][6]
+skofkyo: https://github.com/skofkyo/userChromeJS
 
-GH-Kelo: [https://github.com/GH-Kelo/userChromeJS][7]
+GH-Kelo: https://github.com/GH-Kelo/userChromeJS
 
-Coolkid: [http://git.oschina.net/Coolkid/userscript][8]
+Coolkid: http://git.oschina.net/Coolkid/userscript
 
-halflife: [http://git.oschina.net/halflife/list][9]
+halflife: http://git.oschina.net/halflife/list
 
 （狐吧作品↓）
 
-Firefox吧: [http://firefoxbar.github.io/][10]
+Firefox吧: [http://firefoxbar.github.io/][1]
 
-[1]: https://github.com/alice0775/userChrome.js
-[2]: https://github.com/ardiman/userChrome.js
-[3]: https://github.com/ywzhaiqi/userChromeJS
-[4]: https://github.com/feiruo/userChromeJS
-[5]: https://github.com/Drager-oos/userChrome
-[6]: https://github.com/skofkyo/userChromeJS
-[7]: https://github.com/GH-Kelo/userChromeJS
-[8]: http://git.oschina.net/Coolkid/userscript
-[9]: http://git.oschina.net/halflife/list
-[10]: http://firefoxbar.github.io/
+[1]: http://firefoxbar.github.io/
