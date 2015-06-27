@@ -4,8 +4,9 @@
 
 內含：
 
+| | |
+| --- | --- |
 | 一键制作 配置包 | BackupProfiles_7z.bat |
-| --- | :--- |
 | 一键制作 完整包 | BackupFullProfiles_7z.bat |
 | 一键备份 插件和软件包 | BackupPlugins-n-Software_7z.bat |
 | 一键提取 32位Flash | 提取Flash32位插件.bat |
