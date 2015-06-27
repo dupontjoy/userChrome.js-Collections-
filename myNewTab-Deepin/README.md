@@ -1,10 +1,10 @@
 ##myNewTab-Deepin
 
-**Originate by Defpt & ywzhaiqi**
+Create by **Defpt & ywzhaiqi**
 
-**Deepin Mod by 12101111**
+Deepin Mod by **12101111**
 
-**Fix image download by Qing**
+Fix image download by **Qing**
 
 仿：http://start.linuxdeepin.com/index.zh_cn.html
 
@@ -12,11 +12,11 @@
 
 此版爲Deepin界面版：
 
-**1:** 從[擴展版](xpi/)中提取
+- 從[擴展版](xpi/)中提取
 
-**2:** 修复下載圖片爲0KB的問題
+- 修复下載圖片爲0KB的問題
 
-**3: 媽媽再也不用擔心我被升級了**
+- **媽媽再也不用擔心我被升級了**
 
 ###使用方法：
 
