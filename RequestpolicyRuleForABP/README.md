@@ -1,5 +1,5 @@
-RequestpolicyRuleForABP.uc.js
-=============
+##RequestpolicyRuleForABP.uc.js
+
 by **dannylee**
 
 Requestpolicy黑名单法，使用ABP过滤

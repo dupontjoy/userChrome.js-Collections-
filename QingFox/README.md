@@ -1,16 +1,16 @@
-QingFox
-=============
+##QingFox
+
 個人Firefox配置
 
 ![QingFox-Icon][1]
 
 **Mod by Qing**
 
-**界面預覧：**
+##界面預覧：
 
 ![QingFox-Preview][2]
 
-**特色功能：**
+##特色功能：
 
 （标签计数↓）
 

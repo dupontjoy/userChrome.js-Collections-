@@ -1,5 +1,5 @@
-Redirector.uc.js及規則
-=============
+##Redirector.uc.js及規則
+
 **[Script create by cinhoo][1]** 参照Redirector扩展和AdBlock Plus扩展创作此神级腳本
 
 **[Script mod by Oos][2]** 完善按钮与菜单切换版

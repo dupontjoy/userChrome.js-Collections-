@@ -30,7 +30,7 @@
 
 | | |
 | --- | :--- |
-| 其它资源 | **個人[第三方腳本白名單][5]** |
+| **其它资源** | 個人[第三方腳本白名單][5] |
 
 [1]: http://www.economist.com/
 [2]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/ucjsPermission2.uc.xul/img/ucjsPermission2.jpg
