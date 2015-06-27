@@ -1,10 +1,11 @@
 BackupProfiles_7z
-=============
+
 **Mod by Qing**
 
 內含：
 
-| | |
+|    |   |
+| --------   | :----  |
 | 一键制作 配置包 | BackupProfiles_7z.bat |
 | 一键制作 完整包 | BackupFullProfiles_7z.bat |
 | 一键备份 插件和软件包 | BackupPlugins-n-Software_7z.bat |
@@ -40,7 +41,7 @@ BackupProfiles_7z
 
 ![打包结束-2][8]
 
-**<font color="red">注意：</font>**
+##注意：
 
 我的配置文件夹结构：
 
