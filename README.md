@@ -13,7 +13,7 @@ userChrome.js(Collections)
 一些UC腳本作者（原作及修改）發佈地址：
 
 | | |
-| --- | --- |
+| :---: | :--- |
 | 两大腳本收集狂 | alice0775: https://github.com/alice0775/userChrome.js |
 | | ardiman: https://github.com/ardiman/userChrome.js |
 
