@@ -33,42 +33,35 @@
 
 打包开始：
 
-![打包开始][1]
+![打包开始](img/BackupProfiles-Start.jpg)
 
 打包结束：
 
-![打包结束][2]
+![打包结束](img/BackupProfiles-End.jpg)
 
-![打包结束-2][8]
+![打包结束-2](img/BackupFullProfiles-End.jpg)
 
 ##注意：
 
 我的配置文件夹结构：
 
-![文件夹结构][3]
+![文件夹结构][1]
 
 **1. 关于批处理与配置的相对位置：**
 
 从批处理所在位置到配置文件夹（Profiles），共跨了3层，所以批处理中会这样定义：
 
-![批处理到Profiles-1][4]
+![批处理到Profiles-1](img/bat-to-Pofiles-1.jpg)
 
-![批处理到Profiles-2][5]
+![批处理到Profiles-2](img/bat-to-Pofiles-2.jpg)
 
 **2. 关于获取Firefox版本号：**
 
 从批处理所在位置到Firefox程序文件夹（firefox），共跨了4层，所以批处理中会这样定义：
 
-![批处理到Firefox-1][6]
+![批处理到Firefox-1](img/bat-to-Firefox-1.jpg)
 
-![批处理到Firefox-2][7]
+![批处理到Firefox-2](img/bat-to-Firefox-2.jpg)
 
-[1]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BackupProfiles_7z/img/BackupProfiles-Start.jpg
-[2]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BackupProfiles_7z/img/BackupProfiles-End.jpg
-[3]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/QingFox/img/QingFox-FolderStructure.jpg
-[4]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BackupProfiles_7z/img/bat-to-Pofiles-1.jpg
-[5]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BackupProfiles_7z/img/bat-to-Pofiles-2.jpg
-[6]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BackupProfiles_7z/img/bat-to-Firefox-1.jpg
-[7]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BackupProfiles_7z/img/bat-to-Firefox-2.jpg
-[8]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BackupProfiles_7z/img/BackupFullProfiles-End.jpg
 
+[1]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/QingFox/img/QingFox-FolderStructure.jpg
