@@ -6,9 +6,9 @@
 
 **Fix image download by Qing**
 
-仿：[http://start.linuxdeepin.com/index.zh_cn.html][1]
+仿：http://start.linuxdeepin.com/index.zh_cn.html
 
-12101111兄修改仿Deepin界面，[发布页][2]。
+12101111兄修改仿Deepin界面，[发布页][1]。
 
 此版爲Deepin界面版：
 
@@ -22,7 +22,7 @@
 
 第1步、解压后，把myNewTab整个文件夹复制到『extensions\userChromeJS@mozdev.org\content』下面，如图：
  
-![文件夹位置示意图][3]
+![文件夹位置示意图][2]
 
 第2步、修改这两条参数：
 
@@ -36,6 +36,5 @@
 
 ![myNewTab-Classic预览图](img/myNewTab-Deepin.jpg)
 
-[1]: http://start.linuxdeepin.com/index.zh_cn.html
-[2]: http://bbs.kafan.cn/thread-1765402-1-1.html
-[3]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/myNewTab-Classic/img/position.jpg
+[1]: http://bbs.kafan.cn/thread-1765402-1-1.html
+[2]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/myNewTab-Classic/img/position.jpg

@@ -8,7 +8,7 @@
 
 比如：[http://www.economist.com/][1]这个网站，外挂脚本的数量堪称恐怖，默认全部加载的话，要花费很长的时间。目前只是选择性的放行了几个必要脚本，加载速度大大地提高。
 
-![第三方脚本示意图][2]
+![第三方脚本示意图](img/ucjsPermission2.jpg)
 
 ##使用方法：
 
@@ -16,7 +16,7 @@
 
 第二步、将exexcept复制到『extensions\userChromeJS@mozdev.org\content』文件夹下面
 
-![文件夹位置示意图][3]
+![文件夹位置示意图](img/ucjsPermission2-position.jpg)
 
 至此，脚本安装完成！
 
@@ -26,15 +26,12 @@
 
 **右键单击**图标，可查看自己设置的列表：
 
-![列表示意图][4]
+![列表示意图](img/ucjsPermission2-list.jpg)
 
 | | |
 | --- | :--- |
-| **其它资源** | 個人[第三方腳本白名單][5] |
+| **其它资源** | 個人[第三方腳本白名單][2] |
 
 [1]: http://www.economist.com/
-[2]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/ucjsPermission2.uc.xul/img/ucjsPermission2.jpg
-[3]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/ucjsPermission2.uc.xul/img/ucjsPermission2-position.jpg
-[4]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/ucjsPermission2.uc.xul/img/ucjsPermission2-list.jpg
-[5]: https://github.com/dupontjoy/customization/blob/master/Rules/ucjsPermission-Whitelist.txt
+[2]: https://github.com/dupontjoy/customization/blob/master/Rules/ucjsPermission-Whitelist.txt
 
