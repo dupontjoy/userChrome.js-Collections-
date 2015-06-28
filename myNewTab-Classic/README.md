@@ -14,11 +14,11 @@ by **Defpt & ywzhaiqi**
 
 原來Favicon可以用在線形式，用了快一年才知道。。。
 
-[**原作者發佈地址**][1]
+[**原作者發佈地址**](http://bbs.kafan.cn/thread-1759418-1-1.html)
 
 ###使用方法：
 
-第1步、解压后，把myNewTab整个文件夹复制到『extensions\userChromeJS@mozdev.org\content』下面，如图：
+第1步、解压后，把myNewTab整个文件夹复制到content文件夹下面，如图：
  
 ![文件夹位置示意图](img/position.jpg)
 
@@ -33,6 +33,3 @@ by **Defpt & ywzhaiqi**
 大功告成！效果图：
 
 ![myNewTab-Classic预览图](img/myNewTab-Classic.jpg)
-
-[1]: http://bbs.kafan.cn/thread-1759418-1-1.html
-

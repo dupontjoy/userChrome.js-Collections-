@@ -20,7 +20,7 @@ Fix image download by **Qing**
 
 ###使用方法：
 
-第1步、解压后，把myNewTab整个文件夹复制到『extensions\userChromeJS@mozdev.org\content』下面，如图：
+第1步、解压后，把myNewTab整个文件夹复制到content文件夹下面，如图：
  
 ![文件夹位置示意图][2]
 
