@@ -12,7 +12,7 @@ Rules mod by **[Qing][3]** 收集并修改一些規則
 
 示例：鳳凰網 只顯示首圖修正
 
-http://news.ifeng.com/a/ydzx/20150413/43541233_0.shtml 跳轉到 http://news.ifeng.com/a/20150413/43541233_0.shtml
+http://news.ifeng.com/a/ydzx/20150413/43541233_0.shtml 重定向到 http://news.ifeng.com/a/20150413/43541233_0.shtml
 
     {
       //方法來源：http://tieba.baidu.com/p/3699558655
@@ -21,6 +21,30 @@ http://news.ifeng.com/a/ydzx/20150413/43541233_0.shtml 跳轉到 http://news.ife
       to: "http://$1.ifeng.com/a/$3",
       regex: true
     },
+
+示例：userscripts >> webextender鏡像
+
+http://userscripts.org/ 和 http://userscripts.org:8080/ 都重定向到 http://www.webextender.net/
+    {
+     //userscripts.org和userscripts.org:8080都跳轉到webextender.net
+     name: "userscripts >> webextender鏡像",
+     from: /^https?:\/\/userscripts\.org(?:\:8080|)\/(.*)/i,
+     to: "http:\/\/webextender.net/$1",
+     regex: true
+    },
+
+示例：重定向12306的js到修改版
+
+    {
+     //重定向12306的JS到修改版，用來定時刷票，但驗證碼得手動輸入。
+     //方法來源：http://bbs.kafan.cn/thread-1809903-1-1.html
+     name: "12306重定向JS",
+     from: /(.*)kyfw\.12306\.cn\/otn\/resources\/merged\/queryLeftTicket_end_js.js(.*)/i,
+     to: "https://raw.githubusercontent.com/dupontjoy/customization/master/12306/queryLeftTicket_end_js.js",
+     regex: true
+    },
+
+![](https://raw.githubusercontent.com/dupontjoy/customization/master/12306/img/12306.jpg)
 
 ###部分規則卡飯發佈地址：
 
