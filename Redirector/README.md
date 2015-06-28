@@ -4,7 +4,7 @@ Script create by **[cinhoo][1]** 参照Redirector扩展和AdBlock Plus扩展创�
 
 Script mod by **[Oos][2]** 完善按钮与菜单切换版
 
-Rules mod by **[Qing][3]** 收集并修改一些規則
+**個人規則：** https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
 
 ![Redirector-Rules](img/Redirector-Rules.jpg)
 
@@ -64,7 +64,6 @@ http://userscripts.org/ 和 http://userscripts.org:8080/ 都重定向到 http://
 
 [1]: http://bbs.kafan.cn/thread-1621837-1-1.html
 [2]: https://github.com/Drager-oos/userChrome/blob/master/MainScript/Redirector.uc.js
-[3]: https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
 [4]: http://bbs.kafan.cn/thread-1769934-1-1.html
 [6]: http://bbs.kafan.cn/thread-1814510-1-1.html
 [7]: http://bbs.kafan.cn/thread-1822205-1-1.html
