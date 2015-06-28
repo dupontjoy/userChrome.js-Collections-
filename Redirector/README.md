@@ -25,8 +25,9 @@ http://news.ifeng.com/a/ydzx/20150413/43541233_0.shtml 重定向到 http://news.
 示例：userscripts >> webextender鏡像
 
 http://userscripts.org/ 和 http://userscripts.org:8080/ 都重定向到 http://www.webextender.net/
+
     {
-     //userscripts.org和userscripts.org:8080都跳轉到webextender.net
+     //userscripts.org和userscripts.org:8080都重定向到webextender.net
      name: "userscripts >> webextender鏡像",
      from: /^https?:\/\/userscripts\.org(?:\:8080|)\/(.*)/i,
      to: "http:\/\/webextender.net/$1",
@@ -36,7 +37,7 @@ http://userscripts.org/ 和 http://userscripts.org:8080/ 都重定向到 http://
 示例：重定向12306的js到修改版
 
     {
-     //重定向12306的JS到修改版，用來定時刷票，但驗證碼得手動輸入。
+     //重定向12306的js到修改版，用來定時刷票，但驗證碼得手動輸入。
      //方法來源：http://bbs.kafan.cn/thread-1809903-1-1.html
      name: "12306重定向JS",
      from: /(.*)kyfw\.12306\.cn\/otn\/resources\/merged\/queryLeftTicket_end_js.js(.*)/i,
