@@ -1,10 +1,10 @@
 ##Redirector.uc.js及規則
 
-**[Script create by cinhoo][1]** 参照Redirector扩展和AdBlock Plus扩展创作此神级腳本
+**Script create by [cinhoo][1]** 参照Redirector扩展和AdBlock Plus扩展创作此神级腳本
 
-**[Script mod by Oos][2]** 完善按钮与菜单切换版
+**Script mod by [Oos][2]** 完善按钮与菜单切换版
 
-**[Rules mod by Qing][3]** 收集并修改一些規則
+**Rules mod by [Qing][3]** 收集并修改一些規則
 
 ![Redirector-Rules](img/Redirector-Rules.jpg)
 
