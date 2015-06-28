@@ -14,13 +14,13 @@ Rules mod by **[Qing][3]** 收集并修改一些規則
 
 http://news.ifeng.com/a/ydzx/20150413/43541233_0.shtml 跳轉到 http://news.ifeng.com/a/20150413/43541233_0.shtml
 
-   {
-     //方法來源：http://tieba.baidu.com/p/3699558655
-     name: "鳳凰網 只顯示首圖修正",
-     from: /^https?:\/\/(.*)\.ifeng\.com\/a\/(ydzx|)\/(.*)/i,
-     to: "http://$1.ifeng.com/a/$3",
-     regex: true
-   },
+    {
+      //方法來源：http://tieba.baidu.com/p/3699558655
+      name: "鳳凰網 只顯示首圖修正",
+      from: /^https?:\/\/(.*)\.ifeng\.com\/a\/(ydzx|)\/(.*)/i,
+      to: "http://$1.ifeng.com/a/$3",
+      regex: true
+    },
 
 ###部分規則卡飯發佈地址：
 
