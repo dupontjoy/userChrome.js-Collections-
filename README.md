@@ -16,7 +16,8 @@
 | :--- | :--- |
 | 两大腳本收集狂↓ | alice0775: https://github.com/alice0775/userChrome.js |
 | | ardiman: https://github.com/ardiman/userChrome.js |
-| 一些腳本大神↓ | ywzhaiqi: https://github.com/ywzhaiqi/userChromeJS |
+| 一些腳本大神↓ | Griever: https://github.com/Griever/userChromeJS |
+| | ywzhaiqi: https://github.com/ywzhaiqi/userChromeJS |
 | | feiruo: https://github.com/feiruo/userChromeJS |
 | | Drager-oos: https://github.com/Drager-oos/userChrome |
 | | skofkyo: https://github.com/skofkyo/userChromeJS |
