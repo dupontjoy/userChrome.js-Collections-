@@ -1,14 +1,28 @@
 ##Redirector.uc.js及規則
 
-**Script create by [cinhoo][1]** 参照Redirector扩展和AdBlock Plus扩展创作此神级腳本
+Script create by **[cinhoo][1]** 参照Redirector扩展和AdBlock Plus扩展创作此神级腳本
 
-**Script mod by [Oos][2]** 完善按钮与菜单切换版
+Script mod by **[Oos][2]** 完善按钮与菜单切换版
 
-**Rules mod by [Qing][3]** 收集并修改一些規則
+Rules mod by **[Qing][3]** 收集并修改一些規則
 
 ![Redirector-Rules](img/Redirector-Rules.jpg)
 
 ###示例：
+
+鳳凰網 只顯示首圖修正：
+
+http://news.ifeng.com/a/ydzx/20150413/43541233_0.shtml 跳轉到 http://news.ifeng.com/a/20150413/43541233_0.shtml
+
+'{
+//方法來源：http://tieba.baidu.com/p/3699558655
+name: "鳳凰網 只顯示首圖修正",
+from: /^https?:\/\/(.*)\.ifeng\.com\/a\/(ydzx|)\/(.*)/i,
+to: "http://$1.ifeng.com/a/$3",
+regex: true
+},'
+
+###部分規則卡飯發佈地址：
 
 *[Google开源库重定向到国内][4]
 
