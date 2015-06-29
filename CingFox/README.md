@@ -8,7 +8,7 @@
 
 本作界面基於[RunningCheese V5版](http://bbs.kafan.cn/thread-1821447-1-1.html)，使用的是Simple White主題+Yosemite樣式，整體界面清新自然，簡約時尚。
 
-**Mod by Qing**
+**Mod by Cing**
 
 ###界面預覧：
 
