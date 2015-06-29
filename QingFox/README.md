@@ -29,3 +29,5 @@
 ![QingFox-FolderStructure](img/QingFox-FolderStructure.jpg)
 
 [詳細說明及發佈地址](http://bbs.kafan.cn/thread-1792671-1-1.html)
+
+[SF Project](https://sourceforge.net/projects/qingfox/)
