@@ -10,6 +10,10 @@ m + 單個 數字 或 字母，为網頁加書籤mark
 
 - ‘：跳轉到指定mark
 
-- l: 調出mark列表
+- l： 調出mark列表
 
 - x：刪除列表中的選中項
+
+![add-mark](img/add-mark.jpg)
+
+![mark-list](img/mark-list.jpg)
