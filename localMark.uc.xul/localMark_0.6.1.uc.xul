@@ -1,0 +1,702 @@
+<?xml version="1.0"?>
+<!--
+// ==UserScript==
+// @name           localMark.uc.xul
+// @namespace      www.slimeden.com
+// @description    A local mark is used to store the position within a web page.
+// @compatibility  Firefox 3.6.x & 4.0b
+// @author         Xiao Shan
+// @homepage       www.slimeden.com
+// @version        0.6 - 20110119
+
+// 2015.06.29  調出列表改成l單鍵
+// ==UserScript==
+-->
+<?xml-stylesheet href="data:text/css,@namespace%20url('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul');@namespace%20html%20url('http://www.w3.org/1999/xhtml');
+
+#markPanel {
+    -moz-appearance: none !important;
+    border: 0px !important;
+    padding:0px !important;
+    background: none !important;
+
+}
+
+#markPanel #marks {
+    margin: 0px !important;
+}
+
+#markPanel #customMark {
+    -moz-appearance: listbox !important;
+    margin: 0px !important;
+}
+
+" type="text/css"?>
+
+<overlay id="localmarker-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml">
+    <window id="main-window">
+        <panel id="markPanel" width="600px">
+            <tree id="marks" style="min-height:20em" flex="1" disableKeyNavigation="true" seltype="multiple" enableColumnDrag="false" persist="sortDirection sortResource" sortDirection="ascending" sortResource="description" onkeypress="Marker.shortcut(event);">
+                <treecols>
+                    <treecol id="0" label="mark" width="120px" onclick="Marker.sort(event, this);" />
+                    <splitter class="tree-splitter" resizebefore="closet" resizeafter="grow" />
+                    <treecol id="1" label="url" flex="1" onclick="Marker.sort(event, this);" />
+                </treecols>
+                <treechildren id="marks-treechildren" flex="1" ondblclick="Marker.operateOnEntries(event);" />
+            </tree>
+            <textbox id="customMark" placeholder="Use a long name to mark current position." onkeypress="Marker.enterCustomMark(event);"></textbox>
+        </panel>
+    </window>
+
+
+<script type="application/x-javascript">
+      <![CDATA[
+(function() {
+    //to avoid the error msg when executing the script not in the main window
+    try {
+        if(!gBrowser) return;
+    }catch(e) {
+        return;
+    }
+
+    if(!("isTabEmpty" in window)) {
+        window.isTabEmpty = function isTabEmpty(aTab) {
+            var browser = aTab.linkedBrowser;
+            return browser.sessionHistory.count < 2 && browser.currentURI.spec == "about:blank" && !browser.contentDocument.body.hasChildNodes() && !aTab.hasAttribute("busy");
+        };
+    }
+        
+    var Marker = {
+        _marks: {},//structure used to store all marks
+        _deletedMark: null,//backup last deleted mark
+        _tree:null,//a reference to mark tree 
+
+	_isNewAdded: false,//whether new mark added
+
+        _noMarkBlink: false,
+        _tooltip:null,
+        _tooltipTimer:null,
+
+        status: {NONE:0, MARK:1, GO:2},
+        _status: 0,
+
+        markPrefixKey: 77,//m
+        goPrefixKey: 222,//'
+        escapeKey: 27,//escape
+        marksListKey: 76,//l
+
+        keySequence: [],
+
+        pref: null,
+        prefKeyword: "extensions.localmark.marks",
+
+        maxLengthOfMarkName: null,
+
+        init: function() {
+            var tooltip = document.createElement('tooltip');
+            tooltip.setAttribute('id','marker-tooltip');
+            tooltip.setAttribute('onmouseover','event.currentTarget.hidePopup();');
+            var label = tooltip.appendChild(document.createElement('label'));
+            label.setAttribute('id','marker-tooltip-label');
+            label.setAttribute('crop','end');
+            document.getElementById('mainPopupSet').appendChild(tooltip);
+            tooltip.open = function(text, time){
+                this.firstChild.setAttribute('value',text);
+
+                if(this.state !='open') {
+                    this.openPopup(null,"", screen.width/2-30,window.innerHeight-80);
+                }
+
+                if(time) {
+                    clearTimeout(this._tooltipTimer);
+                    this._tooltipTimer = setTimeout(function() {
+                        tooltip.hidePopup();
+                    }, time);
+                }
+            }
+
+            this._tooltip = tooltip;
+
+            //pref
+            this.pref = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
+
+            this.restore();
+            
+            setTimeout(function(){Marker._tree = document.getElementById("marks");Marker.populateData();}, 0);
+        },
+
+        destroy: function() {
+            Marker.store();
+
+            Marker._marks = null;
+            Marker.pref = null;
+        },
+
+        mark: function(name) {
+            let win = window.content;
+            let doc = win.document;
+            let url = win.location.href;
+
+            if (!doc.body) return;
+            if (doc.body instanceof HTMLFrameSetElement) {
+                return;//do not support
+            }
+
+            let x = win.scrollX;
+            let y = win.scrollY;
+            let position = { x: x, y: y };
+
+            if(!this._marks[name]) {
+                this._marks[name] = [];
+		this._isNewAdded = true;
+            }
+            this._marks[name][0] = url;
+            this._marks[name][1] = position;
+
+	    if(this._tree && this._tree.view) {
+                this._tree.treeBoxObject.ensureRowIsVisible(this._tree.view.rowCount);//ensure new mark visiable
+            }
+        },
+
+        go: function(name) {
+            name = encodeURI(name);
+
+            if(!this._marks[name]) return false;
+
+            let win = window.content;
+            let url = win.location.href;
+
+            let position = this._marks[name][1];
+            let gurl = this._marks[name][0];
+            if(gurl == url) {
+                this.scroll(position);
+            } else if(this.switch(gurl, window)) {
+                this.scroll(position);
+            } else {
+                //open the closed tab and scroll to mark
+
+                if (isTabEmpty(gBrowser.selectedTab)) {
+                    gBrowser.selectedBrowser.loadURI(gurl);
+                } else {
+                    gBrowser.selectedTab = gBrowser.addTab(gurl);
+                }
+                
+                let browser = gBrowser.selectedBrowser;
+                browser.addEventListener("pageshow", function (event) {
+                        if (event.target.location.href != gurl) {
+                            return;
+                        }
+                        browser.removeEventListener("pageshow", arguments.callee, true);
+                        
+                        if(window.content.href != gurl) {//switch the tab when loading
+                            //switch back
+                            Marker.switch(gurl, window);
+                        }
+                        Marker.scroll(position);
+                }, true);                
+            }
+
+            return true;
+        },
+
+        scroll: function(position) {
+            window.content.scrollTo(position.x, position.y);
+
+            var text;
+            if(this.keySequence[0] == "'") {
+                text = "' " + this.keySequence[1] + " - move to the marked position: "+this.keySequence[1];
+            } else {
+                text = "Move to the marked position: "+this.keySequence.pop();
+            }
+            this.echoStatus(text, 2000, true);
+            this.showMarkArea("blue");
+
+            this.keySequence = [];
+        },
+
+        list: function() {
+            var input = document.getElementById("customMark");
+            var doc = window.content.document;
+            if(doc.title) {
+                input.value = this.maxLengthOfMarkName?doc.title.substring(0,this.maxLengthOfMarkName):doc.title;
+            }
+            setTimeout(function() {input.focus();input.select();},200);
+
+	    if(this._isNewAdded) {
+		this.populateData();
+                this._isNewAdded = false;
+	    }
+            document.getElementById("markPanel").openPopupAtScreen(screen.width/2-300,screen.height/3);
+        },
+
+        //this function is called every time the tree is sorted, reloaded
+        populateData: function() {
+            //remember scroll position to prevent the user from losing the row they are focusing
+	        var topVisibleRow = this.getTopVisibleRow();
+            
+            var data = new Array();
+            var entry, i;
+            for(i in this._marks) {
+                entry = [];
+                entry.push(decodeURI(i));
+                entry.push(this._marks[i][0]);
+                data.push(entry);
+            }
+            this._tree.view = new this.MarksView(data);
+
+            //sort();
+            
+            //restore scroll position
+	        if (topVisibleRow) {
+		        this.setTopVisibleRow(topVisibleRow);
+	        }
+        },
+
+        getDisplayTableFromMarks: function() {
+            var data = new Array();
+            var entry, i;
+            for(i in this._marks) {
+                entry = [];
+                entry.push(decodeURI(i));
+                entry.push(this._marks[i][0]);
+                data.push(entry);
+            }
+            return data;
+        },
+
+        shortcut: function(event) {
+            event.stopPropagation();
+
+            if(!this._tree.hasAttribute("disableKeyNavigation")) {
+                if(event.charCode != 47) return;//not toggle key
+            }
+
+            //alert(event.charCode);
+            switch(event.charCode) {
+                case 47:// /
+                    this.toggleNavigation();
+                    break;
+                case 106://j
+                    this.moveToNextRow(false);
+                    break;
+                case 107://k
+                    this.moveToNextRow(true);
+                    break;
+                case 117://u
+                    this.undoDelete();
+                    break;
+                case 120://x
+                    var start = new Object();
+                    var end = new Object();
+                    var numRanges = this._tree.view.selection.getRangeCount();
+                    if(numRanges == 1)  {
+                        this._tree.view.selection.getRangeAt(0,start,end);
+                        var name = this._tree.view.getCellText(start.value, this._tree.columns.getColumnAt(0));
+                        this.delete(name, start.value);
+                    }
+                    break;
+                default:
+                    break;
+            }
+        },
+
+        toggleNavigation: function() {
+            if(this._tree.hasAttribute("disableKeyNavigation")) {
+                this._tree.removeAttribute("disableKeyNavigation");
+            } else {
+                this._tree.setAttribute("disableKeyNavigation", "true");
+            }
+        },
+
+        moveToNextRow: function(reverse) {
+            //get current selection index
+            var start = new Object();
+            var end = new Object();
+            var numRanges = this._tree.view.selection.getRangeCount();
+            this._tree.view.selection.getRangeAt(0,start,end);
+
+            var index;
+            if(numRanges == 0) {
+                index = reverse? this._tree.view.rowCount-1: 0;
+                this._tree.view.selection.select(index);
+            } else {
+                var reverseIndex = (start.value == 0? this._tree.view.rowCount-1: start.value-1);
+                var index = (end.value+1==this._tree.view.rowCount? 0 : end.value+1);
+                index = reverse? reverseIndex: index;
+                this._tree.view.selection.select(index);
+            }
+            this._tree.treeBoxObject.ensureRowIsVisible(index);
+        },
+
+        undoDelete: function() {
+            if(this._deletedMark) {
+                var name = this._deletedMark[0];
+                this._marks[name] = this._deletedMark[1];
+                this._deletedMark = null;//clear - only one level undo
+                this.populateData();
+                this._tree.treeBoxObject.ensureRowIsVisible(this._tree.view.rowCount);//ensure restored mark visiable
+                this.echoStatus("Undo last delete action - "+name, 2000, true);
+            }
+        },
+
+        //TODO
+        delete: function(name, index) {
+            let encodeName = encodeURI(name);//for Chinese
+            if(this._marks[encodeName]) {
+                this._deletedMark = [encodeName, this._marks[encodeName]];
+                delete this._marks[encodeName];
+                this.populateData();
+
+                //auto select next mark
+                if(index == this._tree.view.rowCount) {//delete last mark
+                    this._tree.view.selection.select(index - 1);
+                    this._tree.treeBoxObject.ensureRowIsVisible(index - 1);
+                } else {
+                    this._tree.view.selection.select(index);
+                }
+
+                this.echoStatus("The mark is deleted - "+name, 2000, true);
+            } else {
+                this.echoStatus("The mark - "+name+" - doesn't exsit!", 2000, false);
+            }
+        },
+
+        sort: function(event, column) {
+        try{
+            function columnSort(a, b) {
+                return (a[columnId].localeCompare(b[columnId])) * order;
+	        }
+
+            function prepareForComparison(o) {
+	            if (typeof o == "string") {
+		            return o.toLowerCase();
+	            }
+	            return o;
+            }    
+
+            switch(event.button) {
+                case 0:
+                    var columnId = column.id;
+                    var columnName = column.getAttribute("label");
+                    var tree = this._tree;
+	                var order = tree.getAttribute("sortDirection") == "ascending" ? 1 : -1;
+		            if (tree.getAttribute("sortResource") == columnName) {
+			            order *= -1;
+		            }
+            
+                    var table = this.getDisplayTableFromMarks();
+                    table.sort(columnSort);
+
+	                //setting these will make the sort option persist
+                    tree.setAttribute("sortDirection", order == 1 ? "ascending" : "descending");
+                    tree.setAttribute("sortResource", columnName);
+	                tree.view = new this.MarksView(table);
+            
+                    //set the appropriate attributes to show to indicator
+	                var cols = tree.getElementsByTagName("treecol");
+	                for (var i = 0; i < cols.length; i++) {
+		                cols[i].removeAttribute("sortDirection");
+	                }
+	                document.getElementById(columnId).setAttribute("sortDirection", order == 1 ? "ascending" : "descending");
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    var table = this.getDisplayTableFromMarks();
+	                this._tree.view = new this.MarksView(table);
+                    break;
+                default:
+                    break;
+            }
+            
+            }catch(e){alert(e);}
+        },
+
+        MarksView: function(aTableData) {
+            this.aTableData = aTableData;
+            // Column information
+            this.aColumns = new Array();
+            this.aColumns.push("mark");
+            this.aColumns.push("url");
+
+            this.aOrder = [];
+            for (var i=0; i < this.aColumns.length; i++) {
+                this.aOrder.push(-1);//0=asc; 1=desc
+            }
+
+            // Number of rows in the table
+            this.rowCount = aTableData.length;
+
+            this.getCellText = function(row,col) {
+                var sResult;
+                try { 
+                    sResult= this.aTableData[row][col.id]; 
+                } catch (e) { 
+                    return "<" + row + "," + col.shortcut + ">"; 
+                }
+                return sResult;
+            };
+
+            this.setTree             = function(treebox){ this.treebox=treebox; };
+            this.isContainer         = function(row){ return false; };
+            this.isSeparator         = function(row){ return false; };
+            this.isSorted            = function(row){ return false; };
+            this.getLevel            = function(row){ return 0; };
+            this.getImageSrc         = function(row,col){ return null; };
+            this.getRowProperties    = function(row,properties){};
+            this.getCellProperties   = function(row,col,properties) {};
+
+            this.getColumnProperties = function(column, properties) {};
+            this.cycleHeader = function(col, elem) {};
+        },
+
+        switch: function(aURI, aWindow) {
+            if (!("gBrowser" in aWindow)) {
+                return false;
+            }
+            var browsers = aWindow.gBrowser.browsers;
+            
+            for (let i = 0; i < browsers.length; i++) {
+                let browser = browsers[i];
+                if (browser.currentURI.spec == aURI) {
+                    gURLBar.handleRevert();
+                    let prevTab = gBrowser.selectedTab;
+                    aWindow.focus();
+                    aWindow.gBrowser.tabContainer.selectedIndex = i;
+                    if (isTabEmpty(prevTab)) {
+                        gBrowser.removeTab(prevTab);
+                    }
+                    return true;
+                }
+            }
+            return false;
+        },
+
+        operateOnEntries: function(event) {
+            var tree = document.getElementById("marks");
+            var start = new Object();
+            var end = new Object();
+            var numRanges = tree.view.selection.getRangeCount();
+
+            if(numRanges != 1) return;
+
+            tree.view.selection.getRangeAt(0,start,end);
+            var markName = tree.view.getCellText(start.value,tree.columns.getColumnAt(0));
+
+            if(event.button == 0) {
+                try{
+                    this.keySequence.push(markName);
+                    this.go(markName);
+                }catch(e){}
+                document.getElementById("markPanel").hidePopup();
+            } else if(event.button == 2) {
+                this.delete(markName, start.value);
+            }
+
+            this.keySequence = [];
+        },
+
+        getTopVisibleRow: function() {
+	        return this._tree.treeBoxObject.getFirstVisibleRow();
+        },
+
+        setTopVisibleRow: function(topVisibleRow) {
+	        return this._tree.treeBoxObject.scrollToRow(topVisibleRow);
+        },
+
+        enterCustomMark: function(e) {
+            if(e.keyCode == 13 && !e.ctrlKey && !e.altKey && !e.shiftKey) {
+                let input = e.currentTarget;
+                if(input && input.value) {
+                    Marker.keySequence = [];
+                    Marker.keySequence.push(input.value);
+
+                    Marker.mark(encodeURI(input.value));
+
+                    Marker.echoStatus("Mark current position to a long name: " + this.keySequence.join(), 2000, true);
+                    Marker.showMarkArea("red");
+
+                    Marker.keySequence = [];
+                    Marker._status = Marker.status.NONE;
+
+                    input.value = null;
+                    Marker.populateData();
+                }
+            }
+        },
+
+        store: function() {
+            var jsonString = JSON.stringify(Marker._marks);
+            Marker.pref.setCharPref(Marker.prefKeyword, jsonString);
+        },
+
+        restore: function() {
+            if(!this.pref.prefHasUserValue(this.prefKeyword)) return;
+
+            var jsonString = this.pref.getCharPref(this.prefKeyword);
+            try{
+                this._marks = JSON.parse(jsonString);
+            }catch(e) {
+                this._marks = {};
+            }
+        },
+
+        echoStatus: function(msg, time, notable) {
+            if(notable) {
+                this._tooltip.setAttribute("style", "-moz-appearance:none !important;border-color:red;");
+            } else {
+                this._tooltip.removeAttribute("style");
+            }
+
+            this._tooltip.open(msg, time);
+        },
+
+        showMarkArea: function(color) {
+            if(this._noMarkBlink) return;
+
+            let inteval = 200;
+            for(var i=0;i<4;i++,inteval+=200) {
+                if(i % 2 != 0) {
+                    setTimeout(function() {gBrowser.style.borderWidth = null;gBrowser.style.borderStyle=null;gBrowser.style.borderColor=null;},inteval);
+                } else {
+                    setTimeout(function() {gBrowser.style.borderWidth = "1px";gBrowser.style.borderStyle="solid";gBrowser.style.borderColor=color;},inteval);
+                }
+            }
+        },
+
+        keyName: function(keyCode) {
+            return String.fromCharCode(keyCode).toLowerCase();
+        },
+        
+        isMarkKey: function(key) {
+            return key == this.markPrefixKey;
+        },
+
+        isGoKey: function(key) {
+            return key == this.goPrefixKey;
+        },
+
+        isEscapeKey: function(key) {
+            return key == this.escapeKey;
+        },
+
+        isMarkersKey: function(key) {
+            if(key >= 48 && key <= 90) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+
+        isListKey: function(e) {
+            return e.keyCode == this.marksListKey;
+        },
+
+        isWritable: function(event) {
+            var localName = event.originalTarget ? (event.originalTarget.localName || "").toLowerCase() : "";
+
+            // in select or option, we shold ignore the alphabet key
+            if (localName === 'select' || localName === 'option')
+                return true;
+
+            var insertTextController= document.commandDispatcher.getControllerForCommand("cmd_insertText");
+
+            try {
+                return (insertTextController && insertTextController.isCommandEnabled("cmd_insertText"));
+            } catch (x) {
+                return (localName === 'input' || localName === 'textarea');
+            }
+        },
+
+        handleEvent: function(event) {
+            if(this.isWritable(event)) {
+                return;
+            }
+
+            let key = event.keyCode;
+            
+            if(this.isEscapeKey(key)) {
+                this._status = this.status.NONE;
+                this.keySequence = [];
+                this._tooltip.hidePopup();
+                return;
+            } else if(this.isListKey(event)) {
+                this.list();
+                return;
+            }
+
+            if(event.ctrlKey || event.altKey || event.shiftKey) {
+                return false;
+            }
+
+            switch(this._status) {
+                case this.status.NONE:
+                    if(this.isMarkKey(key)) {
+                        event.stopPropagation();
+                        event.preventDefault();
+
+                        this._status = this.status.MARK;
+                        this.keySequence.push(this.keyName(key));
+
+                        this.echoStatus(this.keySequence.join(" "));
+                    } else if(this.isGoKey(key)) {
+                        event.stopPropagation();
+                        event.preventDefault();
+
+                        this._status = this.status.GO;
+                        this.keySequence.push("'");
+
+                        this.echoStatus(this.keySequence.join(" "));
+                    }
+                    break;
+                case this.status.MARK:
+                    if(this.isMarkersKey(key)) {
+                        event.stopPropagation();
+                        event.preventDefault();
+
+                        let keyName = this.keyName(key);
+                        this.keySequence.push(keyName);
+
+                        this.mark(keyName);                        
+                        this.echoStatus(this.keySequence.join(" ") + " - mark current position to " + this.keySequence.pop(), 2000, true);
+                        this.showMarkArea("red");
+
+                    } else {
+                        this._tooltip.hidePopup();
+                    }
+
+                    this._status = this.status.NONE;
+                    this.keySequence = [];
+                    break;
+                case this.status.GO:
+                    if(this.isMarkersKey(key)) {
+                        event.stopPropagation();
+                        event.preventDefault();
+
+                        let keyName = this.keyName(key);
+                        this.keySequence.push(keyName);
+
+                        if(!this.go(keyName)) {
+                            this.echoStatus(this.keySequence.join(" ") + " - there is no corresponding mark.", 2000, true);
+                            this.keySequence = [];
+                        }
+
+                        this._status = this.status.NONE;
+                    }
+                    break;
+                
+            }
+
+        },
+    };
+
+    Marker.init();
+
+    window.addEventListener("keydown", Marker, false); 
+    window.addEventListener("unload", Marker.destroy, false);
+    window.Marker = Marker;
+})();
+
+]]>
+  </script>
+</overlay>
