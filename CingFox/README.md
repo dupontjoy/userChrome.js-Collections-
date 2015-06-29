@@ -1,6 +1,6 @@
-##QingFox
+##CingFox
 
-![QingFox-Icon](img/QingFox-Icon.jpg)
+![icon](img/icon.jpg)
 
 個人Firefox配置完整打包作爲分享給其他互聯網用戶使用
 
@@ -12,21 +12,21 @@
 
 ###界面預覧：
 
-![QingFox-Preview](img/QingFox-Preview.jpg)
+![preview](img/preview.jpg)
 
 ###特色功能：
 
 （标签计数↓）
 
-![QingFox-TabNumber](img/QingFox-TabNumber.jpg)
+![tab-number](img/tab-number.jpg)
 
 （标签加载进度条 ↓）
 
-![QingFox-Progressbar](img/QingFox-Progressbar.jpg)
+![progressbar](img/progressbar.jpg)
 
 （文件夹結构 ↓）
 
-![QingFox-FolderStructure](img/QingFox-FolderStructure.jpg)
+![folder-structure](img/folder-structure.jpg)
 
 [詳細說明及發佈地址](http://bbs.kafan.cn/thread-1792671-1-1.html)
 
