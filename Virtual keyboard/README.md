@@ -13,5 +13,7 @@ chinglish name Soft keyboard
 - Bookmarklet verison
 
 `javascript:(function(){var%20st;st=document.createElement('script');st.charset='utf-8';st.src='https://mimace.sinaapp.com/tool/soft_keyboard/plugins/soft_keyboard.js';document.body.appendChild(st);})();`
+
+`javascript:(function(){var%20st;st=document.createElement('script');st.charset='utf-8';st.src='https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/Virtual%20keyboard/soft_keyboard.js';document.body.appendChild(st);})();`
          
 [download js](https://mimace.sinaapp.com/tool/soft_keyboard/plugins/soft_keyboard.js)
