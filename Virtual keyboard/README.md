@@ -4,6 +4,8 @@ by **Libowen**
 
 chinglish name Soft keyboard
 
+据说可有效防止木马记录键盘输入的密码
+
 - [Addon version](https://addons.mozilla.org/zh-TW/firefox/addon/软键盘虚拟键盘soft-keyboardvirtual/)
 
 ![addon-preview](img/addon-preview.png)
