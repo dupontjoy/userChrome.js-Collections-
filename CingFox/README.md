@@ -16,11 +16,11 @@
 
 ###特色功能：
 
-（左上角Logo↓）
+（左上角Logo ↓）
 
-![anobtn](img/anobtn.img)
+![anobtn](img/anobtn.jpg)
 
-（标签计数↓）
+（标签计数 ↓）
 
 ![tab-number](img/tab-number.jpg)
 
@@ -34,23 +34,23 @@
 
 ######各類右鍵菜單
 
-（標籤右鍵菜單↓）
+（標籤右鍵菜單 ↓）
 
 ![tab-right-menu](img/tab-right-menu.jpg)
 
-（頁面右鍵菜單↓）
+（頁面右鍵菜單 ↓）
 
 ![page-right-menu](img/page-right-menu.jpg)
 
-（鏈接和選中文字右鍵菜單↓）
+（鏈接和選中文字右鍵菜單 ↓）
 
 ![link&select-right-menu](img/link&select-right-menu.jpg)
 
-（輸入框右鍵菜單↓）
+（輸入框右鍵菜單 ↓）
 
 ![input-right-menu](img/input-right-menu.jpg)
 
-（圖片右鍵菜單↓）
+（圖片右鍵菜單 ↓）
 
 ![image-right-menu](img/image-right-menu.jpg)
 
