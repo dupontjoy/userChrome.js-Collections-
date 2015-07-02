@@ -33,3 +33,5 @@ by **Defpt & ywzhaiqi**
 大功告成！效果图：
 
 ![myNewTab-Classic预览图](img/myNewTab-Classic.jpg)
+
+![change-img](img/change.gif)
