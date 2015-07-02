@@ -47,7 +47,7 @@ Mod by **Qing**
 
 **我的配置文件夹结构：**
 
-![文件夹结构][1]
+![文件夹结构](https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/CingFox/img/folder-structure.jpg)
 
 **1. 关于批处理与配置的相对位置：**
 
@@ -64,6 +64,3 @@ Mod by **Qing**
 ![批处理到Firefox-1](img/bat-to-Firefox-1.jpg)
 
 ![批处理到Firefox-2](img/bat-to-Firefox-2.jpg)
-
-
-[1]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/QingFox/img/QingFox-FolderStructure.jpg
