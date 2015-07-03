@@ -35,14 +35,14 @@ http://userscripts.org/ 和 http://userscripts.org:8080/ 都重定向到 http://
     },
 
 
-示例：sourceforge下載 >> ftp鏡像站點
+示例：sourceforge下載 >> 鏡像站點
 
-http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/sse2/pcxFirefox-39.0-zhTW-vc2013-x86-sse2-betterpgo-150703.7z/download 都重定向到 http://master.dl.sourceforge.net/project/pcxfirefox/Release/Firefox/39.x/39.0/x86/sse2/pcxFirefox-39.0-zhTW-vc2013-x86-sse2-betterpgo-150703.7z
+http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/sse2/pcxFirefox-39.0-zhTW-vc2013-x86-sse2-betterpgo-150703.7z/download 重定向到 http://master.dl.sourceforge.net/project/pcxfirefox/Release/Firefox/39.x/39.0/x86/sse2/pcxFirefox-39.0-zhTW-vc2013-x86-sse2-betterpgo-150703.7z
 
     {
      //在這樣的頁面點擊，就直接弹下載窗口
      //測試：http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/36.x/36.0.1/x86/sse2/
-     name: "sourceforge下載 >> ftp鏡像站點",
+     name: "sourceforge下載 >> 鏡像站點",
      from: /^https?:\/\/sourceforge\.net\/projects\/(((\w)\w).*)\/files\/(.*)\/download/i,
      to: "http://master.dl.sourceforge.net/project/$1/$4",//這個源速度眞快
      //to: "ftp://ftp.jaist.ac.jp/pub/sourceforge/$3/$2/$1/$4",
