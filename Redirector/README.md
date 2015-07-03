@@ -50,6 +50,8 @@ http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/s
      regex: true
     },
 
+![sourceforge](img/redirect-sourceforge.gif)
+
 示例：重定向12306的js到修改版
 
     {
