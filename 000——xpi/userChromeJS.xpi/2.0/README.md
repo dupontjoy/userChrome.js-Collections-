@@ -1,3 +1,5 @@
+[来自](http://bbs.kafan.cn/forum.php?mod=redirect&goto=findpost&ptid=1837586&pid=35253477)
+
 2.0
 
 - Update: create a signed xpi for Firefox addon policy compatibility.
