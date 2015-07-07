@@ -31,4 +31,6 @@ by **Defpt & ywzhaiqi**
 
 ![myNewTab-Classic预览图](img/myNewTab-Classic.jpg)
 
+切換圖片（經典版是點擊切換才下載圖片，所以會慢一點）：
+
 ![change-img](img/change.gif)
