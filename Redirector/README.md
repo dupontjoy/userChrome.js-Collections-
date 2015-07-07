@@ -65,6 +65,21 @@ http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/s
 
 ![](https://raw.githubusercontent.com/dupontjoy/customization/master/12306/img/12306.jpg)
 
+示例：重定Google公共库到useso
+
+    {
+     name: "ajax|fonts(https?) >> useso",
+     from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
+     to: "http://$1.useso.com/$2",
+     regex: true
+    },
+
+由于HTTPS不允许HTTP的混合內容，HTTPS重定向到useso按理是不行的，也就是很多人说useso不支持HTTPS的原因。其实Firefox用戶可以通过修改以下两条参数，禁用SSL保护，使得HTTPS下可以载入HTTP的混和內容，那么HTTP和HTTPS就都可以重定向到useso了：
+
+>//HTTPS不允许混合内容，以下两条参数用以禁用此特性
+>user_pref("security.mixed_content.block_active_content", false);
+>user_pref("security.mixed_content.block_display_content", false);
+
 ###部分規則卡飯發佈地址：
 
 *[Google开源库重定向到国内][4]
