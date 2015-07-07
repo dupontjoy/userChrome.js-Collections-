@@ -24,11 +24,8 @@ by **Defpt & ywzhaiqi**
 
 第2步、修改这两条参数：
 
-> user_pref("browser.startup.homepage",
-> "chrome://userchromejs/content/myNewTab/index.html");//首页
-> 
-> user_pref("browser.newtab.url",
-> "chrome://userchromejs/content/myNewTab/index.html");//本地Html
+    user_pref("browser.startup.homepage", "chrome://userchromejs/content/myNewTab/index.html");//首页
+    user_pref("browser.newtab.url", "chrome://userchromejs/content/myNewTab/index.html");//本地Html
 
 大功告成！效果图：
 
