@@ -16,7 +16,9 @@ by **Defpt & ywzhaiqi**
 
 [**原作者發佈地址**](http://bbs.kafan.cn/thread-1759418-1-1.html)
 
-    可选Bing图下载地址：http://s.cn.bing.net
+    可选Bing图下载地址：
+    http://s.cn.bing.net
+    http://global.bing.com
 
 ###使用方法：
 
