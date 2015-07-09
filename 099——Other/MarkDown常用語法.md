@@ -1,10 +1,6 @@
-Markdown添加表格
+Markdown添加表格：http://beyondsky.tk/2014/12/markdown-table/
 
-http://beyondsky.tk/2014/12/markdown-table/
-
-markdown 语法
-
-http://blog.bitfoc.us/?tag=Markdown
+markdown 语法：http://blog.bitfoc.us/?tag=Markdown
 
 - 6月27日 今天學會了markdown相對路徑添加圖片和表格
 
