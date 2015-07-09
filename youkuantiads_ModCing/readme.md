@@ -2,4 +2,4 @@
 
 [Y大版發佈地址](https://github.com/ywzhaiqi/userChromeJS/tree/master/YoukuantiadsModY)
 
-更新版本，請轉到[AntiAds](../AntiAds)
+更新版本，請轉到[AntiAds](/AntiAds)
