@@ -1,6 +1,6 @@
 ##BackupProfiles_7z
 
-Mod by **Qing**
+Mod by **Cing**
 
 內含：
 

@@ -25,3 +25,7 @@
 | | Coolkid: http://git.oschina.net/Coolkid/userscript |
 | | halflife: http://git.oschina.net/halflife/list |
 | 狐吧作品↓ | Firefox吧: http://firefoxbar.github.io/ |
+
+**版權歸原作者所有**
+
+盡量詳細備注原貼地址，或者發佈頁面

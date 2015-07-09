@@ -4,7 +4,7 @@ Create by **Defpt & ywzhaiqi**
 
 Deepin Mod by **12101111**
 
-Fix image download by **Qing**
+Fix image download by **Cing**
 
 仿：http://start.linuxdeepin.com/index.zh_cn.html
 
