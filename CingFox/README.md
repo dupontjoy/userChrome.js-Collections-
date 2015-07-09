@@ -62,3 +62,4 @@
 | :--- | :--- |
 | **詳細說明及發佈地址** | http://bbs.kafan.cn/thread-1792671-1-1.html |
 | SF Project | https://sourceforge.net/projects/qingfox/ |
+| Chrome文件夾(UC腳本集) | https://github.com/dupontjoy/userChromeJS/ |
