@@ -64,3 +64,9 @@ Mod by **Cing**
 ![批处理到Firefox-1](img/bat-to-Firefox-1.jpg)
 
 ![批处理到Firefox-2](img/bat-to-Firefox-2.jpg)
+
+| 應用實例 | |
+| :--- | :--- |
+| **CingFox完整包** | https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox |
+| **Flash32位原版提取帶vch和exe** | http://pan.baidu.com/s/1sjz92Z7 |
+
