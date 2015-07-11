@@ -41,6 +41,10 @@ Mod by **Cing**
 
 ![打包开始-2](img/Flash32-start.jpg)
 
+选择（Optional）：
+
+![选择](img/Flash32-select.jpg)
+
 打包结束：
 
 ![打包结束](img/BackupProfiles-End.jpg)
