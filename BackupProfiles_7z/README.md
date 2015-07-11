@@ -27,6 +27,8 @@ Mod by **Cing**
 
 ###更新歷史：
 
+- 2015.07.11 32位Flash提取加入選項
+
 - 2015.07.02 添加刪除項，其它小調整
 
 - 2015.06.25 實現獲取Flash版本號
@@ -36,6 +38,8 @@ Mod by **Cing**
 打包开始：
 
 ![打包开始](img/BackupProfiles-Start.jpg)
+
+![打包开始-2](img/Flash32-start.jpg)
 
 打包结束：
 
