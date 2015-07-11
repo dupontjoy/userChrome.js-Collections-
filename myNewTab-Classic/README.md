@@ -18,6 +18,7 @@ by **Defpt & ywzhaiqi**
 
     可选Bing图下载地址：
     http://s.cn.bing.net
+    http://cn.bing.com
     http://global.bing.com
 
 ###使用方法：
