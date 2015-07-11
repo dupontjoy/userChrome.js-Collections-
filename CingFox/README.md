@@ -6,7 +6,7 @@
 
 自2008年Firefox 2.0開始使用Firefox，這麼多年下來，也積累了豐富的使用經驗。雖然不太懂代碼，但是因爲有一顆不怕折騰的心，折騰過擴展，油猴腳本，UC腳本，CSS樣式，正則規則，批處理等等。
 
-本作界面基於[RunningCheese V5版](http://bbs.kafan.cn/thread-1821447-1-1.html)，使用的是Simple White主題+Yosemite樣式，整體界面清新自然，簡約時尚。
+本作界面基於[RunningCheese V5版](http://bbs.kafan.cn/thread-1821447-1-1.html)，使用的是Simple White主題+Yosemite樣式，整體界面清新自然，簡約時尚。(Yosemite樣式用Stylish擴展引導）其馀擴展，腳本，和[樣式](https://github.com/dupontjoy/userChromeJS/tree/master/UserCSSLoader)（用[userCSSLoader.uc.js](https://github.com/dupontjoy/userChromeJS/blob/master/UCJSFiles/UserCSSLoader_ModOos.uc.js)引導）都是幾年下來不斷蒐集，小調整而來。
 
 **Mod by Cing**
 
