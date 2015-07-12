@@ -1,4 +1,4 @@
-**ModCing:** Change the swf folder to Plugins, so that the Profiles backup file will not become too large in size.
+**ModCing:** Change the swf folder to Plugins（`var localSwfRativePath = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Plugins\\swf\\";//window使用`）, so that the Profiles backup file will not become too large in size.
 
 Folder Structure:
 
