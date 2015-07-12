@@ -7,3 +7,13 @@
 - Firefox自带全局编辑器和Greasemonkey編輯器
 
 - 設置緩存到系統Temp文件夾
+
+**常用的幾個文件夾：**
+
+`LocalAppData`：系统C:\Users\Administrator\AppData\Local文件夾
+
+`TmpD`：系统Temp文件夾
+
+`UChrm`：Firefox配置下Chrome文件夹
+
+`ProfD`：Firefox配置Profiles文件夹
