@@ -8,7 +8,7 @@ Title 備份批處理4合1版 by Cing
 MODE con: COLS=80 LINES=25
 ECHO.
 ECHO =============================================================================
-ECHO                        Windows 8.1 Update 优化辅助工具                           
+ECHO                           備份批處理4合1版                           
 ECHO    #+++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++#
 ECHO    # 01、備份Firefox配置文件夾    # 03、備份Plugins和Software文件夾      #
 ECHO    # 02、CingFox完整包制作        # 04、提取Flash32位插件                #
