@@ -1,8 +1,8 @@
-##BackupProfiles_7z
+##Backup_7z
 
 Mod by **Cing**
 
-內含：
+含以下4个功能：
 
 | | |
 | --- | --- |
@@ -27,6 +27,8 @@ Mod by **Cing**
 
 ###更新歷史：
 
+- 2015.07.13 四个功能整合成一个文件，加入選項
+
 - 2015.07.11 提取32位Flash插件加入選項
 
 - 2015.07.02 添加刪除項，其它小調整
@@ -37,19 +39,21 @@ Mod by **Cing**
 
 打包开始：
 
-![打包开始](img/BackupProfiles-Start.jpg)
+![打包开始](img/backup_7z-1.jpg)
 
-![打包开始-2](img/Flash32-start.jpg)
+选择：
 
-选择（Optional）：
+![选择](img/backup_7z-2.jpg)
 
-![选择](img/Flash32-select.jpg)
+![选择](img/backup_7z-3-1.jpg)
+
+![选择](img/backup_7z-3-2.jpg)
 
 打包结束：
 
-![打包结束](img/BackupProfiles-End.jpg)
+![打包结束](img/backup_7z-4.jpg)
 
-![打包结束-2](img/BackupFullProfiles-End.jpg)
+![打包结束](img/backup_7z-5.jpg)
 
 ###注意：
 

@@ -1,5 +1,5 @@
 
-::2015.07.13 18:00  4合1整合
+::2015.07.13 20:00  4合1整合
 
 @echo off
 Title 備份批處理4合1版 by Cing
@@ -24,7 +24,7 @@ goto cho
 
 :Profiles
 CLS
-MODE con: COLS=40 LINES=15
+MODE con: COLS=45 LINES=15
 ECHO.
 ECHO.
 ECHO    **********************************
@@ -183,7 +183,7 @@ Goto end
 
 :CingFox
 CLS
-MODE con: COLS=40 LINES=15
+MODE con: COLS=45 LINES=15
 ECHO.
 ECHO.
 ECHO    **********************************
@@ -360,7 +360,7 @@ Goto end
 
 :Plugins-n-Software
 CLS
-MODE con: COLS=40 LINES=15
+MODE con: COLS=45 LINES=15
 ECHO.
 ECHO.
 ECHO    **********************************
@@ -445,7 +445,7 @@ Goto end
 
 :Flash32
 CLS
-MODE con: COLS=40 LINES=15
+MODE con: COLS=45 LINES=15
 ECHO.
 ECHO.
 ECHO    **********************************
@@ -492,7 +492,7 @@ echo   01、到官方下载非IE版Flash插件安装后提取！
 echo.
 echo   02、已经安装非IE版Flash插件的直接提取！
 echo.
-echo   03、退出此批处理。
+echo   03、返回主菜單。
 echo.
 echo.
 
@@ -501,7 +501,7 @@ cls
 
 if "%id%"=="01" goto install
 if "%id%"=="02" goto set
-if "%id%"=="03" goto exit
+if "%id%"=="03" goto menu
 
 :install
 echo.
@@ -560,7 +560,7 @@ Goto end
 
 :end
 CLS
-MODE con: COLS=40 LINES=15
+MODE con: COLS=45 LINES=15
 ECHO.
 ECHO.
 ECHO    **********************************
@@ -575,8 +575,5 @@ ECHO    **********************************
 ECHO.
 ECHO.
 Choice /C 12 /N /M 选择（1、2）：
-If ErrorLevel 1 If Not ErrorLevel 2 Goto end-1
+If ErrorLevel 1 If Not ErrorLevel 2 Goto exit
 If ErrorLevel 2 If Not ErrorLevel 3 Goto menu
-
-:end-1
-@exit
