@@ -39,19 +39,19 @@ Mod by **Cing**
 
 打包开始：
 
-![打包开始](BackupProfiles_7z/img/BackupProfiles-Start.jpg)
+![打包开始](/BackupProfiles_7z/img/BackupProfiles-Start.jpg)
 
-![打包开始-2](BackupProfiles_7z/img/Flash32-start.jpg)
+![打包开始-2](/BackupProfiles_7z/img/Flash32-start.jpg)
 
 选择（Optional）：
 
-![选择](BackupProfiles_7z/img/Flash32-select.jpg)
+![选择](/BackupProfiles_7z/img/Flash32-select.jpg)
 
 打包结束：
 
-![打包结束](BackupProfiles_7z/img/BackupProfiles-End.jpg)
+![打包结束](/BackupProfiles_7z/img/BackupProfiles-End.jpg)
 
-![打包结束-2](BackupProfiles_7z/img/BackupFullProfiles-End.jpg)
+![打包结束-2](/BackupProfiles_7z/img/BackupFullProfiles-End.jpg)
 
 ###注意：
 
