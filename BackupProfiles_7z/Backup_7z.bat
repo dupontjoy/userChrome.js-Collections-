@@ -29,7 +29,7 @@ ECHO.
 ECHO.
 ECHO    **********************************
 ECHO.
-ECHO              禁用索引服务
+ECHO          備份Firefox配置文件夾
 ECHO.
 ECHO                1.执行
 ECHO.
@@ -188,7 +188,7 @@ ECHO.
 ECHO.
 ECHO    **********************************
 ECHO.
-ECHO              禁用索引服务
+ECHO           CingFox完整包制作
 ECHO.
 ECHO                1.执行
 ECHO.
@@ -365,7 +365,7 @@ ECHO.
 ECHO.
 ECHO    **********************************
 ECHO.
-ECHO              禁用索引服务
+ECHO       備份Plugins和Software文件夾
 ECHO.
 ECHO                1.执行
 ECHO.
@@ -450,7 +450,7 @@ ECHO.
 ECHO.
 ECHO    **********************************
 ECHO.
-ECHO              禁用索引服务
+ECHO           提取Flash32位插件
 ECHO.
 ECHO                1.执行
 ECHO.
@@ -565,7 +565,7 @@ ECHO.
 ECHO.
 ECHO    **********************************
 ECHO.
-ECHO              禁用索引服务
+ECHO             已完成！下一步？
 ECHO.
 ECHO                1.退出
 ECHO.
