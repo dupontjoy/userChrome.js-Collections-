@@ -63,17 +63,17 @@ Mod by **Cing**
 
 从批处理所在位置到配置文件夹（Profiles），共跨了3层，所以批处理中会这样定义：
 
-![批处理到Profiles-1](img/bat-to-Pofiles-1.jpg)
+![批处理到Profiles-1](/BackupProfiles_7z/img/bat-to-Pofiles-1.jpg)
 
-![批处理到Profiles-2](img/bat-to-Pofiles-2.jpg)
+![批处理到Profiles-2](/BackupProfiles_7z/img/bat-to-Pofiles-2.jpg)
 
 **2. 关于获取Firefox版本号：**
 
 从批处理所在位置到Firefox程序文件夹（firefox），共跨了4层，所以批处理中会这样定义：
 
-![批处理到Firefox-1](img/bat-to-Firefox-1.jpg)
+![批处理到Firefox-1](/BackupProfiles_7z/img/bat-to-Firefox-1.jpg)
 
-![批处理到Firefox-2](img/bat-to-Firefox-2.jpg)
+![批处理到Firefox-2](/BackupProfiles_7z/img/bat-to-Firefox-2.jpg)
 
 | 應用實例 | |
 | :--- | :--- |
