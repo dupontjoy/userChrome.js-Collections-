@@ -50,7 +50,7 @@ http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/s
      regex: true
     },
 
-![sourceforge](img/redirect-sourceforge.gif)
+<img width="650" src="img/redirect-sourceforge.gif">
 
 示例：重定向12306的js到修改版
 
@@ -63,7 +63,7 @@ http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/s
      regex: true
     },
 
-![](https://raw.githubusercontent.com/dupontjoy/customization/master/12306/img/12306.jpg)
+<img width="650" src="https://raw.githubusercontent.com/dupontjoy/customization/master/12306/img/12306.jpg">
 
 示例：重定Google公共库到useso
 

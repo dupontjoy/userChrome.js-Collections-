@@ -8,7 +8,7 @@ Fix image download by **Cing**
 
 仿：http://start.linuxdeepin.com/index.zh_cn.html
 
-12101111兄修改仿Deepin界面，[发布页][1]。
+12101111兄修改仿Deepin界面，[发布页](http://bbs.kafan.cn/thread-1765402-1-1.html)。
 
 此版爲Deepin界面版：
 
@@ -22,7 +22,7 @@ Fix image download by **Cing**
 
 第1步、解压后，把myNewTab整个文件夹复制到content文件夹下面，如图：
  
-![文件夹位置示意图][2]
+<img width="650" src="https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/myNewTab-Classic/img/position.jpg">
 
 第2步、修改这两条参数：
 
@@ -31,7 +31,4 @@ Fix image download by **Cing**
 
 大功告成！效果图：
 
-![myNewTab-Classic预览图](img/myNewTab-Deepin.jpg)
-
-[1]: http://bbs.kafan.cn/thread-1765402-1-1.html
-[2]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/myNewTab-Classic/img/position.jpg
+<img width="650" src="img/myNewTab-Deepin.jpg">
