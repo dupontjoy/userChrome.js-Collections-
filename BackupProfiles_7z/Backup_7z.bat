@@ -1,4 +1,5 @@
 
+::2015.07.14 14:00  更新Flash下载地址
 ::2015.07.13 20:00  4合1整合
 
 @echo off
@@ -505,9 +506,10 @@ if "%id%"=="03" goto menu
 
 :install
 echo.
-echo    按任意键进入Flash官方下载地址……
+echo    按任意键开始下载最新非IE版Flash插件……
 echo.
-pause>nul&start "" http://www.adobe.com/in/products/flashplayer/distribution3.html
+::pause>nul&start "" http://www.adobe.com/in/products/flashplayer/distribution3.html
+pause>nul&start "" http://fpdownload.macromedia.com/pub/flashplayer/latest/help/install_flash_player.exe
 cls
 echo.
 echo    *请暂时不要关闭该批处理……
