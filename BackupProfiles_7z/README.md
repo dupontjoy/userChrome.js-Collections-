@@ -59,7 +59,7 @@ Mod by **Cing**
 
 **我的配置文件夹结构：**
 
-<img width="450"![文件夹结构](https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/CingFox/img/folder-structure.jpg)>
+<img width="450" src="https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/CingFox/img/folder-structure.jpg">
 
 **1. 关于批处理与配置的相对位置：**
 
