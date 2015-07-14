@@ -10,7 +10,7 @@ by **Alice0775 & dannylee**
 
 比如：http://www.economist.com/ 这个网站，外挂脚本的数量堪称恐怖，默认全部加载的话，要花费很长的时间。目前只是选择性的放行了几个必要脚本，加载速度大大地提高。
 
-![第三方脚本示意图](img/ucjsPermission2.jpg)
+<img width="650" src="img/ucjsPermission2.jpg">
 
 ###使用方法：
 
@@ -18,7 +18,7 @@ by **Alice0775 & dannylee**
 
 第二步、将exexcept复制到『extensions\userChromeJS@mozdev.org\content』文件夹下面
 
-![文件夹位置示意图](img/ucjsPermission2-position.jpg)
+<img width="650" src="img/ucjsPermission2-position.jpg">
 
 至此，脚本安装完成！
 
@@ -28,7 +28,7 @@ by **Alice0775 & dannylee**
 
 **右键单击**图标，可查看自己设置的列表：
 
-![列表示意图](img/ucjsPermission2-list.jpg)
+<img width="650" src="img/ucjsPermission2-list.jpg">
 
 | | |
 | --- | :--- |

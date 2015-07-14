@@ -20,6 +20,6 @@ m + 單個 數字 或 字母，为網頁加書籤mark
 
 - x：刪除列表中的選中項
 
-![add-mark](img/add-mark.jpg)
+<img width="650" src="img/add-mark.jpg">
 
-![mark-list](img/mark-list.jpg)
+<img width="650" src="img/mark-list.jpg">

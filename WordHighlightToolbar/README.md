@@ -6,4 +6,4 @@ Mod by [**ywzhaiqi**](https://github.com/ywzhaiqi/userChromeJS/tree/master/WordH
 
 此版为Y大修改版
 
-![](img/preview.jpg)
+<img width="650" src="img/preview.jpg">
