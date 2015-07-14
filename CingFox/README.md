@@ -28,7 +28,7 @@
 
 （标签计数 ↓）
 
-![tab-number](img/tab-number.jpg)
+<img width="650" src="img/tab-number.jpg" >
 
 （标签加载进度条 ↓）
 

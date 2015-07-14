@@ -15,7 +15,7 @@ Mod by **Cing**
 
 **注意：**文件夹相对结构要调整好。不会调整的就只能按我的结构来了。
 
-配置配置修改自：http://bbs.kafan.cn/thread-1726407-1-1.html
+備份配置修改自：http://bbs.kafan.cn/thread-1726407-1-1.html
 
 一键提取 32位Flash 批处理为原创
 
