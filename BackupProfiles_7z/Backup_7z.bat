@@ -4,18 +4,18 @@
 ::2015.07.13 20:00  4合1整合
 
 @echo off
-Title 備份批處理4合1版 by Cing
+Title 備份批處理整合版 by Cing
 
 :menu
 MODE con: COLS=80 LINES=25
 ECHO.
 ECHO =============================================================================
-ECHO                           備份批處理4合1版                           
+ECHO                           備份批處理整合版                           
 ECHO    #+++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++#
 ECHO    # 01、備份Firefox配置文件夾             #02、CingFox完整包制作#       #
 ECHO    # 03、備份Plugins和Software文件夾       #04、提取Flash32位插件        #
 ECHO    # 05、備份詞典和user.js到GitHub                                       #
-ECHO    # e、退出                                                             #
+ECHO    # x、退出                                                             #
 ECHO    #+++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++#
 ECHO =============================================================================
 
@@ -25,7 +25,7 @@ if %a%==02 goto CingFox
 if %a%==03 goto Plugins-n-Software
 if %a%==04 goto Flash32
 if %a%==05 goto GitHub
-if %a%==e goto exit
+if %a%==x goto exit
 goto cho
 
 :Profiles
