@@ -1,4 +1,5 @@
 
+::2015.07.14 23:00  添加備份詞典和user.js到GitHub
 ::2015.07.14 14:00  更新Flash下载地址
 ::2015.07.13 20:00  4合1整合
 
@@ -11,8 +12,10 @@ ECHO.
 ECHO =============================================================================
 ECHO                           備份批處理4合1版                           
 ECHO    #+++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++#
-ECHO    # 01、備份Firefox配置文件夾    # 03、備份Plugins和Software文件夾      #
-ECHO    # 02、CingFox完整包制作        # 04、提取Flash32位插件                #
+ECHO    # 01、備份Firefox配置文件夾             #02、CingFox完整包制作#       #
+ECHO    # 03、備份Plugins和Software文件夾       #04、提取Flash32位插件        #
+ECHO    # 05、備份詞典和user.js到GitHub                                       #
+ECHO    # e、退出                                                             #
 ECHO    #+++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++#
 ECHO =============================================================================
 
@@ -21,6 +24,8 @@ if %a%==01 goto Profiles
 if %a%==02 goto CingFox
 if %a%==03 goto Plugins-n-Software
 if %a%==04 goto Flash32
+if %a%==05 goto GitHub
+if %a%==e goto exit
 goto cho
 
 :Profiles
@@ -557,6 +562,53 @@ ECHO.&ECHO.已打包完成，請按任意鍵退出，將跳轉到系統/控制面板/程序與功能！&PAUSE 
 ::跳轉到系統/控制面板/程序與功能
 appwiz.cpl
 rundll32.exe shell32.dll,Control_RunDLL appwiz.cpl
+
+Goto end
+
+:GitHub
+CLS
+MODE con: COLS=45 LINES=15
+ECHO.
+ECHO.
+ECHO    **********************************
+ECHO.
+ECHO        備份詞典和user.js到GitHub
+ECHO.
+ECHO                1.执行
+ECHO.
+ECHO                2.返回
+ECHO.
+ECHO    **********************************
+ECHO.
+ECHO.
+Choice /C 12 /N /M 选择（1、2）：
+If ErrorLevel 1 If Not ErrorLevel 2 Goto GitHub-1
+If ErrorLevel 2 If Not ErrorLevel 3 Goto menu
+
+:GitHub-1
+MODE con: COLS=80 LINES=25
+Title 備份詞典和user.js到GitHub by Cing
+echo.
+echo    *** 備份詞典和user.js到GitHub ***
+echo.
+echo ============================================================
+echo    **注意：
+echo.
+echo    By Cing(Dupontjoy)
+echo.
+echo    按任意键继续……
+echo =============================================================
+pause>nul
+cls
+
+rem 設置備份路徑以及臨時文件夾
+cd /d %~dp0
+set dir1=..\..\..
+set dir2=D:\My Documents\GitHub\Customization
+xcopy "%dir1%\persdict.dat" "%dir2%\persdict.dat"  /s /y /i
+xcopy "%dir1%\user.js" "%dir2%\user.js"  /s /y /i
+
+ECHO.&ECHO.備份詞典和user.js到GitHub已完成，請按任意鍵退出！&PAUSE >NUL 2>NUL
 
 Goto end
 
