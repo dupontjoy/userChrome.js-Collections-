@@ -32,11 +32,11 @@
 
 （标签加载进度条 ↓）
 
-![progressbar](img/progressbar.jpg)
+<img width="650" src="img/progressbar.jpg">
 
 （文件夹結构 ↓）
 
-![folder-structure](img/folder-structure.jpg)
+<img width="650" src="img/folder-structure.jpg">
 
 ######各類右鍵菜單
 
