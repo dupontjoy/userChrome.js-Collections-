@@ -6,4 +6,4 @@
 
 美化邊框 by **zhulinxizi**
 
-![Preview](img/MemoryMonitor.jpg)
+<img width="650" src="img/MemoryMonitor.jpg">

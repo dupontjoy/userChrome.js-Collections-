@@ -2,7 +2,7 @@
 
 Create by **Defpt**
 
-![](img/autohidebar.gif)
+<img width="650" src="img/autohidebar.gif">
 
 | | |
 | :--- | :--- |

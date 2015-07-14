@@ -2,4 +2,4 @@
 
 Folder Structure:
 
-![folder-structure](https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/CingFox/img/folder-structure.jpg)
+<img width="650" src="https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/CingFox/img/folder-structure.jpg">
