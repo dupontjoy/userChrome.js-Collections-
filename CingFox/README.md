@@ -18,7 +18,7 @@
 
 ###界面預覧：
 
-<img width="650" img/preview.jpg" >
+<img width="650" src="img/preview.jpg" >
 
 ###特色功能：
 
