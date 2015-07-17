@@ -1,5 +1,6 @@
 ##CingFox
 ![icon](img/icon.jpg)
+
 **Mod by Cing**
 
 **個人Firefox配置完整打包**，基於pcxFirefox繁體中文版
@@ -18,35 +19,35 @@
 <img width="650" src="img/preview.jpg" >
 
 ###特色功能：
-（左上角Logo ↓）
+（左上角Logo ↓）<br/>
 ![anobtn](img/anobtn.jpg)
 
-（标签计数 ↓）
+（标签计数 ↓）<br/>
 <img width="650" src="img/tab-number.jpg" >
 
-（标签加载进度条 ↓）
+（标签加载进度条 ↓）<br/>
 <img width="650" src="img/progressbar.jpg">
 
-（文件夹結构 ↓）
+（文件夹結构 ↓）<br/>
 <img width="650" src="img/folder-structure.jpg">
 
 ######各類右鍵菜單
-（標籤右鍵菜單 ↓）
+（標籤右鍵菜單 ↓）<br/>
 ![tab-right-menu](img/tab-right-menu.jpg)
 
-（頁面右鍵菜單 ↓）
+（頁面右鍵菜單 ↓）<br/>
 ![page-right-menu](img/page-right-menu.jpg)
 
-（鏈接和選中文字右鍵菜單 ↓）
+（鏈接和選中文字右鍵菜單 ↓）<br/>
 ![link&select-right-menu](img/link&select-right-menu.jpg)
 
-（輸入框右鍵菜單 ↓）
+（輸入框右鍵菜單 ↓）<br/>
 ![input-right-menu](img/input-right-menu.jpg)
 
-（圖片右鍵菜單 ↓）
+（圖片右鍵菜單 ↓）<br/>
 ![image-right-menu](img/image-right-menu.jpg)
 
-（書籤右鍵菜單 ↓）
+（書籤右鍵菜單 ↓）<br/>
 ![bookmark-right-menu](img/bookmark-right-menu.jpg)
 
 | | |
