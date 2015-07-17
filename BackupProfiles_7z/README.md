@@ -1,15 +1,14 @@
-##Backup_7z四合一版
+##Backup_7z整合版
 
 Mod by **Cing**
 
-含以下4个功能：
+含以下5个功能：
 
-| | |
-| --- | --- |
-| 一键制作 配置包 | BackupProfiles_7z.bat |
-| 一键制作 完整包 | BackupFullProfiles_7z.bat |
-| 一键备份 插件和软件包 | BackupPlugins-n-Software_7z.bat |
-| 一键提取 32位Flash | 提取Flash32位插件.bat |
+- [x] 一键制作 配置包
+- [x] 一键制作 完整包
+- [x] 一键备份 插件和软件包
+- [x] 一键提取 32位Flash插件
+- [x] 复制词典和user.js到GitHub文件夹
 
 **注意：**文件夹相对结构要调整好。不会调整的就只能按我的结构来了。
 
@@ -36,6 +35,7 @@ Mod by **Cing**
 ![选择](img/backup_7z-2.jpg)
 ![选择](img/backup_7z-3-1.jpg)
 ![选择](img/backup_7z-3-2.jpg)
+
 打包结束：
 
 ![打包结束](img/backup_7z-4.jpg)
