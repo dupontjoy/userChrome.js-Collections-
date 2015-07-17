@@ -18,7 +18,7 @@
 ###界面預覧：
 <img width="650" src="img/preview.jpg" >
 
-###特色功能：
+####特色功能：
 （左上角Logo ↓）<br/>
 ![anobtn](img/anobtn.jpg)
 
@@ -31,7 +31,7 @@
 （文件夹結构 ↓）<br/>
 <img width="650" src="img/folder-structure.jpg">
 
-######各類右鍵菜單
+####各類右鍵菜單
 （標籤右鍵菜單 ↓）<br/>
 ![tab-right-menu](img/tab-right-menu.jpg)
 
