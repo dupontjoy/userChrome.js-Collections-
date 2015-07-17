@@ -13,10 +13,8 @@ Mod by **Cing**
 | 一键备份 插件和软件包 | BackupPlugins-n-Software_7z.bat |
 | 一键提取 32位Flash | 提取Flash32位插件.bat |
 
-**注意：**文件夹相对结构要调整好。不会调整的就只能按我的结构来了。
-
-備份配置修改自：http://bbs.kafan.cn/thread-1726407-1-1.html
-
+**注意：**文件夹相对结构要调整好。不会调整的就只能按我的结构来了。<br/>
+備份配置修改自：http://bbs.kafan.cn/thread-1726407-1-1.html<br/>
 一键提取 32位Flash插件 批处理为原创
 
 ###特点：
