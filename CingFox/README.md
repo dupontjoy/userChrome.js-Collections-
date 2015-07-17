@@ -1,6 +1,6 @@
 ##CingFox
-
 ![icon](img/icon.jpg)
+**Mod by Cing**
 
 **個人Firefox配置完整打包**，基於pcxFirefox繁體中文版
 
@@ -14,54 +14,39 @@
 
 配置軟件（Software）含：一些FQ軟件（賬號不提供），Notepad2編輯器（[設爲默認的方法](https://github.com/dupontjoy/userChromeJS/blob/master/userContent/setRelativeEditPath.uc.js)）和截圖軟件。都是和Firefox息息相關的，其它不必要的軟件都不再打包。
 
-**Mod by Cing**
-
 ###界面預覧：
-
 <img width="650" src="img/preview.jpg" >
 
 ###特色功能：
-
 （左上角Logo ↓）
-
 ![anobtn](img/anobtn.jpg)
 
 （标签计数 ↓）
-
 <img width="650" src="img/tab-number.jpg" >
 
 （标签加载进度条 ↓）
-
 <img width="650" src="img/progressbar.jpg">
 
 （文件夹結构 ↓）
-
 <img width="650" src="img/folder-structure.jpg">
 
 ######各類右鍵菜單
-
 （標籤右鍵菜單 ↓）
-
 ![tab-right-menu](img/tab-right-menu.jpg)
 
 （頁面右鍵菜單 ↓）
-
 ![page-right-menu](img/page-right-menu.jpg)
 
 （鏈接和選中文字右鍵菜單 ↓）
-
 ![link&select-right-menu](img/link&select-right-menu.jpg)
 
 （輸入框右鍵菜單 ↓）
-
 ![input-right-menu](img/input-right-menu.jpg)
 
 （圖片右鍵菜單 ↓）
-
 ![image-right-menu](img/image-right-menu.jpg)
 
 （書籤右鍵菜單 ↓）
-
 ![bookmark-right-menu](img/bookmark-right-menu.jpg)
 
 | | |
