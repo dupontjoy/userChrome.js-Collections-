@@ -18,7 +18,8 @@ http://news.ifeng.com/a/ydzx/20150413/43541233_0.shtml 重定向到 http://news.
 
 示例：userscripts >> webextender鏡像
 
-http://userscripts.org/ 和 http://userscripts.org:8080/ 都重定向到 http://www.webextender.net/<br/>
+http://userscripts.org/ 和 http://userscripts.org:8080/ 都重定向到 http://www.webextender.net/
+
     {
      //userscripts.org和userscripts.org:8080都重定向到webextender.net
      name: "userscripts >> webextender鏡像",
