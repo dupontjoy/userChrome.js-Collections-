@@ -2,8 +2,7 @@
 
 Mod by **Cing**
 
-含以下5个功能：
-
+含以下5个功能：<br/>
 - [x] 一键制作 配置包
 - [x] 一键制作 完整包
 - [x] 一键备份 插件和软件包
@@ -26,38 +25,29 @@ Mod by **Cing**
 - 2015.06.25 實現獲取Flash版本號
 - 2015.06.23 加入提取32位Flash插件批处理
 
-打包开始：
-
+打包开始：<br/>
 ![打包开始](img/backup_7z-1.jpg)
 
-选择：
-
+选择：<br/>
 ![选择](img/backup_7z-2.jpg)
 ![选择](img/backup_7z-3-1.jpg)
 ![选择](img/backup_7z-3-2.jpg)
 
-打包结束：
-
+打包结束：<br/>
 ![打包结束](img/backup_7z-4.jpg)
 ![打包结束](img/backup_7z-5.jpg)
 
 ###注意：
-
-**我的配置文件夹结构：**
-
+**我的配置文件夹结构：**<br/>
 <img width="650" src="https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/CingFox/img/folder-structure.jpg">
 
-**1. 关于批处理与配置的相对位置：**
-
-从批处理所在位置到配置文件夹（Profiles），共跨了3层，所以批处理中会这样定义：
-
+**1. 关于批处理与配置的相对位置：**<br/>
+从批处理所在位置到配置文件夹（Profiles），共跨了3层，所以批处理中会这样定义：<br/>
 <img width="650" src="img/bat-to-Pofiles-1.jpg">
 <img width="650" src="img/bat-to-Pofiles-2.jpg">
 
-**2. 关于获取Firefox版本号：**
-
-从批处理所在位置到Firefox程序文件夹（firefox），共跨了4层，所以批处理中会这样定义：
-
+**2. 关于获取Firefox版本号：**<br/>
+从批处理所在位置到Firefox程序文件夹（firefox），共跨了4层，所以批处理中会这样定义：<br/>
 <img width="650" src="img/bat-to-Firefox-1.jpg">
 <img width="650" src="img/bat-to-Firefox-2.jpg">
 
@@ -65,4 +55,3 @@ Mod by **Cing**
 | :--- | :--- |
 | **CingFox完整包** | https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox |
 | **Flash32位原版提取帶vch和exe** | http://pan.baidu.com/s/1sjz92Z7 |
-
