@@ -12,3 +12,13 @@ Firefox 36之後右鍵加圖標的方式有了變化，原來的方式加不上�
     menuitem:not([type="checkbox"]):not([type="radio"]) > hbox.menu-iconic-left, menu > hbox.menu-iconic-left 
     {-moz-appearance:menuimage;}
     
+現在把平時會看到的地方都補上圖標：
+
+地址欄右鍵菜單：<br/>
+![](img/urlbar-rightmenu.jpg)
+
+About:Config右鍵菜單：<br/>
+![](img/config-rightmenu.jpg)
+    
+歷史右鍵菜單：<br/>
+![](img/history-rightmenu.jpg)
