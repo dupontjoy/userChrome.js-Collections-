@@ -82,6 +82,35 @@ http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/s
      regex: true
     },
 
+示例：重定向公共库
+
+    {
+     //参考：https://servers.ustclug.org/2014/06/blog-googlefonts-speedup/
+     name: "ajax|fonts(https) >> 科大",
+     from: /^https:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
+     to: "https://$1.lug.ustc.edu.cn/$2",
+     regex: true
+    },
+    {
+     name: "themes >> 科大",
+     from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
+     to: "https://google-themes.lug.ustc.edu.cn/$1",
+     regex: true
+    },
+    {
+     name: "fonts-gstatic >> 科大",
+     from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
+     to: "https://fonts-gstatic.lug.ustc.edu.cn/$1",
+     regex: true
+    },*/
+    {
+//自制。參考https://developers.google.com/speed/libraries/
+     name: "ajax(https) >> github",
+     from: /^https:\/\/ajax\.googleapis\.com\/ajax\/libs\/(jquery|angularjs|angular_material|dojo|ext-core|jquerymobile|jqueryui|mootools|prototype|scriptaculous|spf|swfobject|threejs|webfont|)(\/.*)\/(jquery\.min.\js|angular\.min.\js|angular-material\.min.\js|dojo.\js|ext-core.\js|jquery\.mobile\.min.\js|jquery-ui.css|jquery-ui\.min.\js|mootools-yui-compressed.\js|prototype.\js|scriptaculous.\js|spf.\js|swfobject.\js|three\.min.\js|webfont.\js|)(.*)/i,
+to: "https://raw.githubusercontent.com/dupontjoy/customization/master/google/ajax/libs/$1/$3",
+     regex: true
+    },
+
 ###部分規則卡飯發佈地址：
 [Google开源库重定向到国内](http://bbs.kafan.cn/thread-1769934-1-1.html)<br/>
 [百度云盘分享页，手机版 重定向至 电脑版](http://bbs.kafan.cn/thread-1814510-1-1.html)<br/>
