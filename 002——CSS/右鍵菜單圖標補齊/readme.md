@@ -17,8 +17,11 @@ Firefox 36之後右鍵加圖標的方式有了變化，原來的方式加不上�
 地址欄右鍵菜單：<br/>
 ![](img/urlbar-rightmenu.jpg)
 
-About:Config右鍵菜單：<br/>
-![](img/config-rightmenu.jpg)
-    
 歷史右鍵菜單：<br/>
 ![](img/history-rightmenu.jpg)
+
+About:Config右鍵菜單：<br/>
+![](img/config-rightmenu.jpg)
+
+Dominspector右鍵菜單：<br/>
+![](img/dom-rightmenu.jpg)
