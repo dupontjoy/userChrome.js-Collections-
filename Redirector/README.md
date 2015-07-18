@@ -71,6 +71,16 @@ http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/s
     //HTTPS不允许混合内容，以下两条参数用以禁用此特性
     user_pref("security.mixed_content.block_active_content", false);
     user_pref("security.mixed_content.block_display_content", false);
+    
+示例：Google搜天氣時 圖標
+
+    {
+     //來源：http://bbs.kafan.cn/thread-1824493-1-1.html
+     name: "Google搜天氣時 圖標",
+     from: /^https?:\/\/www\.gstatic\.cn\/onebox\/weather\/(.*)/i,
+     to: "https://ssl.gstatic.com/onebox/weather/$1",
+     regex: true
+    },
 
 ###部分規則卡飯發佈地址：
 [Google开源库重定向到国内](http://bbs.kafan.cn/thread-1769934-1-1.html)<br/>
