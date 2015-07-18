@@ -9,7 +9,6 @@ Firefox 36之後右鍵加圖標的方式有了變化，原來的方式加不上�
 
     /*==修正图標和文字擠一起問題==*/
     /* Adjust left-margin for menuitems and menus which aren't iconized */
-    menuitem:not([type="checkbox"]):not([type="radio"]) > hbox.menu-iconic-left,
-menu > hbox.menu-iconic-left 
+    menuitem:not([type="checkbox"]):not([type="radio"]) > hbox.menu-iconic-left, menu > hbox.menu-iconic-left 
     {-moz-appearance:menuimage;}
     
