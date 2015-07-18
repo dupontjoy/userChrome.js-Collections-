@@ -1,9 +1,8 @@
-/*+++2015.07.18 20:00+++*/
+/*+++2015.07.18 21:00+++*/
 
 /*==修正图標和文字擠一起問題==*/
 /* Adjust left-margin for menuitems and menus which aren't iconized */
-menuitem:not([type="checkbox"]):not([type="radio"]) > hbox.menu-iconic-left,
-menu > hbox.menu-iconic-left 
+menuitem:not([type="checkbox"]):not([type="radio"]) > hbox.menu-iconic-left, menu > hbox.menu-iconic-left 
 {-moz-appearance:menuimage;}
 
 /*==扩展/脚本图标补充==*/
@@ -143,26 +142,26 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAANElEQVQ4jWNgGOxAnlLNvxgYGOwoMcRu0Bnij0/RfyIxWS4hygWENDvQXTNV0gFFKXGIAABllRYLfseFRgAAAABJRU5ErkJggg==") !important;
 }
 
-/*粘貼*/
-#urlbar menuitem[cmd="cmd_paste"], #searchbar menuitem[cmd="cmd_paste"], #searchFilter menuitem[cmd="cmd_paste"], #configDeck menuitem[cmd="cmd_paste"], #mnEditPaste {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbklEQVQ4jWNgoAFoZWBg+M7AwPAfir9DxUjSKIskLkusQX8YGBj48RjADzUEJ/gPpY8gOR+Gj6CpwWsAMh8bJskAdP51BgaGBkoMEMdnCDEG4PUKIQMIylFsACwdkG0AehIm2QBSFBFtAD5MHQAA8vtEFZXqsUkAAAAASUVORK5CYII=") !important;
-}
-
 /*複製*/
-#context-copy, #urlbar menuitem[cmd="cmd_copy"], #searchbar menuitem[cmd="cmd_copy"], #searchFilter menuitem[cmd="cmd_copy"], #configDeck menuitem[cmd="cmd_copy"], #copyBookmark_copyBoth, #mnEditCopy, #copyPref, #copyName, #copyValue  {
+#context-copy, #urlbar menuitem[cmd="cmd_copy"], #searchbar menuitem[cmd="cmd_copy"], #searchFilter menuitem[cmd="cmd_copy"], #configDeck menuitem[cmd="cmd_copy"], #bxURLBarContainer menuitem[cmd="cmd_copy"], #copyBookmark_copyBoth, #mnEditCopy, #copyPref, #copyName, #copyValue  {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=") !important;
 }
 
+/*粘貼*/
+#urlbar menuitem[cmd="cmd_paste"], #searchbar menuitem[cmd="cmd_paste"], #searchFilter menuitem[cmd="cmd_paste"], #configDeck menuitem[cmd="cmd_paste"], #bxURLBarContainer menuitem[cmd="cmd_paste"], #mnEditPaste {
+-moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbklEQVQ4jWNgoAFoZWBg+M7AwPAfir9DxUjSKIskLkusQX8YGBj48RjADzUEJ/gPpY8gOR+Gj6CpwWsAMh8bJskAdP51BgaGBkoMEMdnCDEG4PUKIQMIylFsACwdkG0AehIm2QBSFBFtAD5MHQAA8vtEFZXqsUkAAAAASUVORK5CYII=") !important;
+}
+
 /*刪除*/
-#placesContext_delete, #mnEditDelete, #placesContext_delete_history, #searchFilter menuitem[cmd="cmd_delete"], #configDeck menuitem[cmd="cmd_delete"] {
+#placesContext_delete, #mnEditDelete, #placesContext_delete_history, #searchFilter menuitem[cmd="cmd_delete"], #configDeck menuitem[cmd="cmd_delete"], #bxURLBarContainer menuitem[cmd="cmd_delete"] {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAY0lEQVQ4jWNgGEzgP4kYqwGkWIZT8DMDA0MIFnkbqBxBA0IYGBi+oxkC01xAjAHohqBrJsoAZEPQNRNtAMxmdO8QZQCys7GFCV4DsPkZ3RCC0YjuZ2RDCBpADMBpAEVJeWAAAMJDQxk7lwhpAAAAAElFTkSuQmCC")!important;
 }
 
 /*全選*/
-#urlbar menuitem[cmd="cmd_selectAll"], #searchbar menuitem[cmd="cmd_selectAll"], #searchFilter menuitem[cmd="cmd_selectAll"], #configDeck menuitem[cmd="cmd_selectAll"] {
+#urlbar menuitem[cmd="cmd_selectAll"], #searchbar menuitem[cmd="cmd_selectAll"], #searchFilter menuitem[cmd="cmd_selectAll"], #configDeck menuitem[cmd="cmd_selectAll"], #bxURLBarContainer menuitem[cmd="cmd_selectAll"] {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXElEQVQ4jWNgGCzgPxZMSA2GJKkWEmXAfwYGBg9yDfBgYGCYCcXEWogCjjIwMChDaZIBssY8KCYJ5DGghjhJrlBmwPTjTKg4ToCsAVvAeaCJ0S8dkGQARUl54AAAWsMsNkwmkt8AAAAASUVORK5CYII=") !important;
 }
