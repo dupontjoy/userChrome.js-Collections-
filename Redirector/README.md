@@ -111,6 +111,16 @@ http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/s
      regex: true
     },
 
+示例：amazonaws
+
+    {
+     //測試：https://s3.amazonaws.com/0ubz-2q11-gi9y/en/download.html
+     name: "js(amazonaws) >> github",
+     from: /^https?:\/\/s3\.amazonaws\.com\/(.*)\.js$/,
+     to: "https://raw.githubusercontent.com/dupontjoy/customization/master/amazonaws/$1.js",
+     regex: true
+    },
+
 ###部分規則卡飯發佈地址：
 [Google开源库重定向到国内](http://bbs.kafan.cn/thread-1769934-1-1.html)<br/>
 [百度云盘分享页，手机版 重定向至 电脑版](http://bbs.kafan.cn/thread-1814510-1-1.html)<br/>
