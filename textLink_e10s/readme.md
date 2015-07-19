@@ -1,0 +1,1 @@
+fork from: https://github.com/alice0775/userChrome.js/blob/master/textLink_e10s.uc.js
