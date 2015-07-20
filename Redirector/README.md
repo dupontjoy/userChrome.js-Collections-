@@ -120,6 +120,18 @@ http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/s
      to: "https://raw.githubusercontent.com/dupontjoy/customization/master/amazonaws/$1.js",
      regex: true
     },
+    
+示例：京东主图重定向无Logo大圖
+
+    {
+    //重定向到无Logo的大圖
+    //测試：http://img11.360buyimg.com/n5/jfs/t700/22/552651328/263602/77209a24/54c05927N3820abe9.jpg
+    //方法來源：http://jingyan.baidu.com/article/3aed632e6e5f9f70108091e9.html
+    name: "京東 >> 原始大圖",
+    from: /^https?:\/\/(.*)\.360buyimg\.com\/(n1)\/(.*)\.jpg+(\/.*)?/i,
+    to: "http://$1.360buyimg.com/imgzone/$3.jpg",
+    regex: true
+    },
 
 ###部分規則卡飯發佈地址：
 [Google开源库重定向到国内](http://bbs.kafan.cn/thread-1769934-1-1.html)<br/>

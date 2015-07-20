@@ -9,6 +9,7 @@ Mod by Y大
 Mod版：https://github.com/ywzhaiqi/userscript/tree/master/picviewerCE
 
 ##自定義規則：
+默認大小为170x170，嫌圖小的可改爲600x600或者1400x1400
 
 示例：iTunes封面：
 
