@@ -40,3 +40,18 @@ Mod版：https://github.com/ywzhaiqi/userscript/tree/master/picviewerCE
 			}
     }
     },
+
+示例：天猫 主图
+
+    {name: '天猫 主图',
+		siteExample: 'https://detail.tmall.com/item.htm?id=41970251936',
+		url: /^https?:\/\/detail.tmall.com/i,
+		getImage: function() {
+			var oldsrc = this.src,
+				newsrc;
+			var pic = /(.+?alicdn\.com\/.+)\/(.*)\.jpg\_(.*)\.jpg/i;
+			if (pic.test(oldsrc)) {
+				return oldsrc.replace(pic, '$1/$2.jpg');
+			}
+		}
+	  },

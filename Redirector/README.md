@@ -174,6 +174,13 @@ http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/s
     to: "http://$1.360buyimg.com/imgzone/$3.jpg",
     regex: true
     },
+    {
+    //测試：http://gi2.md.alicdn.com/imgextra/i2/713805254/TB2PvqMbXXXXXaSXXXXXXXXXXXX_!!7138052    54.jpg_60x60q90.jpg
+    name: "天貓 >> 原始大圖",
+    from: /^https?:\/\/(.*)\.(md\.alicdn|)\.com\/(imgextra|)\/(.*)\.jpg\_(.*)\.jpg/i,
+    to: "http://$1.$2.com/$3/$4.jpg",
+    regex: true
+    },
 
 ###部分規則卡飯發佈地址：
 [Google开源库重定向到国内](http://bbs.kafan.cn/thread-1769934-1-1.html)<br/>
