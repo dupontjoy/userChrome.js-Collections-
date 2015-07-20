@@ -2,7 +2,7 @@
 // @name           picviewer CE - Mod
 // @author         NLF && ywzhaiqi
 // @description    NLF 的围观图修改版
-// @version        2015.07.20
+// @version        2015.07.21
 // version        2014.12.02.0
 // version        4.2.6.1
 // @created        2011-6-15
@@ -26,6 +26,7 @@
 // @exclude       http*://maps.google.com*/*
 // @exclude       *://www.google.*/_/chrome/newtab*
 
+// @note          2015.07.21 添加tradingfloor 大圖
 // @note          2015.07.20 添加iTunes規則，京東主圖規則，天貓主圖規則
 
 // ==/UserScript==
@@ -195,6 +196,18 @@ var siteInfo=[
 			var pic = /(.+?alicdn\.com\/.+)\/(.*)\.jpg\_(.*)\.jpg/i;
 			if (pic.test(oldsrc)) {
 				return oldsrc.replace(pic, '$1/$2.jpg');
+			}
+		}
+	},
+	{name: 'tradingfloor 大圖',
+		siteExample: 'https://www.tradingfloor.com/posts/jump-on-board-the-eurgbp-downtrend-5614475',
+		url: /^https?:\/\/www.tradingfloor.com/i,
+		getImage: function() {
+			var oldsrc = this.src,
+				newsrc;
+			var pic = /(.+?tradingfloor\.com\/.+)\/max608w\/(.+)/;
+			if (pic.test(oldsrc)) {
+				return oldsrc.replace(pic, '$1/original/$2');
 			}
 		}
 	},

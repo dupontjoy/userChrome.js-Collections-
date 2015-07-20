@@ -57,3 +57,18 @@ Self Mod：整合幾個自定義規則
 			}
 		}
 	  },
+	  
+示例：tradingfloor 大圖
+
+	  {name: 'tradingfloor 大圖',
+		siteExample: 'https://www.tradingfloor.com/posts/jump-on-board-the-eurgbp-downtrend-5614475',
+		url: /^https?:\/\/www.tradingfloor.com/i,
+		getImage: function() {
+			var oldsrc = this.src,
+				newsrc;
+			var pic = /(.+?tradingfloor\.com\/.+)\/max608w\/(.+)/;
+			if (pic.test(oldsrc)) {
+				return oldsrc.replace(pic, '$1/original/$2');
+			}
+		}
+	  },
