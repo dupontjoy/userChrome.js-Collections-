@@ -11,7 +11,7 @@ Mod版：https://github.com/ywzhaiqi/userscript/tree/master/picviewerCE
 ##自定義規則：
 默認大小为170x170，嫌圖小的可改爲600x600或者1400x1400
 
-示例：iTunes封面：
+示例：iTunes 封面
 
     {name: 'iTunes 封面',
 		siteExample: 'https://itunes.apple.com/us/album/hao-xiang-tan-lian-ai/id538330286',
@@ -26,3 +26,17 @@ Mod版：https://github.com/ywzhaiqi/userscript/tree/master/picviewerCE
      }
     },
     
+示例：京东 主图
+
+    {name: '京东 主图',
+    siteExample: 'http://item.jd.com/1209642.html',
+		url: /^https?:\/\/item.jd.com/i,
+		getImage: function() {
+			var oldsrc = this.src,
+				newsrc;
+			var pic = /(.+?360buyimg\.com\/)n[\d]\/(.+)/;
+			if (pic.test(oldsrc)) {
+				return oldsrc.replace(pic, '$1imgzone/$2');
+			}
+    }
+    },
