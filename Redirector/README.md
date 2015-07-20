@@ -121,8 +121,49 @@ http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/s
      regex: true
     },
     
-示例：京东主图重定向无Logo大圖
+示例：原始大圖系列
 
+    //原始大圖系列
+    {
+    name: "tradingfloor 原始大圖",
+    from: /^https?:\/\/www\.tradingfloor\.com\/images\/article\/max608w\/(.*)/i,
+    to: "https://www.tradingfloor.com/images/article/original/$1",
+    regex: true
+    },
+    {
+    name: "百度貼吧|百科 >> 原始大圖",
+    from: /^http:\/\/(imgsrc|[\w]?\.hipho    tos)\.baidu\.com\/(forum|baike)\/[\w].+\/sign=[^\/]+(\/.*).jpg/i,
+    to: "http://$1.baidu.com/$2/pic/item$3.jpg",
+    regex: true
+    },
+    {
+    name: "500px >> 原始大圖",
+    from: /^https?:\/\/(.*)\.(edgecastcdn|500px)\.(net|org)\/(.*)\/[\d].jpg(.*)?/i,
+    to: "https://$1.$2.$3/$4/2048.jpg",
+    exclude: /^https?:\/\/(.*)\.(edgecastcdn|500px)\.(net|org)\/(.*)\/(1|2).jpg(.*)?/i,//排除頭像縮略圖
+    regex: true
+    },
+    {
+    //測試：http://i11.    topit.me/m/201103/12/12998645416093.jpg, http://f8.    topit.me/8/69/94/11889296294ef94698m.jpg
+    name: "    topit.me >> 原始大圖",
+    from: /^https?:\/\/(.*)\.    topit\.me\/(.*)?m(.*)?\.jpg$/,
+    to: "http://$1.    topit.me/$2l$3.jpg",
+    regex: true
+    },
+    {
+    name: "designspiration >> 原始大圖",
+    from: /^https?:\/\/(.*)\.dspnimg\.com\/data\/g\/(.*)g\.jpg+(\/.*)?/i,
+    to: "http://$1.dspnimg.com/data/l/$2l.jpg",
+    regex: true
+    },
+    {
+    //http://bbs.kafan.cn/thread-1801036-1-1.html
+    name: "flickr >> 原始大圖",
+    from: /^(https?:\/\/c\d\.staticflickr\.com\/\d\/\d+\/\d+_[^\._]+)(_[a-z])?(\.jpg)$/,
+    exclude: /^(https?:\/\/c\d\.staticflickr\.com\/\d\/\d+\/\d+_\w+)_b(\.jpg)$/,
+    to: "$1_b$3",
+    regex: true
+    },
     {
     //重定向到无Logo的大圖
     //测試：http://img11.360buyimg.com/n5/jfs/t700/22/552651328/263602/77209a24/54c05927N3820abe9.jpg
