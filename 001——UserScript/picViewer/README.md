@@ -6,7 +6,9 @@ Mod by Y大
 
 原版：http://www.webextender.net/scripts/show/105741.html
 
-Mod版：https://github.com/ywzhaiqi/userscript/tree/master/picviewerCE
+Y大版：https://github.com/ywzhaiqi/userscript/tree/master/picviewerCE
+
+Self Mod：整合幾個自定義規則
 
 ##自定義規則：
 默認大小为170x170，嫌圖小的可改爲600x600或者1400x1400
