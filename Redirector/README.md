@@ -121,7 +121,8 @@ http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/s
      regex: true
     },
     
-示例：原始大圖系列
+示例：原始大圖系列<br/>
+傼備份，換用[picViewer方式](/001——UserScript/picViewer)
 
     //原始大圖系列
     {
