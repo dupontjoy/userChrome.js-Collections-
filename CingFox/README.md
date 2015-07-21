@@ -23,32 +23,32 @@
 <p align="center"><img src="img/anobtn.jpg"></p>
 
 （标签计数 ↓）<br/>
-<img width="650" src="img/tab-number.jpg" >
+<p align="center"><img width="650" src="img/tab-number.jpg" ></p>
 
 （标签加载进度条 ↓）<br/>
-<img width="650" src="img/progressbar.jpg">
+<p align="center"><img width="650" src="img/progressbar.jpg"></p>
 
 （文件夹結构 ↓）<br/>
-<img width="650" src="img/folder-structure.jpg">
+<p align="center"><img width="650" src="img/folder-structure.jpg"></p>
 
 ####各類右鍵菜單
 （標籤右鍵菜單 ↓）<br/>
-![tab-right-menu](img/tab-right-menu.jpg)
+<p align="center"><img src="img/tab-right-menu.jpg"></p>
 
 （頁面右鍵菜單 ↓）<br/>
-![page-right-menu](img/page-right-menu.jpg)
+<p align="center"><img src="img/page-right-menu.jpg"></p>
 
 （鏈接和選中文字右鍵菜單 ↓）<br/>
-![link&select-right-menu](img/link&select-right-menu.jpg)
+<p align="center"><img src="img/link&select-right-menu.jpg"></p>
 
 （輸入框右鍵菜單 ↓）<br/>
-![input-right-menu](img/input-right-menu.jpg)
+<p align="center"><img src="img/input-right-menu.jpg"></p>
 
 （圖片右鍵菜單 ↓）<br/>
-![image-right-menu](img/image-right-menu.jpg)
+<p align="center"><img src="img/image-right-menu.jpg"></p>
 
 （書籤右鍵菜單 ↓）<br/>
-![bookmark-right-menu](img/bookmark-right-menu.jpg)
+<p align="center"><img src="img/bookmark-right-menu.jpg"></p>
 
 | | |
 | :--- | :--- |
