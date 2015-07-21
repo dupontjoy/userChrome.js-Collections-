@@ -33,7 +33,7 @@ by **Alice0775 & dannylee**
 ###建議使用方法：
 默認禁止第三方腳本、對象和框架。<br/>
 
-![](img/img/ucjsPermission2-setting.jpg)
+![](img/ucjsPermission2-setting.jpg)
 
 也可以把參數寫入user.js中：
 
