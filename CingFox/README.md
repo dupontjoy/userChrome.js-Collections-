@@ -16,7 +16,7 @@
 配置軟件（Software）含：一些FQ軟件（賬號不提供），Notepad2編輯器（[設爲默認的方法](https://github.com/dupontjoy/userChromeJS/blob/master/userContent/setRelativeEditPath.uc.js)）和截圖軟件。都是和Firefox息息相關的，其它不必要的軟件都不再打包。
 
 ###界面預覧：
-<img width="650" src="img/preview.jpg" >
+<p style="text-align:center"><img width="650" src="img/preview.jpg" ></p>
 
 ####特色功能：
 （左上角Logo ↓）<br/>
