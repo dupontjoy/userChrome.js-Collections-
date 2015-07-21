@@ -30,6 +30,23 @@ by **Alice0775 & dannylee**
 
 <img width="650" src="img/ucjsPermission2-list.jpg">
 
+###建議使用方法：
+默認禁止第三方腳本、對象和框架。<br/>
+
+![](img/img/ucjsPermission2-setting.jpg)
+
+也可以把參數寫入user.js中：
+
+    //ucjsPermission腳本
+    //簡單敎程：http://bbs.kafan.cn/thread-1527284-1-1.html，禁止第三方腳本，對象和框架，基本就能過濾掉大部分廣告和不必要的內容。
+    user_pref("permissions.default.script", 3);//禁止第三方腳本
+    user_pref("permissions.default.object", 3);//禁止第三方對象
+    user_pref("permissions.default.subdocument", 3);//禁止第三方框架
+
+禁止這3個就好，能過濾掉一些廣告及額外的載入內容，效果明顯，同時不致於攔截太多必要的東西，導致放行起來太麻煩。<br/>
+具體原因可參考末尾的『簡單敎程』一貼。
+
+
 | | |
 | --- | :--- |
 | **其它资源** | 個人[第三方腳本白名單][1] |
