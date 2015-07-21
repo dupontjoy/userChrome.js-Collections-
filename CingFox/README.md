@@ -20,7 +20,7 @@
 
 ####特色功能：
 （左上角Logo ↓）<br/>
-<p align="center">![anobtn](img/anobtn.jpg)</p>
+<p align="center"><img width="650" src="img/anobtn.jpg"></p>
 
 （标签计数 ↓）<br/>
 <img width="650" src="img/tab-number.jpg" >
