@@ -42,7 +42,13 @@ http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/s
      regex: true
     },
     
-<img width="650" src="img/redirect-sourceforge.gif">
+不明白鏡像爲甚麼有時會失效，幾個月重定向下來，以下幾個鏡像的速度挺快，其中一個失效，可切換爲另外的：
+
+    http://nchc.dl.sourceforge.net
+    http://master.dl.sourceforge.net
+    http://softlayer-sng.dl.sourceforge.net
+
+<p align="center"><img width="650" src="img/redirect-sourceforge.gif"></p>
 
 示例：重定向12306的js到修改版
 
@@ -55,7 +61,7 @@ http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/s
      regex: true
     },
     
-<img width="650" src="https://raw.githubusercontent.com/dupontjoy/customization/master/12306/img/12306.jpg">
+<p align="center"><img width="650" src="https://raw.githubusercontent.com/dupontjoy/customization/master/12306/img/12306.jpg"></p>
 
 示例：重定Google公共库到useso
 
