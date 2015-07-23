@@ -188,6 +188,18 @@ http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/s
     regex: true
     },
 
+示例：观察者 全文阅读<br/>
+在后面加`_s`即可开启全文模式
+
+    {
+    //http://www.guancha.cn/FanZhiHong/2015_07_22_327687.shtml
+    name: "观察者 全文阅读",
+    from: /(.+?guancha\.cn\/.+\/)(.*)\.shtml/i,
+    to: "$1$2_s.shtml",
+    exclude: /(.+?guancha\.cn\/.+\/)(.*)\_s\.shtml/i,
+    regex: true
+    },
+
 ###部分規則卡飯發佈地址：
 [Google开源库重定向到国内](http://bbs.kafan.cn/thread-1769934-1-1.html)<br/>
 [百度云盘分享页，手机版 重定向至 电脑版](http://bbs.kafan.cn/thread-1814510-1-1.html)<br/>
