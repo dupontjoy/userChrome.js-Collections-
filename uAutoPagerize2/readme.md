@@ -9,6 +9,6 @@ download: https://github.com/ywzhaiqi/userChromeJS/tree/master/uAutoPagerize2
 		 exampleUrl: 'http://www.fzdm.com/manhua/117/RE23/',
 		 nextLink: '//a[text()="下一页"]',
 		 autopager: {
-			pageElement: 'id("fzdmcom")',
+			pageElement: 'id("mh")/li',
 		 }
 	  }, 
