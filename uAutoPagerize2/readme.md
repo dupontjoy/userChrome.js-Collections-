@@ -1,4 +1,6 @@
-download: https://github.com/ywzhaiqi/userChromeJS/tree/master/uAutoPagerize2
+Original download: https://github.com/ywzhaiqi/userChromeJS/tree/master/uAutoPagerize2
+
+My Mod：Change rules to Chrome/Local folder
 
 自定義規則：
 
