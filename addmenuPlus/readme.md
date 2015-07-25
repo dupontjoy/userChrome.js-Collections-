@@ -62,17 +62,17 @@ Y大地址（含详尽说明）：https://github.com/ywzhaiqi/userChromeJS/tree/
     onclick: function(e) {
     switch(e.button) {
     case 0:
-    addMenu.copy(addMenu.convertText('dupontjoy@163.com'));
+    addMenu.copy(addMenu.convertText('d***y@163.com'));
     goDoCommand('cmd_paste');
     closeMenus(this);
     break;
     case 1:
-    addMenu.copy(addMenu.convertText('dupontjoy@qq.com'));
+    addMenu.copy(addMenu.convertText('d***y@qq.com'));
     goDoCommand('cmd_paste');
     closeMenus(this);
     break;
     case 2:
-    addMenu.copy(addMenu.convertText('dupont2305@gmail.com'));
+    addMenu.copy(addMenu.convertText('d***y@gmail.com'));
     goDoCommand('cmd_paste');
     closeMenus(this);
     break;
