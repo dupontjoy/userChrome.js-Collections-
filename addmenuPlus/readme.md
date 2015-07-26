@@ -131,7 +131,8 @@ addMenuPlus 是一个非常强大的定制菜单的 uc 脚本。通过配置文�
 
 ###自定義規則
 
-示例：用新分頁開啟鏈結左中右鍵
+示例：用新分頁開啟鏈結左中右鍵<br/>
+<p align="center"><img src="img/link.jpg"></p>
 
     {
     label: "用新分頁開啟鏈結",
@@ -158,7 +159,8 @@ addMenuPlus 是一个非常强大的定制菜单的 uc 脚本。通过配置文�
     image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZ0lEQVQ4jWNgGCyAjYGBYRIDA8NrBgaG/0Tg11D1bDADJjEwMOxmYGAQJ9JCcaj6VpjAaxI0IxvyGsb5j0chXjkmEm3FABQbwIJDHN3ZyHxGYjQQLTfwYUCMAVj9TDUXwEzHF1C0BQCpARnHXF2p+wAAAABJRU5ErkJggg=="
     }
 
-示例：複製圖片地址左右鍵
+示例：複製圖片地址左右鍵<br/>
+<p align="center"><img src="img/image.jpg"></p>
 
     {
     label: "複製圖片地址",
@@ -179,7 +181,8 @@ addMenuPlus 是一个非常强大的定制菜单的 uc 脚本。通过配置文�
     image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jbWTLw6DMBjFfwaDmauq5QhY9C4wyQWQOA6whAtwBS6wO0xOzeKQO8REH6EUwsqWvaRpk37vT7+28AfYX8gZ8NIcIgf6GJESGAATpBqAc2ySFrgDCZACD6CKJU/oNW5Ad5SMnEdc9OQbgQp4SqA8QsyAWu6W+WZaoPhEblQ8sGxah+vFKKHdyFbFl0C4A064G6lDsmV+QIWc0o19G6xXDkbxffcJtdyNaht/0z/jKp6Hq2pWbyPDNSffIU8oJLT1X47jDR7gLDGf5CLwAAAAAElFTkSuQmCC"
     },
     
-示例：Email地址左中右鍵
+示例：Email地址左中右鍵<br/>
+<p align="center"><img src="img/email.jpg"></p>
 
     {
     label: "Email地址",
@@ -208,7 +211,8 @@ addMenuPlus 是一个非常强大的定制菜单的 uc 脚本。通过配置文�
     image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAuElEQVQ4jc3SIQ7CQBCF4S8hQWCQKBQah+sJENwAj0UiuQAGjeQEWCwai8RhUPgmRXRICpRCMTDJbHY2+/55mV3+IcZIkdXMFEO4RHZrNJ3giJOgTXFA5wPxKIS90OYL5tijXSHu44xB1HcAWGKLVom4G7ZHhbMnAKyxQaNw1gp3s4e7pYBmANZRN6JelrgqBdw67rAK0PbB0VsA+TAXka8GWwn4JDLyN02+ECehNYxN3a98Cu2P4wq1e0SOXg0ncwAAAABJRU5ErkJggg=="
     }
 
-示例：插入BBCode左中右鍵
+示例：插入BBCode左中右鍵<br/>
+<p align="center"><img src="img/bbcode.jpg"></p>
 
     {
     label: "插入BBCode",
