@@ -4,6 +4,6 @@ by 527836355<br/>
 原貼：http://tieba.baidu.com/p/2611038360
 - 加入腳本表頭，對腳本進行描述，补充相關資料
 
-![head](img/head.jpg)
+<p align="center"><img width="650" src="img/head.jpg"></p>
 
-![preview](img/preview.jpg)
+<p align="center"><img width="650" src="img/preview.jpg"></p>
