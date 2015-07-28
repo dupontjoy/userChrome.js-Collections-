@@ -108,14 +108,6 @@ del %TempFolder%\extensions\support@lastpass.com\platform\Darwin\  /s /q
 del %TempFolder%\extensions\support@lastpass.com\platform\Darwin_x86_64-gcc3\  /s /q
 del %TempFolder%\extensions\support@lastpass.com\platform\Linux_x86_64-gcc3\  /s /q
 del %TempFolder%\extensions\support@lastpass.com\platform\Linux_x86-gcc3\  /s /q
-del %TempFolder%\gm_scripts\picviewer_CE.db  /s /q
-del %TempFolder%\gm_scripts\picviewer_CE.db-shm  /s /q
-del %TempFolder%\gm_scripts\picviewer_CE.db-wal  /s /q
-del %TempFolder%\gm_scripts\YouTube_Auto_Buffer_&_Auto_HD.db  /s /q
-del %TempFolder%\gm_scripts\繞過站點等待、識別碼及登錄.db  /s /q
-del %TempFolder%\gm_scripts\跳过网站等待、验证码及登录.db  /s /q
-del %TempFolder%\gm_scripts\繞過站點等待、識別碼及登錄.db-shm  /s /q
-del %TempFolder%\gm_scripts\跳过网站等待、验证码及登录.db-wal  /s /q
 
 ::以下是文件
 ::bookmarks.html：自動导出的书签備份。
@@ -289,14 +281,6 @@ del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Darwin\  /s /
 del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Darwin_x86_64-gcc3\  /s /q
 del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Linux_x86_64-gcc3\  /s /q
 del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Linux_x86-gcc3\  /s /q
-del %TempFolder%\Profiles\gm_scripts\picviewer_CE.db  /s /q
-del %TempFolder%\Profiles\gm_scripts\picviewer_CE.db-shm  /s /q
-del %TempFolder%\Profiles\gm_scripts\picviewer_CE.db-wal  /s /q
-del %TempFolder%\Profiles\gm_scripts\YouTube_Auto_Buffer_&_Auto_HD.db  /s /q
-del %TempFolder%\Profiles\gm_scripts\繞過站點等待、識別碼及登錄.db  /s /q
-del %TempFolder%\Profiles\gm_scripts\跳过网站等待、验证码及登录.db  /s /q
-del %TempFolder%\Profiles\gm_scripts\繞過站點等待、識別碼及登錄.db-shm  /s /q
-del %TempFolder%\Profiles\gm_scripts\跳过网站等待、验证码及登录.db-wal  /s /q
 
 ::以下是文件
 ::cert_override.txt：储存使用者指定的例外证书(certification exceptions)。
