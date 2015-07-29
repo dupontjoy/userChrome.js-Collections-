@@ -72,3 +72,19 @@ Self Mod：整合幾個自定義規則
 			}
 		}
 	  },
+	  
+示例：Tmart 大图
+
+    {
+    name: 'Tmart 主图',
+    siteExample: 'http://www.tmart.com/2-in-1-Bamboo-Desktop-Stand-Holder-Charger-Dock-for-Apple-Watch-iPhone-Samsung-other-Smartphone_p332289.html',
+    url: /^https?:\/\/www.tmart.com/i,
+    getImage: function() {
+        var oldsrc = this.src,
+        newsrc;
+        var pic = /(.+?image-tmart\.com\/.+)\/(.+)\_60x60.jpg(.+)/;
+        if (pic.test(oldsrc)) {
+            return oldsrc.replace(pic, '$1/$2_800x800.jpg');
+        }
+    }
+    },
