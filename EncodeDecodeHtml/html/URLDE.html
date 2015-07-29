@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>URL編碼 | URL解碼</title>
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAC80lEQVRYhe2UW0gUURjHPwspupARgi89R0S99NBb2EPQQ09RRFIQEcquWJurrqu7zsw5Z2Y3U9OVyltUkqbZVQoKKexKT4VGdEHLVcjW3VlbU9dNt38PuTJKgWj1ND/4MzBwft+c831niExMTEwMyLIolBXuZ0yAMRWcqeBcheAqBNcguGhgjG39Jw5Jkquam1sxMRFDPP4D8Xh8JlNTv579/f0oL6sAY8L6u+ILdrhKFPeVKy2YnJzEt9FRhMM69DkJD4cRnZhALBZD5WkfmJttMhZfsCMzM3OFUD0I6SFERiK43d6O3x1feVkFurq7MBYdQ29vL7jMzyaKL8pRWOjadfFSI75Gwuh6/Qq59vy3KSkp24locyK2E/ZWReFQFAGFiWm5+CWfKaBBcA0q16AKDarwoCDP0WrwbNm3b79SVenDkB6AruvgCu8hh6Mo58bNmwiGB/H4ySPY7QVtRJSc2J3NZkvxeEsRjcYwPh6dd6LRGDThgaFLSUS0WpaUYN9AD4b0QQimRsluL7C2XWvDl5Afz188hdPpum7srcViWevxliIY8WNw+P28Exzpn/sBRERJsqT4e/veIRAagMq175SVlb2ztr4eDx/fR0/fOzCuQpblNMOiJXl5jqaFtMBZWHx59hXluyvKTiOg+/Hm/UswmQ9QamrqKoUJ1NRVYyDwAR0POsC5OjNAjAm4XSWQJAXXb1xF57N7OFVxEgcPHLqb6G9ycvI2a3YO3JITHZ13UNdQh9xcO1wuadYQVvvOoPv1KwSGP6H1WjOcjqImIqKlOTnHyn3VVeCqhM/BjxgZC2N0PDIrkdEQghE/Gpsa4NG8yMjI2GHY3KIdaywWa4uqafCWqqg9X41z9T7cutsykwuNNfCWqpBlGUcOH80nouVz+rsox1IiWrdnz177cduJ7sQddrtKUFzshttVAqaIuCXLej89PX0XEa2cnmoji3YkTb9cT0QbyfAfmM4GIkojomX0Z/6Gw8TExMTk//ITMvlwcO0adboAAAAASUVORK5CYII=" type="image/png">
+    <meta name="keywords" content="URL解碼,URL編碼,URL轉碼,URL Encoder,URL Decoder,URL,網址" />
+    <meta name="description" content="URL 解碼﹑URL 編碼" />
+    <meta name="author" content="Nick! Team and I.T Team" />
+    <meta name="copyright" content="Online Tools." />
+    <style>
+        body {
+            margin: 2px;
+            font-size: 15px
+        }
+        body {
+            background: #f5f5f5;
+            color: #000;
+            clear: both;
+            font-size: 12px;
+            -ms-word-break: break-all;
+            -ms-word-wrap: break-word
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main" style="height:100%;max-width:800px;text-align: center;margin: 0 auto; ">
+        <div class="container">
+            <script type="text/javascript">
+                function encode()
+                {
+                    var obj = document.getElementById('dencoder');
+                    var unencoded = obj.value;
+                    obj.value = encodeURIComponent(unencoded);
+                }
+
+                function decode()
+                {
+                    var obj = document.getElementById('dencoder');
+                    var encoded = obj.value;
+                    obj.value = decodeURIComponent(encoded.replace(/\+/g, " "));
+                }
+            </script>
+            <form onSubmit="return false;">
+                <div class="textarea" style="padding:10px 0;">
+                    <textarea id="dencoder" style="width:100%;height:400px; "></textarea>
+                </div>
+                <input type="button" onClick="encode()" value="URL 編碼" />
+                <input type="button" onClick="decode()" value="URL 解碼" />
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
