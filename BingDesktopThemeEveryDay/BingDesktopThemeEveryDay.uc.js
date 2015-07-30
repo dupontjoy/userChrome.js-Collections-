@@ -8,7 +8,8 @@
 // @downloadURL  https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BingDesktopThemeEveryDay/BingDesktopThemeEveryDay.uc.js
 // @homepageURL  https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/BingDesktopThemeEveryDay
 
-// @note         2015.04.02 09:00 必应美图改到配置文件夹下
+// @note         2015.07.30 修正Bing图下載地址
+// @note         2015.04.02 必应美图改到配置文件夹下
 
 //==/UserScript==
 
@@ -52,7 +53,7 @@ function getDate()
 function init()
 {
 var xhr=new XMLHttpRequest();
-xhr.open('GET','http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&nc='+new Date().getTime(),false);
+xhr.open('GET','http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&nc='+new Date().getTime() + '&pid=hp&scope=web',false);
 
 xhr.onload=function()
 			{
@@ -75,7 +76,7 @@ xhr.onload=function()
 				var path = /*Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfLD", Components.interfaces.nsILocalFile).path*/ Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\必应美图\\" + enddate+'-'+name.replace(/ \(.*?\)/g,'')+ ".jpg";
 				file.initWithPath(path);
 				file.create(Components.interfaces.nsIFile.NOMAL_FILE_TYPE, 0777)		
-				Components.classes["@mozilla.org/embedding/browser/nsWebBrowserPersist;1"].createInstance(Components.interfaces.nsIWebBrowserPersist).saveURI(Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService).newURI(ddd.replace('1366x768','1920x1080'), null, null), null, null, null, null, null, file, null);
+				Components.classes["@mozilla.org/embedding/browser/nsWebBrowserPersist;1"].createInstance(Components.interfaces.nsIWebBrowserPersist).saveURI(Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService).newURI(ddd/*.replace('1366x768','1920x1080')*/, null, null), null, null, null, null, null, file, null);
 				}catch(err){alert(err)};
 				
 				}
