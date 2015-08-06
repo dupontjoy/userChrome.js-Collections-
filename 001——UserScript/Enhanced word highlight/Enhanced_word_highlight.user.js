@@ -1,11 +1,17 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @name           Enhanced word highlight
 // @namespace      http://userscripts.org/users/86496
 // @description    Enhanced keywords highlight for Search Engines and All !
 // @include        http://*
 // @include        https://*
 // @exclude        http://maps.google.com/*
-// @version        1.5.7b
+// @grant          GM_log
+// @grant          GM_xmlhttpRequest
+// @grant          GM_getValue
+// @grant          GM_setValue
+// @grant          GM_openInTab
+// @grant          GM_registerMenuCommand
+// @version        1.5.8
 // ==/UserScript==
 
 // great credit for original script wright os0x [http://userscripts.org/scripts/show/43419]
@@ -13,7 +19,7 @@
 
 //console.time("highlight");
 //var l = function(){var len = arguments.length; var tx=''; for(i=0;i<len;i++){tx += (arguments[i] + '; ');} GM_log(tx.toString())};//+'['+len+']'
-var l = console.log;
+function l(message) {if (typeof console == 'object') {console.log(message)} else {GM_log(message)}}
 (function word_hightlight(loaded){
 	
 	//if (window.top != window.self) return; //don't run on frames or iframes
@@ -247,28 +253,28 @@ var l = console.log;
 // #### Config II #### --------------------------}}
 //}
 
-	var config = {
-		key: {next:'n', prev:'N', srch:'C-/', off:'M-.', clos:'C-M-/', edit:'M-/', rfsh:'r'},
-		delay:500,
-		instant:true,
-		refocus:false,
+	// var config = {
+		// key: {next:'n', prev:'N', srch:'C-/', off:'M-.', clos:'C-M-/', edit:'M-/', rfsh:'r'},
+		// delay:500,
+		// instant:true,
+		// refocus:false,
 		
-		ap_comp: {
-			name: '',
-			val: getv('ap_comp', 0),
-			dom: {label:'LABLE', type:'radio', set:['set1','set2','set3']}
-		},
-		short_w: {
-			name: '',
-			val: getv('short_w', 1),
-			dom: {label:'LABLE', type:'radio', set:['set1','set2','set3']}
-		},
-		sort_kw: {
-			name: '',
-			val: getv('sort_kw', true),
-			dom: {label:'LABLE', type:'checkbox', set:['set1']}
-		}
-	}
+		// ap_comp: {
+			// name: '',
+			// val: getv('ap_comp', 0),
+			// dom: {label:'LABLE', type:'radio', set:['set1','set2','set3']}
+		// },
+		// short_w: {
+			// name: '',
+			// val: getv('short_w', 1),
+			// dom: {label:'LABLE', type:'radio', set:['set1','set2','set3']}
+		// },
+		// sort_kw: {
+			// name: '',
+			// val: getv('sort_kw', true),
+			// dom: {label:'LABLE', type:'checkbox', set:['set1']}
+		// }
+	// }
 
 	
 	// GM APIs available?
@@ -303,13 +309,23 @@ var l = console.log;
 		setTimeout(go, delay);
 	}
 	
+	// var oldurl = window.location.href;
+	// window.addEventListener('DOMNodeInserted', function(e){ l(window.location.href);
+		// if (window.location.href !== oldurl) {
+			// if (load_keyword() !== false || init_keyword() !== false) {
+				
+				// setTimeout(go, delay*2);
+			// }
+		// }
+	// }, false);
+	
 	function go(){
 	setup();
 	
-	// CHECK FOR UPDATE //
+/*	// CHECK FOR UPDATE //
 	if (gm_ok) {var SUC_script_num = 64877;
 	try{function updateCheck(forced){if ((forced) || (parseInt(GM_getValue('SUC_last_update', '0')) + 86400000 <= (new Date().getTime()))){try{GM_xmlhttpRequest({method: 'GET',url: 'http://userscripts.org/scripts/source/'+SUC_script_num+'.meta.js?'+new Date().getTime(),headers: {'Cache-Control': 'no-cache'},onload: function(resp){var local_version, remote_version, rt, script_name;rt=resp.responseText;GM_setValue('SUC_last_update', new Date().getTime()+'');remote_version=parseInt(/@uso:version\s*(.*?)\s*$/m.exec(rt)[1]);local_version=parseInt(GM_getValue('SUC_current_version', '-1'));if(local_version!=-1){script_name = (/@name\s*(.*?)\s*$/m.exec(rt))[1];GM_setValue('SUC_target_script_name', script_name);if (remote_version > local_version){if(confirm(_di.update[_L][0]+script_name+_di.update[_L][1])){GM_openInTab('http://userscripts.org/scripts/show/'+SUC_script_num);GM_setValue('SUC_current_version', remote_version);}}else if (forced)alert(_di.update[_L][2]+script_name+_di.update[_L][3]);}else GM_setValue('SUC_current_version', remote_version+'');}});}catch (err){if (forced)alert(_di.update[_L][4]+err);}}}GM_registerMenuCommand(GM_getValue('SUC_target_script_name', 'BPT') + _di.update[_L][5], function(){updateCheck(true);});updateCheck(false);}catch(err){}
-	}
+	}*/
 	
 	}
 
@@ -375,7 +391,7 @@ var l = console.log;
 		sheet = addCSS([
 			//Additional Style
 			'span[class^="' + PRE + '_word"]{color:black!important;font:inherit!important;display:inline!important;margin:0!important;padding:0!important;text-align:inherit!important;float:none!important;position:static!important;}', //vertical-align:inherit !important;
-			'#' + PRE + '_words, #' + PRE + '_words *{font-family: Arial !important;}',
+			'#' + PRE + '_words, #' + PRE + '_words *{font-family: Arial ;}',
 			'#' + PRE + '_words{line-height:1;position:fixed;z-index:60000;opacity:0.8;list-style-type:none;margin:0;padding:0;width:auto;max-width:100%;' + panel_pos_arr[0] + panel_pos_arr[1] +'}',
 			'#' + PRE + '_words > section{clear:right;line-height:1;border:1px solid #666;/*border-left-width:10px;*/background:#fff;display:block;position:relative;}',
 			'#' + PRE + '_words * {margin:0;padding:0;width:auto;height:auto;}',
@@ -663,6 +679,7 @@ var l = console.log;
 	}
 
 	function resetup() {
+		//if (!setuped) {go(); return;}
 		restore_words();
 		word_lists.forEach(function(item){item.item.parentNode.removeChild(item.item);});
 		highlight(document.body);
@@ -970,7 +987,7 @@ var l = console.log;
 			word_s = (Ewh_configs[3])? uniq(word_s).sort(word_length_Comp) : uniq(word_s);
 			if (Ewh_configs[1]) {
 				for (var i in word_s) {
-					if (/^[a-z0-9]$/i.test(word_s[i]) || (Ewh_configs[1] == 2 && /^[a-z0-9]$/i.test(word_s[i]))) 
+					if (/^[a-z0-9]$/i.test(word_s[i]) || (Ewh_configs[1] == 2 && /^[a-z0-9]{2}$/i.test(word_s[i]))) 
 						words_off[i] = true;
 					else words_off[i] = false;
 				}
@@ -1152,7 +1169,7 @@ var l = console.log;
 	
 	function command_edit() {
 		if (aside.className == 'ewh_edit') {
-			aside.style.width = 'auto';
+//			aside.style.width = 'auto';
 //			edit.value = 'Edit';
 			edit.className = '';
 			edit.title = _ti.edit[_L];
@@ -1174,8 +1191,9 @@ var l = console.log;
 			aside.className = 'ewh_edit';
 			text_input.value = keyword;
 			text_input.focus();
-			text_input.style.width = (Math.max(320,_aside_w) - 130) +'px';
-			aside.style.width = Math.max(320,_aside_w) +'px';
+			var t_width = (Math.max(320,_aside_w) - 135) +'px';
+			text_input.style = 'width:'+t_width+';height:22px;margin:2px 0;font-size:15px;';
+//			aside.style.width = Math.max(320,_aside_w) +'px';
 		}
 	}
 	
@@ -1194,7 +1212,7 @@ var l = console.log;
 			}
 		};
 		var input_position = function(){
-			inputBOX.style.bottom = window.innerHeight - aside.offsetTop + 4 + 'px';
+			inputBOX.style.bottom = '30px' ;//window.innerHeight - aside.offsetTop + 4 + 'px';
 		}
 		var input_comfirm = function(text, bAdd){
 			if (!text && setuped) return;
@@ -1236,7 +1254,7 @@ var l = console.log;
 			'#' + PRE + '_textinputbox input[type=button]{padding:0;display:inline;margin:0.1em 0.2em;background:'+ but_c +';border:1px solid #996666;cursor:pointer;font-size:12pt;color:black;}',
 			'#' + PRE + '_textinputbox label{padding:0;display:inline;}',
 			'#' + PRE + '_textinputbox{border:1px solid #333;margin:0px;padding:0px;position:fixed;bottom:34px;left:5%;z-index:1023;background:#fff;-moz-box-shadow: #333 3px 3px 2px;color:#000;-Webkit-box-shadow: #333 3px 3px 2px;color:#000;font-weight:bold;max-width:70%;font-size:16pt;height:auto;opacity:0.95;}',
-			'#' + PRE + '_textinputbox,#' + PRE + '_textinputbox *{font-family: Arial !important;}',
+			'#' + PRE + '_textinputbox,#' + PRE + '_textinputbox *{font-family: Arial;}',
 			'#' + PRE + '_textinput{border:none;margin:0 0 0 5px;padding:0px;max-width:80%;height:100%;background:#fff;color:#000;font-weight:bold;font-size:inherit;}'
 		].join('\n'));
 		inst_sheet = true;
@@ -1412,11 +1430,13 @@ var l = console.log;
 		window.addEventListener('AutoPatchWork.pageloaded', after_load,false);
 		window.addEventListener('AutoPagerize_DOMNodeInserted', inserted_highlight,false);
 		window.addEventListener('GM_AutoPagerizeNextPageLoaded', after_load,false);
+		window.addEventListener('Super_preloaderPageLoaded', resetup ,false);
 		highlight_reset = function(){
 			window.removeEventListener('AutoPatchWork.DOMNodeInserted', inserted_highlight,false);
 			window.removeEventListener('AutoPatchWork.pageloaded', after_load,false);
 			window.removeEventListener('AutoPagerize_DOMNodeInserted', inserted_highlight,false);
 			window.removeEventListener('GM_AutoPagerizeNextPageLoaded', after_load,false);
+			window.removeEventListener('Super_preloaderPageLoaded', resetup ,false);
 		}
 	}
 

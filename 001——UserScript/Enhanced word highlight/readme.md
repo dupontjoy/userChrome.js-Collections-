@@ -1,0 +1,1 @@
+download link: https://greasyfork.org/zh-TW/scripts/7251-enhanced-word-highlight
