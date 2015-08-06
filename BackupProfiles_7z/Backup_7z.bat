@@ -12,10 +12,10 @@ ECHO.
 ECHO =============================================================================
 ECHO                           備份批處理整合版                           
 ECHO    #+++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++#
-ECHO    # 01、備份Firefox配置文件夾             #02、CingFox完整包制作#       #
+ECHO    # 01、備份Firefox配置文件夾             #02、CingFox完整包制作        #
 ECHO    # 03、備份Plugins和Software文件夾       #04、提取Flash32位插件        #
 ECHO    # 05、備份詞典和user.js到GitHub                                       #
-ECHO    # x、退出                                                             #
+ECHO    #                                                                     #
 ECHO    #+++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++#
 ECHO =============================================================================
 
@@ -25,7 +25,6 @@ if %a%==02 goto CingFox
 if %a%==03 goto Plugins-n-Software
 if %a%==04 goto Flash32
 if %a%==05 goto GitHub
-if %a%==x goto exit
 goto cho
 
 :Profiles
