@@ -590,6 +590,7 @@ cd /d %~dp0
 set dir1=..\..\..
 set dir2=D:\My Documents\GitHub\Customization
 xcopy "%dir1%\persdict.dat" "%dir2%\persdict.dat"  /s /y /i
+xcopy "%dir1%\stylish.sqlite" "%dir2%\stylish.sqlite"  /s /y /i
 xcopy "%dir1%\user.js" "%dir2%\user.js"  /s /y /i
 
 ECHO.&ECHO.備份詞典和user.js到GitHub已完成，請按任意鍵退出！&PAUSE >NUL 2>NUL
