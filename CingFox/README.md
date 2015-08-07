@@ -18,6 +18,11 @@
 ###界面預覧：
 <p align="center"><img width="650" src="img/preview.jpg" ></p>
 
+####注意：
+（頂部請保留足夠间距 ↓）<br/>
+奶酪是把系统的三个按钮隐藏了，然后又新做了3个按钮，由于原来的按钮还在原来的位置，光标移动到相应位置，还是可以最小化/最大化/关闭 操作的。所以需要把标签上边的空隙留的较大，就是为了防止误操作。<br/>
+<p align="center"><img width="650" src="img/system-buttons.jpg"></p>
+
 ####特色功能：
 （左上角Logo ↓）<br/>
 <p align="center"><img src="img/anobtn.jpg"></p>
