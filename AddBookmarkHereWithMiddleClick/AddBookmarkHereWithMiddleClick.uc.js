@@ -14,7 +14,7 @@
 
     var ABHere = {
 
-        isInsertTop: true,          //是否添加在顶部
+        isInsertTop: false,          //是否添加在顶部
 
         init: function () {
             //hook书签文件夹中键
