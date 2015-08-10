@@ -2,7 +2,7 @@
 // @name           picviewerCE-Mod
 // @author         NLF && ywzhaiqi
 // @description    NLF 的围观图修改版
-// @version        2015.07.29
+// @version        2015.08.10
 // version        2014.12.02.0
 // version        4.2.6.1
 // @created        2011-6-15
@@ -26,6 +26,7 @@
 // @exclude       http*://maps.google.com*/*
 // @exclude       *://www.google.*/_/chrome/newtab*
 
+// @note          2015.08.10 添加Banggood 主图
 // @note          2015.07.29 添加Tmart 大圖
 // @note          2015.07.21 添加tradingfloor 大圖
 // @note          2015.07.20 添加iTunes規則，京東主圖規則，天貓主圖規則
@@ -164,14 +165,25 @@ var siteInfo=[
 		// 排除的图片正则
 		// exclude: /weixin_code\.png$/i,
 	},
-	
+	{name: 'Banggood 主图',
+		siteExample: 'http://www.banggood.com/Original-Xiaomi-Mini-Portable-USB-Fan-p-977375.html',
+		url: /^https?:\/\/www.banggood.com/i,
+		getImage: function() {
+			var oldsrc = this.src,
+				newsrc;
+			var pic = /(.+?img\.banggood\.com\/.+)\/(other_items|view)\/(.+)\.jpg(.*)/;
+			if (pic.test(oldsrc)) {
+				return oldsrc.replace(pic, '$1/large/$3.jpg');
+			}
+		}
+	},
 	{name: 'Tmart 主图',
 		siteExample: 'http://www.tmart.com/2-in-1-Bamboo-Desktop-Stand-Holder-Charger-Dock-for-Apple-Watch-iPhone-Samsung-other-Smartphone_p332289.html',
 		url: /^https?:\/\/www.tmart.com/i,
 		getImage: function() {
 			var oldsrc = this.src,
 				newsrc;
-			var pic = /(.+?image-tmart\.com\/.+)\/(.+)\_60x60.jpg(.+)/;
+			var pic = /(.+?image-tmart\.com\/.+)\/(.+)\_60x60.jpg(.*)/;
 			if (pic.test(oldsrc)) {
 				return oldsrc.replace(pic, '$1/$2_800x800.jpg');
 			}
