@@ -2,13 +2,14 @@
 // @description  Tab Plus 标签页增强
 // @include      chrome://browser/content/browser.xul
 
-// 2015.06.16 08:00 加入Copy Gif（直接複製圖像即可）
-// 2015.04.21 14:00 加入滾輪切換，自動聚焦
-// 2015.04.02 10:00 精簡
-// 2015.03.19 16:00 open_in_new_tab更新到GOLF-AT 2.1.20150305版
-// 2015.01.23 21:00 新标签打开『查看图片』
-// 2014.07.26 點擊頁面恢復原來的地址
-// 2014.05.14 修改激活左侧标签
+// 2015.08.10  加入中键书签，GM不关闭菜单
+// 2015.06.16  加入Copy Gif（直接複製圖像即可）
+// 2015.04.21  加入滾輪切換，自動聚焦
+// 2015.04.02  精簡
+// 2015.03.19  open_in_new_tab更新到GOLF-AT 2.1.20150305版
+// 2015.01.23  新标签打开『查看图片』
+// 2014.07.26  點擊頁面恢復原來的地址
+// 2014.05.14  修改激活左侧标签
 // ==/UserScript==
 
 //地址栏、搜索栏、书签菜单、书签工具栏、历史菜单、主页按钮
@@ -156,6 +157,14 @@ window.content.document.addEventListener("click", function (e) {
 document.getElementById("urlbar").handleRevert();
 }, false);
 }, false);
+
+//当地址栏失去焦点后恢复原来的地址
+if (location == "chrome://browser/content/browser.xul") {
+var ub = document.getElementById("urlbar");
+ub.addEventListener("blur", function () {
+this.handleRevert();
+}, false);
+}
     
 //新标签打开『查看图片』
 location == "chrome://browser/content/browser.xul" && document.querySelector("#context-viewimage").setAttribute("oncommand", 'openUILinkIn(gContextMenu.imageURL,"tab")') & document.querySelector("#context-viewbgimage").setAttribute("oncommand", 'openUILinkIn(gContextMenu.bgImageURL,"tab")')
@@ -207,3 +216,15 @@ location == "chrome://browser/content/browser.xul" && document.querySelector("#c
             selection.addRange(ranges[i]);
     }, false);
 })()
+
+/*书签下拉菜单中键不关闭*/
+eval('BookmarksEventHandler.onClick = ' + BookmarksEventHandler.onClick.toString()
+.replace(/if \(node\.localName \=\= \"menupopup"\)\n\s+node\.hidePopup\(\)\;\n\s+else/,''));
+eval('checkForMiddleClick = ' + checkForMiddleClick.toString()
+.replace('closeMenus(event.target);',''));
+
+/*GM中键切换开关不关闭下拉菜单*/
+eval('GM_popupClicked = ' + GM_popupClicked.toString()
+.replace(/\'command\' \=\= aEvent\.type/,"$& \|\| aEvent\.button \=\= 1")
+.replace(/\=\! script\.enabled\;\n/,"$&aEvent.target.setAttribute('checked',script.enabled);\n")
+.replace(/closeMenus/,"if(aEvent\.button \!\= 1) $&"));
