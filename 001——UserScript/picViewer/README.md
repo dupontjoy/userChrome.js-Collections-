@@ -88,3 +88,19 @@ Self Mod：整合幾個自定義規則
         }
     }
     },
+    
+示例：Banggood 大圖
+
+    {
+    name: 'Banggood 主图',
+    siteExample: 'http://www.banggood.com/Original-Xiaomi-Mini-Portable-USB-Fan-p-977375.html',
+    url: /^https?:\/\/www.banggood.com/i,
+    getImage: function() {
+        var oldsrc = this.src,
+        newsrc;
+        var pic = /(.+?img\.banggood\.com\/.+)\/(other_items|view)\/(.+)\.jpg(.*)/;
+        if (pic.test(oldsrc)) {
+            return oldsrc.replace(pic, '$1/large/$3.jpg');
+        }
+    }
+    },
