@@ -228,3 +228,20 @@ eval('GM_popupClicked = ' + GM_popupClicked.toString()
 .replace(/\'command\' \=\= aEvent\.type/,"$& \|\| aEvent\.button \=\= 1")
 .replace(/\=\! script\.enabled\;\n/,"$&aEvent.target.setAttribute('checked',script.enabled);\n")
 .replace(/closeMenus/,"if(aEvent\.button \!\= 1) $&"));
+
+/*stylish中键切换开关不关闭下拉菜单和右键直接打开编辑*/
+eval("stylishOverlay.popupShowing = "+ stylishOverlay.popupShowing.toString()
+.replace(/menuitem\.addEventListener.*/,'\
+menuitem.addEventListener("click", function(event) {\
+if(event.button != 2) {\
+stylishOverlay.toggleStyle(this.stylishStyle);\
+event.target.setAttribute("checked",this.stylishStyle.enabled);\
+event.stopPropagation();\
+}else{\
+stylishCommon.openEditForStyle(this.stylishStyle);\
+closeMenus(this);\
+event.preventDefault();\
+}\
+}, false);'
+)
+); 
