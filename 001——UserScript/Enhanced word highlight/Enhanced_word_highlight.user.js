@@ -12,6 +12,9 @@
 // @grant          GM_openInTab
 // @grant          GM_registerMenuCommand
 // @version        1.5.8
+
+// @note           2015.08 修复百度乱码：http://bbs.kafan.cn/forum.php?mod=redirect&goto=findpost&ptid=1843017&pid=35566607
+
 // ==/UserScript==
 
 // great credit for original script wright os0x [http://userscripts.org/scripts/show/43419]
@@ -942,7 +945,7 @@ function l(message) {if (typeof console == 'object') {console.log(message)} else
 		for (k = 0; k < qspairs.length; k++) {
 			if (qspairs[k].indexOf(urlArr[_e][1]) == 0) {KW = qspairs[k].substring(urlArr[_e][1].length).replace(/\+/g,' '); break;}
 		}//l(KW);
-		if (urlArr[_e][0] =='Baidu' && urlsearch.indexOf('ie=utf-8') == -1) kwtmp = urlDecode(KW);  // 如果是百度且非utf-8
+		if (urlArr[_e][0] =='Baidu' && urlsearch.indexOf('ie=utf-8') == -1) kwtmp = decodeURIComponent(KW);  // 如果是百度且非utf-8
 		else kwtmp = decodeURIComponent(KW);
 		return clean(kwtmp);
 	}
