@@ -2,7 +2,7 @@
 // @name           picviewerCE-Mod
 // @author         NLF && ywzhaiqi
 // @description    NLF 的围观图修改版
-// @version        2015.08.10
+// @version        2015.08.11
 // version        2014.12.02.0
 // version        4.2.6.1
 // @created        2011-6-15
@@ -26,6 +26,7 @@
 // @exclude       http*://maps.google.com*/*
 // @exclude       *://www.google.*/_/chrome/newtab*
 
+// @note          2015.08.11 添加sunsky 主图
 // @note          2015.08.10 添加Banggood 主图
 // @note          2015.07.29 添加Tmart 大圖
 // @note          2015.07.21 添加tradingfloor 大圖
@@ -164,6 +165,19 @@ var siteInfo=[
 		css: '',
 		// 排除的图片正则
 		// exclude: /weixin_code\.png$/i,
+	},
+	
+	{name: 'Sunsky 主图',
+		siteExample: 'http://www.sunsky-online.com/view/423464.htm',
+		url: /^https?:\/\/www.sunsky-online.com/i,
+		getImage: function() {
+			var oldsrc = this.src,
+				newsrc;
+			var pic = /(.+?img\.sunsky-online\.com\/.+)\/(detail|product)_l\/(.+)\.jpg(.*)/;
+			if (pic.test(oldsrc)) {
+				return oldsrc.replace(pic, '$1/$2_raw/$3.jpg');
+			}
+		}
 	},
 	{name: 'Banggood 主图',
 		siteExample: 'http://www.banggood.com/Original-Xiaomi-Mini-Portable-USB-Fan-p-977375.html',

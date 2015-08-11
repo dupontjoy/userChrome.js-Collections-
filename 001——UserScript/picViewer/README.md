@@ -104,3 +104,20 @@ Self Mod：整合幾個自定義規則
         }
     }
     },
+    
+示例：Sunsky 大圖
+
+    {
+    name: 'Sunsky 主图',
+    siteExample: 'http://www.sunsky-online.com/view/423464.htm',
+    url: /^https?:\/\/www.sunsky-online.com/i,
+    getImage: function() {
+        var oldsrc = this.src,
+        newsrc;
+        var pic = /(.+?img\.sunsky-online\.com\/.+)\/(detail|product)_l\/(.+)\.jpg(.*)/;
+        if (pic.test(oldsrc)) {
+            return oldsrc.replace(pic, '$1/$2_raw/$3.jpg');
+        }
+    }
+    },
+
