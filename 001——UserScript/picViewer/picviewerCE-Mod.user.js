@@ -2,7 +2,7 @@
 // @name           picviewerCE-Mod
 // @author         NLF && ywzhaiqi
 // @description    NLF 的围观图修改版
-// @version        2015.08.11
+// @version        2015.08.13
 // version        2014.12.02.0
 // version        4.2.6.1
 // @created        2011-6-15
@@ -26,6 +26,7 @@
 // @exclude       http*://maps.google.com*/*
 // @exclude       *://www.google.*/_/chrome/newtab*
 
+// @note          2015.08.13 添加1688 主图
 // @note          2015.08.11 添加sunsky 主图
 // @note          2015.08.10 添加Banggood 主图
 // @note          2015.07.29 添加Tmart 大圖
@@ -167,6 +168,18 @@ var siteInfo=[
 		// exclude: /weixin_code\.png$/i,
 	},
 	
+	{name: '1688 主图',
+		siteExample: 'http://detail.1688.com/offer/39098650520.html?spm=a261b.2187593.1998088710.147.LB7j1s',
+		url: /^https?:\/\/detail.1688.com/i,
+		getImage: function() {
+			var oldsrc = this.src,
+				newsrc;
+			var pic = /(.+?\.aliimg\.com\/.+)\/(.+)\.(.+x.+).jpg(.*)/;
+			if (pic.test(oldsrc)) {
+				return oldsrc.replace(pic, '$1/$2.jpg');
+			}
+		}
+	},
 	{name: 'Sunsky 主图',
 		siteExample: 'http://www.sunsky-online.com/view/423464.htm',
 		url: /^https?:\/\/www.sunsky-online.com/i,

@@ -121,3 +121,18 @@ Self Mod：整合幾個自定義規則
     }
     },
 
+示例：1688 大圖
+
+    {
+    name: '1688 主图',
+    siteExample: 'http://detail.1688.com/offer/39098650520.html?spm=a261b.2187593.1998088710.147.LB7j1s',
+    url: /^https?:\/\/detail.1688.com/i,
+    getImage: function() {
+        var oldsrc = this.src,
+        newsrc;
+        var pic = /(.+?\.aliimg\.com\/.+)\/(.+)\.(.+x.+).jpg(.*)/;
+        if (pic.test(oldsrc)) {
+            return oldsrc.replace(pic, '$1/$2.jpg');
+        }
+    }
+    },
