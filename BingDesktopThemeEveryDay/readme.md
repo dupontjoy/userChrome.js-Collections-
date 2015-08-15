@@ -9,6 +9,7 @@ by 527836355<br/>
 <p align="center"><img width="650" src="img/preview.jpg"></p>
 
 ——————————————————————
+
 Mod by chromeexe
 
 - 壁纸设置为必应第二天备用的那张
