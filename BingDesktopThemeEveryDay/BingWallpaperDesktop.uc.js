@@ -52,7 +52,7 @@ var bingWallpaperDesktop=function(){
 				var response=JSON.parse(this.responseText),
 					images=response.images[0],
 					enddate=parseInt(images.enddate),
-					imgref=images.vid?'http://cn.bing.com'+images.vid.image:images.url,
+					imgref=images.url.replace(/\d+x\d+/,'1920x1080'),
 					cp=images.copyright,
 					ni=new Image();
 				if(ths.getDDate()<enddate){
