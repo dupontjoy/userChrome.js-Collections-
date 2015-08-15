@@ -47,7 +47,8 @@ var bingWallpaperDesktop=function(){
 		init:function(){
 			var ths=this;
 			var xhr=new XMLHttpRequest();
-			xhr.open('GET','http://cn.bing.com/HPImageArchive.aspx?format=js&idx=-1&n=1&nc='+new Date().getTime()+'&video=1',false);
+			/*xhr.open('GET','http://cn.bing.com/HPImageArchive.aspx?format=js&idx=-1&n=1&nc='+new Date().getTime()+'&video=1',false);*/
+			xhr.open('GET','http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&nc='+new Date().getTime() + '&pid=hp&scope=web',false);
 			xhr.onload=function(){
 				var response=JSON.parse(this.responseText),
 					images=response.images[0],
