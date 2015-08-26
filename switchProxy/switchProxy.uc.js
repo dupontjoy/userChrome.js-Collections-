@@ -14,7 +14,6 @@ var proxySwitcher = new function () {
     //自动重载当前页面
     var autoReload = true;
     //指定代理使用的端口
-    //
     var ports = {"Shadowsocks":1080,"Goagent":8087, "Free Gate":8580,"Psiphon":8080,"Latern":8787,};
     //------------------------------------------------------------------------------------------------------------------
     var nowPac = gPrefService.getCharPref('network.proxy.autoconfig_url');
