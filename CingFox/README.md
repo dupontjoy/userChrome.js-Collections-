@@ -64,11 +64,11 @@
 <p align="center" width="650"><img src="img/folder-structure.jpg"></p>
 一些腳本中定義的相對路徑：<br/>
 （1）setRelativeEditPath.uc.js定义了编辑器的相对位置：<br/>
-<p align="center" width="650"><img src="img/note-1.jpg"></p>
+<p align="center"><img width="650" src="img/note-1.jpg"></p>
 （2）_anoBtn.js定义了左上角FFF Plus按钮中的软件的相对位置：<br/>
-<p align="center" width="650"><img src="img/note-2.jpg"></p>
+<p align="center"><img width="650" src="img/note-2.jpg"></p>
 （3）BackupProfiles_7z.bat定义了配置与Firefox主程序的相对位置：<br/>
-<p align="center" width="650"><img src="img/note-3.jpg"></p>
+<p align="center"><img width="650" src="img/note-3.jpg"></p>
 
 | | |
 | :--- | :--- |
