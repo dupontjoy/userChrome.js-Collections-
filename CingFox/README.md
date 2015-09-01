@@ -50,6 +50,26 @@
 （書籤右鍵菜單 ↓）<br/>
 <p align="center"><img src="img/bookmark-right-menu.jpg"></p>
 
+————————————————————————————————————————————
+++++++++++++++++++++++++++++分割线++++++++++++++++++++++++++++++++
+————————————————————————————————————————————
+###說明：
+1. 直接运行firefox文件夹中的firefox.exe即可<br/>
+2. 換用简体Firefox程式：<br/>
+（1）pcxFirefox+Portable.7z便携：<br/>
+下载pcxFirefox（地址见参考），然后解压Portable.7z中的文件到firefox主程式中去。<br/>
+（2）官方FTP原版+MyFirefox引导<br/>
+3. 請仔细看user.js中参数的说明，酌情删减。<br/>
+4. 配套软件都采用相对路径，请严格按照如下文件夹结构使用。会修改的朋友，可以自定义。<br/>
+<p align="center" width="650"><img src="img/folder-structure.jpg"></p>
+一些腳本中定義的相對路徑：<br/>
+（1）setRelativeEditPath.uc.js定义了编辑器的相对位置：<br/>
+<p align="center" width="650"><img src="img/note-1.jpg"></p>
+（2）_anoBtn.js定义了左上角FFF Plus按钮中的软件的相对位置：<br/>
+<p align="center" width="650"><img src="img/note-2.jpg"></p>
+（3）BackupProfiles_7z.bat定义了配置与Firefox主程序的相对位置：<br/>
+<p align="center" width="650"><img src="img/note-3.jpg"></p>
+
 | | |
 | :--- | :--- |
 | **詳細說明及發佈地址** | http://bbs.kafan.cn/thread-1792671-1-1.html |
