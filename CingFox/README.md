@@ -61,7 +61,7 @@
 （2）官方FTP原版+MyFirefox引导<br/>
 3. 請仔细看user.js中参数的说明，酌情删减。<br/>
 4. 配套软件都采用相对路径，请严格按照如下文件夹结构使用。会修改的朋友，可以自定义。<br/>
-<p align="center" width="650"><img src="img/folder-structure.jpg"></p>
+<p align="center"><img width="650" src="img/folder-structure.jpg"></p>
 一些腳本中定義的相對路徑：<br/>
 （1）setRelativeEditPath.uc.js定义了编辑器的相对位置：<br/>
 <p align="center"><img width="650" src="img/note-1.jpg"></p>
