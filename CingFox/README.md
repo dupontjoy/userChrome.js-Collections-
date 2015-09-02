@@ -18,6 +18,12 @@
 ###界面預覧：
 <p align="center"><img width="650" src="img/preview.jpg" ></p>
 
+<p align="center"><img width="650" src="img/addon-page.jpg" ></p>
+
+<p align="center"><img width="650" src="img/web-page.jpg" ></p>
+
+<p align="center"><img width="650" src="img/youtube.jpg" ></p>
+
 ####特色功能：
 （左上角Logo ↓）<br/>
 <p align="center"><img src="img/anobtn.jpg"></p>
