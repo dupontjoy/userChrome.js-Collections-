@@ -3,7 +3,7 @@ by Aunsen
 
 ###使用方法：
 第1步、解压后，把myNewTab整个文件夹复制到content文件夹下面，如图：<br/> 
-<img width="650" src="img/position.jpg">
+<p alighn="center"><img width="650" src="img/position.jpg"></p>
 
 第2步、修改这两条参数：
 
@@ -11,4 +11,4 @@ by Aunsen
     user_pref("browser.newtab.url", "chrome://userchromejs/content/sunbox-NewTab/index.html");//本地Html
 
 大功告成！效果图：<br/>
-<img width="650" src="img/sunbox-NewTab.jpg">
+<p alighn="center"><img width="650" src="img/sunbox-NewTab.jpg"></p>
