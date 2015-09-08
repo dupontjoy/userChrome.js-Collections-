@@ -1,7 +1,7 @@
 ##Simple Proxy
 by jc3213
 
-From: http://bbs.kafan.cn/thread-1851504-1-1.html
+From: 8724552
 
 功能：<br/>
 - Folder为扩展所读取的文件夹。此项默认为空，返回 用户档案\Simple Proxy\ 文件夹。
@@ -11,3 +11,4 @@ From: http://bbs.kafan.cn/thread-1851504-1-1.html
 
 注意：<br/>
 - 更改代理列表后，先禁用再启用此扩展，即可生效
+- -c为精简版，只保留一个服务器
