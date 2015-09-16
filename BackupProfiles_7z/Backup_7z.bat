@@ -16,7 +16,7 @@ ECHO                           備份批處理整合版
 ECHO    #+++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++#
 ECHO    # 01、備份Firefox配置文件夾             #02、CingFox完整包制作        #
 ECHO    # 03、備份Plugins和Software文件夾       #04、提取Flash32位插件        #
-ECHO    # 05、備份詞典和user.js到GitHub                                       #
+ECHO    # 05、備份一些文件到GitHub                                            #
 ECHO    #                                                                     #
 ECHO    #+++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++#
 ECHO =============================================================================
@@ -570,7 +570,7 @@ ECHO.
 ECHO.
 ECHO    **********************************
 ECHO.
-ECHO        備份詞典和user.js到GitHub
+ECHO        備份一些文件到GitHub
 ECHO.
 ECHO                1.执行
 ECHO.
@@ -585,12 +585,18 @@ If ErrorLevel 2 If Not ErrorLevel 3 Goto menu
 
 :GitHub-1
 MODE con: COLS=80 LINES=25
-Title 備份詞典和user.js到GitHub by Cing
+Title 備份一些文件到GitHub by Cing
 echo.
-echo    *** 備份詞典和user.js到GitHub ***
+echo    *** 備份一些文件到GitHub ***
 echo.
 echo ============================================================
 echo    **注意：
+echo.
+echo    1. 個人參數設置：user.js
+echo.
+echo    2. 詞典：persdict.dat
+echo.
+echo    3. Stylish樣式庫：stylish.sqlite
 echo.
 echo    By Cing(Dupontjoy)
 echo.
@@ -603,15 +609,11 @@ rem 設置備份路徑以及臨時文件夾
 cd /d %~dp0
 set dir1=..\..\..
 set dir2=D:\My Documents\GitHub\Customization
-set dir3=D:\Program Files
 xcopy "%dir1%\persdict.dat" "%dir2%\persdict.dat"  /s /y /i
 xcopy "%dir1%\stylish.sqlite" "%dir2%\stylish.sqlite"  /s /y /i
 xcopy "%dir1%\user.js" "%dir2%\user.js"  /s /y /i
-xcopy "%dir3%\WindowTabs\WindowTabsSettings.txt" "%dir2%\WindowTabsSettings.txt"  /s /y /i
-xcopy "%dir3%\WindowTabs-V650\settings.dat" "%dir2%\settings.dat"  /s /y /i
-xcopy "%dir3%\System Tools\ProcessLassoPortable\prolasso.ini" "%dir2%\prolasso.ini"  /s /y /i
 
-ECHO.&ECHO.備份詞典和user.js到GitHub已完成，請按任意鍵退出！&PAUSE >NUL 2>NUL
+ECHO.&ECHO.備份一些文件到GitHub已完成，請按任意鍵退出！&PAUSE >NUL 2>NUL
 
 Goto end
 
