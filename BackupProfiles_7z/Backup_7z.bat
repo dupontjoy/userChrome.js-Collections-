@@ -141,6 +141,8 @@ xcopy "%BackDir%\readme.txt" %TempFolder%\ /y
 xcopy "%BackDir%\stylish.sqlite" %TempFolder%\ /y
 ::user.js：使用者自订的設定，在这里的設定覆盖prefs.js的設定。
 xcopy "%BackDir%\user.js" %TempFolder%\ /y
+::xulstore.json：界面的一些状态。
+xcopy "%BackDir%\xulstore.json" %TempFolder%\ /y
 
 ::讀取版本號和日期及時間
 ::从批处理所在位置到Firefox程序文件夹（firefox），共跨了4层
@@ -304,6 +306,8 @@ xcopy "%BackDir%\Profiles\readme.txt" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\Profiles\stylish.sqlite" %TempFolder%\Profiles\ /y
 ::user.js：使用者自订的設定，在这里的設定覆盖prefs.js的設定。
 xcopy "%BackDir%\Profiles\user.js" %TempFolder%\Profiles\ /y
+::xulstore.json：界面的一些状态。
+xcopy "%BackDir%\xulstore.json" %TempFolder%\ /y
 
 ::讀取版本號和日期及時間
 ::从批处理所在位置到Firefox程序文件夹（firefox），共跨了4层
