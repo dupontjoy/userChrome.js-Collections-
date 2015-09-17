@@ -1,0 +1,1 @@
+原贴地址：http://opera.im/archives/original_size_image_js_v3/
