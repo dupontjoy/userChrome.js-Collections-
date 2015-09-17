@@ -1,5 +1,5 @@
 
-::2015.09.16  精簡
+::2015.09.17  精簡
 ::2015.08.08  可選擇Flash下載地址
 ::2015.07.14  添加備份詞典和user.js到GitHub
 ::2015.07.14  更新Flash下载地址
@@ -125,6 +125,8 @@ xcopy "%BackDir%\mimeTypes.rdf" %TempFolder%\ /y
 xcopy "%BackDir%\MyFirefox.7z" %TempFolder%\ /y
 ::patternSubscriptions.json：FoxyProxy的訂閱列表設置。
 ::xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\ /y
+::permissions.sqlite：存放特定网站是否可存取密码、cookies、弹出视窗、图片载入与附加元件……等权限的资料库。
+xcopy "%BackDir%\permissions.sqlite" %TempFolder%\ /y
 ::persdict.dat：个人的拼字字典。
 xcopy "%BackDir%\persdict.dat" %TempFolder%\ /y
 ::pluginreg.dat：用于plugin的MIME types。
@@ -290,6 +292,8 @@ xcopy "%BackDir%\Profiles\mimeTypes.rdf" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\Profiles\MyFirefox.7z" %TempFolder%\Profiles\ /y
 ::patternSubscriptions.json：FoxyProxy的訂閱列表設置。
 ::xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\ /y
+::permissions.sqlite：存放特定网站是否可存取密码、cookies、弹出视窗、图片载入与附加元件……等权限的资料库。
+xcopy "%BackDir%\permissions.sqlite" %TempFolder%\ /y
 ::persdict.dat：个人的拼字字典。
 xcopy "%BackDir%\Profiles\persdict.dat" %TempFolder%\Profiles\ /y
 ::pluginreg.dat：用于plugin的MIME types。
