@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
 // @name        解除右键限制
 // @namespace   no
-// @description 只是解除右键，并没有解除选中限制，所以在有的网站不能选中复制文字。
+// @description 只是解除右键，并没有解除选中限制，所以在有的网站不能选中复制文字。开关型的小书签，比较强力，能解除CSS鼠标限制，再次点击以关闭效果。
 // @include     http*://*.terapeak.com*
 // @author      Cing
 // @version     2015.09.17
