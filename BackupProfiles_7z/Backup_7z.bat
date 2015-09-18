@@ -1,5 +1,5 @@
 
-::2015.09.17  精簡
+::2015.09.18  優化輸出地址
 ::2015.08.08  可選擇Flash下載地址
 ::2015.07.14  添加備份詞典和user.js到GitHub
 ::2015.07.14  更新Flash下载地址
@@ -76,6 +76,8 @@ cd /d %~dp0
 ::从批处理所在位置到配置文件夹（Profiles），共跨了3层
 set BackDir=..\..\..
 set TempFolder=..\..\..\Temp\Profiles
+::備份輸出地址
+set TargetFolder="D:\My Documents\Baiduyun\Firefox\Profiles"
 
 taskkill /im firefox.exe
 
@@ -157,15 +159,17 @@ set tm4=%time:~0,8%
 set da1=%date:~0,4%
 set da2=%date:~5,2%
 set da3=%date:~8,2%
-set ArchiveName=D:\Profiles_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
+::輸出文件名
+set Name=Profiles_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
 
 ::小時數小于10点時的修正
 set /a tm1=%time:~0,2%*1
 if %tm1% LSS 10 set tm1=0%tm1%
-set ArchiveName=D:\Profiles_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
+::輸出文件名
+set Name=Profiles_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
 
 rem 開始備份
-7z.exe u -up1q3r2x2y2z2w2 %ArchiveName% "%TempFolder%"
+7z.exe u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 
@@ -223,6 +227,8 @@ cd /d %~dp0
 ::从批处理所在位置到Mozilla Firefox大文件夾，共跨了4层
 set BackDir=..\..\..\..
 set TempFolder=..\..\..\..\CingFox
+::CingFox輸出地址
+set TargetFolder="D:"
 
 taskkill /im firefox.exe
 
@@ -322,15 +328,17 @@ set tm4=%time:~0,8%
 set da1=%date:~0,4%
 set da2=%date:~5,2%
 set da3=%date:~8,2%
-set ArchiveName=D:\CingFox_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
+::輸出文件名
+set Name=CingFox_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
 
 ::小時數小于10点時的修正
 set /a tm1=%time:~0,2%*1
 if %tm1% LSS 10 set tm1=0%tm1%
-set ArchiveName=D:\CingFox_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
+::輸出文件名
+set Name=CingFox_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
 
 rem 開始備份
-7z.exe u -up1q3r2x2y2z2w2 %ArchiveName% "%TempFolder%"
+7z.exe u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 
