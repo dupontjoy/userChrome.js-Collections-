@@ -1,5 +1,5 @@
 
-::2015.09.18  優化輸出地址
+::2015.09.20  優化輸出地址
 ::2015.08.08  可選擇Flash下載地址
 ::2015.07.14  添加備份詞典和user.js到GitHub
 ::2015.07.14  更新Flash下载地址
@@ -98,6 +98,8 @@ xcopy "%BackDir%\extension-data" %TempFolder%\extension-data\ /s /y /i
 xcopy "%BackDir%\gm_scripts" %TempFolder%\gm_scripts\ /s /y /i
 ::Plugins：便携版插件。
 xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\ /s /y /i
+::SimpleProxy：SimpleProxy代理列表。
+xcopy "%BackDir%\SimpleProxy" %TempFolder%\SimpleProxy\ /s /y /i
  
 ::需要刪除的项
 del %TempFolder%\chrome\UserScriptLoader\require\  /s /q
@@ -141,7 +143,7 @@ xcopy "%BackDir%\prefs.js" %TempFolder%\ /y
 xcopy "%BackDir%\readme.txt" %TempFolder%\ /y
 ::stylish.sqlite：Stylish样式數据库。
 xcopy "%BackDir%\stylish.sqlite" %TempFolder%\ /y
-::user.js：使用者自订的設定，在这里的設定覆盖prefs.js的設定。
+::user.js：使用者自订的設定，在这里的設定覆盖默认設定。
 xcopy "%BackDir%\user.js" %TempFolder%\ /y
 ::xulstore.json：界面的一些状态。
 xcopy "%BackDir%\xulstore.json" %TempFolder%\ /y
@@ -271,6 +273,8 @@ xcopy "%BackDir%\Profiles\extension-data" %TempFolder%\Profiles\extension-data\ 
 xcopy "%BackDir%\Profiles\gm_scripts" %TempFolder%\Profiles\gm_scripts\ /s /y /i
 ::Plugins：便携版插件。
 xcopy "%BackDir%\Profiles\Plugins" %TempFolder%\Profiles\Plugins\ /s /y /i
+::SimpleProxy：SimpleProxy代理列表。
+xcopy "%BackDir%\SimpleProxy" %TempFolder%\SimpleProxy\ /s /y /i
 
 ::需要刪除的项
 del %TempFolder%\Profiles\chrome\UserScriptLoader\require\  /s /q
@@ -306,11 +310,13 @@ xcopy "%BackDir%\Profiles\persdict.dat" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\Profiles\pluginreg.dat" %TempFolder%\Profiles\ /y
 ::Portable.7z：PCXFirefox的便携設置。
 xcopy "%BackDir%\Profiles\Portable.7z" %TempFolder%\Profiles\ /y
+::prefs.js：About:config中儲存的設定。
+xcopy "%BackDir%\prefs.js" %TempFolder%\ /y
 ::readme.txt：个人配置修改说明。
 xcopy "%BackDir%\Profiles\readme.txt" %TempFolder%\Profiles\ /y
 ::stylish.sqlite：Stylish样式數据库。
 xcopy "%BackDir%\Profiles\stylish.sqlite" %TempFolder%\Profiles\ /y
-::user.js：使用者自订的設定，在这里的設定覆盖prefs.js的設定。
+::user.js：使用者自订的設定，在这里的設定覆盖默认設定。
 xcopy "%BackDir%\Profiles\user.js" %TempFolder%\Profiles\ /y
 ::xulstore.json：界面的一些状态。
 xcopy "%BackDir%\xulstore.json" %TempFolder%\ /y
