@@ -2,10 +2,9 @@
 // @description  Tab Plus 标签页增强
 // @include      chrome://browser/content/browser.xul
 
-// 2015.08.10  加入中键书签，GM不关闭菜单
+// 2015.09.20  加入中键书签，GM不关闭菜单
 // 2015.06.16  加入Copy Gif（直接複製圖像即可）
-// 2015.04.21  加入滾輪切換，自動聚焦
-// 2015.04.02  精簡
+// 2015.04.21  加入滾輪切換
 // 2015.03.19  open_in_new_tab更新到GOLF-AT 2.1.20150305版
 // 2015.01.23  新标签打开『查看图片』
 // 2014.07.26  點擊頁面恢復原來的地址
@@ -128,28 +127,10 @@ function IsInSideBar(target)
 
 })();
 
-//标签页关闭后激活左侧标签页
-(function() {
-    try {
-        if(!gBrowser) return;
-    }catch(e) {
-        return;
-    }
-
-    gBrowser.tabContainer.addEventListener("TabClose", tabCloseHandler, false);
-
-    function tabCloseHandler(event) {
-        var tab = event.target;
-                // 如果是因下载而产生的空白页
-                if (tab.linkedBrowser.contentDocument.URL == 'about:blank') return;
-                if (tab._tPos <= gBrowser.mTabContainer.selectedIndex){
-                        if (tab.previousSibling) {
-                                gBrowser.mTabContainer.selectedIndex--;
-                        }
-                }
-    }
-
-})();
+// 关闭当前标签页回到左边标签
+try {
+eval("gBrowser._blurTab = " + gBrowser._blurTab.toString().replace('this.selectedTab = tab;', "this.selectedTab = aTab.previousSibling? aTab.previousSibling : tab;"));
+}catch(e){};
 
 //點擊頁面恢復原來的地址
 gBrowser.addEventListener("DOMWindowCreated", function () {
@@ -174,26 +155,15 @@ location == "chrome://browser/content/browser.xul" && document.querySelector("#c
         this.advanceSelectedTab(event.detail > 0 ? +1 : -1, true);
     }, true);
 
-/*
-//鼠标停留标签自动聚焦
-     (document.getElementById("tabbrowser-tabs") || gBrowser.mTabBox).addEventListener('mouseover',
-    function self(e) {
-        if ((self.target = e.target).localName === 'tab') {
-            if (!self.timeoutID) {
-                this.addEventListener('mouseout',
-                function() {
-                    clearTimeout(self.timeoutID);
-                },
-                false);
-            }
-            self.timeoutID = setTimeout(function() {
-                gBrowser.selectedTab = self.target;
-            },
-            50);
-        }
-    },
-    false); 
-*/
+//自动关闭下载产生的空白标签
+eval("gBrowser.mTabProgressListener = " + gBrowser.mTabProgressListener.toString().replace(/(?=var location)/, '\
+if (aWebProgress.DOMWindow.document.documentURI == "about:blank"\
+&& aRequest.QueryInterface(nsIChannel).URI.spec != "about:blank") {\
+aWebProgress.DOMWindow.setTimeout(function() {\
+!aWebProgress.isLoadingDocument && aWebProgress.DOMWindow.close();\
+}, 100);\
+}\
+'));
 
 //CopyGIF by kidzgy
 (function () {
