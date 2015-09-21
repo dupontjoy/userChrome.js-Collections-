@@ -4,7 +4,7 @@ by RunningCheese
 
 ###使用方法：
 第1步、解压后，把newtab-images整个文件夹复制到content文件夹下面，如图：<br/> 
-<img width="650" src="img/position.jpg">
+<p align="center"><img width="650" src="img/position.jpg"></p>
 
 第2步、修改以下参数：
 
@@ -17,4 +17,4 @@ by RunningCheese
 第3步、将UI-New Tab.css写入Stylish扩展
 
 最終效果圖：<br/>
-<img width="650" src="img/preview.jpg">
+<p align="center"><img width="650" src="img/preview.jpg"></p>
