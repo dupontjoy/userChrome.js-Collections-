@@ -1,5 +1,5 @@
 
-::2015.09.20  優化輸出地址
+::2015.09.21  優化輸出地址
 ::2015.08.08  可選擇Flash下載地址
 ::2015.07.14  添加備份詞典和user.js到GitHub
 ::2015.07.14  更新Flash下载地址
@@ -117,6 +117,8 @@ del %TempFolder%\extensions\support@lastpass.com\platform\Linux_x86-gcc3\  /s /q
 ::以下是文件
 ::bookmarks.html：自動导出的书签備份。
 xcopy "%BackDir%\bookmarks.html" %TempFolder%\ /y
+::cert_override.txt：储存使用者指定的例外证书(certification exceptions)。
+xcopy "%BackDir%\cert_override.txt" %TempFolder%\ /y
 ::cert8.db：安全证书。
 xcopy "%BackDir%\cert8.db" %TempFolder%\ /y
 ::FlashGot.exe：FlashGot的下载工具。
@@ -290,6 +292,8 @@ del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Linux_x86_64-
 del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Linux_x86-gcc3\  /s /q
 
 ::以下是文件
+::cert_override.txt：储存使用者指定的例外证书(certification exceptions)。
+xcopy "%BackDir%\cert_override.txt" %TempFolder%\ /y
 ::cert8.db：安全证书。
 xcopy "%BackDir%\Profiles\cert8.db" %TempFolder%\Profiles\ /y
 ::FlashGot.exe：FlashGot的下载工具。
