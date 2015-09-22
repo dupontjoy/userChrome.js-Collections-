@@ -1,10 +1,9 @@
 #Simple Proxy
 
---
 
 ##How to use
 
-- 0) Simple Proxy will not override your Firefox proxy settings
+- 0) Simple Proxy will not override proxy settings of Firefox 
 - 1) Full compatibility with Auto-proxy Rulelist
   - 1.1) Supports file extension with alphabet only
 - 2) Server must match the form of server protocol::server adress::server port
@@ -21,7 +20,9 @@
   - 5.1) profile stands for Profile\SimpleProxy\
   - 5.2) firefox stands for Mozilla Firefox\browser\SimpleProxy\
   - 5.3) winuser stands for %UserProfile%\SimpleProxy\
-- 6) If you've manually updated the rulelists, you need to click the "Reload All List" button in about:addons
+- 6) You can modify your rules by click "Edit Rulelist **"
+  - 6.1) Rulelist will auto-reload when "Editor" window is closed
+  - 6.2) Subscriptions can not be modified.
 - 7) You can clear the profile which is no longer in use by press "Clear Profile **"
 
 --
@@ -45,5 +46,7 @@
   - 5.1) profile 代表 Profile\SimpleProxy\
   - 5.2) firefox 代表 Mozilla Firefox\browser\SimpleProxy\
   - 5.3) winuser 代表 %UserProfile%\SimpleProxy\
-- 6） 如果你手动更新了规则表，那么你需要单击 about:addons 页面的 重新载入所有列表 按钮
+- 6) 可以通过点击 编辑规则** 来修改你的规则
+  - 6.1) 编辑器 窗口关闭后规则会自动重新加载。
+  - 6.2) 订阅规则无法被修改
 - 7） 你可以通过点击 清除档案** 来清理掉不再使用的档案
