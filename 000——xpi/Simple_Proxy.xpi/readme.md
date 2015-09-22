@@ -21,7 +21,8 @@
   - 5.2) firefox stands for Mozilla Firefox\browser\SimpleProxy\
   - 5.3) winuser stands for %UserProfile%\SimpleProxy\
 - 6) You can modify your rules by click "Edit Rulelist **"
-  - 6.1) Rulelist will auto-reload when "Editor" window is closed
+  - 6.1) Rulelist will auto-reload when close button of "editor" is clicked
+    - 6.1.1) You need to click "save" before you close the "editor" if any modification is done
   - 6.2) Subscriptions can not be modified.
 - 7) You can clear the profile which is no longer in use by press "Clear Profile **"
 
@@ -47,6 +48,7 @@
   - 5.2) firefox 代表 Mozilla Firefox\browser\SimpleProxy\
   - 5.3) winuser 代表 %UserProfile%\SimpleProxy\
 - 6) 可以通过点击 编辑规则** 来修改你的规则
-  - 6.1) 编辑器 窗口关闭后规则会自动重新加载。
+  - 6.1) 当你点击 编辑器 窗口的 关闭 按钮时规则便会自动重新加载。
+    - 6.1.1) 如果你有修改规则，你需要先点击 保存 按钮，然后才能关闭 编辑器 窗口。
   - 6.2) 订阅规则无法被修改
 - 7） 你可以通过点击 清除档案** 来清理掉不再使用的档案
