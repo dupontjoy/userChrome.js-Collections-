@@ -1,5 +1,5 @@
 
-::2015.09.24  開啟7zip極限壓縮
+::2015.09.26  開啟7zip極限壓縮
 ::2015.09.23  優化輸出地址
 ::2015.08.08  可選擇Flash下載地址
 ::2015.07.14  添加備份詞典和user.js到GitHub
@@ -141,7 +141,7 @@ xcopy "%BackDir%\pluginreg.dat" %TempFolder%\ /y
 ::Portable.7z：PCXFirefox的便携設置。
 xcopy "%BackDir%\Portable.7z" %TempFolder%\ /y
 ::prefs.js：About:config中儲存的設定。
-xcopy "%BackDir%\prefs.js" %TempFolder%\ /y
+::xcopy "%BackDir%\prefs.js" %TempFolder%\ /y
 ::readme.txt：个人配置修改说明。
 xcopy "%BackDir%\readme.txt" %TempFolder%\ /y
 ::stylish.sqlite：Stylish样式數据库。
@@ -317,7 +317,7 @@ xcopy "%BackDir%\Profiles\pluginreg.dat" %TempFolder%\Profiles\ /y
 ::Portable.7z：PCXFirefox的便携設置。
 xcopy "%BackDir%\Profiles\Portable.7z" %TempFolder%\Profiles\ /y
 ::prefs.js：About:config中儲存的設定。
-xcopy "%BackDir%\Profiles\prefs.js" %TempFolder%\Profiles\ /y
+::xcopy "%BackDir%\Profiles\prefs.js" %TempFolder%\Profiles\ /y
 ::readme.txt：个人配置修改说明。
 xcopy "%BackDir%\Profiles\readme.txt" %TempFolder%\Profiles\ /y
 ::stylish.sqlite：Stylish样式數据库。
