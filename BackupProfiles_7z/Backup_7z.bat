@@ -403,6 +403,8 @@ cd /d %~dp0
 ::从批处理所在位置到Plugins和Software文件夾，只跨了4层
 set BackDir=..\..\..\..\
 set TempFolder=..\..\..\..\Plugins-n-Software
+::輸出地址
+set TargetFolder="D:\My Documents\Baiduyun\Firefox\Profiles\Software & Plugins"
 
 rem 复制目标文件到臨時文件夾
 
@@ -431,16 +433,16 @@ set tm4=%time:~0,8%
 set da1=%date:~0,4%
 set da2=%date:~5,2%
 set da3=%date:~8,2%
-set ArchiveName=D:\Plugins-n-Software_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
+set Name=Plugins-n-Software_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 
 ::小時數小于10点時的修正
 set /a tm1=%time:~0,2%*1
 if %tm1% LSS 10 set tm1=0%tm1%
-set ArchiveName=D:\Plugins-n-Software_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
+set Name=Plugins-n-Software_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
-7z.exe -mx9 -mhc -r u -up1q3r2x2y2z2w2 %ArchiveName% "%TempFolder%"
+7z.exe -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 
