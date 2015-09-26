@@ -86,7 +86,7 @@ rem 复制目标文件到臨時文件夾
 
 ::以下是文件夾
 ::adblockplus：ABP規則備份。
-xcopy "%BackDir%\adblockplus" %TempFolder%\adblockplus\  /s /y /i
+::xcopy "%BackDir%\adblockplus" %TempFolder%\adblockplus\  /s /y /i
 ::autoproxy：Autoproxy規則備份。
 xcopy "%BackDir%\autoproxy" %TempFolder%\autoproxy\  /s /y /i
 ::chrome：UC腳本。
@@ -264,7 +264,7 @@ rem 复制目标文件到臨時文件夾
 
 ::以下是文件夾
 ::adblockplus：ABP規則備份。
-xcopy "%BackDir%\Profiles\adblockplus" %TempFolder%\Profiles\adblockplus\  /s /y /i
+::xcopy "%BackDir%\Profiles\adblockplus" %TempFolder%\Profiles\adblockplus\  /s /y /i
 ::autoproxy：Autoproxy規則備份。
 xcopy "%BackDir%\Profiles\autoproxy" %TempFolder%\Profiles\autoproxy\  /s /y /i
 ::chrome：UC腳本。
