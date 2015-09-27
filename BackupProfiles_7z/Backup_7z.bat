@@ -1,6 +1,6 @@
 
+::2015.09.27  優化輸出地址
 ::2015.09.26  開啟7zip極限壓縮
-::2015.09.23  優化輸出地址
 ::2015.08.08  可選擇Flash下載地址
 ::2015.07.14  添加備份詞典和user.js到GitHub
 ::2015.07.14  更新Flash下载地址
@@ -552,6 +552,8 @@ goto set
 cd /d %~dp0
 set BackDir=C:\Windows\SysWOW64\Macromed\Flash
 set TempFolder=D:\Flash32
+::輸出地址
+set TargetFolder="D:\My Documents\Baiduyun\Firefox\【FX共享】\Flash32位原版提取帶vch和exe"
 
 ::複製插件到臨時文件夾
 xcopy "%BackDir%\NPSWF32*.dll" %TempFolder%\  /s /y /i
@@ -571,16 +573,16 @@ set tm4=%time:~0,8%
 set da1=%date:~0,4%
 set da2=%date:~5,2%
 set da3=%date:~8,2%
-set ArchiveName=D:\%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
+set Name=%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 
 ::小時數小于10点時的修正
 set /a tm1=%time:~0,2%*1
 if %tm1% LSS 10 set tm1=0%tm1%
-set ArchiveName=D:\%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
+set Name=%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
-7z.exe -mx9 -mhc -r u -up1q3r2x2y2z2w2 %ArchiveName% "%TempFolder%"
+7z.exe -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 
