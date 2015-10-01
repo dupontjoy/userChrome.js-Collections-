@@ -1,5 +1,5 @@
 
-::2015.10.01  優化輸出地址
+::2015.10.01  優化輸出地址和精簡擴展語言
 ::2015.09.26  開啟7zip極限壓縮
 ::2015.08.08  可選擇Flash下載地址
 ::2015.07.14  添加備份詞典和user.js到GitHub
@@ -79,6 +79,9 @@ cd /d %~dp0
 ::从批处理所在位置到配置文件夹（Profiles），共跨了3层
 set BackDir=..\..\..
 set TempFolder=..\..\..\Temp\Profiles
+set TempFolder1=..\..\..\Temp\1
+set TempFolder2=..\..\..\Temp\2
+
 ::備份輸出地址
 set TargetFolder="D:\My Documents\Baiduyun\Firefox\Profiles"
 
@@ -105,10 +108,19 @@ xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\ /s /y /i
 xcopy "%BackDir%\SimpleProxy" %TempFolder%\SimpleProxy\ /s /y /i
 
 ::刪除Lastpass的一些项目
+::（一）精简Platform
 del %TempFolder%\extensions\support@lastpass.com\platform\  /s /q
 xcopy "%BackDir%\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc" %TempFolder%\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc\ /s /y /i
+::（二）精简lastpass.jar中的语言
+%zip% x %TempFolder%\extensions\support@lastpass.com\chrome\lastpass.jar -o%TempFolder1%\jar
+del %TempFolder%\extensions\support@lastpass.com\chrome\lastpass.jar
+xcopy "%TempFolder1%\jar\locale\en-US" %TempFolder2%\jar\locale\en-US\ /s /y /i
+xcopy "%TempFolder1%\jar\locale\zh-CN" %TempFolder2%\jar\locale\zh-CN\ /s /y /i
+xcopy "%TempFolder1%\jar\locale\zh-TW" %TempFolder2%\jar\locale\zh-TW\ /s /y /i
+%zip% a -tzip "%TempFolder1%\lastpass.jar" "%TempFolder1%\jar\content\" "%TempFolder1%\jar\icons\" "%TempFolder1%\jar\META-INF\" "%TempFolder1%\jar\skin\" "%TempFolder2%\jar\locale\"
+xcopy "%TempFolder1%\lastpass.jar" %TempFolder%\extensions\support@lastpass.com\chrome\ /s /y /i
 
-::刪除Inspector的一些项目
+::刪除Inspector的语言
 del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\  /s /q
 xcopy "%BackDir%\extensions\inspector@mozilla.org\chrome\inspector\locale\en-US" %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\en-US\ /s /y /i
 
@@ -178,7 +190,7 @@ rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
 %zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
-rd "%TempFolder%" /s/q
+rd "%TempFolder%" "%TempFolder1%" "%TempFolder2%" /s/q
 
 ECHO.&ECHO.Firefox配置已打包完成，請按任意鍵 重啟Firefox 並退出！&PAUSE >NUL 2>NUL
 
@@ -234,6 +246,8 @@ cd /d %~dp0
 ::从批处理所在位置到Mozilla Firefox大文件夾，共跨了4层
 set BackDir=..\..\..\..
 set TempFolder=..\..\..\..\CingFox
+set TempFolder1=..\..\..\..\1
+set TempFolder2=..\..\..\..\2
 ::CingFox輸出地址
 set TargetFolder="D:"
 
@@ -282,16 +296,25 @@ xcopy "%BackDir%\Profiles\Plugins" %TempFolder%\Profiles\Plugins\ /s /y /i
 xcopy "%BackDir%\Profiles\SimpleProxy" %TempFolder%\Profiles\SimpleProxy\ /s /y /i
 
 ::刪除Lastpass的一些项目
-del %TempFolder%\extensions\support@lastpass.com\platform\  /s /q
-xcopy "%BackDir%\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc" %TempFolder%\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc\ /s /y /i
+::（一）精简Platform
+del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\  /s /q
+xcopy "%BackDir%\Profiles\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc" %TempFolder%\Profiles\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc\ /s /y /i
+::（二）精简lastpass.jar中的语言
+%zip% x %TempFolder%\Profiles\extensions\support@lastpass.com\chrome\lastpass.jar -o%TempFolder1%\jar
+del %TempFolder%\Profiles\extensions\support@lastpass.com\chrome\lastpass.jar
+xcopy "%TempFolder1%\jar\locale\en-US" %TempFolder2%\jar\locale\en-US\ /s /y /i
+xcopy "%TempFolder1%\jar\locale\zh-CN" %TempFolder2%\jar\locale\zh-CN\ /s /y /i
+xcopy "%TempFolder1%\jar\locale\zh-TW" %TempFolder2%\jar\locale\zh-TW\ /s /y /i
+%zip% a -tzip "%TempFolder1%\lastpass.jar" "%TempFolder1%\jar\content\" "%TempFolder1%\jar\icons\" "%TempFolder1%\jar\META-INF\" "%TempFolder1%\jar\skin\" "%TempFolder2%\jar\locale\"
+xcopy "%TempFolder1%\lastpass.jar" %TempFolder%\Profiles\extensions\support@lastpass.com\chrome\ /s /y /i
 
-::刪除Inspector的一些项目
-del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\  /s /q
-xcopy "%BackDir%\extensions\inspector@mozilla.org\chrome\inspector\locale\en-US" %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\en-US\ /s /y /i
+::刪除Inspector的语言
+del %TempFolder%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\  /s /q
+xcopy "%BackDir%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\en-US" %TempFolder%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\en-US\ /s /y /i
 
 ::其它刪除项
-del %TempFolder%\chrome\UserScriptLoader\require\  /s /q
-del %TempFolder%\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q
+del %TempFolder%\Profiles\chrome\UserScriptLoader\require\  /s /q
+del %TempFolder%\Profiles\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q
 
 ::以下是文件
 ::cert_override.txt：储存使用者指定的例外证书(certification exceptions)。
@@ -353,7 +376,7 @@ rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
 %zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
-rd "%TempFolder%" /s/q
+rd "%TempFolder%" "%TempFolder%1" "%TempFolder2%" /s/q
 
 ECHO.&ECHO.Firefox完整包已打包完成，請按任意鍵 重啟Firefox 並退出！&PAUSE >NUL 2>NUL
 
