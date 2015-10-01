@@ -1,5 +1,5 @@
 
-::2015.09.27  優化輸出地址
+::2015.10.01  優化輸出地址
 ::2015.09.26  開啟7zip極限壓縮
 ::2015.08.08  可選擇Flash下載地址
 ::2015.07.14  添加備份詞典和user.js到GitHub
@@ -8,6 +8,8 @@
 
 @echo off
 Title 備份批處理整合版 by Cing
+::一次性设置7-zip程序地址
+set zip="D:\Program Files\7-Zip\7z.exe"
 
 :menu
 MODE con: COLS=80 LINES=25
@@ -101,19 +103,18 @@ xcopy "%BackDir%\gm_scripts" %TempFolder%\gm_scripts\ /s /y /i
 xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\ /s /y /i
 ::SimpleProxy：SimpleProxy代理列表。
 xcopy "%BackDir%\SimpleProxy" %TempFolder%\SimpleProxy\ /s /y /i
- 
-::需要刪除的项
+
+::刪除Lastpass的一些项目
+del %TempFolder%\extensions\support@lastpass.com\platform\  /s /q
+xcopy "%BackDir%\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc" %TempFolder%\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc\ /s /y /i
+
+::刪除Inspector的一些项目
+del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\  /s /q
+xcopy "%BackDir%\extensions\inspector@mozilla.org\chrome\inspector\locale\en-US" %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\en-US\ /s /y /i
+
+::其它刪除项
 del %TempFolder%\chrome\UserScriptLoader\require\  /s /q
 del %TempFolder%\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q
-del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\de\  /s /q
-del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\en-GB\  /s /q
-del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\pl\  /s /q
-del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\ru\  /s /q
-del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\sk\  /s /q
-del %TempFolder%\extensions\support@lastpass.com\platform\Darwin\  /s /q
-del %TempFolder%\extensions\support@lastpass.com\platform\Darwin_x86_64-gcc3\  /s /q
-del %TempFolder%\extensions\support@lastpass.com\platform\Linux_x86_64-gcc3\  /s /q
-del %TempFolder%\extensions\support@lastpass.com\platform\Linux_x86-gcc3\  /s /q
 
 ::以下是文件
 ::bookmarks.html：自動导出的书签備份。
@@ -175,7 +176,7 @@ set Name=Profiles_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
 
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
-7z.exe -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
+%zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 
@@ -254,10 +255,10 @@ del %TempFolder%\Plugins\sumatrapdfcache\  /s /q
 xcopy "%BackDir%\Software" %TempFolder%\Software\  /s /y /i
 
 ::需要刪除的项
-del %TempFolder%\Software\GFW\goagent\local\proxy.user.ini  /s /q
-del %TempFolder%\Software\GFW\Shadowsocks\gui-config.json  /s /q
-del %TempFolder%\Software\GFW\psiphon\psiphon3.exe.orig  /s /q 
-del %TempFolder%\Software\GFW\GoGoTester\gogo_cache  /s /q 
+del %TempFolder%\Software\GFW\goagent\  /s /q
+del %TempFolder%\Software\GFW\IP-Update\  /s /q
+del %TempFolder%\Software\GFW\Shadowsocks\  /s /q
+del %TempFolder%\Software\GFW\psiphon\psiphon3.exe.orig  /s /q
 
 @echo 備份Profiles文件夾================================
 rem 复制目标文件到臨時文件夾
@@ -280,18 +281,17 @@ xcopy "%BackDir%\Profiles\Plugins" %TempFolder%\Profiles\Plugins\ /s /y /i
 ::SimpleProxy：SimpleProxy代理列表。
 xcopy "%BackDir%\Profiles\SimpleProxy" %TempFolder%\Profiles\SimpleProxy\ /s /y /i
 
-::需要刪除的项
-del %TempFolder%\Profiles\chrome\UserScriptLoader\require\  /s /q
-del %TempFolder%\Profiles\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q
-del %TempFolder%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\de\  /s /q
-del %TempFolder%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\en-GB\  /s /q
-del %TempFolder%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\pl\  /s /q
-del %TempFolder%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\ru\  /s /q
-del %TempFolder%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\sk\  /s /q
-del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Darwin\  /s /q
-del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Darwin_x86_64-gcc3\  /s /q
-del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Linux_x86_64-gcc3\  /s /q
-del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Linux_x86-gcc3\  /s /q
+::刪除Lastpass的一些项目
+del %TempFolder%\extensions\support@lastpass.com\platform\  /s /q
+xcopy "%BackDir%\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc" %TempFolder%\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc\ /s /y /i
+
+::刪除Inspector的一些项目
+del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\  /s /q
+xcopy "%BackDir%\extensions\inspector@mozilla.org\chrome\inspector\locale\en-US" %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\en-US\ /s /y /i
+
+::其它刪除项
+del %TempFolder%\chrome\UserScriptLoader\require\  /s /q
+del %TempFolder%\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q
 
 ::以下是文件
 ::cert_override.txt：储存使用者指定的例外证书(certification exceptions)。
@@ -351,7 +351,7 @@ set Name=CingFox_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
 
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
-7z.exe -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
+%zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 
@@ -442,7 +442,7 @@ set Name=Plugins-n-Software_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
-7z.exe -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
+%zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 
@@ -582,7 +582,7 @@ set Name=%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
-7z.exe -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
+%zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 
