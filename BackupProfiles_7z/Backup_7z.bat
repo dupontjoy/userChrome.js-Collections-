@@ -65,7 +65,7 @@ echo    1. 需要關閉Firefox程序，請保存必要的資料!
 echo.
 echo    2. 備份完成後，按任意鍵重啟Firefox
 echo.
-echo    By Cing(Dupontjoy)
+echo    By Cing
 echo.
 echo    按任意键继续……
 echo =============================================================
@@ -73,7 +73,6 @@ pause>nul
 cls
 
 rem 設置備份路徑以及臨時文件夾
-taskkill /im firefox.exe
 @echo 關閉火狐瀏覽器后自動開始備份……
 cd /d %~dp0
 ::从批处理所在位置到配置文件夹（Profiles），共跨了3层
@@ -113,11 +112,11 @@ del %TempFolder%\extensions\support@lastpass.com\platform\  /s /q
 xcopy "%BackDir%\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc" %TempFolder%\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc\ /s /y /i
 ::（二）精简lastpass.jar中的语言
 %zip% x %TempFolder%\extensions\support@lastpass.com\chrome\lastpass.jar -o%TempFolder1%\jar
-del %TempFolder%\extensions\support@lastpass.com\chrome\lastpass.jar
+del %TempFolder%\extensions\support@lastpass.com\chrome\lastpass.jar  /s /q
 xcopy "%TempFolder1%\jar\locale\en-US" %TempFolder2%\jar\locale\en-US\ /s /y /i
 xcopy "%TempFolder1%\jar\locale\zh-CN" %TempFolder2%\jar\locale\zh-CN\ /s /y /i
 xcopy "%TempFolder1%\jar\locale\zh-TW" %TempFolder2%\jar\locale\zh-TW\ /s /y /i
-%zip% a -tzip "%TempFolder1%\lastpass.jar" "%TempFolder1%\jar\content\" "%TempFolder1%\jar\icons\" "%TempFolder1%\jar\META-INF\" "%TempFolder1%\jar\skin\" "%TempFolder2%\jar\locale\"
+%zip% a -tzip -mx9 "%TempFolder1%\lastpass.jar" "%TempFolder1%\jar\content\" "%TempFolder1%\jar\icons\" "%TempFolder1%\jar\META-INF\" "%TempFolder1%\jar\skin\" "%TempFolder2%\jar\locale\"
 xcopy "%TempFolder1%\lastpass.jar" %TempFolder%\extensions\support@lastpass.com\chrome\ /s /y /i
 
 ::刪除Inspector的语言
@@ -232,7 +231,7 @@ echo    1. 需要關閉Firefox程序，請保存必要的資料!
 echo.
 echo    2. 備份完成後，按任意鍵重啟Firefox
 echo.
-echo    By Cing(Dupontjoy)
+echo    By Cing
 echo.
 echo    按任意键继续……
 echo =============================================================
@@ -240,7 +239,6 @@ pause>nul
 cls
 
 rem 設置備份路徑以及臨時文件夾
-taskkill /im firefox.exe
 @echo 關閉火狐瀏覽器后自動開始備份……
 cd /d %~dp0
 ::从批处理所在位置到Mozilla Firefox大文件夾，共跨了4层
@@ -301,7 +299,7 @@ del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\  /s /q
 xcopy "%BackDir%\Profiles\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc" %TempFolder%\Profiles\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc\ /s /y /i
 ::（二）精简lastpass.jar中的语言
 %zip% x %TempFolder%\Profiles\extensions\support@lastpass.com\chrome\lastpass.jar -o%TempFolder1%\jar
-del %TempFolder%\Profiles\extensions\support@lastpass.com\chrome\lastpass.jar
+del %TempFolder%\Profiles\extensions\support@lastpass.com\chrome\lastpass.jar  /s /q
 xcopy "%TempFolder1%\jar\locale\en-US" %TempFolder2%\jar\locale\en-US\ /s /y /i
 xcopy "%TempFolder1%\jar\locale\zh-CN" %TempFolder2%\jar\locale\zh-CN\ /s /y /i
 xcopy "%TempFolder1%\jar\locale\zh-TW" %TempFolder2%\jar\locale\zh-TW\ /s /y /i
@@ -414,7 +412,7 @@ echo.
 echo ============================================================
 echo    **注意：
 echo.
-echo    By Cing(Dupontjoy)
+echo    By Cing
 echo.
 echo    按任意键继续……
 echo =============================================================
@@ -511,7 +509,7 @@ echo    3.如需提取64位Flash，请修改BackDir位置
 echo.
 echo    Edit By yndoc！
 echo.
-echo    Mod By Cing(Dupontjoy)
+echo    Mod By Cing
 echo.
 echo    按任意键继续……
 echo =============================================================
@@ -652,7 +650,7 @@ echo    2. 詞典：persdict.dat
 echo.
 echo    3. Stylish樣式庫：stylish.sqlite
 echo.
-echo    By Cing(Dupontjoy)
+echo    By Cing
 echo.
 echo    按任意键继续……
 echo =============================================================
