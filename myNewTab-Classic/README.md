@@ -1,6 +1,8 @@
 ##myNewTab-Classic
 by **Defpt & ywzhaiqi**<br/>
 
+[NewTabOverride.uc.js](https://github.com/GH-Kelo/userChromeJS/blob/master/NewTabOverride/NewTabOverride.uc.js): 类似于 New Tab Override 扩展，用脚本实现 by Kelo
+
 此版爲原始版，功能較單一，當然也有它的好處：
 - 保存下來的圖片是原文件名
 - 文件體積小
