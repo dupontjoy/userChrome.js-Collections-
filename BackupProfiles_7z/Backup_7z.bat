@@ -309,7 +309,9 @@ echo    **注意：
 echo.
 echo    1. 需要關閉Firefox程序，請保存必要的資料!
 echo.
-echo    2. 備份完成後，按任意鍵重啟Firefox
+echo    2. 3个步驟：Profiles + Plugins&Software + firefox
+echo.
+echo    3. 備份完成後，按任意鍵重啟Firefox
 echo.
 echo    By Cing
 echo.
@@ -332,6 +334,7 @@ goto CingFox-2
 :CingFox-2
 ::CingFox輸出地址
 set TargetFolder="D:"
+
 ::需要刪除的项
 del %TempFolder%\Software\GFW\goagent\  /s /q
 del %TempFolder%\Software\GFW\IP-Update\  /s /q
