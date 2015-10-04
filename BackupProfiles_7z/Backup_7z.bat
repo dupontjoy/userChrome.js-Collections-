@@ -1,4 +1,5 @@
 
+::2015.10.04  模塊化每個備份項目，然後再組合，方便修攺維護
 ::2015.10.02  精簡擴展語言
 ::2015.10.01  優化輸出地址
 ::2015.09.26  開啟7zip極限壓縮
@@ -55,7 +56,7 @@ If ErrorLevel 2 If Not ErrorLevel 3 Goto menu
 
 :Profiles-1
 MODE con: COLS=80 LINES=25
-Title 備份Firefox配置文件夾 by Cing
+Title 備份Firefox配置文件夾
 echo.
 echo    *** 備份Firefox配置文件夾 ***
 echo.
@@ -223,6 +224,30 @@ xcopy "%BackDir%\xulstore.json" %TempFolder%\ /y
 for /f "usebackq eol=; tokens=1,2 delims==" %%i in ("..\..\..\..\Firefox\application.ini")do (if %%i==Version set ver=%%j)
 ::設置備份文件路徑以及文件名
 
+ECHO.&ECHO.Profiles文件夾已複製完成，請按任意鍵繼續！&PAUSE >NUL 2>NUL
+
+:Profiles or CingFox
+CLS
+MODE con: COLS=45 LINES=15
+ECHO.
+ECHO.
+ECHO    **********************************
+ECHO.
+ECHO     備份Firefox配置文件夾 or CingFox
+ECHO.
+ECHO        1.備份Firefox配置文件夾
+ECHO.
+ECHO        2.接著製作CingFox
+ECHO.
+ECHO    **********************************
+ECHO.
+ECHO.
+Choice /C 12 /N /M 选择（1、2）：
+If ErrorLevel 1 If Not ErrorLevel 2 Goto Profiles-2
+If ErrorLevel 2 If Not ErrorLevel 3 Goto Plugins-n-Software-1
+
+:Profiles-2
+
 ::完整日期和時間
 set tm1=%time:~0,2%
 set tm2=%time:~3,2%
@@ -275,7 +300,7 @@ If ErrorLevel 2 If Not ErrorLevel 3 Goto menu
 
 :CingFox-1
 MODE con: COLS=80 LINES=25
-Title CingFox完整包制作 by Cing
+Title CingFox完整包制作
 echo.
 echo    *** CingFox完整包制作 ***
 echo.
@@ -293,120 +318,32 @@ echo =============================================================
 pause>nul
 cls
 
-rem 設置備份路徑以及臨時文件夾
-@echo 關閉火狐瀏覽器后自動開始備份……
-cd /d %~dp0
-::从批处理所在位置到Mozilla Firefox大文件夾，共跨了4层
+goto Profiles-1
+
+:pcxFirefox
+MODE con: COLS=80 LINES=25
+Title CingFox完整包制作
+
 set BackDir=..\..\..\..
-set TempFolder=..\..\..\..\CingFox
-set TempFolder1=..\..\..\..\1
-set TempFolder2=..\..\..\..\2
+set TempFolder=..\..\..\Temp
+xcopy "%BackDir%\firefox" %TempFolder%\firefox\  /s /y /i
+goto CingFox-2
+
+:CingFox-2
 ::CingFox輸出地址
 set TargetFolder="D:"
-
-taskkill /im firefox.exe
-
-@echo 備份firefox文件夾================================
-::firefox：pcxFirefox主程序
-xcopy "%BackDir%\firefox" %TempFolder%\firefox\  /s /y /i
-
-@echo 備份Plugins文件夾================================
-::Plugins：外置便携插件
-xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\  /s /y /i
-
-::需要刪除的项
-del %TempFolder%\Plugins\sumatrapdfcache\  /s /q
-
-@echo 備份Software文件夾================================
-::Software：常用軟件
-xcopy "%BackDir%\Software" %TempFolder%\Software\  /s /y /i
-
 ::需要刪除的项
 del %TempFolder%\Software\GFW\goagent\  /s /q
 del %TempFolder%\Software\GFW\IP-Update\  /s /q
 del %TempFolder%\Software\GFW\Shadowsocks\  /s /q
 del %TempFolder%\Software\GFW\psiphon\psiphon3.exe.orig  /s /q
+del %TempFolder%\Profiles\bookmarks.html  /s /q
 
-@echo 備份Profiles文件夾================================
-rem 复制目标文件到臨時文件夾
-
-::以下是文件夾
-::adblockplus：ABP規則備份。
-::xcopy "%BackDir%\Profiles\adblockplus" %TempFolder%\Profiles\adblockplus\  /s /y /i
-::autoproxy：Autoproxy規則備份。
-xcopy "%BackDir%\Profiles\autoproxy" %TempFolder%\Profiles\autoproxy\  /s /y /i
-::chrome：UC腳本。
-xcopy "%BackDir%\Profiles\chrome" %TempFolder%\Profiles\chrome\  /s /y /i
-::extensions：安裝的擴展。
-xcopy "%BackDir%\Profiles\extensions" %TempFolder%\Profiles\extensions\ /s /y /i
-::extension-data：uBlock的數據文件，包含設置。
-xcopy "%BackDir%\Profiles\extension-data" %TempFolder%\Profiles\extension-data\ /s /y /i
-::gm_scripts：安裝的油猴腳本。
-xcopy "%BackDir%\Profiles\gm_scripts" %TempFolder%\Profiles\gm_scripts\ /s /y /i
-::Plugins：便携版插件。
-xcopy "%BackDir%\Profiles\Plugins" %TempFolder%\Profiles\Plugins\ /s /y /i
-::SimpleProxy：SimpleProxy代理列表。
-xcopy "%BackDir%\Profiles\SimpleProxy" %TempFolder%\Profiles\SimpleProxy\ /s /y /i
-
-::刪除Lastpass的一些项目
-::（一）精简Platform
-del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\  /s /q
-xcopy "%BackDir%\Profiles\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc" %TempFolder%\Profiles\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc\ /s /y /i
-::（二）精简lastpass.jar中的语言
-%zip% x %TempFolder%\Profiles\extensions\support@lastpass.com\chrome\lastpass.jar -o%TempFolder1%\jar
-del %TempFolder%\Profiles\extensions\support@lastpass.com\chrome\lastpass.jar  /s /q
-xcopy "%TempFolder1%\jar\locale\en-US" %TempFolder2%\jar\locale\en-US\ /s /y /i
-xcopy "%TempFolder1%\jar\locale\zh-CN" %TempFolder2%\jar\locale\zh-CN\ /s /y /i
-xcopy "%TempFolder1%\jar\locale\zh-TW" %TempFolder2%\jar\locale\zh-TW\ /s /y /i
-%zip% a -tzip "%TempFolder1%\lastpass.jar" "%TempFolder1%\jar\content\" "%TempFolder1%\jar\icons\" "%TempFolder1%\jar\META-INF\" "%TempFolder1%\jar\skin\" "%TempFolder2%\jar\locale\"
-xcopy "%TempFolder1%\lastpass.jar" %TempFolder%\Profiles\extensions\support@lastpass.com\chrome\ /s /y /i
-
-::刪除Inspector的语言
-del %TempFolder%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\  /s /q
-xcopy "%BackDir%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\en-US" %TempFolder%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\en-US\ /s /y /i
-
-::其它刪除项
-del %TempFolder%\Profiles\chrome\UserScriptLoader\require\  /s /q
-del %TempFolder%\Profiles\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q
-
-::以下是文件
-::cert_override.txt：储存使用者指定的例外证书(certification exceptions)。
-xcopy "%BackDir%\Profiles\cert_override.txt" %TempFolder%\Profiles\ /y
-::cert8.db：安全证书。
-xcopy "%BackDir%\Profiles\cert8.db" %TempFolder%\Profiles\ /y
-::FlashGot.exe：FlashGot的下载工具。
-xcopy "%BackDir%\Profiles\FlashGot.exe" %TempFolder%\Profiles\ /y
-::foxyproxy.xml：FoxyProxy的設置及网址列表備份。
-::xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\ /y
-::mimeTypes.rdf：下载特定类型的档案時要执行的動作。 可刪掉来还原原来下载的設定。
-xcopy "%BackDir%\Profiles\mimeTypes.rdf" %TempFolder%\Profiles\ /y
-::MyFirefox.7z：用於官方FX的便携設置。
-xcopy "%BackDir%\Profiles\MyFirefox.7z" %TempFolder%\Profiles\ /y
-::patternSubscriptions.json：FoxyProxy的訂閱列表設置。
-::xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\ /y
-::permissions.sqlite：存放特定网站是否可存取密码、cookies、弹出视窗、图片载入与附加元件……等权限的资料库。
-xcopy "%BackDir%\Profiles\permissions.sqlite" %TempFolder%\Profiles\ /y
-::persdict.dat：个人的拼字字典。
-xcopy "%BackDir%\Profiles\persdict.dat" %TempFolder%\Profiles\ /y
-::pluginreg.dat：用于plugin的MIME types。
-xcopy "%BackDir%\Profiles\pluginreg.dat" %TempFolder%\Profiles\ /y
-::Portable.7z：PCXFirefox的便携設置。
-xcopy "%BackDir%\Profiles\Portable.7z" %TempFolder%\Profiles\ /y
-::prefs.js：About:config中儲存的設定。
-::xcopy "%BackDir%\Profiles\prefs.js" %TempFolder%\Profiles\ /y
-::readme.txt：个人配置修改说明。
-xcopy "%BackDir%\Profiles\readme.txt" %TempFolder%\Profiles\ /y
-::stylish.sqlite：Stylish样式數据库。
-xcopy "%BackDir%\Profiles\stylish.sqlite" %TempFolder%\Profiles\ /y
-::user.js：使用者自订的設定，在这里的設定覆盖默认設定。
-xcopy "%BackDir%\Profiles\user.js" %TempFolder%\Profiles\ /y
-::xulstore.json：界面的一些状态。
-xcopy "%BackDir%\Profiles\xulstore.json" %TempFolder%\Profiles\ /y
-
-::讀取版本號和日期及時間
-::从批处理所在位置到Firefox程序文件夹（firefox），共跨了4层
-for /f "usebackq eol=; tokens=1,2 delims==" %%i in ("..\..\..\..\Firefox\application.ini")do (if %%i==Version set ver=%%j)
-::設置備份文件路徑以及文件名
+::給套一個主文件夾CingFox
+xcopy "%TempFolder%\firefox" %TempFolder%\CingFox\firefox\ /s /y /i
+xcopy "%TempFolder%\Profiles" %TempFolder%\CingFox\Profiles\ /s /y /i
+xcopy "%TempFolder%\Plugins" %TempFolder%\CingFox\Plugins\ /s /y /i
+xcopy "%TempFolder%\Software" %TempFolder%\CingFox\Software\ /s /y /i
 
 ::完整日期和時間
 set tm1=%time:~0,2%
@@ -427,9 +364,9 @@ set Name=CingFox_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
 
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
-%zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
+%zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%\CingFox\"
 @echo 備份完成！并刪除臨時文件夾！
-rd "%TempFolder%" "%TempFolder%1" "%TempFolder2%" "%TempFolder3%" /s/q
+rd "%TempFolder%" /s/q
 
 ECHO.&ECHO.Firefox完整包已打包完成，請按任意鍵 重啟Firefox 並退出！&PAUSE >NUL 2>NUL
 
@@ -478,9 +415,7 @@ rem 設置備份路徑以及臨時文件夾
 cd /d %~dp0
 ::从批处理所在位置到Plugins和Software文件夾，只跨了4层
 set BackDir=..\..\..\..\
-set TempFolder=..\..\..\..\Plugins-n-Software
-::輸出地址
-set TargetFolder="D:\My Documents\Baiduyun\Firefox\Profiles\Software & Plugins"
+set TempFolder=..\..\..\Temp
 
 rem 复制目标文件到臨時文件夾
 
@@ -495,9 +430,32 @@ del %TempFolder%\Plugins\sumatrapdfcache\  /s /q
 del %TempFolder%\Software\GFW\psiphon\psiphon3.exe.orig  /s /q 
 del %TempFolder%\Software\GFW\GoGoTester\gogo_cache  /s /q 
 
-::以下是文件
-::patternSubscriptions.json：FoxyProxy的訂閱列表設置。
-::xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\ /y
+ECHO.&ECHO.Plugins和Software文件夾已打包完成，請按任意鍵退出！&PAUSE >NUL 2>NUL
+
+:Plugins-n-Software or CingFox
+CLS
+MODE con: COLS=45 LINES=15
+ECHO.
+ECHO.
+ECHO    **********************************
+ECHO.
+ECHO     備份Plugins和Software or CingFox
+ECHO.
+ECHO        1.備份Plugins和Software
+ECHO.
+ECHO        2.接著製作CingFox
+ECHO.
+ECHO    **********************************
+ECHO.
+ECHO.
+Choice /C 12 /N /M 选择（1、2）：
+If ErrorLevel 1 If Not ErrorLevel 2 Goto Plugins-n-Software-2
+If ErrorLevel 2 If Not ErrorLevel 3 Goto pcxFirefox
+
+:Plugins-n-Software-2
+
+::輸出地址
+set TargetFolder="D:\My Documents\Baiduyun\Firefox\Profiles\Software & Plugins"
 
 ::設置備份文件路徑以及文件名
 
@@ -518,7 +476,7 @@ set Name=Plugins-n-Software_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
-%zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
+%zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%\Plugins" "%TempFolder%\Software"
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 
