@@ -1,4 +1,5 @@
 
+::2015.10.06  精簡說明展示方式
 ::2015.10.04  模塊化每個備份項目，然後再組合，方便修攺維護
 ::2015.10.02  精簡擴展語言
 ::2015.10.01  優化輸出地址
@@ -14,19 +15,19 @@ Title 備份批處理整合版 by Cing
 set zip="D:\Program Files\7-Zip\7z.exe"
 
 :menu
-MODE con: COLS=80 LINES=25
+cls
 ECHO.
-ECHO =============================================================================
-ECHO                           備份批處理整合版                           
-ECHO    #+++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++#
-ECHO    # 01、備份Firefox配置文件夾             #02、CingFox完整包制作        #
-ECHO    # 03、備份Plugins和Software文件夾       #04、提取Flash32位插件        #
-ECHO    # 05、備份一些文件到GitHub                                            #
-ECHO    #                                                                     #
-ECHO    #+++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++#
-ECHO =============================================================================
+ECHO  備份批處理整合版                           
+ECHO.
+ECHO  01、備份Firefox配置文件夾
+ECHO  02、CingFox完整包制作
+ECHO  03、備份Plugins和Software文件夾
+ECHO  04、提取Flash32位插件
+ECHO  05、備份一些文件到GitHub
+ECHO.
+set /p a=请输入操作序号并回车（例如01）：
+cls
 
-set /p a=.                  请输入操作序号并回车（例如07）：
 if %a%==01 goto Profiles
 if %a%==02 goto CingFox
 if %a%==03 goto Plugins-n-Software
@@ -35,42 +36,28 @@ if %a%==05 goto GitHub
 goto cho
 
 :Profiles
-CLS
-MODE con: COLS=45 LINES=15
+cls
 ECHO.
+ECHO  備份Firefox配置文件夾
 ECHO.
-ECHO    **********************************
-ECHO.
-ECHO          備份Firefox配置文件夾
-ECHO.
-ECHO                1.执行
-ECHO.
-ECHO                2.返回
-ECHO.
-ECHO    **********************************
-ECHO.
+ECHO  1.执行
+ECHO  2.返回
 ECHO.
 Choice /C 12 /N /M 选择（1、2）：
 If ErrorLevel 1 If Not ErrorLevel 2 Goto Profiles-1
 If ErrorLevel 2 If Not ErrorLevel 3 Goto menu
 
 :Profiles-1
-MODE con: COLS=80 LINES=25
-Title 備份Firefox配置文件夾
+cls
 echo.
-echo    *** 備份Firefox配置文件夾 ***
+echo  **注意：
 echo.
-echo ============================================================
-echo    **注意：
+echo  1. 需要關閉Firefox程序，請保存必要的資料!
+echo  2. 備份完成後，按任意鍵重啟Firefox
 echo.
-echo    1. 需要關閉Firefox程序，請保存必要的資料!
+echo  By Cing
 echo.
-echo    2. 備份完成後，按任意鍵重啟Firefox
-echo.
-echo    By Cing
-echo.
-echo    按任意键继续……
-echo =============================================================
+echo  按任意键继续……
 pause>nul
 cls
 
@@ -227,27 +214,19 @@ for /f "usebackq eol=; tokens=1,2 delims==" %%i in ("..\..\..\..\Firefox\applica
 ECHO.&ECHO.Profiles文件夾已複製完成，請按任意鍵繼續！&PAUSE >NUL 2>NUL
 
 :Profiles or CingFox
-CLS
-MODE con: COLS=45 LINES=15
+cls
 ECHO.
+ECHO  備份Firefox配置文件夾 or CingFox
 ECHO.
-ECHO    **********************************
-ECHO.
-ECHO     備份Firefox配置文件夾 or CingFox
-ECHO.
-ECHO        1.備份Firefox配置文件夾
-ECHO.
-ECHO        2.接著製作CingFox(之二)
-ECHO.
-ECHO    **********************************
-ECHO.
+ECHO  1.備份Firefox配置文件夾
+ECHO  2.接著製作CingFox(之二)
 ECHO.
 Choice /C 12 /N /M 选择（1、2）：
 If ErrorLevel 1 If Not ErrorLevel 2 Goto Profiles-2
 If ErrorLevel 2 If Not ErrorLevel 3 Goto Plugins-n-Software-1
 
 :Profiles-2
-
+cls
 ::完整日期和時間
 set tm1=%time:~0,2%
 set tm2=%time:~3,2%
@@ -279,51 +258,38 @@ ECHO.&ECHO.Firefox配置已打包完成，請按任意鍵 重啟Firefox 並退出！&PAUSE >NUL 2>N
 Goto end
 
 :CingFox
-CLS
-MODE con: COLS=45 LINES=15
+cls
 ECHO.
+ECHO  CingFox完整包制作
 ECHO.
-ECHO    **********************************
-ECHO.
-ECHO           CingFox完整包制作
-ECHO.
-ECHO                1.执行
-ECHO.
-ECHO                2.返回
-ECHO.
-ECHO    **********************************
-ECHO.
+ECHO  1.执行
+ECHO  2.返回
 ECHO.
 Choice /C 12 /N /M 选择（1、2）：
 If ErrorLevel 1 If Not ErrorLevel 2 Goto CingFox-1
 If ErrorLevel 2 If Not ErrorLevel 3 Goto menu
 
 :CingFox-1
-MODE con: COLS=80 LINES=25
-Title CingFox完整包制作
+cls
 echo.
-echo    *** CingFox完整包制作 ***
+echo  *** CingFox完整包制作 ***
 echo.
-echo ============================================================
-echo    **注意：
+echo  **注意：
 echo.
-echo    1. 需要關閉Firefox程序，請保存必要的資料!
+echo  1. 需要關閉Firefox程序，請保存必要的資料!
+echo  2. 3个步驟：Profiles + Plugins&Software + firefox
+echo  3. 備份完成後，按任意鍵重啟Firefox
 echo.
-echo    2. 3个步驟：Profiles + Plugins&Software + firefox
+echo  By Cing
 echo.
-echo    3. 備份完成後，按任意鍵重啟Firefox
-echo.
-echo    By Cing
-echo.
-echo    按任意键继续……
-echo =============================================================
+echo  按任意键继续……
 pause>nul
 cls
 
 goto Profiles-1
 
 :pcxFirefox
-MODE con: COLS=80 LINES=25
+cls
 Title CingFox完整包制作
 
 set BackDir=..\..\..\..
@@ -332,6 +298,7 @@ xcopy "%BackDir%\firefox" %TempFolder%\firefox\  /s /y /i
 goto CingFox-2
 
 :CingFox-2
+cls
 ::CingFox輸出地址
 set TargetFolder="D:"
 
@@ -379,38 +346,24 @@ ECHO.&ECHO.Firefox完整包已打包完成，請按任意鍵 重啟Firefox 並退出！&PAUSE >NUL 2
 Goto end
 
 :Plugins-n-Software
-CLS
-MODE con: COLS=45 LINES=15
+cls
 ECHO.
+ECHO  備份Plugins和Software文件夾
 ECHO.
-ECHO    **********************************
-ECHO.
-ECHO       備份Plugins和Software文件夾
-ECHO.
-ECHO                1.执行
-ECHO.
-ECHO                2.返回
-ECHO.
-ECHO    **********************************
-ECHO.
+ECHO  1.执行
+ECHO  2.返回
 ECHO.
 Choice /C 12 /N /M 选择（1、2）：
 If ErrorLevel 1 If Not ErrorLevel 2 Goto Plugins-n-Software-1
 If ErrorLevel 2 If Not ErrorLevel 3 Goto menu
 
 :Plugins-n-Software-1
-MODE con: COLS=80 LINES=25
-Title 備份Plugins和Software文件夾 by Cing
+cls
 echo.
-echo    *** 備份Plugins和Software文件夾 ***
+echo  *** 備份Plugins和Software文件夾 ***
 echo.
-echo ============================================================
-echo    **注意：
+echo  By Cing
 echo.
-echo    By Cing
-echo.
-echo    按任意键继续……
-echo =============================================================
 pause>nul
 cls
 
@@ -436,27 +389,19 @@ del %TempFolder%\Software\GFW\GoGoTester\gogo_cache  /s /q
 ECHO.&ECHO.Plugins和Software文件夾已打包完成，請按任意鍵退出！&PAUSE >NUL 2>NUL
 
 :Plugins-n-Software or CingFox
-CLS
-MODE con: COLS=45 LINES=15
+cls
 ECHO.
+ECHO  備份Plugins和Software or CingFox
 ECHO.
-ECHO    **********************************
-ECHO.
-ECHO     備份Plugins和Software or CingFox
-ECHO.
-ECHO        1.備份Plugins和Software
-ECHO.
-ECHO        2.接著製作CingFox(之三)
-ECHO.
-ECHO    **********************************
-ECHO.
+ECHO  1.備份Plugins和Software
+ECHO  2.接著製作CingFox(之三)
 ECHO.
 Choice /C 12 /N /M 选择（1、2）：
 If ErrorLevel 1 If Not ErrorLevel 2 Goto Plugins-n-Software-2
 If ErrorLevel 2 If Not ErrorLevel 3 Goto pcxFirefox
 
 :Plugins-n-Software-2
-
+cls
 ::輸出地址
 set TargetFolder="D:\My Documents\Baiduyun\Firefox\Profiles\Software & Plugins"
 
@@ -488,58 +433,40 @@ ECHO.&ECHO.Plugins和Software文件夾已打包完成，請按任意鍵退出！&PAUSE >NUL 2>NUL
 Goto end
 
 :Flash32
-CLS
-MODE con: COLS=45 LINES=15
+cls
 ECHO.
+ECHO  提取Flash32位插件
 ECHO.
-ECHO    **********************************
-ECHO.
-ECHO           提取Flash32位插件
-ECHO.
-ECHO                1.执行
-ECHO.
-ECHO                2.返回
-ECHO.
-ECHO    **********************************
-ECHO.
+ECHO  1.执行
+ECHO  2.返回
 ECHO.
 Choice /C 12 /N /M 选择（1、2）：
 If ErrorLevel 1 If Not ErrorLevel 2 Goto Flash32-1
 If ErrorLevel 2 If Not ErrorLevel 3 Goto menu
 
 :Flash32-1
-::color 2E
-MODE con: COLS=80 LINES=25
-Title 提取Flash32位插件 by Cing
-echo.
-echo    *** 提取Flash32位插件 ***
-echo.
-echo ============================================================
-echo    **注意：
-echo.
-echo    1.需要先安装非IE的Adobe Flash Player插件！
-echo.
-echo    2.本批处理用以提取32位插件，并打包
-echo.
-echo    3.如需提取64位Flash，请修改BackDir位置
-echo.
-echo    Edit By yndoc！
-echo.
-echo    Mod By Cing
-echo.
-echo    按任意键继续……
-echo =============================================================
-pause>nul
 cls
 echo.
-echo   01、到官方下载非IE版Flash插件安装后提取！
+echo  *** 提取Flash32位插件 ***
 echo.
-echo   02、已经安装非IE版Flash插件的直接提取！
+echo  **注意：
 echo.
-echo   03、返回主菜單。
+echo  1.需要先安装非IE的Adobe Flash Player插件！
+echo  2.本批处理用以提取32位插件，并打包
+echo  3.如需提取64位Flash，请修改BackDir位置
 echo.
+echo  Edit By yndoc！
+echo  Mod By Cing
 echo.
+echo    按任意键继续……
+pause>nul
 
+cls
+echo.
+echo  01、到官方下载非IE版Flash插件安装后提取！
+echo  02、已经安装非IE版Flash插件的直接提取！
+echo  03、返回主菜單。
+echo.
 set /p id=请选择，按回车键执行（例如：07）:
 cls
 
@@ -548,15 +475,11 @@ if "%id%"=="02" goto set
 if "%id%"=="03" goto menu
 
 :install
+cls
 echo.
-echo =============================================================
-echo.
-echo   01、到Flash官方下載最新正式版！
-echo.
-echo   02、到Flash官方下載最新beta版！
-echo.
-echo   03、返回主菜單。
-echo.
+echo  01、到Flash官方下載最新正式版！
+echo  02、到Flash官方下載最新beta版！
+echo  03、返回主菜單。
 echo.
 set /p id=请选择，按回车键执行（例如：07）:
 cls
@@ -566,22 +489,22 @@ if "%id%"=="02" goto download2
 if "%id%"=="03" goto menu
 
 :download1
-start "" http://www.adobe.com/in/products/flashplayer/distribution3.html
 cls
+start "" http://www.adobe.com/in/products/flashplayer/distribution3.html
 echo.
-echo    *请暂时不要关闭该批处理……
+echo  *请暂时不要关闭该批处理……
 echo.
-echo    *如果您已安装完毕Adobe Flash Player插件，请按任意键继续……
+echo  *如果您已安装完毕Adobe Flash Player插件，请按任意键继续……
 pause>nul
 goto set
 
 :download2
-start "" http://labs.adobe.com/downloads/flashplayer.html
 cls
+start "" http://labs.adobe.com/downloads/flashplayer.html
 echo.
-echo    *请暂时不要关闭该批处理……
+echo  *请暂时不要关闭该批处理……
 echo.
-echo    *如果您已安装完毕Adobe Flash Player插件，请按任意键继续……
+echo  *如果您已安装完毕Adobe Flash Player插件，请按任意键继续……
 pause>nul
 goto set
 
@@ -632,44 +555,31 @@ rundll32.exe shell32.dll,Control_RunDLL appwiz.cpl
 Goto end
 
 :GitHub
-CLS
-MODE con: COLS=45 LINES=15
+cls
 ECHO.
+ECHO  備份一些文件到GitHub
 ECHO.
-ECHO    **********************************
-ECHO.
-ECHO        備份一些文件到GitHub
-ECHO.
-ECHO                1.执行
-ECHO.
-ECHO                2.返回
-ECHO.
-ECHO    **********************************
-ECHO.
+ECHO  1.执行
+ECHO  2.返回
 ECHO.
 Choice /C 12 /N /M 选择（1、2）：
 If ErrorLevel 1 If Not ErrorLevel 2 Goto GitHub-1
 If ErrorLevel 2 If Not ErrorLevel 3 Goto menu
 
 :GitHub-1
-MODE con: COLS=80 LINES=25
-Title 備份一些文件到GitHub by Cing
+cls
 echo.
-echo    *** 備份一些文件到GitHub ***
+echo  *** 備份一些文件到GitHub ***
 echo.
-echo ============================================================
-echo    **注意：
+echo  **注意：
 echo.
-echo    1. 個人參數設置：user.js
+echo  1. 個人參數設置：user.js
+echo  2. 詞典：persdict.dat
+echo  3. Stylish樣式庫：stylish.sqlite
 echo.
-echo    2. 詞典：persdict.dat
+echo  By Cing
 echo.
-echo    3. Stylish樣式庫：stylish.sqlite
-echo.
-echo    By Cing
-echo.
-echo    按任意键继续……
-echo =============================================================
+echo  按任意键继续……
 pause>nul
 cls
 
@@ -686,20 +596,11 @@ ECHO.&ECHO.備份一些文件到GitHub已完成，請按任意鍵退出！&PAUSE >NUL 2>NUL
 Goto end
 
 :end
-CLS
-MODE con: COLS=45 LINES=15
+cls
+ECHO  已完成！下一步？
 ECHO.
-ECHO.
-ECHO    **********************************
-ECHO.
-ECHO             已完成！下一步？
-ECHO.
-ECHO                1.退出
-ECHO.
-ECHO                2.返回主菜單
-ECHO.
-ECHO    **********************************
-ECHO.
+ECHO  1.退出
+ECHO  2.返回主菜單
 ECHO.
 Choice /C 12 /N /M 选择（1、2）：
 If ErrorLevel 1 If Not ErrorLevel 2 Goto exit
