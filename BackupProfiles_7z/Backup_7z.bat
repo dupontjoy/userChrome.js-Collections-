@@ -237,7 +237,7 @@ ECHO     備份Firefox配置文件夾 or CingFox
 ECHO.
 ECHO        1.備份Firefox配置文件夾
 ECHO.
-ECHO        2.接著製作CingFox
+ECHO        2.接著製作CingFox(之二)
 ECHO.
 ECHO    **********************************
 ECHO.
@@ -446,7 +446,7 @@ ECHO     備份Plugins和Software or CingFox
 ECHO.
 ECHO        1.備份Plugins和Software
 ECHO.
-ECHO        2.接著製作CingFox
+ECHO        2.接著製作CingFox(之三)
 ECHO.
 ECHO    **********************************
 ECHO.
