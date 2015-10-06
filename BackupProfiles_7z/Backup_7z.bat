@@ -467,7 +467,7 @@ echo  01、到官方下载非IE版Flash插件安装后提取！
 echo  02、已经安装非IE版Flash插件的直接提取！
 echo  03、返回主菜單。
 echo.
-set /p id=请选择，按回车键执行（例如：07）:
+set /p id=请选择，按回车键执行（例如：01）:
 cls
 
 if "%id%"=="01" goto install
@@ -481,7 +481,7 @@ echo  01、到Flash官方下載最新正式版！
 echo  02、到Flash官方下載最新beta版！
 echo  03、返回主菜單。
 echo.
-set /p id=请选择，按回车键执行（例如：07）:
+set /p id=请选择，按回车键执行（例如：01）:
 cls
 
 if "%id%"=="01" goto download1
