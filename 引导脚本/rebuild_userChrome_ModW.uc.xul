@@ -24,7 +24,7 @@ if (window.userChromejs) {
 	delete window.userChromejs;
 }
 // 放置的位置, true为地址栏, false为可移动按钮
-var issUrlbar = false;
+var issUrlbar = true;
 // 要移动的菜单列表，按找到的顺序排序
 var movedMenus = [
 	"ucjsMouseGestures",       //鼠标手势
