@@ -1,13 +1,10 @@
 
-::2015.10.06  精簡說明展示方式
+::2015.10.23  添加一个Firefox备份文件
+::2015.10.10  精簡說明展示方式
 ::2015.10.04  模塊化每個備份項目，然後再組合，方便修攺維護
 ::2015.10.02  精簡擴展語言
 ::2015.10.01  優化輸出地址
 ::2015.09.26  開啟7zip極限壓縮
-::2015.08.08  可選擇Flash下載地址
-::2015.07.14  添加備份詞典和user.js到GitHub
-::2015.07.14  更新Flash下载地址
-::2015.07.13  4合1整合
 
 @echo off
 Title 備份批處理整合版 by Cing
@@ -50,12 +47,8 @@ If ErrorLevel 2 If Not ErrorLevel 3 Goto menu
 :Profiles-1
 cls
 echo.
-echo  **注意：
-echo.
 echo  1. 需要關閉Firefox程序，請保存必要的資料!
 echo  2. 備份完成後，按任意鍵重啟Firefox
-echo.
-echo  By Cing
 echo.
 echo  按任意键继续……
 pause>nul
@@ -177,6 +170,8 @@ xcopy "%BackDir%\bookmarks.html" %TempFolder%\ /y
 xcopy "%BackDir%\cert_override.txt" %TempFolder%\ /y
 ::cert8.db：安全证书。
 xcopy "%BackDir%\cert8.db" %TempFolder%\ /y
+::extensions.json：扩展启用禁用状态
+xcopy "%BackDir%\extensions.json" %TempFolder%\ /y
 ::FlashGot.exe：FlashGot的下载工具。
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\ /y
 ::foxyproxy.xml：FoxyProxy的設置及网址列表備份。
@@ -274,13 +269,9 @@ cls
 echo.
 echo  *** CingFox完整包制作 ***
 echo.
-echo  **注意：
-echo.
 echo  1. 需要關閉Firefox程序，請保存必要的資料!
 echo  2. 3个步驟：Profiles + Plugins&Software + firefox
 echo  3. 備份完成後，按任意鍵重啟Firefox
-echo.
-echo  By Cing
 echo.
 echo  按任意键继续……
 pause>nul
@@ -362,7 +353,7 @@ cls
 echo.
 echo  *** 備份Plugins和Software文件夾 ***
 echo.
-echo  By Cing
+echo  含Plugins和Software兩個文件夾
 echo.
 pause>nul
 cls
@@ -449,16 +440,11 @@ cls
 echo.
 echo  *** 提取Flash32位插件 ***
 echo.
-echo  **注意：
-echo.
 echo  1.需要先安装非IE的Adobe Flash Player插件！
 echo  2.本批处理用以提取32位插件，并打包
 echo  3.如需提取64位Flash，请修改BackDir位置
 echo.
-echo  Edit By yndoc！
-echo  Mod By Cing
-echo.
-echo    按任意键继续……
+echo  按任意键继续……
 pause>nul
 
 cls
@@ -512,6 +498,7 @@ goto set
 cd /d %~dp0
 set BackDir=C:\Windows\SysWOW64\Macromed\Flash
 set TempFolder=D:\Flash32
+
 ::輸出地址
 set TargetFolder="D:\My Documents\Baiduyun\Firefox\【FX共享】\Flash32位原版提取帶vch和exe"
 
@@ -542,9 +529,10 @@ set Name=%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
-%zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
+%zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%\NPSWF32*.dll" "%TempFolder%\FlashPlayerPlugin*.exe" "%TempFolder%\plugin.vch"
+
 @echo 備份完成！并刪除臨時文件夾！
-rd "%TempFolder%" /s/q
+rd "%TempFolder%"  /s/q
 
 ECHO.&ECHO.已打包完成，請按任意鍵退出，將跳轉到系統/控制面板/程序與功能！&PAUSE >NUL 2>NUL
 
@@ -571,13 +559,9 @@ cls
 echo.
 echo  *** 備份一些文件到GitHub ***
 echo.
-echo  **注意：
-echo.
 echo  1. 個人參數設置：user.js
 echo  2. 詞典：persdict.dat
 echo  3. Stylish樣式庫：stylish.sqlite
-echo.
-echo  By Cing
 echo.
 echo  按任意键继续……
 pause>nul
