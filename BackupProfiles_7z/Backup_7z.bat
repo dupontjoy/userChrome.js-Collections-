@@ -1,5 +1,5 @@
 
-::2015.10.26  添加刪除DTA語言
+::2015.10.29  添加刪除DTA語言
 ::2015.10.23  添加一个Firefox备份文件
 ::2015.10.10  精簡說明展示方式
 ::2015.10.04  模塊化每個備份項目，然後再組合，方便修攺維護
@@ -77,6 +77,8 @@ rem 复制目标文件到臨時文件夾
 ::xcopy "%BackDir%\adblockplus" %TempFolder%\adblockplus\  /s /y /i
 ::autoproxy：Autoproxy規則備份。
 xcopy "%BackDir%\autoproxy" %TempFolder%\autoproxy\  /s /y /i
+::browser-extension-data：Redirector擴展的數據文件
+xcopy "%BackDir%\browser-extension-data" %TempFolder%\browser-extension-data\ /s /y /i
 ::chrome：UC腳本。
 xcopy "%BackDir%\chrome" %TempFolder%\chrome\  /s /y /i
 ::extensions：安裝的擴展。
