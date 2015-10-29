@@ -188,7 +188,7 @@ xcopy "%BackDir%\cert_override.txt" %TempFolder%\ /y
 ::cert8.db：安全证书。
 xcopy "%BackDir%\cert8.db" %TempFolder%\ /y
 ::extensions.json：扩展启用禁用状态
-xcopy "%BackDir%\extensions.json" %TempFolder%\ /y
+::xcopy "%BackDir%\extensions.json" %TempFolder%\ /y
 ::FlashGot.exe：FlashGot的下载工具。
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\ /y
 ::foxyproxy.xml：FoxyProxy的設置及网址列表備份。
