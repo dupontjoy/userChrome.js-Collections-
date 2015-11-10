@@ -46,6 +46,6 @@
 
 | | |
 | :--- | :--- |
-| **詳細說明及發佈地址** | http://bbs.kafan.cn/thread-1792671-1-1.html |
-| SF Project | https://sourceforge.net/projects/qingfox/ |
+| **長期下載地址** | http://pan.baidu.com/s/1pJ7NhpD |
 | Chrome文件夾(UC腳本集) | https://github.com/dupontjoy/userChromeJS/ |
+| Flash32位原版提取帶vch和exe | http://pan.baidu.com/s/1sjz92Z7 |
