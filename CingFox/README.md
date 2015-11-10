@@ -29,25 +29,8 @@
 ————————————————————————————————————————————
 ###說明：
 1. 直接运行firefox文件夹中的firefox.exe即可<br/>
-2. 換用简体Firefox程式：<br/>
-  - pcxFirefox+Portable.7z便携：<br/>
-下载pcxFirefox（地址见参考），然后解压Portable.7z中的文件到firefox主程式中去。<br/>
-  - 官方FTP原版+MyFirefox引导<br/>
-3. 請仔细看user.js中参数的说明，酌情删减。<br/>
-4. 配套软件都采用相对路径，请严格按照如下文件夹结构使用。会修改的朋友，可以自定义。<br/>
-<p align="center"><img width="650" src="img/folder-structure.jpg"></p>
-  - setRelativeEditPath.uc.js定义了编辑器的相对位置：<br/>
-<p align="center"><img width="650" src="img/note-1.jpg"></p>
-  - _anoBtn.js定义了左上角FFF Plus按钮中的软件的相对位置：<br/>
-<p align="center"><img width="650" src="img/note-2.jpg"></p>
-  - BackupProfiles_7z.bat定义了配置与Firefox主程序的相对位置：<br/>
-<p align="center"><img width="650" src="img/note-3.jpg"></p>
-
-| | |
-| :--- | :--- |
-| **長期下載地址** | http://pan.baidu.com/s/1pJ7NhpD |
-| Chrome文件夾(UC腳本集) | https://github.com/dupontjoy/userChromeJS/ |
-| Flash32位原版提取帶vch和exe | http://pan.baidu.com/s/1sjz92Z7 |
+2. 請仔细看user.js中参数的说明，酌情删减。<br/>
+3. 配套软件都采用相对路径，请严格按照如下文件夹结构使用。会修改的朋友，可以自定义。
 
 ###參考資料：
 - 官方原版FTP：http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/
@@ -66,3 +49,9 @@
 - SimpleProxy扩展：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/000.xpi/Simple_Proxy.xpi
 - 維護的规则列表：[ABP](https://github.com/dupontjoy/customization/raw/master/Rules/ABP/Floating-n-Porn-Ads-Filter.txt)
 - 等等……
+
+| | |
+| :--- | :--- |
+| **長期下載地址** | http://pan.baidu.com/s/1pJ7NhpD |
+| Chrome文件夾(UC腳本集) | https://github.com/dupontjoy/userChromeJS/ |
+| Flash32位原版提取帶vch和exe | http://pan.baidu.com/s/1sjz92Z7 |
