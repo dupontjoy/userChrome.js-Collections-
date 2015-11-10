@@ -36,7 +36,6 @@
 3. 請仔细看user.js中参数的说明，酌情删减。<br/>
 4. 配套软件都采用相对路径，请严格按照如下文件夹结构使用。会修改的朋友，可以自定义。<br/>
 <p align="center"><img width="650" src="img/folder-structure.jpg"></p>
-一些腳本中定義的相對路徑：<br/>
   - setRelativeEditPath.uc.js定义了编辑器的相对位置：<br/>
 <p align="center"><img width="650" src="img/note-1.jpg"></p>
   - _anoBtn.js定义了左上角FFF Plus按钮中的软件的相对位置：<br/>
@@ -66,7 +65,7 @@
 - Redirector腳本版 by cinhoo：http://bbs.kafan.cn/thread-1621837-1-1.html
 - myNewTab腳本版 by Defpt: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/myNewTab-Classic
 - Google开源库重定向到国內：http://bbs.kafan.cn/thread-1769934-1-1.html
-- Autoproxy修改版：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/000.xpi/Autoproxy_Mod.xpi（仅搬运）
+- Autoproxy修改版（仅搬运）：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/000.xpi/Autoproxy_Mod.xpi
 - SimpleProxy扩展：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/000.xpi/Simple_Proxy.xpi
 - 維護的规则列表：[ABP](https://github.com/dupontjoy/customization/raw/master/Rules/ABP/Floating-n-Porn-Ads-Filter.txt)
 - 等等……
