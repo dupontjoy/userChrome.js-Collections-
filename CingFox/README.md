@@ -18,10 +18,10 @@
 ###界面預覧：
 <p align="center"><img width="650" src="img/preview.jpg" ></p>
 
-####功能展示：
+###功能展示：
 <p align="center"><img width="650" src="img/preview-2.jpg" ></p>
 
-####文件夾結構：
+###文件夾結構：
 <p align="center"><img width="650" src="img/folder-structure.jpg"></p>
 
 ————————————————————————————————————————————
@@ -49,11 +49,10 @@
 | Chrome文件夾(UC腳本集) | https://github.com/dupontjoy/userChromeJS/ |
 | Flash32位原版提取帶vch和exe | http://pan.baidu.com/s/1sjz92Z7 |
 
-參考資料：
+###參考資料：
 - 官方原版FTP：http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/
 - pcxFirefox主程式：http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/
 - RunningCheese V5版：http://bbs.kafan.cn/thread-1821447-1-1.html
-- 长丝绾月版（找齊黑白系圖標）：http://tieba.baidu.com/p/3855480212
 - Aunsen盒子版：http://bbs.kafan.cn/thread-1704664-1-1.html
 - KingTung：http://www.firefoxfan.com/
 - Y大：https://github.com/ywzhaiqi/userChromeJS
@@ -63,9 +62,7 @@
 - DannyLee：http://g.mozest.com/thread-43513-1-1
 - Backup_7z備份批處理：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/BackupProfiles_7z
 - Redirector腳本版 by cinhoo：http://bbs.kafan.cn/thread-1621837-1-1.html
-- myNewTab腳本版 by Defpt: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/myNewTab-Classic
 - Google开源库重定向到国內：http://bbs.kafan.cn/thread-1769934-1-1.html
-- Autoproxy修改版（仅搬运）：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/000.xpi/Autoproxy_Mod.xpi
 - SimpleProxy扩展：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/000.xpi/Simple_Proxy.xpi
 - 維護的规则列表：[ABP](https://github.com/dupontjoy/customization/raw/master/Rules/ABP/Floating-n-Porn-Ads-Filter.txt)
 - 等等……
