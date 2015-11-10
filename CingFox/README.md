@@ -1,5 +1,4 @@
-##CingFox
-![icon](img/icon.jpg)
+## ![icon](img/icon.jpg) CingFox
 
 **Mod by Cing**
 
