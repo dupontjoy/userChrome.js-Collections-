@@ -3,7 +3,7 @@
 
 **Mod by Cing**
 
-**個人Firefox配置完整打包**，基於pcxFirefox繁體中文版
+**個人Firefox配置完整打包**，基於pcxFirefox簡體中文版
 
 自2008年Firefox 2.0開始使用Firefox，這麼多年下來，也積累了豐富的使用經驗。雖然不太懂代碼，但是因爲有一顆不怕折騰的心，折騰過擴展，油猴腳本，UC腳本，CSS樣式，正則規則，批處理等等。
 
@@ -18,43 +18,11 @@
 ###界面預覧：
 <p align="center"><img width="650" src="img/preview.jpg" ></p>
 
-<p align="center"><img width="650" src="img/addon-page.jpg" ></p>
+####功能展示：
+<p align="center"><img width="650" src="img/preview-2.jpg" ></p>
 
-<p align="center"><img width="650" src="img/web-page.jpg" ></p>
-
-<p align="center"><img width="650" src="img/youtube.jpg" ></p>
-
-####特色功能：
-（左上角Logo ↓）<br/>
-<p align="center"><img src="img/anobtn.jpg"></p>
-
-（标签计数 ↓）<br/>
-<p align="center"><img width="650" src="img/tab-number.jpg" ></p>
-
-（标签加载进度条 ↓）<br/>
-<p align="center"><img width="650" src="img/progressbar.jpg"></p>
-
-（文件夹結构 ↓）<br/>
+####文件夾結構：
 <p align="center"><img width="650" src="img/folder-structure.jpg"></p>
-
-####各類右鍵菜單
-（標籤右鍵菜單 ↓）<br/>
-<p align="center"><img src="img/tab-right-menu.jpg"></p>
-
-（頁面右鍵菜單 ↓）<br/>
-<p align="center"><img src="img/page-right-menu.jpg"></p>
-
-（鏈接和選中文字右鍵菜單 ↓）<br/>
-<p align="center"><img src="img/link&select-right-menu.jpg"></p>
-
-（輸入框右鍵菜單 ↓）<br/>
-<p align="center"><img src="img/input-right-menu.jpg"></p>
-
-（圖片右鍵菜單 ↓）<br/>
-<p align="center"><img src="img/image-right-menu.jpg"></p>
-
-（書籤右鍵菜單 ↓）<br/>
-<p align="center"><img src="img/bookmark-right-menu.jpg"></p>
 
 ————————————————————————————————————————————
 ++++++++++++++++++++++++++++分割线++++++++++++++++++++++++++++++++
