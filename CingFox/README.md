@@ -21,8 +21,6 @@
 ###文件夾結構：
 <p align="center"><img width="650" src="img/folder-structure.jpg"></p>
 
-含pcxFirefox主程式，Profiles配件文件夹，Plugins插件，Software配套軟件。
-
 - Firefox：pcxFirefox主程式
 - Profiles：
   - 界面基於RunningCheese V5版，使用的是Simple White主題+Yosemite樣式，整體界面清新自然，簡約時尚。(Yosemite樣式用Stylish擴展引導）
