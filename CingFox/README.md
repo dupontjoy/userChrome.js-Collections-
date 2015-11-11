@@ -6,7 +6,13 @@
 
 <p align="center"><img width="650" src="img/preview-2.jpg" ></p>
 
-###特色：
+####特色：
+- 基于SimpleWhite的全新界面，如Mac般的細膩視感
+- 广告过滤：帶個人維護規則，屏蔽常用網站彈窗及色情圖片
+- 美觀的快速拨號
+- 百度網盤大文件直接下載
+- 點擊過的鏈接灰色顯示
+- 顯示國旗，查探IP地址和服務器地址
 - 完善的批處理（配置和完整版打包批處理）
 - 詳細的備注說明，有心的朋友可以學到東西
 - ProgressbarInTab腳本，在標籤上展示加載進度條
@@ -18,29 +24,24 @@
 - 配套軟件分享
 - …… ……
 
-###文件夾結構：
+####文件夾結構：
 <p align="center"><img width="650" src="img/folder-structure.jpg"></p>
 
-- Firefox：pcxFirefox主程式
-- Profiles：
-  - 界面基於RunningCheese V5版，使用的是Simple White主題+Yosemite樣式，整體界面清新自然，簡約時尚。(Yosemite樣式用Stylish擴展引導）
-  - 擴展，腳本，和[其它樣式](https://github.com/dupontjoy/userChromeJS/tree/master/UserCSSLoader)（用[userCSSLoader.uc.js](https://github.com/dupontjoy/userChromeJS/blob/master/UCJSFiles/UserCSSLoader_ModOos.uc.js)引導）都是幾年下來不斷蒐集，小調整而來。
+- Firefox：pcxFirefox主程式。
+- Profiles：完整配置文件夾。
 - Plugins：便攜dll提取版插件。含個人提取的Flash32位，工行等插件。
 - Software：配套軟件。含一些FQ軟件（賬號不提供），Notepad2編輯器（[設爲默認的方法](https://github.com/dupontjoy/userChromeJS/blob/master/userContent/setRelativeEditPath.uc.js)）和截圖軟件。都是和Firefox息息相關的，其它不必要的軟件都不再打包。
 
-####個人Firefox經歷：
-自2008年Firefox 2.0開始使用Firefox，這麼多年下來，也積累了豐富的使用經驗。雖然不太懂代碼，但是因爲有一顆不怕折騰的心，折騰過擴展，油猴腳本，UC腳本，CSS樣式，正則規則，批處理等等。
-
-————————————————————————————————————————————
-++++++++++++++++++++++++++++分割线++++++++++++++++++++++++++++++++
-————————————————————————————————————————————
-###說明：
+####說明：
 - 直接运行firefox文件夹中的firefox.exe即可。
 - 請仔细看user.js中參數的说明，酌情删减。
 - 配套軟件都采用相对路径，请严格按照如下文件夹结构使用。会修改的朋友，可以自定义。
 - 界面基于Win10設置，部分CSS值需要修改以適配其它系統。
 
-###參考資料：
+####個人Firefox經歷：
+自2008年Firefox 2.0開始使用Firefox，這麼多年下來，也積累了豐富的使用經驗。雖然不太懂代碼，但是因爲有一顆不怕折騰的心，折騰過擴展，油猴腳本，UC腳本，CSS樣式，正則規則，批處理等等。
+
+####參考資料：
 - 官方原版FTP：http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/
 - pcxFirefox主程式：http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/
 - RunningCheese V5版：http://bbs.kafan.cn/thread-1821447-1-1.html
@@ -56,7 +57,7 @@
 - Google开源库重定向到国內：http://bbs.kafan.cn/thread-1769934-1-1.html
 - SimpleProxy扩展：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/000.xpi/Simple_Proxy.xpi
 - 維護的規則列表：[ABP](https://github.com/dupontjoy/customization/raw/master/Rules/ABP/Floating-n-Porn-Ads-Filter.txt)
-- 等等……
+- …… ……
 
 | | |
 | :--- | :--- |
