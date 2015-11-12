@@ -1,4 +1,4 @@
-## ![icon](img/icon.jpg) CingFox
+## ![icon](img/icon.jpg) CingFox V6.0.1-2015.11.12
 
 一個美觀而實用的Firefox深度定制版，在保證流畅的同時給你以Mac般的視覺享受。基於pcxFirefox簡體中文版，原生便攜支持，解壓即可用。
 
