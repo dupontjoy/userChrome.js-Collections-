@@ -4,14 +4,15 @@
 // @author         Cing
 // @include        http*://ic.sjlpj.cn/UpShelf/OperationManageList
 // @include        http*://ic.sjlpj.cn/#/UpShelf/OperationManageList
-// @version        0.0.3
+// @version        2015.11.13
 // @grant          none
 // @namespace      
 // ==/UserScript==
 
-var time = 30; //单位以分鐘计
+var time = 10; //单位以分鐘计
 
 (function () 
 {
 setTimeout(function() {location.reload(true);}, time * 60000);
+setTimeout(function() {window.location.reload(true);}, time * 60000);
 })();
