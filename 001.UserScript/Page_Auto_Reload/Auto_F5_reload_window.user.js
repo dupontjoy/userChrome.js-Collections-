@@ -1,16 +1,13 @@
 ﻿// ==UserScript==
 // @name        Auto F5 reload window 
 // @namespace   http://userscripts.org/scripts/show/41891
-// @version     0.53-20151110
+// @version     0.53-20151121
 // @author      paulonkey 
-// @include     http*://ic.sjlpj.cn/UpShelf/OperationManageList
-// @include     http*://ic.sjlpj.cn/#/UpShelf/OperationManageList
-// @grant		    GM_deleteValue 
-// @grant		    GM_getValue
-// @grant		    GM_setValue 
-
+// @include 	http://ic.sjlpj.cn/*
+// @grant		GM_deleteValue 
+// @grant		GM_getValue
+// @grant		GM_setValue 
 // @description Reloads (aka refreshs) a webpage after a certian time. Config menu with "Shift + T". Autodetects language: English, German, Spanish and Dutch
-
 // ==/UserScript==
 
 /* I do not develop this project any more since Tab Mix Plus includes an autoreload button. If anyone is interested in bringing this project forwards, please tell me and I will set a link to the corresponding script page. */
