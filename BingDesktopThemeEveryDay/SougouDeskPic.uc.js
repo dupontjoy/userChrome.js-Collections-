@@ -2,19 +2,35 @@
 // @name           SougouDeskPic.uc.js
 // @description    每次启动自动随机获取一张搜狗壁纸
 // @homepageURL    http://bbs.kafan.cn/forum-215-1.html
-// 
+// @note 11.22搜狗壁纸
+// @note 11.22彼岸桌面壁纸
 //==/UserScript==
 var setTime = 0; //表示间隔多少分钟范围【0-60*24*10】-0到10天                     ->越界时间不准,就不好玩了       O_O
-// father网页，只要是搜狗的有4*7张大图的应该都可以-----也可以用搜索结果，但是不能有中文，否则js失效
-var fatherurl = "http://bizhi.sogou.com/label/index/731";//风景-环游世界
-/*var fatherurl = "http://bizhi.sogou.com/label/index/44";//周最热*/
-var regexp = RegExp("<a href=\"(/detail/info/[\\d]+)\" target=\"_blank\">", "g"); //注意由于是全局量，所以在重复调用的时候需要重置lastIndex
-var regexp2 = RegExp("<img height=\"600\" width=\"950\" src=\"([^\"]+)\"", "g"); //注意由于是全局量，所以在重复调用的时候需要重置lastIndex
+
+var userIndex = 0;
+var ALL = [
+["http://www.netbian.com", 
+"http://www.netbian.com/fengjing/",
+/*"http://www.netbian.com/weimei/",*/
+"<a href=\"([^\"]{0,15})\" target=\"_blank\">", "<img src=\"([^\"]+)\"", "-1366x768.htm", "18"], //-1920x1080.htm
+
+["http://bizhi.sogou.com", 
+"http://bizhi.sogou.com/label/index/44", 
+"<a href=\"(/detail/info/[\\d]+)\" target=\"_blank\">", "<img height=\"600\" width=\"950\" src=\"([^\"]+)\"", null, "28"],
+
+];
 
 var dirURL;
 var imgURL;
+var site = ALL[userIndex][0];
+var fatherurl = ALL[userIndex][1];
+var regexp = RegExp(ALL[userIndex][2], "g"); //注意由于是全局量，所以在重复调用的时候需要重置lastIndex
+var regexp2 = RegExp(ALL[userIndex][3], "g"); //注意由于是全局量，所以在重复调用的时候需要重置lastIndex
+var otherInfo = ALL[userIndex][4];
+var maxsize = ALL[userIndex][5];
 window.sougouPIC = {
-    setRileGou:function() {
+    setRileGou:function(yourIndex) {
+        if(yourIndex != null)   userIndex = yourIndex;
         setTime = setTime * 60000;
         var now=getNow();
         var history=getprfDate();
@@ -50,19 +66,24 @@ function init (){
             if(xhr.status == 200){
                 var htmls = xhr.responseText;
                 var tmpstr, tmpcount=0;
-                var randomNum = Math.round(Math.random()*28);
+                var randomNum = Math.round(Math.random()*maxsize);
                 while((tmpstr = regexp.exec(htmls)[1]) != null){
                     tmpcount++;
                     if(tmpcount == randomNum) break;
                 }
                 regexp.lastIndex = 0; //一定要有，为此我付出了一个晚上的代价
-                dirURL = "http://bizhi.sogou.com"+tmpstr;
+                dirURL = site+tmpstr;
+                if(otherInfo != null){
+                    var end = 
+                    dirURL = dirURL.substr(0, dirURL.length-4)+otherInfo;
+                }
             }
         }
     }
     xhr.send();
 }
 function initDirURL (){
+    //alert(dirURL);
     var xhr2 = new XMLHttpRequest();
     xhr2.open('GET', dirURL, false);
     dirURL = null;
@@ -70,7 +91,7 @@ function initDirURL (){
         if(xhr2.readyState == 4){
             if(xhr2.status == 200){
                 var endhtmls = xhr2.responseText;
-                endhtmls = endhtmls.substr(8800);
+                //endhtmls = endhtmls.substr(8800);
                 imgURL = regexp2.exec(endhtmls)[1];
                 regexp2.lastIndex = 0;
             }
@@ -80,6 +101,7 @@ function initDirURL (){
 }
 // 使用正则获得到改网页对应的大图的地址
 function setImg (){
+    //alert(imgURL);
     var image = new Image();
     image.src=imgURL;
     image.onload=function() {

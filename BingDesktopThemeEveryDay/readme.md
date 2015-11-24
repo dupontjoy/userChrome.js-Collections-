@@ -1,6 +1,7 @@
 ##BingDesktopThemeEveryDay.uc.js
 每日必应缤纷桌面，自动同步更新桌面壁纸<br/>
-by 527836355<br/>
+by 527836355
+
 原貼：http://tieba.baidu.com/p/2611038360
 - 加入腳本表頭，對腳本進行描述，补充相關資料
 
@@ -20,6 +21,8 @@ from: http://tieba.baidu.com/p/2787211960
 (愼用，像是會造成FX40鏈接標籤等需點擊兩次的Bug）
 
 ###SougouDeskPic
-每次启动自动随机获取一张搜狗壁纸
+每次启动自动随机获取一张搜狗壁纸<br/>
+by langren1353
 
-from: http://bbs.kafan.cn/forum-215-1.html
+- 發佈地址: http://bbs.kafan.cn/thread-1865503-1-1.html
+- 下載地址：https://coding.net/u/zb227/p/zbImg/git/raw/newMaster/file/SougouDeskPic.uc.js
