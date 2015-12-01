@@ -1,4 +1,4 @@
-/* :::::::: Sub-Script/Overlay Loader v3.0.48mod ::::::::::::::: */
+/* :::::::: Sub-Script/Overlay Loader v3.0.47mod ::::::::::::::: */
 
 // automatically includes all files ending in .uc.xul and .uc.js from the profile's chrome folder
 
@@ -14,7 +14,6 @@
 // 4.Support window.userChrome_js.loadOverlay(overlay [,observer]) //
 // Modified by Alice0775
 //
-// Date 2015/06/28 13:00 about:preferences#privacy etc
 // Date 2014/12/28 19:00 workaround loading xul on second browser
 // Date 2014/12/13 21:00 remove a debug log
 // Date 2014/12/13 21:00 allow to load scripts into about: in dialog
@@ -62,6 +61,16 @@
 (function(){
   "use strict";
   // -- config --
+  /*
+    EXPERIMENT：取消延迟加载（实验性的）？true 为不延迟，false 为延迟。为 true 则一些脚本可能会运行不正常。
+      true 和 false 区别2点：
+        1、本来有个 500ms 的延迟加载，true 后就没了。
+        2、本来是一个个加载 xul 文件，而 true 则把所有的 xul 加起来一次性加载。 前不久卡饭还有个 userChromejs 扩展的优化版，就是优化 xul 文件的加载。
+    EXCLUDE_CHROMEHIDDEN：  排除隐藏的 window(popup等)
+    USE_0_63_FOLDER：如果为 true，好像只支持这几种文件夹名字 uc、xul、ucjs
+    FORCESORTSCRIPT：对脚本进行排序，这可能对脚本的运行顺序有影响
+    AUTOREMOVEBOM：对文件编码进行检测，但并不支持 gbk 编码
+  */
   const EXPERIMENT = false; //実験:するtrue, しない[false]
   const EXCLUDE_CHROMEHIDDEN = false; //chromehiddenなwindow(popup等)ではロード: しないtrue, する[false]
   const USE_0_63_FOLDER = false; //0.63のフォルダ規則を使う[true], 使わないfalse
@@ -70,25 +79,9 @@
   const REPLACECACHE = false; //スクリプトの更新日付によりキャッシュを更新する: true , しない:[false]
   //=====================USE_0_63_FOLDER = falseの時===================
   var UCJS      = new Array("UCJSFiles","userContent","userMenu"); //UCJS Loader 仕様を適用 (NoScriptでfile:///を許可しておく)
-    var arrSubdir = new Array("", "xul","withTabMixPlus"  ,  "userCrome.js.0.8","userContent",
-"SubScript", 
-"UCJSFiles",
-"TabMixPlus",
-"userMenu",
-"userButton",
-"PageBrowse",
-"ToolbarScript",
-"downloadPlus",
-"AAA",
- "\u6DFB\u52A0\u9078\u55AE\u529F\u80FD",//添加選單功能
-"\u9801\u9762\u700F\u89BD\u529F\u80FD",//頁面瀏覽功能
-"\u5DE5\u5177\u5217\u6309\u9215",//工具列按鈕
-"\u4E0B\u8F09\u5C0D\u8A71\u6846\u589E\u5F37",//下載對話框增強
-"\u5DE5\u5177\u5217\u529F\u80FD\u589E\u5F37",//工具列功能增強
-"\u4ECB\u9762\u66F4\u6539"); //介面更改
-//スクリプトはこの順番で実行される
+  var arrSubdir = new Array("", "xul","TabMixPlus","withTabMixPlus", "SubScript", "UCJSFiles", "userCrome.js.0.8","userContent","userMenu");    //スクリプトはこの順番で実行される
   //===================================================================
-  const ALWAYSEXECUTE   = 'rebuild_userChrome.uc.xul'; //常に実行するスクリプト
+  const ALWAYSEXECUTE   = 'rebuild_userChrome.uc.xul'; // 强制运行的脚本，无视禁用列表
   var INFO = true;
   var BROWSERCHROME = "chrome://browser/content/browser.xul"; //Firfox
   //var BROWSERCHROME = "chrome://navigator/content/navigator.xul"; //SeaMonkey:
@@ -272,10 +265,24 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
         return false;
       }
 
+      /**
+       * 解析脚本得到 script 对象，只有 meta
+       */
+      userChrome_js.parseScript = function (aFile) {
+        var aContent = aFile;
+        if (typeof aFile != 'string') {
+          aContent = readFile(aFile, true)
+        } else {
+          aFile = null;
+        }
+
+        return getScriptData(aContent, aFile);
+      };
+
       //メタデータ収集
-      function getScriptData(aContent,aFile){
-        var charset, description;
-        var header = (aContent.match(/^\/\/ ==UserScript==[ \t]*\n(?:.*\n)*?\/\/ ==\/UserScript==[ \t]*\n/m) || [""])[0];
+      function getScriptData(aContent, aFile){
+        var charset, description, author, version;
+        var header = (aContent.match(/^\/\/\s*==UserScript==[ \t]*\n(?:.*\n)*?\/\/\s*==\/UserScript==[ \t]*\n/m) || [""])[0];
         var match, rex = { include: [], exclude: []};
         while ((match = findNextRe.exec(header)))
         {
@@ -297,18 +304,153 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
           description = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
         //}catch(e){}
         if (description =="" || !description)
-          description = aFile.leafName;
-        var url = fph.getURLSpecFromFile(aFile);
+          description = aFile && aFile.leafName;
+
+        // version
+        match = header.match(/\/\/ @version\b(.+)\s*/i);
+        version = "";
+        if(match && match.length)
+          version = match[1].replace(/^\s+/,"").split(" ")[0];
+
+        // author
+        match = header.match(/\/\/ @author\b(.+)\s*/i);
+        author = "";
+        if(match)
+          author = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // name
+        match = header.match(/\/\/ @name\b(.+)\s*/i);
+        var name = "";
+        if(match)
+          name = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // namespace
+        match = header.match(/\/\/ @namespace\b(.+)\s*/i);
+        var namespace = "";
+        if(match)
+          namespace = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // homepageURL
+        match = header.match(/\/\/ @homepage(?:URL)?\b(.+)\s*/i);
+        var homepageURL = "";
+        if(match)
+          homepageURL = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // reviewURL
+        match = header.match(/\/\/ @reviewURL\b(.+)\s*/i);
+        var reviewURL = "";
+        if(match)
+          reviewURL = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // downloadURL
+        match = header.match(/\/\/ @downloadURL\b(.+)\s*/i);
+        var downloadURL = "";
+        if(match)
+          downloadURL = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // updateURL
+        match = header.match(/\/\/ @updateURL\b(.+)\s*/i);
+        var updateURL = "";
+        if(match)
+          updateURL = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // optionsURL
+        match = header.match(/\/\/ @optionsURL\b(.+)\s*/i);
+        var optionsURL = "";
+        if(match)
+          optionsURL = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // fullDescription
+        match = header.match(/\/\/ @note\b(.+)\s*/ig);
+        var fullDescription = "";
+        var notes = [];
+        if(match && match.length){
+          for (var i = 0; i < match.length; i++) {
+            notes[i] = match[i].replace(/^\/\/ @note\s+/i, "");
+          }
+          fullDescription = "\n" + notes.join("\n");
+        }
+
+        // id
+        match = header.match(/\/\/ @id\b(.+)\s*/i);
+        var id = "";
+        if(match)
+          id = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // inspect
+        match = header.match(/\/\/ @inspect\b(.+)\s*/i);
+        var inspect = "";
+        if(match)
+          inspect = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // startup
+        match = header.match(/\/\/ @startup\b(.+)\s*/i);
+        var startup = "";
+        if(match)
+          startup = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // shutdown
+        match = header.match(/\/\/ @shutdown\b(.+)\s*/i);
+        var shutdown = "";
+        if(match)
+          shutdown = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // config
+        match = header.match(/\/\/ @config\b(.+)\s*/i);
+        var config = "";
+        if(match)
+          config = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        var url = aFile && fph.getURLSpecFromFile(aFile),
+            filename = aFile && aFile.leafName || '',
+            regex = new RegExp("^" + exclude + "(" + (rex.include.join("|") || ".*") + ")$", "i"),
+            includeMain = regex.test(BROWSERCHROME);
 
         return {
-          filename: aFile.leafName,
+          filename: filename,
           file: aFile,
           url: url,
+          name: name,
+          namespace: namespace,
           //namespace: "",
           charset: charset,
           description: description,
+          version: version,
+          author: author,
           //code: aContent.replace(header, ""),
-          regex: new RegExp("^" + exclude + "(" + (rex.include.join("|") || ".*") + ")$", "i")
+          regex: regex,
+
+          // new added
+          id: id ? id : (name || filename) + '@' + (namespace || author || 'userChromejs'),
+          get type() {
+            return /\.uc(?:-\d+)?\.js$/i.test(this.filename) ? 'js' :
+                         /\.uc(?:-\d+)?\.xul$/i.test(this.filename) ? 'xul' : '';
+          },
+          homepageURL: homepageURL,
+          reviewURL: reviewURL,
+          get downloadURL() {
+            return downloadURL || (userChromejs && userChromejs.store.get(filename, {}).installURL);
+          },
+          updateURL: updateURL,
+          optionsURL: optionsURL,
+          fullDescription: fullDescription,
+
+          inspect: inspect,
+          get canInspect() {
+            return ('@mozilla.org/commandlinehandler/general-startup;1?type=inspector' in Cc) && !!this.inspect;
+          },
+          startup: startup,
+          shutdown: shutdown,
+          restartless: includeMain ? !!(startup && shutdown) : true,
+          includeMain: includeMain,
+          isRunning: false,
+          config: config,
+          get isEnabled() {
+            return !userChrome_js.scriptDisable[this.filename];
+          },
+          get canUpdate() {
+            return this.downloadURL && this.downloadURL.indexOf('http') === 0;
+          },
         }
       }
 
@@ -524,7 +666,7 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
     //xulを読み込む
     runOverlays: function(doc){
       try {
-        var dochref = doc.location.href.replace(/#.*$/, "");
+        var dochref = doc.location.href;
       } catch (e) {
         return;
       }
@@ -534,15 +676,17 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
       if( !this.EXPERIMENT && true ){ //← uc.jsでのloadOverlayに対応
         for(var m=0,len=this.overlays.length; m<len; m++){
           overlay = this.overlays[m];
-          if( overlay.filename != this.ALWAYSEXECUTE
-            && ( !!this.dirDisable['*']
+          // 排除加载 rebuild_userChrome.uc.xul
+          if( overlay.filename == this.ALWAYSEXECUTE
+                 || !!this.dirDisable['*']
                  || !!this.dirDisable[overlay.dir]
-                 || !!this.scriptDisable[overlay.filename]) ) continue;
+                 || !!this.scriptDisable[overlay.filename] ) continue;
 
           // decide whether to run the script
           if(overlay.regex.test(dochref)){
             if (this.INFO) this.debug("loadOverlay: " + overlay.filename);
             this.loadOverlay(overlay.url + "?" + this.getLastModifiedTime(overlay.file), null, doc);
+            overlay.isRunning = true;
           }
         }
       }else{
@@ -550,10 +694,10 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
         var count =0;
         for(var m=0,len=this.overlays.length; m<len; m++){
           overlay = this.overlays[m];
-          if( overlay.filename != this.ALWAYSEXECUTE
-            && ( !!this.dirDisable['*']
+          if( overlay.filename == this.ALWAYSEXECUTE
+                 || !!this.dirDisable['*']
                  || !!this.dirDisable[overlay.dir]
-                 || !!this.scriptDisable[overlay.filename]) ) continue;
+                 || !!this.scriptDisable[overlay.filename] ) continue;
           // decide whether to run the script
           if(overlay.regex.test(dochref)){
             XUL += overlay.xul;
@@ -565,6 +709,7 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
         try{
             if (this.INFO) this.debug("loadOverlay: " + XUL);
             this.loadOverlay("data:application/vnd.mozilla.xul+xml;charset=utf-8," + XUL, null, doc);
+            overlay.isRunning = true;
         }catch(ex){
             this.error(XUL, ex);
         }
@@ -574,7 +719,7 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
     //uc.jsを読み込む
     runScripts: function(doc){
       try {
-        var dochref = doc.location.href.replace(/#.*$/, "");
+        var dochref = doc.location.href;
       } catch (e) {
         return;
       }
@@ -631,7 +776,11 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
             else
               Cc["@mozilla.org/moz/jssubscript-loader;1"].getService(Ci.mozIJSSubScriptLoader)
                        .loadSubScript(script.url + "?" + this.getLastModifiedTime(script.file),
-                                      doc.defaultView);
+                                      doc.defaultView, 'UTF-8');
+                                      //doc.defaultView);
+
+            // 已经运行了，其它窗口有问题
+            script.isRunning = true;
           }catch(ex) {
             this.error(script.filename, ex);
           }
@@ -691,10 +840,17 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
 
 
   var that = window.userChrome_js;
+
+  // 载入存储的设置
+  try {  // 会有个错误：prefObj.getBoolPref is not a function
+    that.EXPERIMENT = prefObj.getBoolPref("userChrome.EXPERIMENT");
+    that.arrSubdir = prefObj.getComplexValue("userChrome.arrSubdir", Ci.nsISupportsString).data
+                        .split(',').map(function(d) d.trim());
+  } catch(e) {}
+
   window.addEventListener("unload", function(){
     that.shutdown = true;
   },false);
-
   window.xxdebug = that.debug;
   //that.debug(typeof that.getScriptsDone);
   if(pref){
@@ -758,7 +914,7 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
       setTimeout(function(doc){
         that.runScripts(doc);
         //面倒だからFirefox 3 の場合はeditBookmarkOverlay.xulを先読みしておく
-        var delay = 0;
+        var delay = 500;
         if (location.href === that.BROWSERCHROME &&
             typeof StarUI != 'undefined' &&
             !(StarUI._overlayLoading || StarUI._overlayLoaded)) {
@@ -786,7 +942,7 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
           delay = 0;
         }
         setTimeout(function(doc){that.runOverlays(doc);}, delay, doc);
-      },0, doc);
+      },500, doc);
     } else {
       that.runScripts(doc);
       //面倒だからFirefox 3 の場合はeditBookmarkOverlay.xulを先読みしておく
@@ -873,4 +1029,3 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
     }
   }
 })();
-//userChrome.import("stylish0.5_edit.uc.js", "UChrm");
