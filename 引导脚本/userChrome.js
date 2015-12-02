@@ -631,7 +631,8 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
             else
               Cc["@mozilla.org/moz/jssubscript-loader;1"].getService(Ci.mozIJSSubScriptLoader)
                        .loadSubScript(script.url + "?" + this.getLastModifiedTime(script.file),
-                                      doc.defaultView);
+                                      doc.defaultView, 'UTF-8');
+                                      //doc.defaultView);
           }catch(ex) {
             this.error(script.filename, ex);
           }
