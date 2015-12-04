@@ -11,14 +11,10 @@ var userIndex = 1;
 var ALL = [
 ["http://www.netbian.com", 
 "http://www.netbian.com/jianzhu/",//建筑
-/*"http://www.netbian.com/fengjing/",//风景
-"http://www.netbian.com/sheji/",*///设计
 "<a href=\"([^\"]{0,15})\" target=\"_blank\">", "<img src=\"([^\"]+)\"", "-1366x768.htm", "18"], //-1920x1080.htm
 
 ["http://bizhi.sogou.com", 
-"http://bizhi.sogou.com/label/index/44",//周最热
-/*"http://bizhi.sogou.com/label/index/221",//风景周最热
-"http://bizhi.sogou.com/label/index/731",*///环游世界
+"http://bizhi.sogou.com/label/index/731",//环游世界
 "<a href=\"(/detail/info/[\\d]+)\" target=\"_blank\">", "<img height=\"600\" width=\"950\" src=\"([^\"]+)\"", null, "28"],
 
 ];
