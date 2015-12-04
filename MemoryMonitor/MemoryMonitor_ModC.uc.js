@@ -26,8 +26,8 @@ var ucjsMM = {
 
 	interval : null,
 	init : function () {
-		var toolbar = document.getElementById('urlbar-icons');//放地址栏后面
-		/*var toolbar = document.getElementById('identity-box').parentNode;//放地址栏前面*/
+		/*var toolbar = document.getElementById('urlbar-icons');*///放地址栏后面
+		var toolbar = document.getElementById('identity-box').parentNode;//放地址栏前面
 		var memoryPanel = document.createElement('statusbarpanel');
 		memoryPanel.id = 'MemoryDisplay';
 		memoryPanel.setAttribute('label', ucjsMM._MemoryValue + ucjsMM._prefix);
