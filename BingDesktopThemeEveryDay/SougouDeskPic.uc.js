@@ -7,19 +7,18 @@
 //==/UserScript==
 var setTime = 0; //表示间隔多少分钟范围【0-60*24*10】-0到10天                     ->越界时间不准,就不好玩了       O_O
 
-var userIndex = 0;
+var userIndex = 1;
 var ALL = [
 ["http://www.netbian.com", 
+"http://www.netbian.com/jianzhu/",//建筑
 /*"http://www.netbian.com/fengjing/",//风景
-"http://www.netbian.com/weimei/",//唯美
-"http://www.netbian.com/jianzhu/",*///建筑
-"http://www.netbian.com/sheji/",//设计
+"http://www.netbian.com/sheji/",*///设计
 "<a href=\"([^\"]{0,15})\" target=\"_blank\">", "<img src=\"([^\"]+)\"", "-1366x768.htm", "18"], //-1920x1080.htm
 
 ["http://bizhi.sogou.com", 
-/*"http://bizhi.sogou.com/label/index/44",*///周最热
-"http://bizhi.sogou.com/label/index/665",//森林系女孩
-/*"http://bizhi.sogou.com/label/index/731",*///环游世界
+"http://bizhi.sogou.com/label/index/44",//周最热
+/*"http://bizhi.sogou.com/label/index/221",//风景周最热
+"http://bizhi.sogou.com/label/index/731",*///环游世界
 "<a href=\"(/detail/info/[\\d]+)\" target=\"_blank\">", "<img height=\"600\" width=\"950\" src=\"([^\"]+)\"", null, "28"],
 
 ];
