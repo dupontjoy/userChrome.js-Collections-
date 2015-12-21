@@ -1,13 +1,14 @@
 ## ![icon](img/icon.jpg) CingFox V6.0.1-2015.11.12
 
-一個美觀而實用的Firefox深度定制版，在保證流畅的同時給你以Mac般的視覺享受。基於pcxFirefox簡體中文版，原生便攜支持，解壓即可用。
+一個美觀而實用的Firefox深度定制版，在保證流畅的同時給你以Mac般的視覺享受。界面修攺自RunningCheese V5版.
+主程序pcxFirefox簡體中文版，原生便攜支持，解壓即可用。
 
 <p align="center"><img width="650" src="img/preview.jpg" ></p>
 
 <p align="center"><img width="650" src="img/preview-2.jpg" ></p>
 
 ####特色：
-- 基于SimpleWhite的全新界面，如Mac般的細膩視感
+- 基于SimpleWhite的全新界面，如Mac般的細膩視感(Thx: RunningCheese)
 - 美觀的快速拨號
 - 廣告過濾：帶個人維護規則，屏蔽常用網站彈窗及色情圖片
 - 百度網盤大文件直接下載
