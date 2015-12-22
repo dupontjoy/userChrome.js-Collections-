@@ -1,4 +1,4 @@
-## ![icon](img/icon.jpg) CingFox-20151112
+## ![icon](img/icon.jpg) CingFox-201512222
 
 一個美觀而實用的Firefox深度定制版，在保證流畅的同時給你以Mac般的視覺享受。界面修攺自RunningCheese V5版.
 主程序pcxFirefox簡體中文版，原生便攜支持，解壓即可用。
@@ -78,6 +78,6 @@
 
 | | |
 | :--- | :--- |
-| **長期下載地址** | http://pan.baidu.com/s/1pJ7NhpD |
+| **長期下載地址** | http://yunpan.cn/c3ifDwCVMGHr3#c619 |
 | Chrome文件夾(UC腳本集) | https://github.com/dupontjoy/userChromeJS/ |
 | Flash32位原版提取帶vch和exe | http://pan.baidu.com/s/1sjz92Z7 |
