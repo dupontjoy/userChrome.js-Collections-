@@ -1,7 +1,7 @@
 ## ![icon](img/icon.jpg) CingFox-201512222
 
 一個美觀而實用的Firefox深度定制版，在保證流畅的同時給你以Mac般的視覺享受。界面修攺自RunningCheese V5版.
-主程序pcxFirefox簡體中文版，原生便攜支持，解壓即可用。
+主程序pcxFirefox 41.0.1簡體中文版，原生便攜支持，解壓即可用。
 
 <p align="center"><img width="650" src="img/preview.jpg" ></p>
 
