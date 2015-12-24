@@ -31,17 +31,8 @@ Mod by **Cing**
 - 2015.06.25 實現獲取Flash版本號
 - 2015.06.23 加入提取32位Flash插件批处理
 
-打包开始：<br/>
+示意圖：<br/>
 ![打包开始](img/backup_7z-1.jpg)
-
-选择：<br/>
-![选择](img/backup_7z-2.jpg)
-![选择](img/backup_7z-3-1.jpg)
-![选择](img/backup_7z-3-2.jpg)
-
-打包结束：<br/>
-![打包结束](img/backup_7z-4.jpg)
-![打包结束](img/backup_7z-5.jpg)
 
 ###注意：
 **我的配置文件夹结构：**<br/>
