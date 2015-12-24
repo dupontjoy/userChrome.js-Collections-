@@ -50,5 +50,5 @@ Mod by **Cing**
 
 | 應用實例 | |
 | :--- | :--- |
-| **CingFox完整包** | https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox |
+| **CingFox完整包** | [CingFox on GitHub](../CingFox) |
 | **Flash32位原版提取帶vch和exe** | http://pan.baidu.com/s/1sjz92Z7 |
