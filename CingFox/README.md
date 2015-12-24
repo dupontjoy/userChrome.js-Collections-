@@ -29,7 +29,7 @@
 ####所用擴展：
 | | |
 | :--- | :--- |
-| 擴展名稱 | 功能說明 |
+| **擴展名稱 | 功能說明** |
 | Adblock Plus | 去除网页广告及弹窗 |
 | Adblock Plus元素隐藏 | 手动指定网页元素进行隐藏，ABP輔助，自定義規則必備 |
 | DOM Inspector | 元素查看器，方便查找菜單及按鈕ID |
@@ -45,10 +45,10 @@
 ####文件夾結構：
 <p align="center"><img width="650" src="img/folder-structure.jpg"></p>
 
-- Firefox：pcxFirefox主程式。
-- Profiles：完整配置文件夾。
-- Plugins：便攜dll提取版插件。含個人提取的Flash32位，工行等插件。
-- Software：配套軟件。含一些FQ軟件（賬號不提供），Notepad2編輯器（[設爲默認的方法](https://github.com/dupontjoy/userChromeJS/blob/master/userContent/setRelativeEditPath.uc.js)）和截圖軟件。都是和Firefox息息相關的，其它不必要的軟件都不再打包。
+- **Firefox:** pcxFirefox主程式。
+- **Profiles:** 完整配置文件夾。
+- **Plugins:** 便攜dll提取版插件。含個人提取的Flash32位，工行等插件。
+- **Software:** 配套軟件。含一些FQ軟件（賬號不提供），Notepad2編輯器（[設爲默認的方法](https://github.com/dupontjoy/userChromeJS/blob/master/userContent/setRelativeEditPath.uc.js)）和截圖軟件。都是和Firefox息息相關的，其它不必要的軟件都不再打包。
 
 ####說明：
 - 直接运行firefox文件夹中的firefox.exe即可。
