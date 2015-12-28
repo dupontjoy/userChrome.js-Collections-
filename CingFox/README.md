@@ -79,6 +79,6 @@
 
 | | |
 | :--- | :--- |
-| **長期下載地址** | http://yunpan.cn/cus4Peg53gmMk#6e2e |
+| **長期下載地址** | 链接: http://pan.baidu.com/s/1gepIhKv#r8di |
 | Chrome文件夾(UC腳本集) | https://github.com/dupontjoy/userChromeJS/ |
 | Flash32位原版提取帶vch和exe | http://pan.baidu.com/s/1sjz92Z7 |
