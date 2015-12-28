@@ -43,7 +43,7 @@
 | userChromeJS | UC脚本引导器 |
 
 ####文件夾結構：
-<p align="center"><img width="650" src="img/folder-structure.jpg"></p>
+<p align="left"><img width="650" src="img/folder-structure.jpg"></p>
 
 - **Firefox:** pcxFirefox主程式。
 - **Profiles:** 完整配置文件夾。
