@@ -138,3 +138,18 @@ picviewerCE-RC-Mod：在Runningcheese版上修改
         }
     }
     },
+
+示例: Mobilefun 大圖
+
+    {name: 'Mobilefun 主图',
+		siteExample: 'http://www.mobilefun.co.uk/cat/ZTE-Nubia-X6.htm',
+		url: /^https?:\/\/www.mobilefun.co.uk/i,
+		getImage: function() {
+			var oldsrc = this.src,
+				newsrc;
+			var pic = /(.+?\.mobilefun\.co\.uk\/graphics)\/100pixelp\/(.*).jpg(.*)/;
+			if (pic.test(oldsrc)) {
+				return oldsrc.replace(pic, '$1/300pixelp/$2.jpg');
+			}
+    }
+    },
