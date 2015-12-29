@@ -5,6 +5,7 @@ start "" "%dir4%\ProcessLasso.exe" "/logfolder=%dir4%" "/configfolder=%dir4%"
 
 ::普通啟動
 start "" "D:\Program Files\BaiduYun\baiduyun.exe"
+start "" "D:\Program Files\360YunPan\360cloud\360Cloud.exe"
 start "" "D:\Program Files\Tencent\Foxmail\Foxmail.exe"
 start "" "D:\Program Files\Mozilla Firefox\Software\Other\PicPick\picpick.exe"
 start "" "D:\Program Files\Mozilla Firefox\Software\GFW\Shadowsocks\Shadowsocks.exe"
