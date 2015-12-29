@@ -2,7 +2,7 @@
 // @name           picviewerCE-RC-Mod
 // @author         NLF && ywzhaiqi
 // @description    NLF 的围观图修改版
-// @version        2015.09.06
+// @version        2015.12.29
 // version        2015.7.10.0
 // version        4.2.6.1
 // @created        2011-6-15
@@ -26,8 +26,9 @@
 // @exclude       http*://maps.google.com*/*
 // @exclude       *://www.google.*/_/chrome/newtab*
 
+// @note          2015.12.29 添加Mobilefun 主图
+// @note          2015.11.11 修正1688 主图
 // @note          2015.09.06 在RunnighCheese版上修改
-// @note          2015.08.13 添加1688 主图
 // @note          2015.08.11 添加sunsky 主图
 // @note          2015.08.10 添加Banggood 主图
 // @note          2015.07.29 添加Tmart 大圖
@@ -168,16 +169,27 @@ var siteInfo=[
 		// 排除的图片正则
 		// exclude: /weixin_code\.png$/i,
 	},
-	
+	{name: 'Mobilefun 主图',
+		siteExample: 'http://www.mobilefun.co.uk/cat/ZTE-Nubia-X6.htm',
+		url: /^https?:\/\/www.mobilefun.co.uk/i,
+		getImage: function() {
+			var oldsrc = this.src,
+				newsrc;
+			var pic = /(.+?\.mobilefun\.co\.uk\/graphics)\/100pixelp\/(.*).jpg(.*)/;
+			if (pic.test(oldsrc)) {
+				return oldsrc.replace(pic, '$1/300pixelp/$2.jpg');
+			}
+		}
+	},
 	{name: '1688 主图',
 		siteExample: 'http://detail.1688.com/offer/39098650520.html?spm=a261b.2187593.1998088710.147.LB7j1s',
 		url: /^https?:\/\/detail.1688.com/i,
 		getImage: function() {
 			var oldsrc = this.src,
 				newsrc;
-			var pic = /(.+?\.aliimg\.com\/.+)\/(.+)\.(.+x.+).jpg(.*)/;
+			var pic = /(.+?\.(aliimg|alibaba)\.com\/.+)\/(.+)\.(.+x.+).jpg(.*)/;
 			if (pic.test(oldsrc)) {
-				return oldsrc.replace(pic, '$1/$2.jpg');
+				return oldsrc.replace(pic, '$1/$3.jpg');
 			}
 		}
 	},
