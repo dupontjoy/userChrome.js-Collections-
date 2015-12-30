@@ -73,7 +73,7 @@
 - Backup_7z備份批處理：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/BackupProfiles_7z
 - Redirector腳本版 by cinhoo：http://bbs.kafan.cn/thread-1621837-1-1.html
 - Google开源库重定向到国內：http://bbs.kafan.cn/thread-1769934-1-1.html
-- SimpleProxy扩展：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/000.xpi/Simple_Proxy.xpi
+- SimpleProxy扩展：https://github.com/jc3213/SimpleProxy
 - 維護的規則列表：[ABP](https://github.com/dupontjoy/customization/raw/master/Rules/ABP/Floating-n-Porn-Ads-Filter.txt)
 - …… ……
 
