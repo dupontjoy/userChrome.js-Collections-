@@ -49,7 +49,7 @@ by **Alice0775 & dannylee**
 
 | | |
 | --- | :--- |
-| **其它资源** | 個人[第三方腳本白名單][1] |
+| **其它资源** | 個人[第三方腳本黑名單][1] |
 | 簡單教程 | http://bbs.kafan.cn/thread-1527284-1-1.html |
 
-[1]: https://github.com/dupontjoy/customization/blob/master/Rules/ucjsPermission-Whitelist.txt
+[1]: https://github.com/dupontjoy/customization/blob/master/Rules/ucjsPermission-Blacklist.txt
