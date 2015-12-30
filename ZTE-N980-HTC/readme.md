@@ -49,5 +49,5 @@ by 小Yu
 
 | | | |
 | :--- | :--- | :--- |
-| <img width="270" src="img/1.png"> | <img width="270" src="img/2.png"> | <img width="270" src="img/3.png"> |
-| <img width="270" src="img/4.png"> | <img width="270" src="img/5.png"> | |
+| <img width="260" src="img/1.png"> | <img width="260" src="img/2.png"> | <img width="260" src="img/3.png"> |
+| <img width="260" src="img/4.png"> | <img width="260" src="img/5.png"> | |
