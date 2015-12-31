@@ -11,7 +11,7 @@
 ###操作
 
 | | |
-| :--- | :--- |
+| :快捷鍵 | :說明 |
 | m + 單個數字/字母 | 为網頁加書籤mark |
 | ' | 跳轉到指定mark |
 | l | 調出mark列表 |
@@ -19,4 +19,4 @@
 
 | | |
 | :--- | :--- |
-| <img width="350" src="img/add-mark.jpg"> | <img width="350" src="img/mark-list.jpg"> |
+| <img width="400" src="img/add-mark.jpg"> | <img width="400" src="img/mark-list.jpg"> |
