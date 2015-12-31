@@ -31,16 +31,16 @@
 | :--- | :--- |
 | **擴展名稱** | **功能說明** |
 | Adblock Plus | 去除网页广告及弹窗 |
-| Adblock Plus元素隐藏 | 手动指定网页元素进行隐藏，ABP輔助，自定義規則必備 |
+| Adblock Plus元素隐藏 | ABP輔助，自定義規則必備 |
 | DOM Inspector | 元素查看器，方便查找菜單及按鈕ID |
-| DownThemAll！ | 下載辅助，配合FlashGot可自動獲取引用頁 |
+| DownThemAll! | 下載辅助，配合FlashGot可自動獲取引用頁 |
 | FlashGot | 下载网页中的视频和音频文件 |
 | Greasemonkey | 伟大的油猴子，通过JS文件增强或改变网站的功能 |
 | Lastpass | 記住你的密碼 |
-| Redirector | 重定向網址 |
+| Redirector | 重定向網址, 可測試規則是否生效 |
 | Simple Proxy | 一個簡約而不簡單的代理辅助擴展 |
 | Stylish | 用CSS改变浏览器和网页的显示外观 |
-| userChromeJS | UC脚本引导器 |
+| userChromeJS | UC腳本管理擴展 |
 
 ####文件夾結構：
 <p align="left"><img width="650" src="img/folder-structure.jpg"></p>
@@ -62,7 +62,7 @@
 ####參考資料：
 - 官方原版FTP：http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/
 - pcxFirefox主程式：http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/
-- RunningCheese V5版：http://bbs.kafan.cn/thread-1821447-1-1.html
+- RunningCheese：http://www.runningcheese.com/
 - Aunsen盒子版：http://bbs.kafan.cn/thread-1704664-1-1.html
 - KingTung：http://www.firefoxfan.com/
 - Y大：https://github.com/ywzhaiqi/userChromeJS
