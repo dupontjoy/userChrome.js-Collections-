@@ -10,16 +10,13 @@
 
 ###操作
 
-m + 單個 數字 或 字母，为網頁加書籤mark
+| | |
+| :--- | :--- |
+| m + 單個數字/字母 | 为網頁加書籤mark |
+| ' | 跳轉到指定mark |
+| l | 調出mark列表 |
+| x | 刪除列表中的選中項 |
 
-- m：添加mark
-
-- ‘：跳轉到指定mark
-
-- l： 調出mark列表
-
-- x：刪除列表中的選中項
-
-<img width="650" src="img/add-mark.jpg">
-
-<img width="650" src="img/mark-list.jpg">
+| | |
+| :--- | :--- |
+| <img width="350" src="img/add-mark.jpg"> | <img width="350" src="img/mark-list.jpg"> |
