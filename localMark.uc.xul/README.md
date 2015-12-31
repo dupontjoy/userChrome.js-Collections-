@@ -1,5 +1,7 @@
 ##localMark
 
+by slimx
+
 **通過坐標記住網頁閱讀位置**，坐標保存在prefs.js中，如：
     
     user_pref("extensions.localmark.marks", "{\"1\":[\"http://book.bfnn.org/books2/1664.htm\",{\"x\":0,\"y\":8257}]}");
@@ -11,7 +13,8 @@
 ###操作
 
 | | |
-| :快捷鍵 | :說明 |
+| :--- | :--- |
+| 快捷鍵: | 說明: |
 | m + 單個數字/字母 | 为網頁加書籤mark |
 | ' | 跳轉到指定mark |
 | l | 調出mark列表 |
