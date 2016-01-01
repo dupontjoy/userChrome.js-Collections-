@@ -13,8 +13,9 @@ by 小Yu
 | ROM制作者 | 小Yu |
 | 发布时间 | 2014.10.12 |
 | | |
-| 原貼地址 | http://www.in189.com/thread-1042285-1-1.html |
-| 原始下載地址 | http://pan.baidu.com/s/1o6G6mYu |
+| 原貼 | http://www.in189.com/thread-1042285-1-1.html |
+| 原始下載 | http://pan.baidu.com/s/1o6G6mYu |
+| 再精簡下載 | https://yunpan.cn/cuP7HfMKWakL2#8c50 |
 
 ####ROM特性
 
