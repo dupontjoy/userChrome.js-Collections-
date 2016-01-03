@@ -1,6 +1,6 @@
 ##Backup_7z整合版
 
-Mod by **Cing**
+by Cing
 
 含以下功能：<br/>
 - [x] 一键制作 配置包
@@ -34,7 +34,7 @@ Mod by **Cing**
 
 | | |
 | :-- | :-- |
-| 示意圖: | Firefox文件夾結構 |
+| 示意圖: | Firefox文件夾結構: |
 | <img width="410" src="img/backup_7z-1.jpg"> | <img width="410" src="https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/CingFox/img/folder-structure.jpg"> |
 
 ###注意：
