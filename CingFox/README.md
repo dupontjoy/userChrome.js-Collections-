@@ -4,9 +4,10 @@
 
 主程序pcxFirefox簡體中文版，原生便攜支持，解壓即可用。
 
-<p align="center"><img width="650" src="img/preview.jpg" ></p>
-
-<p align="center"><img width="650" src="img/preview-2.jpg" ></p>
+| | |
+| :-- | :-- |
+| 界面預覧: | 常用功能: |
+| <img width="410" src="img/preview.jpg" > | <img width="410" src="img/preview-2.jpg" > |
 
 ####特色：
 - 基于SimpleWhite的全新界面，如Mac般的細膩視感
