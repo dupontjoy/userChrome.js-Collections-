@@ -40,16 +40,20 @@ Mod by **Cing**
 <img width="650" src="https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/CingFox/img/folder-structure.jpg">
 
 **1. 关于批处理与配置的相对位置：**<br/>
-从批处理所在位置到配置文件夹（Profiles），共跨了3层，所以批处理中会这样定义：<br/>
-<img width="650" src="img/bat-to-Pofiles-1.jpg">
-<img width="650" src="img/bat-to-Pofiles-2.jpg">
+从批处理所在位置到配置文件夹（Profiles），共跨了3层，所以批处理中会这样定义：
+
+| | |
+| :-- | :-- |
+| <img width="410" src="img/bat-to-Pofiles-1.jpg"> | <img width="410" src="img/bat-to-Pofiles-2.jpg"> |
 
 **2. 关于获取Firefox版本号：**<br/>
-从批处理所在位置到Firefox程序文件夹（firefox），共跨了4层，所以批处理中会这样定义：<br/>
-<img width="650" src="img/bat-to-Firefox-1.jpg">
-<img width="650" src="img/bat-to-Firefox-2.jpg">
+从批处理所在位置到Firefox程序文件夹（firefox），共跨了4层，所以批处理中会这样定义：
+
+| | |
+| :-- | :-- |
+| <img width="410" src="img/bat-to-Firefox-1.jpg"> | <img width="410" src="img/bat-to-Firefox-2.jpg"> |
 
 | 應用實例 | |
 | :--- | :--- |
 | **CingFox完整包** | [CingFox on GitHub](../CingFox) |
-| **Flash32位原版提取帶vch和exe** | http://pan.baidu.com/s/1sjz92Z7 |
+| **Flash32位原版提取帶vch和exe** | http://yunpan.cn/curUpxRtKLjzc#9829 |
