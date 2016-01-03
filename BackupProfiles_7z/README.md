@@ -32,12 +32,12 @@ Mod by **Cing**
 - 2015.06.25 實現獲取Flash版本號
 - 2015.06.23 加入提取32位Flash插件批处理
 
-示意圖：<br/>
-![打包开始](img/backup_7z-1.jpg)
+| | |
+| :-- | :-- |
+| 示意圖: | Firefox文件夾結構 |
+| <img width="410" src="img/backup_7z-1.jpg"> | <img width="410" src="https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/CingFox/img/folder-structure.jpg"> |
 
 ###注意：
-**我的配置文件夹结构：**<br/>
-<img width="650" src="https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/CingFox/img/folder-structure.jpg">
 
 **1. 关于批处理与配置的相对位置：**<br/>
 从批处理所在位置到配置文件夹（Profiles），共跨了3层，所以批处理中会这样定义：
