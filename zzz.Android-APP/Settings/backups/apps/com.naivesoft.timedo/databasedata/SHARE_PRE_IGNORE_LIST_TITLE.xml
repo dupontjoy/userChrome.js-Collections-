@@ -1,4 +1,0 @@
-<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
-<map>
-<string name="SHARE_PRE_IGNORE_LIST_PACKAGES">[com.naivesoft.timedo, cn.wq.disableservice, com.tencent.pb, com.noshufou.android.su, com.android.providers.telephony, com.android.providers.contacts, com.android.providers.settings, com.android.phone, com.android.systemui, android]</string>
-</map>
