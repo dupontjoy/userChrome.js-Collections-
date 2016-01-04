@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+<int name="SHARE_PRE_CONFIG_SORT_TYPE" value="0" />
+<int name="SHARE_PRE_CONFIG_DAEMON_TYPE" value="2" />
+<int name="SHARE_PRE_CONFIG_NOTI_TYPE" value="0" />
+</map>
