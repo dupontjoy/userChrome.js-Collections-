@@ -55,6 +55,8 @@ by 小Yu
 
 (注: 截圖中的應用並不包含在ROM内; 自帶應用與個人安裝應用的圖標完全是兩個風格, 很好區分.)
 
+([两個必裝APP](../zzz.Android-APP))
+
 | | | |
 | :--- | :--- | :--- |
 | <img width="260" src="img/1.png"> | <img width="260" src="img/2.png"> | <img width="260" src="img/3.png"> |
