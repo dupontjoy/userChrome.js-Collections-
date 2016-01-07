@@ -29,8 +29,6 @@ com.android.providers.calendar/com.android.providers.calendar.CalendarProviderIn
 com.android.providers.contacts/com.android.providers.contacts.VoicemailCleanupService
 com.android.providers.media/com.android.providers.media.MediaScannerService
 com.android.providers.media/com.android.providers.media.MtpService
-com.cleanmaster.mguard_cn/com.cleanmaster.service.PermanentService
-com.cleanmaster.mguard_cn/com.cm.perm.PermService
 com.cleanmaster.mguard_cn/com.cleanmaster.service.FloatService
 com.cleanmaster.mguard_cn/com.cleanmaster.applocklib.core.service.AppLockService
 com.cleanmaster.mguard_cn/com.atinst.AutoInstallIntentService
@@ -73,7 +71,6 @@ com.eg.android.AlipayGphone/com.alipay.pushsdk.deliver.PushDelayMsgIntentService
 com.eg.android.AlipayGphone/com.alipay.mobile.rome.pushservice.integration.PushDistributerService
 com.eg.android.AlipayGphone/org.rome.android.ipp.binder.IppService
 com.eg.android.AlipayGphone/com.alipay.mobile.rome.syncsdk.service.LongLinkService
-com.naivesoft.timedo/com.naivesoft.service.AlertBeforeExecuteService
 com.naivesoft.timedo/com.naivesoft.service.SendSMSService
 com.naivesoft.timedo/com.naivesoft.service.RecordService
 com.naivesoft.timedo/com.naivesoft.service.RecordGestureService
