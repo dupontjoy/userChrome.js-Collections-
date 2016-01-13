@@ -9,6 +9,7 @@ com.UCMobile.cmcc/com.UCMobile.push.UcwebIntentService
 com.UCMobile.cmcc/com.UCMobile.main.NotificationService
 com.UCMobile.cmcc/com.uc.browser.CrashLogFilesUploader
 com.UCMobile.cmcc/com.uc.security.SecurityService
+com.UCMobile.cmcc/com.uc.browser.msgpush.RemoteBackgroundProcess
 com.UCMobile.cmcc/com.uc.browser.openwifi.AuthOpenWifiService
 com.UCMobile.cmcc/com.UCMobile.desktopwidget.floatview.DesktopFloatService
 com.android.calendar/com.android.calendar.alerts.AlertService
@@ -71,6 +72,7 @@ com.eg.android.AlipayGphone/com.alipay.pushsdk.deliver.PushDelayMsgIntentService
 com.eg.android.AlipayGphone/com.alipay.mobile.rome.pushservice.integration.PushDistributerService
 com.eg.android.AlipayGphone/org.rome.android.ipp.binder.IppService
 com.eg.android.AlipayGphone/com.alipay.mobile.rome.syncsdk.service.LongLinkService
+com.eg.android.AlipayGphone/com.taobao.android.sso.internal.PidGetterService
 com.naivesoft.timedo/com.naivesoft.service.SendSMSService
 com.naivesoft.timedo/com.naivesoft.service.RecordService
 com.naivesoft.timedo/com.naivesoft.service.RecordGestureService
