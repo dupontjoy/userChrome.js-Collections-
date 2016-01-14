@@ -1,0 +1,1 @@
+需配合[Classic Theme Restorer](https://addons.mozilla.org/zh-CN/firefox/addon/classicthemerestorer/), 找回附加组件栏
