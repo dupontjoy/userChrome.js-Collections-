@@ -1,6 +1,6 @@
 ﻿// ==UserScript==
 // @name        GWDang Intersite Price
-// @namespace   no
+// @namespace   购物党比价工具
 // @description 京东.淘宝.天猫.易迅.亚马逊中国.一号店.苏宁易购.当当网.国美在线.新蛋网中国.拍拍网自动比价
 // @include     http*://item.jd.com/*
 // @include     http*://*.taobao.com/*
