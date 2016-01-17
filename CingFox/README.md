@@ -79,6 +79,7 @@
 | | |
 | :--- | :--- |
 | **長期下載地址** | http://yunpan.cn/curU9jAW6itKw#7fc7 |
+|  | 問題反饋: http://bbs.kafan.cn/thread-1792671-1-1.html |
 | Chrome文件夾(UC腳本集) | https://github.com/dupontjoy/userChromeJS/ |
 | Flash32位原版提取帶vch和exe | http://yunpan.cn/curUpxRtKLjzc#9829 |
 | Backup_7z備份批處理 | [BackupProfiles_7z](../BackupProfiles_7z) |
