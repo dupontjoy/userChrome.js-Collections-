@@ -18,4 +18,6 @@ Another way with Redirector:
       regex: true
     },
 
+Page screenshot with all the weixin images loaded:
+
 ![](img/anti-wx-pic.jpg)
