@@ -5,6 +5,8 @@ Need to set qpic.cn or qlogo.cn refer as @Block first, then the following 2 meth
 
 Enable weixin image from 3-party sites: set src the same with data-src
 
+    Weixun_Image.user.js
+
 Another way with Redirector:
 
     {
