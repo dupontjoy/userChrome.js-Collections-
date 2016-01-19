@@ -1,6 +1,11 @@
-Enable weixin image from 3-party sites: set src the same with data-src
+Need to set qpic.cn or qlogo.cn refer as @Block first, then the following 2 methods will work.
 
-Another way with Redirector:
+    'qpic': '@BLOCK',
+    'qlogo': '@BLOCK',
+
+1. Enable weixin image from 3-party sites: set src the same with data-src
+
+2. Another way with Redirector:
 
     {
     //example: http://ding.youku.com/a/id_XMTY2NDYw.html
