@@ -1,4 +1,4 @@
-::2016.01.18
+::2016.01.19
 ::設置程序文件夾位置
 set dir=D:\Program Files
 
@@ -12,4 +12,4 @@ start "" "%dir%\Tencent\Foxmail\Foxmail.exe" & ping localhost -n 5
 start "" "%dir%\Mozilla Firefox\Software\Image\PicPick\picpick.exe" & ping localhost -n 5
 start "" "%dir%\Mozilla Firefox\Software\GFW\Shadowsocks\Shadowsocks.exe" & ping localhost -n 5
 start "" "%dir%\Thunder Network\Thunder\Program\Thunder.exe" & ping localhost -n 5
-start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 5
+start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 20
