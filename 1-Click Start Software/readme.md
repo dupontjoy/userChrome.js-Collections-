@@ -12,3 +12,10 @@ Start software at one click
 - 2016.01.20 加入最小化運行
 - 2016.01.19 加入延遲時間
 - 2015.12.28 初建
+
+批處理最小化運行代碼:
+
+    @echo off
+    if "%1"=="h" goto begin
+    start mshta vbscript:createobject("wscript.shell").run("""%~nx0"" h",0)(window.close)&&exit
+    :begin
