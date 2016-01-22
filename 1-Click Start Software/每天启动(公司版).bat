@@ -9,7 +9,6 @@ start mshta vbscript:createobject("wscript.shell").run("""%~nx0"" h",0)(window.c
 
 ::設置程序文件夾位置
 set dir=D:\Program Files
-set dir2=C:\Program Files (x86)
 
 ::Processlaso特殊处理
 start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/logfolder=%dir%\System Tools\ProcessLassoPortable" "/configfolder=%dir%\System Tools\ProcessLassoPortable"
@@ -18,7 +17,7 @@ start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/logfolder=
 ::公司用軟件
 start "" "%dir%\Jingoal\Jingoal.exe" & ping localhost -n 20
 start "" "%dir%\Adobe\Photoshop\Photoshop\photoshop.exe" & ping localhost -n 20
-start "" "%dir2%\XiaoMi\MiWiFi\MiWiFi.exe" & ping localhost -n 5
+start "" "%dir%\XiaoMi\MiWiFi\MiWiFi.exe" & ping localhost -n 5
 
 ::普通啟動
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 20
