@@ -1,4 +1,4 @@
-::2016.01.20
+::2016.01.22
 
 ::最小化运行批处理
 ::From: http://www.jb51.net/article/7347.htm
@@ -17,6 +17,7 @@ start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/logfolder=
 
 ::公司用軟件
 start "" "%dir%\Jingoal\Jingoal.exe" & ping localhost -n 20
+start "" "%dir%\Adobe\Photoshop\Photoshop\photoshop.exe" & ping localhost -n 20
 start "" "%dir2%\XiaoMi\MiWiFi\MiWiFi.exe" & ping localhost -n 5
 
 ::普通啟動
