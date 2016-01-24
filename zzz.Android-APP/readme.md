@@ -12,4 +12,4 @@
 | :-- | :-- |
 | backups | 定時逹人備份 |
 | DS_backup | 禁用服務備份 |
-| ![](img/1.png) | ![](img/2.png) |
+| <img width="410" src="img/1.png"> | <img width="410" src="img/2.png"> |
