@@ -8,8 +8,13 @@
 
 禁用後台服務, 減少流量消耗及電量消耗
 
+###My Android Tools
+
+禁用服務升級版，同一作者出品
+
 | | |
 | :-- | :-- |
-| backups | 定時逹人備份 |
-| DS_backup | 禁用服務備份 |
+| backups | 定時逹人設置備份 |
+| DS_backup | 禁用服務設置備份 |
+| myandroidtools_backup | 我的安卓工具設置備份 |
 | <img width="410" src="img/1.png"> | <img width="410" src="img/2.png"> |
