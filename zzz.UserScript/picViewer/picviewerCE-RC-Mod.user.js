@@ -2,14 +2,14 @@
 // @name           picviewerCE-RC-Mod
 // @author         NLF && ywzhaiqi
 // @description    NLF 的围观图修改版
-// @version        2015.12.29
+// @version        2016.01.26
+
 // version        2015.7.10.0
 // version        4.2.6.1
 // @created        2011-6-15
 // @lastUpdated    2013-5-29
 // @namespace      http://userscripts.org/users/NLF
 // @homepage       https://github.com/ywzhaiqi/userscript/tree/master/picviewerCE
-
 // @grant          GM_getValue
 // @grant          GM_setValue
 // @grant          GM_addStyle
@@ -26,6 +26,7 @@
 // @exclude       http*://maps.google.com*/*
 // @exclude       *://www.google.*/_/chrome/newtab*
 
+// @note          2016.01.26 添加Ligtinginthebox 主图
 // @note          2015.12.29 添加Mobilefun 主图
 // @note          2015.11.11 修正1688 主图
 // @note          2015.09.06 在RunnighCheese版上修改
@@ -163,11 +164,25 @@ var siteInfo=[
 			}
 		},
 
-		// ====== 我新增的 ======
-		// 自定义样式
+	// 自定义样式
 		css: '',
 		// 排除的图片正则
 		// exclude: /weixin_code\.png$/i,
+	},
+	
+// ====== Cing新增的 ======
+
+	{name: 'Ligtinginthebox 主图',
+		siteExample: 'http://www.lightinthebox.com/zoneway-h-264-1080p-vandal-proof-dome-ip-camera-onvif-rtsp-and-multi-screen-software-monitoring_p1096528.html',
+		url: /^https?:\/\/www.lightinthebox.com/i,
+		getImage: function() {
+			var oldsrc = this.src,
+				newsrc;
+			var pic = /(.+?\.rightinthebox\.com\/images)\/(50x50|384x384)\/(.*).jpg(.*)/;
+			if (pic.test(oldsrc)) {
+				return oldsrc.replace(pic, '$1/1500x1500/$3.jpg');
+			}
+		}
 	},
 	{name: 'Mobilefun 主图',
 		siteExample: 'http://www.mobilefun.co.uk/cat/ZTE-Nubia-X6.htm',
