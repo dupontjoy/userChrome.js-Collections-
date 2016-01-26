@@ -1,0 +1,5 @@
+bubei.tingshu/bubei.tingshu.ui.UserPayForNoAdActivity
+bubei.tingshu/com.qq.e.ads.AdActivity
+com.naivesoft.timedo/com.wandoujia.ads.sdk.AppWallActivity
+com.naivesoft.timedo/com.wandoujia.ads.sdk.AppWidgetContainerActivity
+com.naivesoft.timedo/com.wandoujia.ads.sdk.DownloadService
