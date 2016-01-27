@@ -26,8 +26,8 @@
 功能極其強大, 但是没有導出設置功能, 不方便使用
 
 | | |
-| :-- | :-- |
-| [APP](APP/) | 程序備份 |
-| [Settings](Settings/) | 設置備份 |
+| :-- | :-- | :-- |
+| [APP](APP/) | 程序備份 | |
+| [Settings](Settings/) | 設置備份 | |
 | 定時逹人:↓ | 禁用服務:↓ | My Android Tools:↓ |
 | <img width="260" src="img/1.png"> | <img width="260" src="img/2.png"> | <img width="260" src="img/3.png"> |
