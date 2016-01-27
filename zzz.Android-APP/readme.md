@@ -14,7 +14,6 @@
 
 | | |
 | :-- | :-- |
-| backups | 定時逹人設置備份 |
-| DS_backup | 禁用服務設置備份 |
-| myandroidtools_backup | 我的安卓工具設置備份 |
+| [APP](../APP) | 程序備份 |
+| [Settings](../Settings) | 設置備份 |
 | <img width="410" src="img/1.png"> | <img width="410" src="img/2.png"> |
