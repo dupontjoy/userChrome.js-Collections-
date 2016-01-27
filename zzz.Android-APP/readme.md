@@ -14,6 +14,6 @@
 
 | | |
 | :-- | :-- |
-| [APP](../APP) | 程序備份 |
-| [Settings](../Settings) | 設置備份 |
+| [APP](APP/) | 程序備份 |
+| [Settings](Settings/) | 設置備份 |
 | <img width="410" src="img/1.png"> | <img width="410" src="img/2.png"> |
