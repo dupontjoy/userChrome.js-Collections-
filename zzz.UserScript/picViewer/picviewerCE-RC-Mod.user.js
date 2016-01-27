@@ -2,7 +2,7 @@
 // @name           picviewerCE-RC-Mod
 // @author         NLF && ywzhaiqi
 // @description    NLF 的围观图修改版
-// @version        2016.01.26
+// @version        2016.01.27
 
 // version        2015.7.10.0
 // version        4.2.6.1
@@ -26,7 +26,7 @@
 // @exclude       http*://maps.google.com*/*
 // @exclude       *://www.google.*/_/chrome/newtab*
 
-// @note          2016.01.26 添加Ligtinginthebox 主图
+// @note          2016.01.27 添加Ligtinginthebox 主图, GSM Reviews 主图
 // @note          2015.12.29 添加Mobilefun 主图
 // @note          2015.11.11 修正1688 主图
 // @note          2015.09.06 在RunnighCheese版上修改
@@ -171,7 +171,18 @@ var siteInfo=[
 	},
 	
 // ====== Cing新增的 ======
-
+	{name: 'GSM Reviews 主图',
+		siteExample: 'http://www.gsmarena.com/iphone_6s_plus_vs_lg_v10_vs_galaxy_note5-review-1366p2.php',
+		url: /^https?:\/\/www.gsmarena.com/i,
+		getImage: function() {
+			var oldsrc = this.src,
+				newsrc;
+			var pic = /(.+?\.gsmarena\.com\/imgroot\/(.*))\/(-x99|-138x104)\/(.*).jpg(.*)/;
+			if (pic.test(oldsrc)) {
+				return oldsrc.replace(pic, '$1/$4.jpg');
+			}
+		}
+	},
 	{name: 'Ligtinginthebox 主图',
 		siteExample: 'http://www.lightinthebox.com/zoneway-h-264-1080p-vandal-proof-dome-ip-camera-onvif-rtsp-and-multi-screen-software-monitoring_p1096528.html',
 		url: /^https?:\/\/www.lightinthebox.com/i,
