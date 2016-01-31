@@ -2,12 +2,10 @@
 // @name           picviewerCE-RC-Mod
 // @author         NLF && ywzhaiqi
 // @description    NLF 的围观图修改版
-// @version        2016.01.27
+// @version        2016.01.31
 
-// version        2015.7.10.0
-// version        4.2.6.1
-// @created        2011-6-15
-// @lastUpdated    2013-5-29
+// version         2015.7.10.0 / 4.2.6.1
+// @lastUpdated    2013-5-29 / @created        2011-6-15
 // @namespace      http://userscripts.org/users/NLF
 // @homepage       https://github.com/ywzhaiqi/userscript/tree/master/picviewerCE
 // @grant          GM_getValue
@@ -26,7 +24,7 @@
 // @exclude       http*://maps.google.com*/*
 // @exclude       *://www.google.*/_/chrome/newtab*
 
-// @note          2016.01.27 添加Ligtinginthebox 主图, GSM Reviews 主图
+// @note          2016.01.31 添加Ligtinginthebox 主图, GSM Reviews 主图
 // @note          2015.12.29 添加Mobilefun 主图
 // @note          2015.11.11 修正1688 主图
 // @note          2015.09.06 在RunnighCheese版上修改
@@ -177,7 +175,7 @@ var siteInfo=[
 		getImage: function() {
 			var oldsrc = this.src,
 				newsrc;
-			var pic = /(.+?\.gsmarena\.com\/imgroot\/(.*))\/(-x99|-138x104)\/(.*).jpg(.*)/;
+			var pic = /(.+?\.gsmarena\.com\/imgroot\/(.*))\/(-x99|-138x104|-125x180)\/(.*).jpg(.*)/;
 			if (pic.test(oldsrc)) {
 				return oldsrc.replace(pic, '$1/$4.jpg');
 			}
