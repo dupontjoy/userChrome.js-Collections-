@@ -1,4 +1,4 @@
-::2016.01.30
+::2016.01.31
 
 ::最小化运行批处理
 ::From: http://www.jb51.net/article/7347.htm
@@ -23,7 +23,7 @@ start "" "%dir%\XiaoMi\MiWiFi\MiWiFi.exe" & ping localhost -n 5
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 30
 start "" "%dir%\Thunder Network\Thunder\Program\Thunder.exe" & ping localhost -n 5
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" & ping localhost -n 5
-start "" "%dir%\360YunPan\360cloud\360Cloud.exe" & ping localhost -n 5
+start "" "%dir%\BaiduYun\baiduyun.exe" & ping localhost -n 5
 start "" "%dir%\Mozilla Firefox\Software\Image\PicPick\picpick.exe" & ping localhost -n 5
 start "" "%dir%\Mozilla Firefox\Software\GFW\Shadowsocks\Shadowsocks.exe" & ping localhost -n 5
 
