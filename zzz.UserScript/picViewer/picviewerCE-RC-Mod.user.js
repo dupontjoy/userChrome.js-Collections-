@@ -175,7 +175,7 @@ var siteInfo=[
 		getImage: function() {
 			var oldsrc = this.src,
 				newsrc;
-			var pic = /(.+?\.gsmarena\.com\/imgroot\/(.*))\/(-x99|-138x104|-125x180)\/(.*).jpg(.*)/;
+			var pic = /(.+?\.gsmarena\.com\/imgroot\/(.*))\/(-x99|-138x104|-125x180|-728w2)\/(.*).jpg(.*)/;
 			if (pic.test(oldsrc)) {
 				return oldsrc.replace(pic, '$1/$4.jpg');
 			}
