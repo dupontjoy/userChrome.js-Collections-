@@ -2,7 +2,7 @@
 // @name           picviewerCE-RC-Mod
 // @author         NLF && ywzhaiqi
 // @description    NLF 的围观图修改版
-// @version        2016.01.31
+// @version        2016.02.01
 
 // version         2015.7.10.0 / 4.2.6.1
 // @lastUpdated    2013-5-29 / @created        2011-6-15
@@ -175,7 +175,7 @@ var siteInfo=[
 		getImage: function() {
 			var oldsrc = this.src,
 				newsrc;
-			var pic = /(.+?\.gsmarena\.com\/imgroot\/(.*))\/(-x99|-138x104|-125x180|-728w2)\/(.*).jpg(.*)/;
+			var pic = /(.+?\.gsmarena\.com\/imgroot\/(.*))\/(-x99|-138x104|-125x180|-728*|)\/(.*).jpg(.*)/;
 			if (pic.test(oldsrc)) {
 				return oldsrc.replace(pic, '$1/$4.jpg');
 			}
