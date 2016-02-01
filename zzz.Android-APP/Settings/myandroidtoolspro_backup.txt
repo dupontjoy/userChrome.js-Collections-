@@ -349,8 +349,10 @@ com.cleanmaster.mguard/com.cleanmaster.applocklib.base.AppLockActiveProvider
 com.cleanmaster.mguard/com.cmcm.onews.storage.ONewsProvider
 com.eg.android.AlipayGphone/com.alipay.mobile.logmonitor.ClientMonitorWakeupReceiver
 com.eg.android.AlipayGphone/com.alipay.mobile.common.logging.process.LogReceiverInToolsProcess
+com.eg.android.AlipayGphone/com.alipay.pushsdk.BroadcastActionReceiver
 com.eg.android.AlipayGphone/com.alipay.mobile.command.trigger.PushBizTrigger
 com.eg.android.AlipayGphone/com.alipay.mobile.command.trigger.NotifyTrigger
+com.eg.android.AlipayGphone/com.alipay.mobile.command.trigger.SysEventChangeTrigger
 com.eg.android.AlipayGphone/com.alipay.android.app.AlarmReciver
 com.eg.android.AlipayGphone/com.alipay.mobile.commonbiz.biz.LaunchReceiver
 com.eg.android.AlipayGphone/com.alipay.mobile.mpass.badge.shortcut.broadcast.AddBadgeBroadcastReceiver
