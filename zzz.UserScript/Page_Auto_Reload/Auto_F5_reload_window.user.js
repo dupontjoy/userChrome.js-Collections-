@@ -3,8 +3,7 @@
 // @namespace   http://userscripts.org/scripts/show/41891
 // @version     0.53-20151121
 // @author      paulonkey 
-// @include 	  http://ic.sjlpj.cn/ProductPrice/ProductPriceList
-// @include 	  http://ic.sjlpj.cn/#/ProductPrice/ProductPriceList
+// @include 	  http://ic.sjlpj.cn/*
 // @grant		    GM_deleteValue 
 // @grant		    GM_getValue
 // @grant		    GM_setValue 
