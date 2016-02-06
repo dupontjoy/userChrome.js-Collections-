@@ -21,7 +21,6 @@ start "" "%dir%\XiaoMi\MiWiFi\MiWiFi.exe" & ping localhost -n 5
 
 ::普通啟動
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 30
-start "" "%dir%\Thunder Network\Thunder\Program\Thunder.exe" & ping localhost -n 5
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" & ping localhost -n 5
 start "" "%dir%\BaiduYun\baiduyun.exe" & ping localhost -n 5
 start "" "%dir%\Mozilla Firefox\Software\Image\PicPick\picpick.exe" & ping localhost -n 5
