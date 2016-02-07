@@ -1,4 +1,4 @@
-::2016.01.31
+::2016.02.07
 
 ::最小化运行批处理
 ::From: http://www.jb51.net/article/7347.htm
@@ -23,8 +23,8 @@ start "" "%dir%\XiaoMi\MiWiFi\MiWiFi.exe" & ping localhost -n 5
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 30
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" & ping localhost -n 5
 start "" "%dir%\BaiduYun\baiduyun.exe" & ping localhost -n 5
-start "" "%dir%\Mozilla Firefox\Software\Image\PicPick\picpick.exe" & ping localhost -n 5
-start "" "%dir%\Mozilla Firefox\Software\GFW\Shadowsocks\Shadowsocks.exe" & ping localhost -n 5
+start "" "%dir%\CingFox\Software\Image\PicPick\picpick.exe" & ping localhost -n 5
+start "" "%dir%\CingFox\Software\GFW\Shadowsocks\Shadowsocks.exe" & ping localhost -n 5
 
 ::完成後退出
 goto exit
