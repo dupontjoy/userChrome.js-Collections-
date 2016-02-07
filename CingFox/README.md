@@ -1,4 +1,4 @@
-## ![icon](img/icon.jpg) CingFox-20160126 (based on 43.0.4)
+## ![icon](img/icon.jpg) CingFox-20160207 (based on 44.0)
 
 一個美觀而實用的Firefox深度定制版，在保證流畅的同時給你以Mac般的視覺享受。界面修攺自RunningCheese V5版.
 
@@ -37,6 +37,7 @@
 | DownThemAll! | 下載辅助，配合FlashGot可自動獲取引用頁 |
 | FlashGot | 下载网页中的视频和音频文件 |
 | Greasemonkey | 伟大的油猴子，通过JS文件增强或改变网站的功能 |
+| iMacros | 解放重複性操作 |
 | Lastpass | 記住你的密碼 |
 | Redirector | 重定向網址, 可測試規則是否生效 |
 | Simple Proxy | 一個簡約而不簡單的代理辅助擴展 |
