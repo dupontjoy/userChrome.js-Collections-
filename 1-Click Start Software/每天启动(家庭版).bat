@@ -12,11 +12,11 @@ set dir=D:\Program Files
 
 ::Processlaso特殊处理
 start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/logfolder=%dir%\System Tools\ProcessLassoPortable" "/configfolder=%dir%\System Tools\ProcessLassoPortable"
-start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/logfolder=%dir%\System Tools\ProcessLassoPortable" "/configfolder=%dir%\System Tools\ProcessLassoPortable" & ping localhost -n 5
+start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/logfolder=%dir%\System Tools\ProcessLassoPortable" "/configfolder=%dir%\System Tools\ProcessLassoPortable"
 
 ::普通啟動
-start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 30
-start "" "%dir%\Tencent\Foxmail\Foxmail.exe" & ping localhost -n 5
+start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 10
+start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min & ping localhost -n 5
 start "" "%dir%\BaiduYun\baiduyun.exe" & ping localhost -n 5
 start "" "%dir%\CingFox\Software\Image\PicPick\picpick.exe" & ping localhost -n 5
 start "" "%dir%\CingFox\Software\GFW\Shadowsocks\Shadowsocks.exe" & ping localhost -n 5
