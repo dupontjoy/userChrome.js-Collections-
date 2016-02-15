@@ -1,0 +1,1 @@
+https://github.com/ywzhaiqi/userscript/blob/master/No_print_on_Economist.user.js
