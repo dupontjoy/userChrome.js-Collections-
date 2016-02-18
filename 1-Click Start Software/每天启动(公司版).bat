@@ -22,7 +22,6 @@ start "" "%dir%\XiaoMi\MiWiFi\MiWiFi.exe" /min & ping localhost -n 5
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 10
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 start "" "%dir%\BaiduYun\baiduyun.exe"
-start "" "%dir%\System Tools\WindowTabs\WindowTabs.exe"
 start "" "%dir%\CingFox\Software\Image\PicPick\picpick.exe"
 start "" "%dir%\CingFox\Software\GFW\Shadowsocks\Shadowsocks.exe"
 
