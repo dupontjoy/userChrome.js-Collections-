@@ -1,4 +1,4 @@
-::2016.02.15
+::2016.02.18
 
 ::最小化运行批处理
 ::From: http://www.jb51.net/article/7347.htm
@@ -19,11 +19,12 @@ start "" "%dir%\Jingoal\Jingoal.exe" & ping localhost -n 10
 start "" "%dir%\XiaoMi\MiWiFi\MiWiFi.exe" /min & ping localhost -n 5
 
 ::普通啟動
-start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 30
-start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min & ping localhost -n 5
-start "" "%dir%\BaiduYun\baiduyun.exe" & ping localhost -n 5
-start "" "%dir%\CingFox\Software\Image\PicPick\picpick.exe" & ping localhost -n 5
-start "" "%dir%\CingFox\Software\GFW\Shadowsocks\Shadowsocks.exe" & ping localhost -n 5
+start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 10
+start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
+start "" "%dir%\BaiduYun\baiduyun.exe"
+start "" "%dir%\System Tools\WindowTabs\WindowTabs.exe"
+start "" "%dir%\CingFox\Software\Image\PicPick\picpick.exe"
+start "" "%dir%\CingFox\Software\GFW\Shadowsocks\Shadowsocks.exe"
 
 ::完成後退出
 goto exit
