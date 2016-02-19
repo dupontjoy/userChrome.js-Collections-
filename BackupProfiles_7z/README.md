@@ -57,4 +57,3 @@ by Cing
 | 應用實例 | |
 | :--- | :--- |
 | **CingFox完整包** | [CingFox on GitHub](../CingFox) |
-| **Flash32位原版提取帶vch和exe** | http://yunpan.cn/curUpxRtKLjzc#9829 |
