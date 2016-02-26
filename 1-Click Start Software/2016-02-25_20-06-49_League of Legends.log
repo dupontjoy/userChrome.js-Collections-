@@ -1,0 +1,34 @@
+League of Legends caused ACCESS_VIOLATION in module League of Legends
+
+Write to location 00000000 caused an access violation.
+
+User Information:
+    User Name: Cing
+    Computer Name: DESKTOP-KUR01K8
+
+System Information:
+    4 processor(s), type 586.
+    35% of memory in use.
+    7973M total physical memory.
+    5171M free physical memory.
+    8485M total paging file.
+    4704M free paging file.
+    4095M total virtual memory.
+    3586M free virtual memory.
+
+Process Memory:
+    3586M free.
+     123M reserved.
+     385M commited.
+    Largest free block is 2046M.
+
+    PageFaultCount: 194594
+    PeakWorkingSetSize: 79M
+    WorkingSetSize: 78M
+    QuotaPeakPagedPoolUsage: 0M
+    QuotaPagedPoolUsage: 0M
+    QuotaPeakNonPagedPoolUsage: 0M
+    QuotaNonPagedPoolUsage: 0M
+    PagefileUsage: 304M
+    PeakPagefileUsage: 308M
+

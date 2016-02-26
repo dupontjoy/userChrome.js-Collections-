@@ -1,0 +1,22 @@
+000000.000|       0.0000kb|      0.0000kb added| ALWAYS| Logging started at 2016-02-25T20:06:48.025
+000000.000|       0.0000kb|      0.0000kb added|   OKAY| Riot::RADS::Reader::RadsMain::Initialize: RADS library initializing with specified working directory "D:\My Documents\GitHub\userChrome.js-Collections-\1-Click Start Software".
+000000.000|       0.0000kb|      0.0000kb added|   OKAY| Riot::RADS::Reader::RuntimeEnvironment::Create: Creating RADS runtime environment: RADS root directory = "D:/My Documents/GitHub/userChrome.js-Collections-/1-Click Start Software"
+000000.000|       0.0000kb|      0.0000kb added|   WARN| Riot::RADS::Reader::RuntimeEnvironment::GetProjectTypeNameAndVersion: Did not find keywords "projects" or "solutions" in path D:/My Documents/GitHub/userChrome.js-Collections-/1-Click Start Software
+000000.000|       0.0000kb|      0.0000kb added|  ERROR| Riot::RADS::Reader::RuntimeEnvironment::Create: RADS runtime environment creation failed because it was unable to get the project information.
+000000.000|       0.0000kb|      0.0000kb added|  ERROR| Riot::RADS::Reader::RadsMain::Initialize: RADS library initialization failed to create the runtime environment.
+000000.000|       0.0000kb|      0.0000kb added|  ERROR| Failed to initialize Rads library.
+000000.000|       0.0000kb|      0.0000kb added|   OKAY| Riot::RADS::Reader::SignalSoftRepair: Wrote soft repair file to D:/My Documents/GitHub/userChrome.js-Collections-/SOFT_REPAIR.
+000000.028|       0.0000kb|      0.0000kb added|   OKAY| Unable to process data overlay file ./ToolsConfig.xml, defaulting to overlay now
+000000.028|       0.0000kb|      0.0000kb added| ALWAYS| Data overlay start folder initialized to DATA, Content/Src
+000000.029|       0.0000kb|      0.0000kb added| ALWAYS| Global logging level set to   WARN
+000000.029|       0.0000kb|      0.0000kb added| ALWAYS| GameClock LockToSystemClock time: 0.000000 diff: 0.029264
+000000.029|       0.0000kb|      0.0000kb added| ALWAYS| Build Version: Version 6.3.1.239 (Feb  4 2016/16:31:35) [PUBLIC] <Releases/6.3> ChangeList: 1328943
+000000.730|       0.0000kb|      0.0000kb added|   WARN| Couldn't initialize minidump file. _wmkdir returned 13
+000000.761|       0.0000kb|      0.0000kb added| ALWAYS| Started System Init
+000000.769|       0.0000kb|      0.0000kb added| ALWAYS| Maestro Init
+000000.822|       0.0000kb|      0.0000kb added| ALWAYS| Maestro completed init
+000000.822|       0.0000kb|      0.0000kb added| ALWAYS| zip manifest, 'ClientZips.txt', not found (expected).
+000000.822|       0.0000kb|      0.0000kb added|  ERROR| Assertion failed!
+
+Expression: ALE-18967997
+000001.825|       0.0000kb|      0.0000kb added|  ERROR| Crash Occurred
