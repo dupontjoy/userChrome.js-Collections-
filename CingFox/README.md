@@ -1,4 +1,4 @@
-## ![icon](img/icon.jpg) CingFox-20160207 (based on 44.0)
+## ![icon](img/icon.jpg) CingFox-2016.03.03 (based on 44.0.2)
 
 一個美觀而實用的Firefox深度定制版，在保證流畅的同時給你以Mac般的視覺享受。界面修攺自RunningCheese V5版.
 
