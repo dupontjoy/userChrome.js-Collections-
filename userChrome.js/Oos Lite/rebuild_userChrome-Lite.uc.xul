@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<!--
+// ==UserScript==
+// @name           rebuild_userChrome.uc.xul
+// @description    Clear the cache of scripts for userChrome.js, Open a new window
+// @include        main
+// @compatibility  Firefox 3.5b4pre 3.6a1pre 4.0b7pre
+// @author         Alice0775
+// @homepageURL    https://github.com/alice0775/userChrome.js/blob/master/rebuild_userChrome.uc.xul
+// @version        2016/03/14 24:00 大副删减代码
+// ==/UserScript==
+ -->
+
+<script type="application/javascript" xmlns="http://www.w3.org/1999/xhtml"><![CDATA[
+	"use strict";
+	var userChromejs = {
+		menues: [
+			"addMenu-rebuild",
+			"anobtn_set",
+			"toolsbar_KeyChanger_rebuild",
+			"redirector-icon",
+			"usercssloader_Tools_Menu",
+		],
+		interval: 500, // 0.5秒间隔
+		maxcount: 50, // 最大50回までトライ
+		count: 0,
+		timer: null,
+
+		init: function() {
+			window.addEventListener("unload", function() {userChromejs.uninit();}, false);
+			this.addPrefListener(userChromejs.readLaterPrefListener); // 登录处理
+			this.runMenu();
+
+			$("urlbar-icons").appendChild($C("toolbarbutton", {
+				id: "userChromebtnMenu",
+				label: "userChromeJS 管理器",
+				tooltiptext: "左键：UC 脚本选单\n中键：启用 / 禁用\n右键：重载脚本",
+				class: "toolbarbutton-1 chromeclass-toolbar-additional",
+				type: "menu",
+				image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACk0lEQVQ4ja3RW0hTARwG8A+nEIIxI9DwyQtCarKj7vhkWEwj8AKahNR6siAispce6k2y9VJvIblpkBOt4xGU5ko0RKZuecMLedlxTk0ym7Y5TcvL10OmKwuC+uB7/fG/AP8jarWaERERNBgMDxsbG4uMRuMdQRB4WH2MGdog0gvuuL+XbnDLDW66wQNAeXl5mSzLeUajsVQQhHW1+gjFtPgNn6d2Yl6pdM4rlc53U8/G/a4T/q2/A9RMS0tfXfR86ZpwLjgmnAuOMYU27/TZpe0/AQ0NDbkmk+nGPpC25vF47Iqi9CmK0jfh9PV4p7OWDwCRkZEsKysz1NfXF1VUVNzaA7TatSXvcs+Uy9WruFy9k9P+bt9M9vLO3C9AXFwcBUGgKIrMyMhgYmIij4aFMT05+fPk0NDAQGfn8LDNNjzUNdb/seekd90eAKiCwxkVFc2EhOPUaDTUiiLjYmKYAvAMwHyAJQDvAqwE2IwgOqDaB87nH2JRgbhaUFj8tbi4ePWiXv8pLyfHJwDMBli4C5QDNAG0AOxHwATcACcHr483NXeNWSyWPovV2tnUKPekAMwCeCk01HNPp7M8ysxsq9Hp2pp1urYOne71PjAPvum44jLXWTslSbJLsuyoNdf0pQA8BbBUo3FY7fZkyWrNrNutuaUl+zfAyy5Jeu4IBE4DvJaUNNTQ3p77RJb1JlnWV8qy/rEslfwEdLffdFY9dXSY617ZzPWtturqpr0VLoSE+G+npg4+EIRRo1Y7Kmm1o62i+HYP2JoBl8fD19+PxPs+jMSuLI7Grrjt0f6U3SOeA3gZoAFgFcAWgAOBR9x0g9szIGfBnVmQc+DqGPgDKAJ4FeB9gFXBwXyhUrFXFfDGf8k3RzmjBlDWo+YAAAAASUVORK5CYII=",
+				onclick: "userChromejs.clickIcon(event);",
+				style: "padding: 0; background: none;"
+			})).appendChild($C("menupopup", {
+				id: "userChromejs_options",
+				onpopupshowing: "userChromejs.onpopup();",
+				onclick: "event.preventDefault(); event.stopPropagation();",
+			})).appendChild($C("menuseparator", {
+				id: "uc-menuseparator"
+			}));
+		},
+
+		uninit: function() {
+			this.removePrefListener(userChromejs.readLaterPrefListener); // 登录解除
+		},
+
+		rebuild: function() {
+			var ss = Cc["@mozilla.org/browser/sessionstore;1"].getService(Ci.nsISessionStore);
+			var state = ss.getWindowState(window);
+			window.close();
+			var NewWin = OpenBrowserWindow();
+			NewWin.addEventListener("load", function() {
+				ss.setWindowState(NewWin, state, true);
+			}, false);
+		},
+
+		onpopup: function() {
+			var menupopup = $("userChromejs_options");
+			// remove script menuitem
+			var nodes = menupopup.querySelectorAll('.userChromejs_script');
+			for(var i = 0, len = nodes.length; i < len; i++) {
+				nodes[i].parentNode.removeChild(nodes[i]);
+			}
+
+			let parentMenuPopup = menupopup,
+				topMenuitems = [];
+			let getTooltiptext = function(script, url) {
+				let text = '左键：启用 / 禁用\n中键：打开主页或下载链结\n右键：编辑\n滚动：复选启用 / 禁用\n\n' + '说明：' + script.description || '';
+				if (url) {
+					text += '\n' + '链结：' + url;
+				}
+				return text;
+			};
+
+			for(var j = 0, lenj = userChrome_js.arrSubdir.length; j < lenj; j++) {
+				var dirName = userChrome_js.arrSubdir[j] == "" ? "root" : userChrome_js.arrSubdir[j];
+				var ucJS = [userChrome_js.scripts, userChrome_js.overlays];
+				var flg = false;
+				ucJS.forEach(function(ucJS) {
+					for(var i = 0, len = ucJS.length; i < len; i++) {
+						var script = ucJS[i];
+						if (script.dir != dirName) continue;
+						flg = true;
+						break;
+					}
+				});
+				if (!flg) continue;
+
+				var menu = parentMenuPopup.appendChild($C('menu', {
+					class: 'userChromejs_script',
+					label: '脚本目录 ' + (dirName == "root" ? "" : dirName),
+				}));
+				menu.dirName = dirName;
+				if (userChrome_js.dirDisable[dirName]) {
+					menu.setAttribute('style', 'color:gray;');
+				}
+
+				menupopup = menu.appendChild($C('menupopup', {onpopupshowing: 'event.stopPropagation();'}));
+
+				var mi = menupopup.appendChild($C('menuitem', {
+					label: '启用 ' + (dirName == "root" ? "" : dirName) + ' 目录下全部脚本',
+					oncommand: 'userChromejs.chgDirStat(this.dirName); userChromejs.rebuild();',
+					onclick: 'userChromejs.clickDirMenuitem(event);',
+					type: 'checkbox',
+					checked: !userChrome_js.dirDisable[dirName],
+					class: 'uc-dir'
+				}));
+				mi.dirName = dirName;
+
+				if (dirName === 'root') {
+					menu.setAttribute('hidden', true);
+					mi.setAttribute('hidden', true);
+				}
+
+				var menuseparator = menupopup.appendChild($C('menuseparator'));
+
+				ucJS.forEach(function(ucJS) {
+					for(var i = 0, len = ucJS.length; i < len; i++) {
+						var script = ucJS[i];
+						if (script.dir != dirName) continue;
+						mi = menupopup.appendChild($C('menuitem', {
+							label: script.filename,
+							oncommand: 'userChromejs.chgScriptStat(this.script.filename); userChromejs.rebuild();',
+							onclick: 'userChromejs.clickScriptMenu(event);',
+							onDOMMouseScroll: 'userChromejs.scrollScriptMenu(event);',
+							type: 'checkbox',
+							autocheck: 'false',
+							checked: !userChrome_js.scriptDisable[script.filename],
+							class: 'uc-item'
+						}));
+						mi.script = script;
+						let url = userChromejs.getScriptHomeURL(script);
+						if (url)
+							mi.setAttribute('homeURL', url);
+						let description = getTooltiptext(script, url);
+						if (description)
+							mi.setAttribute('tooltiptext', description);
+
+						if (dirName === 'root') {
+							mi.setAttribute('class', 'userChromejs_script');
+							topMenuitems.push(mi);
+						} else {
+							menupopup.appendChild(mi);
+						}
+					}
+				});
+			}
+
+			// 添加收集的 topMenuitems
+			topMenuitems.forEach(function(mi) {
+				parentMenuPopup.appendChild(mi);
+			});
+		},
+
+		clickDirMenuitem: function(event) {
+			if (event.button !== 0) {
+				var et = event.target;
+				userChromejs.chgDirStat(et.dirName);
+				et.setAttribute('checked', !userChrome_js.dirDisable[et.dirName]);
+				if (userChrome_js.dirDisable[et.dirName]) {
+					et.parentNode.parentNode.setAttribute('style', 'color:gray;');
+				} else {
+					et.parentNode.parentNode.removeAttribute('style');
+				}
+			}
+		},
+
+		clickScriptMenu: function(event) {
+			if (event.button == 1) {
+				let url = event.target.getAttribute('homeURL');
+				if (url) {
+					gBrowser.addTab(url);
+				}
+			} else if (event.button == 2) {
+				userChromejs.launchEditor(event.target.script);
+			}
+		},
+
+		scrollScriptMenu: function(event) {
+			let script = event.target.script;
+			userChromejs.chgScriptStat(script.filename);
+			event.target.setAttribute('checked', !userChrome_js.scriptDisable[script.filename]);
+		},
+
+		clickIcon: function(event) {
+			if (event.button == 1) {
+				userChromejs.chgDirStat("*");
+				userChromejs.rebuild();
+			}
+			if (event.button == 2) {
+				userChromejs.rebuild();
+				event.stopPropagation();
+				event.preventDefault();
+			}
+		},
+
+		getScriptHomeURL: function(script) {
+			return script.homepageURL || script.downloadURL || script.updateURL || script.reviewURL;
+		},
+
+		launchEditor: function(aScript) {
+			var editor = gPrefService.getCharPref("view_source.editor.path");
+			var UI = Cc['@mozilla.org/intl/scriptableunicodeconverter'].createInstance(Ci.nsIScriptableUnicodeConverter);
+
+			var platform = window.navigator.platform.toLowerCase();
+			if (platform.indexOf('win') > -1) {
+				UI.charset = 'GB2312';
+			} else {
+				UI.charset = 'UTF-8';
+			}
+
+			var path = Cc['@mozilla.org/network/io-service;1'].getService(Ci.nsIIOService).getProtocolHandler('file').QueryInterface(Ci.nsIFileProtocolHandler).getFileFromURLSpec(aScript.url).path
+			path = UI.ConvertFromUnicode(path);
+
+			var appfile = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsILocalFile);
+			appfile.initWithPath(editor);
+			var process = Cc['@mozilla.org/process/util;1'].createInstance(Ci.nsIProcess);
+			process.init(appfile);
+			process.run(false, [path], 1, {});
+		},
+
+		chgDirStat: function(adirName) {
+			var s = userChromejs.getPref("userChrome.disable.directory", "str", "");
+			if (!userChrome_js.dirDisable[adirName]) {
+				s = (s+',').replace(adirName+',','') + adirName+',';
+			} else {
+				s = (s+',').replace(adirName+',','');
+			}
+			s = s.replace(/,,/g,',').replace(/^,/,'');
+			userChromejs.setPref("userChrome.disable.directory", "str", s);
+			userChrome_js.dirDisable = this.restoreState(s.split(','));
+		},
+
+		chgScriptStat: function(afilename) {
+			var s = userChromejs.getPref("userChrome.disable.script", "str", "");
+			if (!userChrome_js.scriptDisable[afilename]) {
+				s = (s+',').replace(afilename+',','') + afilename+',';
+			} else {
+				s = (s+',').replace(afilename+',','');
+			}
+			s = s.replace(/,,/g,',').replace(/^,/,'');
+			userChromejs.setPref("userChrome.disable.script", "str", s);
+			userChrome_js.scriptDisable = this.restoreState(s.split(','));
+		},
+
+		restoreState: function(arr) {
+			var disable = [];
+			for(var i = 0, len = arr.length; i < len; i++)
+			disable[arr[i]] = true;
+			return disable;
+		},
+
+		// prefを読み込み
+		getPref: function(aPrefString, aPrefType, aDefault) {
+			var xpPref = Cc['@mozilla.org/preferences-service;1'].getService(Ci.nsIPrefBranch2);
+			try {
+				switch(aPrefType) {
+					case 'str':
+						return unescape(xpPref.getCharPref(aPrefString).toString()); break;
+				}
+			} catch(e) {}
+			return aDefault;
+		},
+
+		// prefを书き込み
+		setPref: function(aPrefString, aPrefType, aValue) {
+			var xpPref = Cc['@mozilla.org/preferences-service;1'].getService(Ci.nsIPrefBranch2);
+			try {
+				switch(aPrefType) {
+					case 'str':
+						return xpPref.setCharPref(aPrefString, escape(aValue)); break;
+				}
+			} catch(e) {}
+			return null;
+		},
+
+		// 监视を开始する
+		addPrefListener: function(aObserver) {
+			try {
+				Cc['@mozilla.org/preferences;1'].getService(Ci.nsIPrefBranch2).addObserver(aObserver.domain, aObserver, false);
+			} catch(e) {}
+		},
+
+		// 监视を终了する
+		removePrefListener: function(aObserver) {
+			try {
+				Cc['@mozilla.org/preferences;1'].getService(Ci.nsIPrefBranch2).removeObserver(aObserver.domain, aObserver);
+			} catch(e) {}
+		},
+
+		readLaterPrefListener: {
+			domain : 'userChrome.disable',
+
+			observe : function(aSubject, aTopic, aPrefstring) {
+				if (aTopic == 'nsPref:changed') {
+					// 设定が変更された时の处理
+					setTimeout(function() {
+						var s = userChromejs.getPref("userChrome.disable.directory", "str", "");
+						userChrome_js.dirDisable = userChromejs.restoreState(s.split(','));
+						s = userChromejs.getPref("userChrome.disable.script", "str", "");
+						userChrome_js.scriptDisable = userChromejs.restoreState(s.split(','));
+					}, 0);
+				}
+			}
+		},
+
+		runMenu: function() {
+			// DOMの构筑が完了するのを待ってからメニューを移动させる(5秒间隔で最大50回までトライ)
+			this.timer = setInterval(function(self) {
+			if (++self.count > self.maxcount || self.moveMenu())
+				clearInterval(self.timer);
+			}, this.interval, this);
+		},
+
+		moveMenu: function() {
+			var menupopup = $('userChromejs_options');
+			if (!menupopup)
+			return false;
+			var i = 0;
+			while (i < this.menues.length) {
+			var menu = $(this.menues[i])
+				if (menu) {
+					setTimeout(function(menupopup, menu) {
+						menupopup.insertBefore(menu, $("uc-menuseparator"));
+					}, 100, menupopup, menu);
+					this.menues.splice(i, 1);
+					continue;
+				}
+				i++;
+			}
+			return this.menues.length == 0 ? true : false;
+		},
+	}
+	var css = '\
+		#userChromebtnMenu dropmarker {display:none;}\
+		#userChromebtnMenu > .toolbarbutton-icon {\
+			background:none!important;\
+			border:none!important;\
+			box-shadow:none!important;\
+			padding:0px 1px!important;\
+		}\
+		#userChromejs_options .uc-dir[checked="false"] {color:gray;}\
+		#userChromejs_options :-moz-any(.uc-item, .userChromejs_script)[checked="false"] {\
+			color:gray;\
+			-moz-box-ordinal-group:99;\
+		}\
+	'.replace(/[\r\n\t]/g, '');;
+	userChromejs.style = addStyle(css);
+	userChromejs.init();
+	function $(id) {return document.getElementById(id);}
+	function $C(name, attr) {
+		var el = document.createElement(name);
+		if (attr) Object.keys(attr).forEach(function(n) el.setAttribute(n, attr[n]));
+		return el;
+	}
+	function addStyle(css) {
+		var pi = document.createProcessingInstruction(
+			'xml-stylesheet',
+			'type="text/css" href="data:text/css;utf-8,' + encodeURIComponent(css) + '"'
+		);
+		return document.insertBefore(pi, document.documentElement);
+	}
+]]></script>
+</overlay>
