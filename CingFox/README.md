@@ -9,6 +9,13 @@
 | 界面預覧: | 常用功能: |
 | <img width="410" src="img/preview.jpg" > | <img width="410" src="img/preview-2.jpg" > |
 
+####近期更新
+- 更新AutoProxy至2016.02版
+- 添加SpeedMonitor
+- 添加RIL(Pocket)扩展
+- 更新rebuild_userchrome至W大神03.17版
+- 其它CSS调整
+
 ####特色：
 - 基于SimpleWhite的全新界面，如Mac般的細膩視感
 - 美觀的快速拨號
