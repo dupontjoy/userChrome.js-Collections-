@@ -1,4 +1,4 @@
-## ![icon](img/icon.jpg) CingFox-2016.03.03 (based on 44.0.2)
+## ![icon](img/icon.jpg) CingFox-2016.03.18 (based on 44.0.2)
 
 一個美觀而實用的Firefox深度定制版，在保證流畅的同時給你以Mac般的視覺享受。界面修攺自RunningCheese V5版.
 
@@ -13,7 +13,6 @@
 - 基于SimpleWhite的全新界面，如Mac般的細膩視感
 - 美觀的快速拨號
 - 廣告過濾：帶個人維護規則，屏蔽常用網站彈窗及色情圖片
-- 百度網盤大文件直接下載
 - 顯示國旗，查探IP地址和服務器地址
 - ProgressbarInTab腳本，在標籤上展示加載進度條
 - 豐富的redirector規則
@@ -25,7 +24,7 @@
 - 完善的批處理（配置和完整版打包一鍵製作）
 - 配套軟件分享
 - 詳細的備注說明，有心的朋友可以學到東西
-- …… ……
+- …… …… 更多內容等待你去发现
 
 ####所用擴展：
 | | |
@@ -33,14 +32,17 @@
 | **擴展名稱** | **功能說明** |
 | Adblock Plus | 去除网页广告及弹窗 |
 | Adblock Plus元素隐藏 | ABP輔助，自定義規則必備 |
+| Auto Unload Tab | 逐一载入标签, 2小时后自动卸载标签, 再过1小时自动关闭标签 |
+| AutoProxy修改版 | 你懂的 |
 | DOM Inspector | 元素查看器，方便查找菜單及按鈕ID |
 | DownThemAll! | 下載辅助，配合FlashGot可自動獲取引用頁 |
 | FlashGot | 下载网页中的视频和音频文件 |
 | Greasemonkey | 伟大的油猴子，通过JS文件增强或改变网站的功能 |
 | iMacros | 解放重複性操作 |
 | Lastpass | 記住你的密碼 |
+| RIL(Pocket) | Pocket扩展版,比Firefox自带的好用些 |
 | Redirector | 重定向網址, 可測試規則是否生效 |
-| Simple Proxy | 一個簡約而不簡單的代理辅助擴展 |
+| SpeedMonitor | 实时检测Firefox网速 |
 | Stylish | 用CSS改变浏览器和网页的显示外观 |
 | userChromeJS | UC腳本管理擴展 |
 
