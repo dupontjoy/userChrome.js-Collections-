@@ -1,0 +1,1274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<!--
+// ==UserScript==
+// @name           rebuild_userChrome.uc.xul
+// @namespace      http://space.geocities.yahoo.co.jp/gl/alice0775
+// @description    UserChromeJS脚本管理器w13998686967自用强化版
+// @homepageURL    http://bbs.kafan.cn/thread-1861856-1-1.html
+// @include        main
+// @charset		   UTF-8
+// @compatibility  Firefox29+
+// @modified       w13998686967
+// ==/UserScript==
+-->
+
+<script type="application/javascript" xmlns="http://www.w3.org/1999/xhtml"><![CDATA[
+(function (css) {
+"use strict";
+let { classes: Cc, interfaces: Ci,utils: Cu, results: Cr } = Components;
+const isCN = Services.prefs.getCharPref("general.useragent.locale").indexOf("zh") != -1;
+Cu.import("resource://gre/modules/Services.jsm");
+Cu.import("resource://gre/modules/AddonManager.jsm");
+try {Cu.import("resource://gre/modules/XPIProvider.jsm");}catch(e){}
+
+// 要移动的菜单列表，按找到的顺序排序(仅第一次启动有效)
+var movedMenus = [
+			"addMenu-rebuild",
+			"anobtn_set",
+			"toolsbar_KeyChanger_rebuild",
+			"redirector-icon",
+			"usercssloader_Tools_Menu",
+];
+var Config = {
+    debug: 0,  // 1 则uc管理界面右键菜单会有 "重载 uc 脚本" 的菜单
+    detailView: 1,  // 详细信息页面是否添加安装链接
+};
+window.userChromejs = {
+    scripts:[],
+    unloads: [],
+	editor: "", // 为空则用 view_source.editor.path
+	//editor: "C:\\WINDOWS\\system32\\notepad.exe",
+	state:true, 
+    issUrlbar:false, // 第一次启动放置的位置， true为地址栏  false为工具栏(可移动按钮) 
+	enableIcon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACk0lEQVQ4ja3RW0hTARwG8A+nEIIxI9DwyQtCarKj7vhkWEwj8AKahNR6siAispce6k2y9VJvIblpkBOt4xGU5ko0RKZuecMLedlxTk0ym7Y5TcvL10OmKwuC+uB7/fG/AP8jarWaERERNBgMDxsbG4uMRuMdQRB4WH2MGdog0gvuuL+XbnDLDW66wQNAeXl5mSzLeUajsVQQhHW1+gjFtPgNn6d2Yl6pdM4rlc53U8/G/a4T/q2/A9RMS0tfXfR86ZpwLjgmnAuOMYU27/TZpe0/AQ0NDbkmk+nGPpC25vF47Iqi9CmK0jfh9PV4p7OWDwCRkZEsKysz1NfXF1VUVNzaA7TatSXvcs+Uy9WruFy9k9P+bt9M9vLO3C9AXFwcBUGgKIrMyMhgYmIij4aFMT05+fPk0NDAQGfn8LDNNjzUNdb/seekd90eAKiCwxkVFc2EhOPUaDTUiiLjYmKYAvAMwHyAJQDvAqwE2IwgOqDaB87nH2JRgbhaUFj8tbi4ePWiXv8pLyfHJwDMBli4C5QDNAG0AOxHwATcACcHr483NXeNWSyWPovV2tnUKPekAMwCeCk01HNPp7M8ysxsq9Hp2pp1urYOne71PjAPvum44jLXWTslSbJLsuyoNdf0pQA8BbBUo3FY7fZkyWrNrNutuaUl+zfAyy5Jeu4IBE4DvJaUNNTQ3p77RJb1JlnWV8qy/rEslfwEdLffdFY9dXSY617ZzPWtturqpr0VLoSE+G+npg4+EIRRo1Y7Kmm1o62i+HYP2JoBl8fD19+PxPs+jMSuLI7Grrjt0f6U3SOeA3gZoAFgFcAWgAOBR9x0g9szIGfBnVmQc+DqGPgDKAJ4FeB9gFXBwXyhUrFXFfDGf8k3RzmjBlDWo+YAAAAASUVORK5CYII=",
+    disableIcon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABeSURBVDhPY6AKSCms+x+SkPMfREOFwACXOAYYNQBVITrGJQ7CUO0IA0jFUO0QA3BhkEJs4iAM1Y4bgBTBDIAKkQYGlwHYMFQZbgBSBDIAF4Yqww3QbUTHUGWUAAYGAEyi7ERKirMnAAAAAElFTkSuQmCC",	
+    handleEvent: function(event) {
+      switch(event.type) {
+        case 'unload':
+          this.uninit();
+          break;
+		case "DOMContentLoaded":
+          var doc = event.target;
+          var win = doc.defaultView;
+          if (["about:addons","chrome://mozapps/content/extensions/extensions.xul"].indexOf(doc.URL) == -1)
+              return;
+          this.addPopupMenu(doc);
+          // 给菜单调用
+          win.userChromejs = userChromejs;
+          this.win = win;
+          if (Config.detailView) {
+              var self = this;
+              var observer = new MutationObserver(function(e) {
+                  e = e[e.length-1];
+                  if(e.attributeName == "loading") {
+                      var doc = e.target.ownerDocument;
+                      self.setUrlOrPath(doc);
+                  }
+              });
+              observer.observe(doc.getElementById("detail-view"), {attributes: true});
+          }
+          break;
+        case "popupshowing":
+          this.getAddon(this.win.document.popupNode.value,this.setItemsAttributes,event);
+          break; 
+      } 
+    }, 	
+    init: function(){ 
+	    if ('userchromejs' in AddonManager.addonTypes) return;
+		this.initScripts();
+        this.registerProvider();
+        this.addStyle(css);
+		this.setPref("userChrome.enable.reuse",'bool',false);
+        this.addPrefListener(userChromejs.readLaterPrefListener); // 登録処理
+		try{userChromejs.issUrlbar=Services.prefs.getBoolPref("userChrome.disable.issUrlbar");}catch(e){}    
+		try{userChromejs.state=Services.prefs.getBoolPref("userChrome.disable.iconUI");}catch(e){userChromejs.state= true;}  
+        window.addEventListener("unload",this , false);
+		document.addEventListener("DOMContentLoaded", this, false);		
+        let button = $C('toolbarbutton', {
+            id: "userChromebtnMenu",
+            class: 'toolbarbutton-1 chromeclass-toolbar-additional',
+            label: "userChromeJs管理器",
+            tooltiptext: "左键：脚本菜单\n中键：重载脚本\n右键：启用/禁用\n滚轮：切换按钮位置\nCtrl中键：删除脚本命令\nCtrl右键：添加脚本命令",
+	 	    type: "menu",
+	 	    removable: "true",
+	 	    popup: "userChromejs_options",
+			onDOMMouseScroll: "userChromejs.setting(); userChromejs.Reopen();",
+	 	    onclick: 'event.stopPropagation(); event.preventDefault(); if(event.button == 1) { if (event.ctrlKey) {userChromejsScriptOptionsMenu.deluserChromejsmenu();} else {userChromejs.Reopen();} } else if(event.button == 2) { if (event.ctrlKey) { userChromejsScriptOptionsMenu.adduserChromejsmenu();} else { userChromejs.toggle();} }',
+            style:"list-style-image: url(" + (userChromejs.state ? userChromejs.enableIcon : userChromejs.disableIcon) + ")",		
+        });
+		if (userChromejs.issUrlbar) {	
+			document.getElementById("urlbar-icons").appendChild(button);
+		} else {
+            ToolbarManager.addWidget(window, button, false);
+        }	    	
+  	    var xml = '\
+	    	<menupopup id="userChromejs_options"\
+	    		  onpopupshowing="userChromejs.onpopup();"\
+	    		  position="after_end">\
+	    		<menuseparator id="jscmdseparator" hidden="true" />\
+	    		<menuitem label="重新启动浏览器"\
+	    				  id="userChromejs_restartApp"\
+	    				  accesskey="r"\
+	    				  class="menuitem-iconic"\
+	    				  oncommand="userChromejs.restartApp();"/>\
+	    		<menuitem label="打开脚本文件夹"\
+	    		          tooltiptext="即Chrome文件夹"\
+	    				  accesskey="h"\
+	    				  class="menuitem-iconic"\
+	    				  id="userChromejs_openChromeFolder"\
+	    				  oncommand=\'userChromejs.Openchromedir();\'/>\
+   	    	    <menuitem label="设置脚本编辑器"\
+	    		          tooltiptext="即全局脚本编辑器"\
+	    				  accesskey="c"\
+	    				  class="menuitem-iconic"\
+	    				  id="userChromejs_setEditor"\
+	    				  oncommand="userChromejs.setEditor();"/>\
+	    		<menuitem label="图标移动到地址栏"\
+						  id="userChromejs_togglebutton"\
+						  accesskey="t"\
+						  class="menuitem-iconic"\
+						  oncommand="userChromejs.setting(); userChromejs.Reopen();"/>\
+				<menuseparator id="userChromejs_script_options"/>\
+	    	</menupopup>\
+	    ';	    
+        var range = document.createRange();
+        range.selectNodeContents(document.getElementById('mainPopupSet'));
+        range.collapse(false);
+        range.insertNode(range.createContextualFragment(xml.replace(/\n|\t/g, '')));
+        range.detach();
+	    userChromejs.style = addStyle(css); 
+	},	
+    uninit: function(){ 
+      this.removePrefListener(userChromejs.readLaterPrefListener); // 登録解除 
+	  this.unloads.forEach(function(func){ func(); });
+	  document.removeEventListener("DOMContentLoaded", this, false);
+    },	 
+	initScripts: function(){
+        var scripts = window.userChrome_js.scripts.concat(window.userChrome_js.overlays);
+
+        var self = this;
+        scripts.forEach(function(script, i){
+            self.scripts[i] = new ScriptAddon(script);
+        });
+    },
+    getScriptById: function(aId){
+        for (var i = 0; i < this.scripts.length; i++) {
+            if(this.scripts[i].id == aId)
+                return this.scripts[i];
+        }
+        return null;
+    },
+    registerProvider: function(){
+        var types = null;
+        if (AddonManagerPrivate.AddonType) {
+            types = [new AddonManagerPrivate.AddonType(
+                "userchromejs",
+                "",
+                isCN ? "uc 脚本" : "userChrome JS",
+                AddonManager.VIEW_TYPE_LIST,
+                9000)];
+        }
+        let provider = {
+            getAddonByID: function(aId, aCallback) {
+                let script = userChromejs.getScriptById(aId);
+                aCallback(script);
+            },
+            getAddonsByTypes: function(aTypes, aCallback) {
+                if (aTypes && aTypes.indexOf("userchromejs") < 0) {
+                    aCallback([]);
+                } else {
+                    aCallback(userChromejs.scripts);
+                }
+            }
+        };
+        AddonManagerPrivate.registerProvider(provider, types);
+        this.unloads.push(function(){
+            AddonManagerPrivate.unregisterProvider(provider);
+        });
+    },
+	Openchromedir: function() {
+		Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties).get("UChrm", Ci.nsILocalFile).launch();
+	},	
+	Reopen: function(){
+      if (window._reopeningFlag)return;
+      window._reopeningFlag = true;
+      var ss = Cc["@mozilla.org/browser/sessionstore;1"].getService(Ci.nsISessionStore);
+      var state = ss.getWindowState(window);
+      var win = OpenBrowserWindow();
+      win.addEventListener("load", function() {
+        setTimeout(function() {
+          ss.setWindowState(win, state, true);
+          window.close();
+        }, 0);
+      }, false);
+    },	
+	setting: function() { 
+	    userChromejs.issUrlbar = !userChromejs.issUrlbar;
+		userChromejs.setPref("userChrome.disable.issUrlbar", "bool",userChromejs.issUrlbar);
+	},	
+	toggle: function() { 
+	    userChromejs.chgDirStat("*");
+	    userChromejs.state = !userChromejs.state;
+		userChromejs.setPref("userChrome.disable.iconUI", "bool",userChromejs.state);
+	},	
+    onpopup: function(){
+      var menu;
+      var menuitem = document.getElementById('userChrome_setting');
+      var menupopup = document.getElementById("userChromejs_options");
+
+      // remove script menuitem or menuseparator
+      var nodes = menupopup.querySelectorAll('#userChromejs_script,#userChromejs_menuseparator');
+      for(var i = 0, len = nodes.length; i < len; i++){
+        nodes[i].parentNode.removeChild(nodes[i]);
+      }
+      menuitem = document.createElement('menuitem');
+      menuitem.setAttribute('id','userChromejs_script');
+	  menuitem.setAttribute('class','menuitem-iconic');
+      menuitem.setAttribute('label',"Chrome 下所有目录脚本已" + (userChromejs.state ? "启" : "停") + "用");//启用禁用
+	  menuitem.setAttribute('tooltiptext','左键：启用/禁用\n右键：重载脚本');
+      menuitem.setAttribute('oncommand','userChromejs.toggle();');
+      menuitem.setAttribute('onclick','if(event.button != 0) { event.stopPropagation();event.preventDefault();userChromejs.Reopen();}');
+      menuitem.setAttribute('type','checkbox');
+      menuitem.setAttribute('checked',!userChrome_js.dirDisable['*']);
+      menuitem.setAttribute('class', 'userChromejs-menu');
+      menuitem.dirName = '*';
+      menupopup.appendChild(menuitem);	  
+	  var menuseparator = document.createElement('menuseparator');
+          menuseparator.setAttribute('id','userChromejs_menuseparator');
+          menupopup.appendChild(menuseparator);	  
+      let parentMenuPopup = menupopup,
+        topMenuitems = [];
+      let getTooltiptext = function(script, url) {
+        let text = '左键：启用/禁用\n中键：复选启用/禁用\n右键：编辑\nCtrl +中键：打开主页\nCtrl +右键：删除脚本\n\n' + '说明：' + script.description || '';
+        if (url) {
+          text += '\n' + '链接：' + url;
+        }
+        return text;
+      };	  
+      for(var j = 0, lenj = userChrome_js.arrSubdir.length; j < lenj; j++){
+        var dirName = userChrome_js.arrSubdir[j] == "" ? "root" : userChrome_js.arrSubdir[j];
+        var flg = false;
+        for(var i = 0, len = userChrome_js.scripts.length; i < len; i++){
+          var script = userChrome_js.scripts[i];
+          if(script.dir != dirName) continue;
+          flg = true;
+          break;
+        }
+        if(!flg){
+          for(var i = 0, len = userChrome_js.overlays.length; i < len; i++){
+            var script = userChrome_js.overlays[i];
+            if(script.dir != dirName) continue;
+            flg = true;
+            break;
+          }
+        }
+        if(!flg) continue;
+        menu = document.createElement('menu');
+        menu.setAttribute('id','userChromejs_script');
+		menu.setAttribute('class','menu-iconic');
+        menu.setAttribute('label','脚本目录 ' + (dirName=="root"?"":dirName) );
+		menu.setAttribute('tooltiptext','中键：重载脚本\n右键：启用/禁用');
+        menu.setAttribute('onclick','if(event.button != 0) {event.stopPropagation();event.preventDefault();userChromejs.clickDirMenu(event);}');
+        if(userChrome_js.dirDisable[dirName])
+        menu.setAttribute('style', '-moz-box-ordinal-group:99!important;color:gray!important;font-style:italic;');
+        menu.dirName = dirName;		
+        menupopup = document.createElement('menupopup');
+        menupopup.setAttribute('onpopupshowing','event.stopPropagation();');
+        menuitem = document.createElement('menuitem');
+        menuitem.setAttribute('label',(dirName=="root"?"":dirName) + ' 目录下全部脚本');
+	    menuitem.setAttribute('tooltiptext','左键：启用/禁用\n右键：重载脚本');
+        menuitem.setAttribute('oncommand', 'userChromejs.chgDirStat(this.dirName);');
+        menuitem.setAttribute('onclick','if(event.button != 0) {event.stopPropagation();event.preventDefault();userChromejs.Reopen();}');
+        menuitem.setAttribute('type', 'checkbox');
+        menuitem.setAttribute('checked', !userChrome_js.dirDisable[dirName]);
+	    menuitem.setAttribute('class', 'userChromejs-menu');
+        menuitem.dirName = dirName;
+        menupopup.appendChild(menuitem);
+        if (dirName === 'root') {
+          menu.setAttribute('hidden', true);
+          menuitem.setAttribute('hidden', true);
+        }
+        var menuseparator = document.createElement('menuseparator');
+        menupopup.appendChild(menuseparator);
+        var flg = false;
+        for(var i = 0, len = userChrome_js.scripts.length; i < len; i++){
+          var script = userChrome_js.scripts[i];
+          if(script.dir != dirName) continue;
+            flg = true;
+            menuitem = document.createElement('menuitem');
+            menuitem.setAttribute('label',script.filename);
+            menuitem.setAttribute('oncommand','userChromejs.script.toggleScript(this.script);');
+            menuitem.setAttribute('onclick','if(event.button != 0) {event.stopPropagation();event.preventDefault();userChromejs.clickScriptMenu(event);}');
+            menuitem.setAttribute('type','checkbox');
+            menuitem.setAttribute('autocheck','false');
+            menuitem.setAttribute('checked', !userChrome_js.scriptDisable[script.filename]);
+			menuitem.setAttribute('class','userChromejs-item');
+			menuitem.setAttribute('restartless', script.restartless);
+            let url = this.getScriptHomeURL(script);
+            if (url)
+              menuitem.setAttribute('homeURL', url);
+            let description = getTooltiptext(script, url);
+            if(description)
+              menuitem.setAttribute('tooltiptext', description);
+            menuitem.script = script;
+            if (dirName === 'root') {
+              menuitem.setAttribute('id','userChromejs_script');
+              topMenuitems.push(menuitem);
+            } else {
+              menupopup.appendChild(menuitem);
+            }
+        }
+        for(var i = 0, len = userChrome_js.overlays.length; i < len; i++){
+          var script = userChrome_js.overlays[i];
+          if(script.dir != dirName) continue;
+            if(flg){
+/*              menuseparator = document.createElement('menuseparator');
+              menupopup.appendChild(menuseparator);*/
+            }
+            flg = false;
+            menuitem = document.createElement('menuitem');
+            menuitem.setAttribute('label',script.filename);
+            menuitem.setAttribute('oncommand','userChromejs.chgScriptStat(this.script.filename);');
+            menuitem.setAttribute('onclick','if(event.button != 0) {event.stopPropagation();event.preventDefault();userChromejs.clickScriptMenu(event);}');
+            menuitem.setAttribute('type','checkbox');
+            menuitem.setAttribute('autocheck','false');
+            menuitem.setAttribute('checked',!userChrome_js.scriptDisable[script.filename] );
+            let url = this.getScriptHomeURL(script);
+            if (url)
+              menuitem.setAttribute('homeURL', url);
+            let description = getTooltiptext(script, url);
+            if(description)
+              menuitem.setAttribute('tooltiptext', description);
+            menuitem.script = script;
+            if (dirName === 'root') {
+              menuitem.setAttribute('id','userChromejs_script');
+              topMenuitems.push(menuitem);
+            } else {
+              menupopup.appendChild(menuitem);
+            }
+        }
+        menu.appendChild(menupopup);
+        parentMenuPopup.appendChild(menu);
+      }
+      // 添加收集的 topMenuitems
+      topMenuitems.forEach(function(menuitem){
+        parentMenuPopup.appendChild(menuitem);
+      });
+      document.getElementById("userChromejs_togglebutton").setAttribute("label","图标移动到" + (userChromejs.issUrlbar ? "工具栏" : "地址栏"));
+    },	
+	addPopupMenu: function(doc){
+        var ins = doc.getElementById("menuitem_uninstallItem");
+        if(!ins) return;
+        ins = ins.nextSibling;
+        var popup = ins.parentNode;
+        var menuitem = $C("menuseparator", {
+            id: "AM-separator-1"
+        });
+        popup.insertBefore(menuitem, ins);
+		menuitem = $C("menuitem", {
+            id: "AM-edit-script",
+            label: isCN ? "编辑" : "Edit",
+            accesskey: "e",
+            hidden: true,
+            oncommand: "userChromejs.getAddon(userChromejs.getPopupNode(this).value, userChromejs.editScript);"
+        });
+        popup.insertBefore(menuitem, ins);
+        menuitem = $C("menuitem", {
+            id: "AM-copy-name",
+            label: isCN ? "复制名称" : "Copy Name",
+            accesskey: "c",
+            oncommand: "userChromejs.getAddon(userChromejs.getPopupNode(this).value, userChromejs.copyName);"
+        });
+        popup.insertBefore(menuitem, ins);
+		menuitem = $C("menuitem", {
+            id: "AM-inspect-addon",
+            label: isCN ? "查看附加组件" : "Inspect Addon",
+            accesskey: "i",
+            tooltipText: isCN ? "调用 DOM Inspector 查看 addon 对象" : "inspect addon use DOM Inspector",
+            oncommand: "userChromejs.getAddon(userChromejs.getPopupNode(this).value, userChromejs.inspectAddon);"
+        });
+        popup.insertBefore(menuitem, ins);
+        menuitem = $C("menuitem", {
+            id: "AM-browse-dir",
+            label: isCN ? "查看所在目录" : "Browser Dir",
+            accesskey: "b",
+            oncommand: "userChromejs.getAddon(userChromejs.getPopupNode(this).value, userChromejs.browseDir);"
+        });
+        popup.insertBefore(menuitem, ins);
+        menuitem = $C("menuitem", {
+            id: "AM-open-url",
+            label: isCN ? "打开安装页面" : "Open Install URL",
+            accesskey: "u",
+            tooltiptext: null,
+            oncommand: "openURL(this.tooltipText)",
+        });
+        popup.insertBefore(menuitem, ins);
+        menuitem = $C("menuitem", {
+            id: "AM-reload-uc",
+            hidden: true,
+            label: isCN ? "重载 uc 脚本（慎用）" : "Reload uc script",
+            style: "font-weight:bold",
+            tooltiptext: "仅部分脚本支持。如有问题，重启解决。",
+            oncommand: "userChromejs.getAddon(userChromejs.getPopupNode(this).value, userChromejs.reloadUserChromeJS);"
+        });
+        popup.insertBefore(menuitem, ins);
+        popup.addEventListener("popupshowing", this, true);
+    },
+    setItemsAttributes: function(aAddon, event){
+        var popup = event.target;
+        var doc = popup.ownerDocument;
+        var isExtension = (aAddon.type == "extension"),
+            isTheme = (aAddon.type == "theme"),
+            isPlugin = (aAddon.type == "plugin"),
+            isUserStyle = (aAddon.type == "userstyle"),
+            isScriptish = (aAddon.type == "userscript"),
+            isGreasemonkey = (aAddon.type == "user-script") || // Greasemonkey
+                            (aAddon.type == "greasemonkey-user-script"), // Greasemonkey 1.7+
+            isUserScript = isGreasemonkey || isScriptish,
+            isUserChromeJS = (aAddon.type == "userchromejs"),
+            isService = (aAddon.type == "service"),
+            menuitem
+        ;
+        menuitem = doc.getElementById("AM-browse-dir");
+        menuitem.hidden = isUserStyle || isUserScript || isService;
+        menuitem = doc.getElementById("AM-edit-script");
+        menuitem.hidden = !isUserChromeJS;
+        menuitem = doc.getElementById("AM-reload-uc");
+        menuitem.hidden = !Config.debug || !isUserChromeJS;
+        var className = isGreasemonkey ? "greasemonkey" : "";
+        // install url
+        menuitem = doc.getElementById("AM-open-url");
+        var installURL = isExtension ? (this.getInstallURL(aAddon) || aAddon.homepageURL) : (aAddon.homepageURL || this.getInstallURL(aAddon));
+        menuitem.tooltipText = installURL;
+        menuitem.hidden = !installURL;
+        menuitem.className = installURL ? className : '';
+        menuitem = doc.getElementById("AM-inspect-addon");
+        menuitem.disabled = !("inspectObject" in window);
+        menuitem.className = menuitem.disabled ? '' : className;
+        menuitem = doc.getElementById("AM-copy-name");
+        menuitem.tooltipText = aAddon.name;
+        menuitem.className = className;
+    },
+    getPopupNode: function (aNode) {
+        var doc = aNode.ownerDocument;
+        return "triggerNode" in aNode.parentNode ? aNode.parentNode.triggerNode : doc.popupNode;
+    },
+    getAddon: function (aId, aCallback, aEvent) {
+        var self = this;
+        if (this.win.gDetailView._addon) {
+            aCallback.apply(this, [this.win.gDetailView._addon, aEvent]);
+            return;
+        }
+        AddonManager.getAllAddons(function(aAddons) {
+            for (var i = 0; i < aAddons.length; i++) {
+                if (aAddons[i].id == aId) {
+                    aCallback.apply(self, [aAddons[i], aEvent]);
+                    return;
+                }
+            }
+        });
+    },
+    inspectAddon: function (aAddon) {
+        inspectObject(aAddon);
+    },
+    inspectUserscript: function (aAddon) {
+        inspectObject(aAddon._script);
+    },
+    browseDir: function (aAddon) {
+        switch(aAddon.type){
+            case "plugin":
+                var pathes = aAddon.pluginFullpath;
+                for (var i = 0; i < pathes.length; i++) {
+                    this.revealPath(pathes[i]);
+                }
+                return;
+            case "userchromejs":
+                var file = aAddon._script.file;
+                if(file.exists())
+                    file.reveal();
+                return;
+        }
+        // addon
+        var gecko = parseInt(Services.appinfo.platformVersion);
+        var nsLocalFile = Components.Constructor("@mozilla.org/file/local;1", (gecko >= 14) ? "nsIFile" : "nsILocalFile",
+            "initWithPath");
+        var dir = Services.dirsvc.get("ProfD", Ci.nsIFile);
+        dir.append("extensions");
+        dir.append(aAddon.id);
+        var fileOrDir = dir.path + (dir.exists() ? "" : ".xpi");
+        //Application.console.log(fileOrDir);
+        try {
+            (new nsLocalFile(fileOrDir)).reveal();
+        } catch (ex) {
+            var addonDir = /.xpi$/.test(fileOrDir) ? dir.parent : dir;
+            try {
+                if (addonDir.exists()) {
+                    addonDir.launch();
+                }
+            } catch (ex) {
+                var uri = Services.io.newFileURI(addonDir);
+                var protSvc = Cc["@mozilla.org/uriloader/external-protocol-service;1"].
+                getService(Ci.nsIExternalProtocolService);
+                protSvc.loadUrl(uri);
+            }
+        }
+    },
+    editScript: function(aAddon) {
+        if(aAddon.type == "userchromejs"){
+            var path = aAddon._script.file.path;
+            this.LEditor(path);
+        }
+    },
+    reloadUserChromeJS: function (aAddon) {
+        if(aAddon.type != "userchromejs") return;
+        var result = confirm("确定要重载吗？\n慎用，仅部分脚本支持，不支持的脚本会出现重复添加按钮或菜单或事件等问题。\n如有问题，重启火狐。");
+        if(!result) return;
+        var script = aAddon._script;
+        Services.obs.notifyObservers(null, "startupcache-invalidate", "");
+        Services.scriptloader.loadSubScript(script.url, {}, script.charset || "utf-8");
+    },
+    LEditor: function(path){
+        var editor = Services.prefs.getCharPref("view_source.editor.path");
+        if (!editor) {
+            toOpenWindowByType('pref:pref', 'about:config?filter=view_source.editor.path');
+            return;
+        }
+        var UI = Cc['@mozilla.org/intl/scriptableunicodeconverter'].createInstance(Ci.nsIScriptableUnicodeConverter);
+        var platform = window.navigator.platform.toLowerCase();
+        UI.charset = platform.indexOf('win') > -1 ? 'GB2312' : 'UTF-8';
+        path = UI.ConvertFromUnicode(path);
+        var appfile = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsILocalFile);
+        appfile.initWithPath(editor);
+        var process = Cc['@mozilla.org/process/util;1'].createInstance(Ci.nsIProcess);
+        process.init(appfile);
+        process.run(false, [path], 1, {});
+    },
+    copyName: function (aAddon) {
+        this.copyToClipboard(aAddon.name);
+    },
+    getInstallURL: function(aAddon){
+        aAddon = aAddon || this.win.gViewController.viewObjects.detail._addon;
+        if(!aAddon) return null;
+        var url = null;
+        switch(aAddon.type){
+            case "extension":
+            case "theme":
+                url = (aAddon.contributionURL || aAddon.reviewURL) || null;
+                return url && url.replace(/\/developers|\/reviews/g, "") || aAddon.creator.url;
+            case "greasemonkey-user-script":
+                return aAddon._script._downloadURL || aAddon._script._updateURL;
+            case "userscript":
+                url = aAddon._downloadURL || aAddon._updateURL;
+                return url;
+            case "userchromejs":
+                return aAddon.homepageURL || aAddon.reviewURL || aAddon.downloadURL || aAddon.updateURL;
+            default:
+                return aAddon.homepageURL;
+        }
+    },
+
+    get getPath(){
+        var url = this.win.gViewController.viewObjects.detail._addon;
+        if(!url) return false;
+        return url.pluginFullpath || false;
+    },
+    setUrlOrPath :function(doc){
+        var installURL = this.getInstallURL();
+        if (!installURL && !this.getPath) return;
+        if(!doc.getElementById("detail-InstallURL-row")){
+            var value = "",label = "";
+            if(this.win.gViewController.currentViewId.indexOf("detail")!= -1){
+                var aAddon = this.win.gViewController.viewObjects.detail._addon;
+                switch (aAddon.type){
+                    case "extension":
+                    case "theme":
+                    case "greasemonkey-user-script":
+                        value = installURL;
+                        label = "%Installpage%";
+                        break;
+                    case "plugin":
+                        value = this.getPath;
+                        label = "%Path%";
+                        break;
+                }
+            }
+            if(!!value && !!label){
+                var xul = "";
+                if(typeof(value) != "string"){
+                    xul = "<vbox>";
+                    for(var i=0;i< value.length;i++){
+                        xul += ('<label class="detail-row-value text-link" crop="end" onclick="\
+                            if(event.button == 0) { \
+                                userChromejs.revealPath(this.value); \
+                            } else if (event.button == 2){ \
+                                userChromejs.copyToClipboard(this.value); \
+                            } \
+                            return false;" \
+                            value="' + value[i] +'" href="'+ value[i] +'"/>');
+                    }
+                    xul += "</vbox>";
+                }else{
+                    xul = '<label class="detail-row-value text-link" crop="end" onclick="\
+                        if(event.button == 2){\
+                            userChromejs.copyToClipboard(this.value); \
+                            return false;\
+                        }" value="'+ value +'" href="'+ value +'"/>';
+                }
+                xul = '<row class="detail-row-complex" id="detail-InstallURL-row" label="'+ label +'">'+
+                            '<label class="detail-row-label" value="'+ label +'"/>'+ xul +'</row>';
+                if(isCN){
+                    xul = xul.replace(/\%Installpage\%/g, "安装页面").replace(/\%Path\%/g, "路径");
+                }else{
+                    xul = xul.replace(/\%/g,"");
+                }
+                // doc.getElementById("detail-rows").innerHTML += xul;
+                doc.getElementById("detail-rows").appendChild(doc.createElement("row")).outerHTML = xul;
+            }
+        }
+    },
+	ScriptAddon: function(aScript){
+        this._script = aScript;
+        this.id = this._script.url;
+        this.name = this._script.filename;
+        this.description = this._script.description;
+        this.enabled = !userChrome_js.scriptDisable[this.name];
+        this.version = this._script.version || null;
+        this.author = this._script.author || null;
+        this.homepageURL = this._script.homepageURL || null;
+        this.reviewURL = this._script.reviewURL || null;
+        this.reviewCount = 0;
+        this.fullDescription = this._script.fullDescription || null;
+        this.downloadURL = this._script.downloadURL || null;
+        this.iconURL = '';// uc 脚本列表的图标
+    },
+    revealPath: function(path){
+        var file = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsILocalFile);
+        file.initWithPath(path);
+        if(file.exists())
+            file.reveal();
+    },
+    copyToClipboard: function (aString) {
+        Cc["@mozilla.org/widget/clipboardhelper;1"].
+            getService(Ci.nsIClipboardHelper).copyString(aString);
+    },	
+	clickDirMenu: function(event){
+	if(event.button==1){
+        userChromejs.Reopen();
+      }else if(event.button == 2){
+        if(event.target.firstChild && event.target.firstChild.firstChild)
+		  userChromejs.chgDirStat(event.target.dirName);
+          event.target.firstChild.firstChild.setAttribute('checked',!userChrome_js.dirDisable[event.target.dirName] );
+        if(!!userChrome_js.dirDisable[event.target.dirName])
+          event.target.setAttribute('style', 'font-style:italic;');
+        else
+          event.target.removeAttribute('style');  
+      }
+    },
+    clickScriptMenu: function(event){
+      let script = event.target.script;
+      if (!script) return;
+      if(event.button==1){
+        if (event.ctrlKey) { 
+          let url = event.target.getAttribute('homeURL');
+          if (url) {
+            gBrowser.addTab(url);
+          }
+        } else {  
+		  event.target.setAttribute('checked',!!userChrome_js.scriptDisable[event.target.script.filename]);
+		  userChromejs.chgScriptStat(event.target.script.filename); 
+        }
+      }else if(event.button==2){
+	      if (event.ctrlKey) {  
+              userChromejs.uninstall(script);
+            } else {
+              userChromejs.launchEditor(script);
+          }
+	    }
+    },
+    getScriptHomeURL: function(script) {
+      return script.homepageURL || script.downloadURL || script.updateURL || script.reviewURL;
+    },
+	uninstall: function (script, skipConfirm) {
+	    var prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
+        if (!skipConfirm) {
+            var isOk = confirm('是否要卸载这个脚本？注意：会删除该文件');
+            if (!isOk) {
+                return;
+            }
+        }
+		try{
+		  script.file.remove(false);
+//		    XULBrowserWindow.statusTextField.label = "脚本 " + script.filename +" 已成功卸载";
+//          prompts.alert(null, "userChromejs脚本管理器", "脚本 " + script.filename + " 已成功卸载！");
+          Cc['@mozilla.org/alerts-service;1'].getService(Ci.nsIAlertsService).showAlertNotification("", "userChromejs脚本管理器", "脚本 " + script.filename +" 已成功卸载", false, "", null);
+          userChromejs.Reopen();
+        }catch(e){
+//		    XULBrowserWindow.statusTextField.label = "脚本 "+ script.filename + " 不存在，请检查是否已移动！";
+//          prompts.alert(null, "userChromejs脚本管理器", "脚本 "+ script.filename +" 不存在，请检查是否已移动！");
+          Cc['@mozilla.org/alerts-service;1'].getService(Ci.nsIAlertsService).showAlertNotification("", "userChromejs脚本管理器", "脚本 "+ script.filename + " 不存在，请检查是否已移动！", false, "", null);
+		  setTimeout(function() {userChromejs.Openchromedir();}, 1000);
+        }   
+
+    },	
+    launchEditor: function(aScript){
+      //dannylee
+      userChromejs.editor = gPrefService.getCharPref("view_source.editor.path"); 
+      var editor = userChromejs.editor;
+      var UI = Components.classes['@mozilla.org/intl/scriptableunicodeconverter'].createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
+
+      var platform = window.navigator.platform.toLowerCase();
+      if(platform.indexOf('win') > -1){
+        UI.charset = 'GB2312';
+      }else{
+        UI.charset =  'UTF-8';
+      }
+      var path = Components.classes['@mozilla.org/network/io-service;1'].getService(Components.interfaces.nsIIOService).getProtocolHandler('file').QueryInterface(Components.interfaces.nsIFileProtocolHandler).getFileFromURLSpec(aScript.url).path
+      path = UI.ConvertFromUnicode(path);
+
+      var appfile = Components.classes['@mozilla.org/file/local;1'].createInstance(Components.interfaces.nsILocalFile);
+      appfile.initWithPath(editor);
+      var process = Components.classes['@mozilla.org/process/util;1'].createInstance(Components.interfaces.nsIProcess);
+      process.init(appfile);
+      process.run(false, [path], 1, {});
+    },
+    chgDirStat: function(adirName){
+      var s = userChromejs.getPref("userChrome.disable.directory", "str", "");
+      if(!userChrome_js.dirDisable[adirName]){
+        s = (s+',').replace(adirName+',','') + adirName+',';
+      }else{
+        s = (s+',').replace(adirName+',','');
+      }
+      s = s.replace(/,,/g,',').replace(/^,/,'');
+      userChromejs.setPref("userChrome.disable.directory", "str", s);
+      userChrome_js.dirDisable = this.restoreState(s.split(','));
+	  userChromejs.Reopen();
+    },
+    chgScriptStat: function(afilename){
+      var s = userChromejs.getPref("userChrome.disable.script", "str", "");
+      if(!userChrome_js.scriptDisable[afilename]){
+        s = (s+',').replace(afilename+',','') + afilename+',';
+      }else{
+        s = (s+',').replace(afilename+',','');
+      }
+      s = s.replace(/,,/g,',').replace(/^,/,'');
+      userChromejs.setPref("userChrome.disable.script", "str", s);
+      userChrome_js.scriptDisable = this.restoreState(s.split(','));
+    },
+    restoreState: function (arr){
+      var disable = [];
+      for(var i = 0,len = arr.length; i < len; i++)
+        disable[arr[i]] = true;
+      return disable;
+    },
+    getPref: function(aPrefString, aPrefType, aDefault){
+      var xpPref = Components.classes['@mozilla.org/preferences-service;1']
+                    .getService(Components.interfaces.nsIPrefBranch2);
+      try{
+        switch (aPrefType){
+          case 'complex':
+            return xpPref.getComplexValue(aPrefString, Components.interfaces.nsILocalFile); break;
+          case 'str':
+            return unescape(xpPref.getCharPref(aPrefString).toString()); break;
+          case 'int':
+            return xpPref.getIntPref(aPrefString); break;
+          case 'bool':
+          default:
+            return xpPref.getBoolPref(aPrefString); break;
+        }
+      }catch(e){
+      }
+      return aDefault;
+    },
+    setPref: function(aPrefString, aPrefType, aValue){
+      var xpPref = Components.classes['@mozilla.org/preferences-service;1']
+                    .getService(Components.interfaces.nsIPrefBranch2);
+      try{
+        switch (aPrefType){
+          case 'complex':
+            return xpPref.setComplexValue(aPrefString, Components.interfaces.nsILocalFile, aValue); break;
+          case 'str':
+            return xpPref.setCharPref(aPrefString, escape(aValue)); break;
+          case 'int':
+            aValue = parseInt(aValue);
+            return xpPref.setIntPref(aPrefString, aValue);  break;
+          case 'bool':
+          default:
+            return xpPref.setBoolPref(aPrefString, aValue); break;
+        }
+      }catch(e){
+      }
+      return null;
+    },
+    addPrefListener: function(aObserver) {
+        try {
+            var pbi = Components.classes['@mozilla.org/preferences;1']
+                      .getService(Components.interfaces.nsIPrefBranch2);
+            pbi.addObserver(aObserver.domain, aObserver, false);
+        } catch(e) {}
+    },
+    removePrefListener: function(aObserver) {
+        try {
+            var pbi = Components.classes['@mozilla.org/preferences;1']
+                      .getService(Components.interfaces.nsIPrefBranch2);
+            pbi.removeObserver(aObserver.domain, aObserver);
+        } catch(e) {}
+    },
+    readLaterPrefListener:{
+        domain  : 'userChrome.disable',
+            //"userChrome.disable"という名前の設定が変更された場合全てで処理を行う
+        observe : function(aSubject, aTopic, aPrefstring) {
+            if (aTopic == 'nsPref:changed') {
+                // 設定が変更された時の処理
+                setTimeout(function(){
+                  var s = userChromejs.getPref("userChrome.disable.directory", "str", "");
+                  userChrome_js.dirDisable = userChromejs.restoreState(s.split(','));
+                  s = userChromejs.getPref("userChrome.disable.script", "str", "");
+                  userChrome_js.scriptDisable = userChromejs.restoreState(s.split(','));
+                }, 0);
+            }
+        }
+    },	
+	restartApp: function() {
+      if ("BrowserUtils" in window && typeof BrowserUtils.restartApplication == "function") {
+      Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULRuntime).invalidateCachesOnRestart();
+        BrowserUtils.restartApplication();
+        return;
+      }
+      const appStartup = Components.classes["@mozilla.org/toolkit/app-startup;1"].getService(Components.interfaces.nsIAppStartup);
+      var os = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
+      var cancelQuit = Components.classes["@mozilla.org/supports-PRBool;1"].createInstance(Components.interfaces.nsISupportsPRBool);
+      os.notifyObservers(cancelQuit, "quit-application-requested", null);
+      if (cancelQuit.data)
+        return;
+      os.notifyObservers(null, "quit-application-granted", null);
+      var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
+      var windows = wm.getEnumerator(null);
+      var win;
+      while (windows.hasMoreElements()) {
+        win = windows.getNext();
+        if (("tryToClose" in win) && !win.tryToClose())return;
+      }
+      let XRE = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULRuntime);
+      if (typeof XRE.invalidateCachesOnRestart == "function")
+        XRE.invalidateCachesOnRestart();
+      appStartup.quit(appStartup.eRestart | appStartup.eAttemptQuit);
+//	Services.appinfo.invalidateCachesOnRestart() || Application.restart();
+    },	
+	addStyle: function(){
+        let data = '@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);\
+            @-moz-document url("about:addons"), url("chrome://mozapps/content/extensions/extensions.xul") {\
+                #category-userchromejs > .category-icon {\
+                    list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACk0lEQVQ4ja3RW0hTARwG8A+nEIIxI9DwyQtCarKj7vhkWEwj8AKahNR6siAispce6k2y9VJvIblpkBOt4xGU5ko0RKZuecMLedlxTk0ym7Y5TcvL10OmKwuC+uB7/fG/AP8jarWaERERNBgMDxsbG4uMRuMdQRB4WH2MGdog0gvuuL+XbnDLDW66wQNAeXl5mSzLeUajsVQQhHW1+gjFtPgNn6d2Yl6pdM4rlc53U8/G/a4T/q2/A9RMS0tfXfR86ZpwLjgmnAuOMYU27/TZpe0/AQ0NDbkmk+nGPpC25vF47Iqi9CmK0jfh9PV4p7OWDwCRkZEsKysz1NfXF1VUVNzaA7TatSXvcs+Uy9WruFy9k9P+bt9M9vLO3C9AXFwcBUGgKIrMyMhgYmIij4aFMT05+fPk0NDAQGfn8LDNNjzUNdb/seekd90eAKiCwxkVFc2EhOPUaDTUiiLjYmKYAvAMwHyAJQDvAqwE2IwgOqDaB87nH2JRgbhaUFj8tbi4ePWiXv8pLyfHJwDMBli4C5QDNAG0AOxHwATcACcHr483NXeNWSyWPovV2tnUKPekAMwCeCk01HNPp7M8ysxsq9Hp2pp1urYOne71PjAPvum44jLXWTslSbJLsuyoNdf0pQA8BbBUo3FY7fZkyWrNrNutuaUl+zfAyy5Jeu4IBE4DvJaUNNTQ3p77RJb1JlnWV8qy/rEslfwEdLffdFY9dXSY617ZzPWtturqpr0VLoSE+G+npg4+EIRRo1Y7Kmm1o62i+HYP2JoBl8fD19+PxPs+jMSuLI7Grrjt0f6U3SOeA3gZoAFgFcAWgAOBR9x0g9szIGfBnVmQc+DqGPgDKAJ4FeB9gFXBwXyhUrFXFfDGf8k3RzmjBlDWo+YAAAAASUVORK5CYII=);\
+                }\
+            }';
+        let styleService = Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService);
+        let styleURI = Services.io.newURI("data:text/css," + encodeURIComponent(data), null, null);
+        styleService.loadAndRegisterSheet(styleURI, Ci.nsIStyleSheetService.USER_SHEET);
+        
+        this.unloads.push(function(){
+            styleService.unregisterSheet(styleURI, Ci.nsIStyleSheetService.USER_SHEET);
+        });
+    },	
+	setEditor: function(){
+      var fp = Components.classes['@mozilla.org/filepicker;1'].createInstance(Components.interfaces.nsIFilePicker);
+      fp.init(window, "设置全局脚本编辑器", fp.modeOpen);
+      fp.appendFilter("执行文件","*.exe");
+      if ( fp.show() == fp.returnCancel || !fp.file ) 
+         return;
+      else {
+        var ss = fp.file.path;
+        userChromejs.editor = ss.replace(/\\/g, "\\\\");
+        gPrefService.setCharPref("view_source.editor.path", userChromejs.editor);
+      }
+    }
+	
+  } 
+  window.userChromejsScriptOptionsMenu = {
+    //dannylee
+    UIMENU: "userChromeJS.rebuildUI.menues",
+	menues: movedMenus,
+	Menu: {
+      get: function() {
+        var menuStr = gPrefService.getCharPref(userChromejsScriptOptionsMenu.UIMENU).trim();
+        if (menuStr.indexOf(',') != -1) {  // 转换以前的写法
+          menuStr = menuStr.replace(/,\s*/g, '\n');
+          userChromejsScriptOptionsMenu.Menu.set(menuStr);
+        }
+        return menuStr.split(/\n+/).map(function(s) s.trim());
+      },
+      set: function(menues) {
+        if (Array.isArray(menues)) {
+          menues = menues.join("\n");
+        }
+        gPrefService.setCharPref(userChromejsScriptOptionsMenu.UIMENU, menues);
+      },
+      has: function() {
+        return gPrefService.prefHasUserValue(userChromejsScriptOptionsMenu.UIMENU);
+      }
+    },	
+    interval: 500, //0.5秒間隔
+    maxcount: 50,   //最大50回までトライ
+    count: 0,
+    timer: null,
+    run: function() {
+      if (!this.Menu.has()) {
+        this.Menu.set(this.menues);
+      }
+      this.menues = this.Menu.get();
+      this.count = 0;
+      //DOMの構築が完了するのを待ってからメニューを移動させる(5秒間隔で最大50回までトライ)
+      this.timer = setInterval(function(self){
+        if (++self.count > self.maxcount || self.moveMenu()) {
+          clearInterval(self.timer);
+        }
+      }, this.interval, this);
+    },
+    moveMenu: function(){
+      var menupopup = document.getElementById('userChromejs_options');
+      var menubefore = document.getElementById('jscmdseparator');
+      if (!menupopup)
+        return false;
+      var i = 0;
+      while (i < this.menues.length) {
+      	if (this.menues[i].indexOf("@clone_") == -1)
+          var menu = document.getElementById(this.menues[i]);
+        else {
+          var menu = document.getElementById(this.menues[i].substring(7));
+          if (menu) {
+            menu = menu.cloneNode(true);
+            menu.setAttribute("id", "clone_" + this.menues[i].substring(7));
+          }
+        }
+        if (menu) {
+          setTimeout(function(menupopup, menu, menubefore){ 
+                       menupopup.insertBefore(menu, menubefore);
+                       if (menubefore.getAttribute("hidden"))
+                          menubefore.setAttribute("hidden", false);
+                     }, 100, menupopup, menu, menubefore);
+          this.menues.splice(i, 1);
+          continue;
+        }
+        i++;
+      }
+      return this.menues.length == 0 ? true : false;
+    },   
+    adduserChromejsmenu: function(){
+        var currentList = userChromejsScriptOptionsMenu.Menu.get();
+        var prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
+        var check = {value: false};                  
+        var input = {value: ""}; 
+        var result = prompts.prompt(null, "userChromejs脚本管理器", "添加新的脚本命令(menu或menuitem)ID:", input, "克隆模式", check);
+        if(!result) return;                 
+        //var nMenu = window.prompt('添加新的脚本命令ID:','');
+        var nMenu = input.value;
+        if(!nMenu) return;
+        nMenu = nMenu.trim();
+        if(nMenu == "") return;
+        var nItem = document.getElementById(nMenu);
+        if (!nItem) return;
+        if (nItem.localName != "menuitem" && nItem.localName != "menu") return;
+        if (nItem.parentNode.getAttribute("id") == "userChromejs_options") return; 
+        if (check.value) {
+          nItem = nItem.cloneNode(true);
+          nItem.removeAttribute('key');
+          nMenu = "@clone_" + nMenu;
+        }
+        var menupopup = document.getElementById('userChromejs_options'); 
+        currentList.push(nMenu);
+        userChromejsScriptOptionsMenu.Menu.set(currentList);
+        var menubefore = document.getElementById('jscmdseparator');
+        setTimeout(function(menupopup, menu ,menubefore){
+                     menupopup.insertBefore(menu, menubefore);
+                     if (menubefore.getAttribute("hidden"))
+                        menubefore.setAttribute("hidden", false);
+                   }, 100, menupopup, nItem, menubefore);
+    },
+    deluserChromejsmenu: function(){
+        var items = userChromejsScriptOptionsMenu.Menu.get();
+        if (items.length === 0) return;
+        var prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
+        var uselected = {};  
+        var result = prompts.select(null, "userChromejs脚本管理器", "选择需要删除的UC脚本命令：", items.length, items, uselected); 
+        if (result) {
+          items.splice(uselected.value, 1);
+          userChromejsScriptOptionsMenu.Menu.set(items);
+          userChromejs.Reopen();
+//          prompts.alert(null, "userChromejs脚本管理器", "删除成功，重启后生效！");
+        }
+    }
+  }  
+  userChromejs.script = (function(){
+      function install(aFile) {
+        var script = userChrome_js.parseScript(aFile);
+        var restartless = true;
+        var disabled = userChrome_js.scriptDisable[script.filename];
+            // 排除禁用的脚本
+            if (restartless && !disabled) {
+                userChrome.import(aFile.path);
+                script.isRunning = true;
+            }
+      }
+	  function list() {
+          return userChrome_js.overlays.concat(userChrome_js.scripts);
+      }
+      function startup(script) {
+          if (!script.startup) return; 
+          if (!script.isRunning) {
+              install(script.file, false); return;              
+          } 
+          try {
+              eval(script.startup);
+          } catch (e) {
+              console.error('startup', e)
+          }
+      }  
+      function shutdown(script) {
+          if (!script.shutdown) return;
+           try {eval(script.shutdown);}catch (e){}
+      }
+      function toggleScript(script) {
+          if (script.restartless) {
+		    script = getById(script.id);
+		    userChromejs.chgScriptStat(script.filename);
+            var isEnable = userChrome_js.scriptDisable[script.filename];
+            if (isEnable) {
+                shutdown(script);
+            } else {
+                startup(script);
+            } return;
+		  } else {
+            userChromejs.chgScriptStat(script.filename);
+			userChromejs.Reopen();   
+          }
+      }
+      function getById(id) {
+          var list = userChromejs.script.list();
+          for (var i = list.length - 1; i >= 0; i--) {
+              if (list[i].id == id) {
+                  return list[i];
+              }
+          }
+      }
+      return {
+  	      list: list,
+		  install: install,
+          startup: startup,
+          shutdown: shutdown,
+          toggleScript: toggleScript,
+          getById: getById
+      }
+  })();
+  function ScriptAddon (aScript){
+        this._script = aScript;
+        this.id = this._script.url;
+        this.name = this._script.filename;
+        this.description = this._script.description;
+        this.enabled = !userChrome_js.scriptDisable[this.name];
+        this.version = this._script.version || null;
+        this.author = this._script.author || null;
+        this.homepageURL = this._script.homepageURL || null;
+        this.reviewURL = this._script.reviewURL || null;
+        this.reviewCount = 0;
+        this.fullDescription = this._script.fullDescription || null;
+        this.downloadURL = this._script.downloadURL || null;
+        this.iconURL = '';// uc 脚本列表的图标
+    }
+    ScriptAddon.prototype = {
+        version: null,
+        type: "userchromejs",
+        isCompatible: true,
+        blocklistState: 0,
+        appDisabled: false,
+        scope: AddonManager.SCOPE_PROFILE,
+        name: null,
+        creator: null,
+        pendingOperations: AddonManager.PENDING_NONE,  // 必须，否则所有都显示 restart
+        operationsRequiringRestart: 6,
+		get optionsURL(){
+            if (this.isActive && this._script.optionsURL)
+                return this._script.optionsURL;
+        },
+        get isActive() !this.userDisabled,
+        get userDisabled() !this.enabled,
+        set userDisabled(val) {
+            if (val == this.userDisabled) {
+                return val;
+            }
+            AddonManagerPrivate.callAddonListeners(val ? 'onEnabling' : 'onDisabling', this, false);
+            if(this.pendingOperations == AddonManager.PENDING_NONE){
+                this.pendingOperations = val ? AddonManager.PENDING_DISABLE : AddonManager.PENDING_ENABLE;
+            }else{
+                this.pendingOperations = AddonManager.PENDING_NONE;
+            }
+            this.enabled = !val;
+            if(window.userChromejs){
+                userChromejs.chgScriptStat(this.name);
+				userChromejs.Reopen();
+            }
+            AddonManagerPrivate.callAddonListeners(val ? 'onEnabled' : 'onDisabled', this);
+        },
+        get permissions() {
+            var perms = this.userDisabled ? AddonManager.PERM_CAN_ENABLE : AddonManager.PERM_CAN_DISABLE;
+            return perms;
+        },
+        uninstall: function() {
+            AddonManagerPrivate.callAddonListeners("onUninstalling", this, false);
+            this.needsUninstall = true;
+            this.pendingOperations |= AddonManager.PENDING_UNINSTALL;
+            AddonManagerPrivate.callAddonListeners("onUninstalled", this);
+        },
+        cancelUninstall: function() {
+            this.needsUninstall = false;
+            this.pendingOperations ^= AddonManager.PENDING_UNINSTALL;
+            AddonManagerPrivate.callAddonListeners("onOperationCancelled", this);
+        }, 
+	};	
+	var ApplyPatchForScript = (function(){
+    const USO_URL_RE = /(^https?:\/\/userscripts.org.*\/scripts\/source\/\d+)\.\w+\.js$/i;
+    const GFO_URL_RE_1 = /(^https?:\/\/greasyfork.org\/scripts\/code\/\w+)\.\w+\.js$/i;
+    const GFO_URL_RE_2 = /(^https?:\/\/greasyfork.org\/scripts\/[^\/]+\/)code[\.\/].*\w+\.js$/i;
+    const GITHUB_URL_RE_1 = /(^https?:\/\/\w+.github.io\/\w+\/)master\/.*.*\w+\.js$/i;
+    const GITHUB_URL_RE_2 = /(^https?:\/\/raw.githubusercontent.com\/.*?\/master\/.*\.user\.js$)/i;
+    function getScriptHomeURL(downURL) {
+            var url;
+            if (downURL && downURL.startsWith('http')) {
+                if (USO_URL_RE.test(downURL)) { url = RegExp.$1.replace(/source/, "show");
+                } else if (GFO_URL_RE_1.test(downURL)) { url = RegExp.$1;
+                } else if (GFO_URL_RE_2.test(downURL)) { url = RegExp.$1;
+                } else if (GITHUB_URL_RE_1.test(downURL)) { url = RegExp.$1;
+                } else if (GITHUB_URL_RE_2.test(downURL)) { url = RegExp.$1.replace('raw.githubusercontent.com', 'github.com').replace('/master/', '/blob/master/');
+                }
+            }
+            return url ? decodeURIComponent(url) : null;
+        }
+        function addHomePage(){
+            // 添加 Scriptish 脚本的主页
+            if (window.Scriptish_config) {
+                Scriptish_config.scripts.forEach(function(script){
+                    if(script.homepageURL) return;
+                    var url = script.updateURL || script.downloadURL;
+                    script.homepageURL = getScriptHomeURL(url);
+                });
+            }
+            // 添加 Greasemonkey 脚本的主页
+            AddonManager.getAddonsByTypes(['greasemonkey-user-script'], function (aAddons) {
+                aAddons.forEach(function (aAddon) {
+                    if (aAddon.homepageURL) return;
+    
+                    var url = aAddon._script._downloadURL || aAddon._script._updateURL;
+                    var homepageURL = getScriptHomeURL(url);
+                    if (homepageURL) {
+                        aAddon.homepageURL = homepageURL;
+                    } else {
+                        // console.log(aAddon.name, url);
+                    }
+                });
+            });
+        }
+        return {
+            init: addHomePage
+        }
+    })();
+    const ToolbarManager = (function() {
+        let layoutWidget = function(document, button, isFirstRun) {
+            let toolbox = document.getElementById('navigator-toolbox');
+            toolbox.palette.appendChild(button);
+            let container = null;
+            let toolbars = document.getElementsByTagName('toolbar');
+            let id = button.getAttribute('id');
+            for (let i = 0; i < toolbars.length; i += 1) {
+                let toolbar = toolbars[i];
+                if (toolbar.getAttribute('currentset').indexOf(id) !== -1) {
+                    container = toolbar;
+                }
+            }
+            if (!container) {
+                if (isFirstRun) {
+                    container = document.getElementById('nav-bar');//nav-bar
+                } else {
+                    return;
+                }
+            }
+            let nextNode = null;
+            let currentSet = container.getAttribute('currentset');
+            let ids = (currentSet === '__empty') ? [] : currentSet.split(',');
+            let idx = ids.indexOf(id);
+            if (idx !== -1) {
+                for (let i = idx; i < ids.length; i += 1) {
+                    nextNode = document.getElementById(ids[i]);
+                    if (nextNode) {
+                        break;
+                    }
+                }
+            }
+            container.insertItem(id, nextNode, null, false);
+            if (ids.indexOf(id) === -1) {
+                container.setAttribute('currentset', container.currentSet);
+                document.persist(container.id, 'currentset');
+            }
+        };
+        let addWidget = function(window, widget, isFirstRun) {
+            try {
+                layoutWidget(window.document, widget, isFirstRun);
+            } catch(error) {
+                trace(error);
+            }
+        };
+        let removeWidget = function(window, widgetId) {
+            try {
+                let widget = window.document.getElementById(widgetId);
+                widget.parentNode.removeChild(widget);
+            } catch (error) {
+                trace(error);
+            }
+        };
+        let exports = {
+            addWidget: addWidget,
+            removeWidget: removeWidget,
+        };
+        return exports;
+  })();  
+  function $C(name, attr) {
+    var el = document.createElement(name);
+    if (attr) Object.keys(attr).forEach(function(n) el.setAttribute(n, attr[n]));
+    return el;
+  }	  
+  function addStyle(css) {
+  	var pi = document.createProcessingInstruction(
+  		'xml-stylesheet',
+  		'type="text/css" href="data:text/css;utf-8,' + encodeURIComponent(css) + '"'
+  	);
+  	return document.insertBefore(pi, document.documentElement);
+  }	
+  setTimeout(function(){
+      ApplyPatchForScript.init();
+  }, 2000);
+  window.userChromejs.init();
+  window.userChromejsScriptOptionsMenu.run(); 
+})('\
+	#userChromebtnMenu {background-image: none !important;}\
+	#userChromebtnMenu > .toolbarbutton-icon {background:none!important;box-shadow:none!important;border:none!important;padding: 0px !important;}\
+    #userChromebtnMenu > dropmarker {display:none !important;}\
+	#userChromejs_options menuitem[restartless="true"] {color: blue;}\
+	#userChromejs_options .userChromejs-menu[checked="false"] {color:gray;font-style:italic;}\
+	#userChromejs_options .userChromejs-item[checked="false"]{-moz-box-ordinal-group:99!important; color:gray!important; font-style:italic;}\
+	#userChromejs_restartApp{\
+	list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB20lEQVQ4jY2Tv2sUURDHZ/bX7eW0ChJBRFKIRRCRIEHuzVvfrYmkSiFXSSoLERERy5B/wcIuqG9mN5VecUWwCqkOEQsLKysLsQgSxEJEgsVYeJfsHXuY4tvN9zMzzHxBVXFS8Gy1kRaZi8U+iCV7HIq73Xqez9XWThoDsRvg6QDY6Ji8+RMK9dLSztcCoMhnkc27YxPth0I7oVAPhT5WYD9ScfkYALYWYxQa/OvU/h5ztg5bi3G1U2vbXUFPb4fT/EzELRwBYraPRvSE7eW6XVUV4en1JjLtARtFoYGqInRfd0Nk8wXYaCzZ/WnmkZrengc2v4GNNr1bglPiFoaj/5orV1r/A6gqhkI9YKMB0yY0OF9GsV/jIts9iVlVMeJscwhgOKmpqoDpGNDg5YuB0HYg9lUotINCuxFn/bN+9czUFZj6wEYDsRsQle7W+NPQ/uhEdUpLOw/cPgQ2OlPcvAoJZ90qICnc2tQzlist9GYAbDRk2lNVhFDs3YmXPUjkxp3JR2qWbgk9fRj9S+Olu6SqCJHYJ+DN5xnOryHT+wrsG7J9g0x9ZPup2iAS1z6aKi076+mLzoVRmKJpYeL2YSC2aBadc1PTOB7n3AXe3guYHiberZ0u8tm62r99Gyd0lo7sIAAAAABJRU5ErkJggg==);\
+	}\
+	#userChromejs_openChromeFolder{\
+	list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAH9SURBVDjLpZM9aFRREIW/ue9FF2IULDQuaYIGtTBRWGFJAgqSUsEmjZVgo4mFWBiwVVjBHwjGwsbCShExIAghoEUMARGNGFJYhIC7isXGRbORvJ0Zi/dWY5fFCwOnuHz3nDsz4u78z5HTlx6NDB4v3KjWvd0dMMPNUFPcHHPDVTF3XBU1Y/uWZHVxsXzl6e3hibgwUBhvy7WH3bmWHm5fres4MBHXEw/16s+Wra8lHgBiV+f6mX0tA86VlkkBbgCsNxQH3Bw1MBwzR83Qhqflxro63Z0dqGkKIOuCBEHc8SC4OGJCCIJIQESRyIksEDfS+9bIAE1SAFwEBCIHEzBzIocgEbGAiqMhdWxqWQTL5kAE3P8BiYCrYwIuQBAii1JAM0JTpAxJxQaQxUJsxvTbSV7NP6e2ukLSSFjT/cBJ4kaS/HEggLsjIvgG0Is3T3hfnuLYwFG6dvbwcuEZcx+nKY7mbwbPskSAZC4k00GEIMLk64ccPtCHBqVvzxAqCcVD/QAjwcz+Rsg+M4gQbahv37/QJts4dfAiAJdP3Gfvrl6AXFxeWn58/k4ybKqYGqqKmaFJgplh7lRrKyxUZpmvzDA29IDS1Fly0VaAX7KZbSyO5q91de+42t87SE/nET59fcfshxk+L9VuyWbXuTiaLwEXgA7gB3Bv7m5l7Dd8kw6XoJxL0wAAAABJRU5ErkJggg==);\
+	}\
+	#userChromejs_setEditor{\
+	list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJRSURBVBgZpcHda81xHMDx9+d3fudYzuYw2RaZ5yTWolEiuZpCSjGJFEktUUr8A6ZxQZGHmDtqdrGUXHgoeZqSp1F2bLFWjtkOB8PZzvmd7+djv5XaBRfL6yVmxv+QjQeu7l25uuZYJmtxM0AVU8Wpw9RQU8w51AxzDqfKhFjwq6Mjdbj1RN0Zv2ZFzaloUdwrL2Is4r+y7hRwxs8G5mUzPxmrwcA8hvnmjIZtcxmr3Y09hHwzJZQvOAwwNZyCYqgaThVXMFzBCD7fJfv8MpHiKvaV3ePV2f07fMwIiSeIGeYJJoao4HmCiIeIQzPXifY+paJqO4lZi/nWPZ/krabjvlNHyANMBAQiBiqgakQMCunbxHJviM9bQeZdBzHJUzKhguLJlQnf1BghAmZ4gImAgAjk++8jP56QmL2GXG8zsfFCz8skA1mQXKbaU3X8ISIgQsgDcun7FL7cJjFnLUMfLyLRr0SLS4hbhiup5Szd19rpFYKAESKICCERoS95neyHmyTmbmAodQ4vGpAfmEn6YTtTahv4ODiRkGdOCUUAAUSE/uQNfqTaKFu4jvynJiIxIzcwg/SjF1RsOk9R+QJMlZCvqvwhQFdbM4XvrynIVHpfn2ZSWYyhzHS+PUtSueUC0cQ0QmpGyE9197TUnwzq1DnUKbXSxOb6S7xtPkjngzbGVVbzvS/FjaGt9DU8xlRRJdTCMDEzRjuyZ1FwaFe9j+d4eecaPd1dPxNTSlfWHm1v5y/EzBitblXp4JLZ5f6yBbOwaK5tsD+9c33jq/f8w2+mRSjOllPhkAAAAABJRU5ErkJggg==);\
+	}\
+	#userChromejs_script{\
+	list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFiSURBVBgZpcEhbpRRGIXh99x7IU0asGBJWEIdCLaAqcFiCArFCkjA0KRJF0EF26kkFbVVdEj6/985zJ0wBjfp8ygJD6G3n358fP3m5NvtJscJYBObchEHx6QKJ6SKsnn6eLm7urr5/PP76cU4eXVy/ujouD074hDHd5s6By7GZknb3P7mUH+WNLZGKnx595JDvf96zTQSM92vRYA4lMEEO5RNraHWUDH3FV48f0K5mAYJk5pQQpqIgixaE1JDKtRDd2OsYfJaTKNcTA2IBIIesMAOPdDUGYJSqGYml5lGHHYkSGhAJBBIkAoWREAT3Z3JLqZhF3uS2EloQCQ8xLBxoAEWO7aZxros7EgISIIkwlZCY6s1OlAJTWFal5VppMzUgbAlQcIkiT0DXSI2U2ymYZs9AWJL4n+df3pncsI0bn5dX344W05dhctUFbapZcE2ToiLVHBMbGymS7aUhIdoPNBf7Jjw/gQ77u4AAAAASUVORK5CYII=);\
+	}\
+    #userChromejs_togglebutton{\
+	list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC90lEQVQ4jY2QfSzUcRzHP1vahK2nPxo9bP6oXE8ilS3VLBslaVN/mK5uzooQbo5Kd5VIeg6lwookFWZ6vpyTYZFxlXN+LpzifvfgS60HzpV3f/RHLbV5b++9//js89rebxKEcK2hJyzD22VGFphsYAGJA8xP8oH5xr1nPjF65h3Zw9ZEdDOPcI6t2NPJloZ1MIFQMzzTq6abHPI9KDTd/OWmDjjdBKQ1AvI6ILkGiFcAUY+A8CogrAzYUQoE3wb8iwD/O8BCYRdoyrVA2iLtZznVZpx/MIDTVTwyKnmklfM4XsZDfo9HSimPgyU8pMU8JEU8JEUGRN2ywDVEDbK7GkCbYvXsNWfCkMkMk8ECk8EC8x9p4X97kB/EyNAQ3nQzCEJaQHT5F6BvcAyT0zh+jH9D/2dg+c42EF0KoI3RPazbbJ3ML0bHrLj2PAvXVS+wOLgdRLn+tG6fjulM/weYPprxuO0pChuKcUWRh3NPTiGrIQeumy+A7C76k3cEx7pM/66gNXDIUKRB+koMuXYvjrZH41y/BNnWSByplMLR21NEa8M7GWecCBgZHcFZ5VkIG7dBqhbjkDIeyYoEpDYlIUkjws7URExbELaDvEQdTGucWKHXpIe4VIztZUE4WXEG+v4BtGq1kBWkIqkwF47LykF0aCO5C9tZBz8RYPxkRH7tDRRUF6Hi5QPUaevxffw7VG0qlNTWY11YAVwD/IrJXfiWvWO2/47Ya+7DZcVVxOYnoe51MzQ6Pa5U3URejwyy+8estCS03Xq3bQyNPTaoumxQcjZUd9pQw/1ARYsOJ54dx8G3YqS3yJGiSIFMIYdccwC5w0ewVSJqJifB0/LZPg1vpq9WqZ1WKdUOHkq1g3u1eqpbbavTyvMacbF4XKj1w/7mXYirj0BMowhxNVHYLNnN2QkEG4johj1R3jyibJffznQhujiH7BNdnUOWZMSVxkKcGfPVLdDz+tKtPpnzfdcfpkWL3GiSspsRNDdhVpDnQxKQ89/Hn5oXuGXJeoTZAAAAAElFTkSuQmCC);\
+	}\
+	\
+    '.replace(/[\r\n\t]/g, ''));
+]]></script>
+</overlay>
