@@ -16,7 +16,7 @@ start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/logfolder=
 
 ::公司用軟件
 start "" "%dir%\Jingoal\Jingoal.exe" & ping localhost -n 10
-start "" "%dir%\XiaoMi\MiWiFi\MiWiFi.exe"
+start "" "C:\Program Files (x86)\XiaoMi\MiWiFi\MiWiFi.exe"
 
 ::普通啟動
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 10
