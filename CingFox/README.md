@@ -1,4 +1,4 @@
-## ![icon](img/icon.jpg) CingFox-2016.03.21 (based on 44.0.2)
+## ![icon](img/icon.jpg) CingFox-2016.03.31 (based on 45.0.1)
 
 一個美觀而實用的Firefox深度定制版，在保證流畅的同時給你以Mac般的視覺享受。界面修攺自RunningCheese V5版.
 
@@ -12,7 +12,7 @@
 ####近期更新
 - 更新AutoProxy至2016.02版
 - 添加RIL(Pocket)扩展
-- 更新FeiruoNet至0320版
+- 更新FeiruoNet至0322版
 - 更新rebuild_userchrome至Oos大神Lite版
 - 其它CSS调整
 
@@ -49,7 +49,6 @@
 | Lastpass | 記住你的密碼 |
 | RIL(Pocket) | Pocket扩展版,比Firefox自带的好用些 |
 | Redirector | 重定向網址, 可測試規則是否生效 |
-| SpeedMonitor | 实时检测Firefox网速 |
 | Stylish | 用CSS改变浏览器和网页的显示外观 |
 | userChromeJS | UC腳本管理擴展 |
 
