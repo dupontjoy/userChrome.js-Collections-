@@ -3,6 +3,7 @@
 // @namespace     http://squarefree.com/userscripts
 // @description   Lets you check or uncheck a range of checkboxes by clicking the first checkbox and then Shift+clicking the last checkbox.
 // @include       *
+// @version       1.0.1
 // @exclude       http://gmail.google.com/*
 // @exclude       https://gmail.google.com/*
 // ==/UserScript==
@@ -24,9 +25,24 @@
 */
 
 
-(function()
-{
+(function(){
+    // Toggle radio buttons by shift-clicking on the selected one
+    document.addEventListener("click", function (event) {
+        if (event.target.checked &&
+            (event.shiftKey || event.button == 1) &&
+            event.target.matches("input[type=radio]"))
+        {
+            event.target.checked = false;
+        }
+    });
 
+    /*
+     * Check Range - Toggle checkboxes with Shift+click
+     *
+     * BASED ON "Check Range"
+     * From http://squarefree.com/userscripts
+     * By Jesse Ruderman - http://www.squarefree.com/
+     */
 var currentCheckbox = null;
 
 function NSResolver(prefix) 
