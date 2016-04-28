@@ -15,7 +15,7 @@ start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/logfold
 start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/logfolder=%dir%\System Tools\ProcessLassoPortable" "/configfolder=%dir%\System Tools\ProcessLassoPortable"
 
 ::普通啟動
-start "" "%dir%\BingDesktop2\BingDesktop.exe"
+::start "" "%dir%\BingDesktop2\BingDesktop.exe"
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 10
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 start "" "%dir%\BaiduYun\baiduyun.exe"

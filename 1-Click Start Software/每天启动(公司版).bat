@@ -19,7 +19,7 @@ start "" "%dir%\Jingoal\Jingoal.exe" & ping localhost -n 10
 start "" "C:\Program Files (x86)\XiaoMi\MiWiFi\MiWiFi.exe"
 
 ::普通啟動
-start "" "%dir%\BingDesktop2\BingDesktop.exe"
+::start "" "%dir%\BingDesktop2\BingDesktop.exe"
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 10
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 start "" "%dir%\BaiduYun\baiduyun.exe"
