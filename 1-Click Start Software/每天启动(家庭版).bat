@@ -11,8 +11,8 @@ start mshta vbscript:createobject("wscript.shell").run("""%~nx0"" h",0)(window.c
 set dir=D:\Program Files
 
 ::Processlaso特殊处理
-start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/logfolder=%dir%\System Tools\ProcessLassoPortable" "/configfolder=%dir%\System Tools\ProcessLassoPortable"
-start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/logfolder=%dir%\System Tools\ProcessLassoPortable" "/configfolder=%dir%\System Tools\ProcessLassoPortable"
+start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe"  "/configfolder=%dir%\System Tools\ProcessLassoPortable"
+start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable"
 
 ::普通啟動
 ::start "" "%dir%\BingDesktop2\BingDesktop.exe"
