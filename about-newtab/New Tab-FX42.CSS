@@ -1,0 +1,205 @@
+/*@name        iOS7 Style NewTab
+  @namespace   http://www.runningcheese.com/firefox-v6
+  @description 更改浏览about:newtab时的样式
+  @author      runningcheese
+  @version     1.00-20160107
+  @reference   http://www.runningcheese.com/newtabstylish-superstart by @ennea              
+*/
+
+@-moz-document url("about:newtab") {
+#newtab-vertical-margin{
+    background: url("chrome://userchromejs/content/newtab-images/bg1.png");/*背景图, 更改数字"1"来更换背景图案, 1-8可用*/
+    background-color: #E8EDF1;
+    color: rgb(0, 0, 0);
+    background-color:#fafafa!important;
+    background-size: cover;
+}
+ 
+/*方块居左*/
+/*#newtab-search-container,#newtab-grid {margin-left:-250px !important; }*/
+
+/*方块居右*/
+/*#newtab-search-container,#newtab-grid {margin-right:-200px !important; }*/
+
+/*文字颜色*/
+#newtab-intro-what, .newtab-sponsored, .newtab-title {color: #2d2d2d;}
+    
+/*方块离上方的距离*/
+#newtab-search-container { margin-top:40px;}
+    
+/*拨号设置*/
+#newtab-customize-button {display: none !important;}
+#newtab-intro-what {display: none !important;}    
+.newtab-title:before,.newtab-control{display: none !important;}/*隐藏控制按钮和固定标识*/
+    
+/*方块圆角*/    
+.newtab-site {border-radius: 30%;}
+ 
+/*文字/边框隐藏 */   
+.newtab-title{opacity: 1!important; font-family:Tahoma,Helvetica,Arial,Microsoft Yahei, sans-serif !important; font-size:13px; background:transparent !important; bottom:-28px !important;border:none !important;}
+   
+/*圆角*/
+.newtab-link {border-radius: 26%;}
+        
+/*阴影及动画*/
+.newtab-cell:not([ignorehover]) > .newtab-site:hover, .newtab-site[dragged] {
+    border: 0px solid #AAAAAA;
+    box-shadow: 0 2px 2px 0px #FFC125;
+    margin: -1px;
+}
+
+/*方块的大小及左右间距*/
+#newtab-grid > .newtab-cell{
+    height:75px;
+    width:75px;
+    margin:22px 22px;
+}
+/*拨号框的大小*/
+#newtab-grid{
+    max-width: 750px !important;
+    max-height: 450px !important;
+}
+    
+/*搜索框*/
+    #newtab-search-icon{display:none;}  
+  
+#newtab-search-logo{-moz-margin-start: 24px;}
+ 
+#newtab-search-text {-moz-margin-start: 24px;font-size:12px !important; }
+
+#newtab-search-form {max-width: 750px; padding-left:10px;height: 27px!important;margin-right:5px!important;}
+
+#newtab-search-text {
+    opacity: 0.5!important;
+    background-color: #f2f2f4;
+    border-color: #d9d9d9; 
+}
+#newtab-search-text:focus, #newtab-search-text[autofocus] {
+    background-color: #f2f2f4;
+    border-color: #d9d9d9;
+}
+/*搜索按钮*/
+#newtab-search-submit {
+    height: 27px;
+    -moz-margin-start:0px!important;
+    opacity:0.5!important;
+    background-color:#f2f2f4!important;
+    border-color: #d9d9d9;  
+    background-position: 14px -3px; 
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAABgCAMAAAB7cJGLAAAAS1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADmYDp0AAAAGXRSTlMAPvRS275NDaYxEezUOCyEG9ZBOi0VcJoeQF7x9wAAALNJREFUWMPt1csKgzAQheHJzXiJl9pq+/5P2pRAUiKzSApS4fybcfMRUXEIIa7GSGmaGjlrZa3Sc8WZuv+MXpefa1SYyhRTacO08kyabvi8x5RejhTVn4QYBNX2m12q7UIIIfQ3Yb9iv2K/IoQQ+m4r+9fuXbyc2tw+00YY3SunXdtF+aCs9SaivBNxNsijTZKxQTI2SMZGeUh4GyRjVTsRcXZ3I7GtzksuNXjJt2F7oqv1BuP4BruD1GIjAAAAAElFTkSuQmCC") !important;
+}
+#newtab-search-text + #newtab-search-submit:hover, #newtab-search-text + #newtab-search-submit:hover:active {
+    background-position: 14px -3px;
+    background-color: #f2f2f4;
+    border-color: #cdcdcd;  
+}
+#newtab-search-text:focus + #newtab-search-submit, #newtab-search-text[autofocus] + #newtab-search-submit{
+    background-color: #f2f2f4;
+    border-color: #cccccc;  
+    background-position: 14px -3px;
+}
+    
+/*图标倾斜*/
+.newtab-cell {
+  transform: rotateX(-0deg)!important;/*3D变形复位*/
+}
+
+/*图标阴影*/
+/*.newtab-site{box-shadow:0 0 17px rgba(0,0,0,0)!important;}*/
+.newtab-site:hover{box-shadow:0 0 25px rgba(65,105,255,.55)!important;/*外发光自己改*/}
+    
+/*缩略图*/      
+    [href*="www.google.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/google.jpg") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    }
+    [href*="www.douban.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/douban.png") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    }
+    [href*="www.zhihu.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/zhihu.png") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    }
+    [href*="www.haosou.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/sou.jpg") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    }
+    [href*="wikipedia.org"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/wikipedia.png") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    }
+    [href*="www.economist.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/economist.png") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    }   
+    [href*="twitter.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/twitter.png") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    }  
+    [href*="www.guokr.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/guokr.png") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    } 
+    [href*="getpocket.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/pocket.jpg") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    } 
+    [href*="www.shanbay.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/shanbay.png") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    }
+    [href*="www.youtube.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/youtube.png") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    }
+    [href*="leanote.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/leanote.jpg") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    }
+    [href*="email.163.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/mail.png") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    } 
+    [href*="www.cnn.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/cnn.png") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    }
+    [href*="www.linkedin.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/pulse.jpg") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    }
+    [href*="kafan.cn"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/kafan.png") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    }
+    [href*="music.163.com/"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/music.png") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    }
+    [href*="baidu.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/baidu.jpg") center center no-repeat !important;
+        background-size: 100% 100%!important;
+    }   
+}            
+
+  
+/*去除横线*/
+.newtab-customize-panel-item,
+.newtab-search-panel-engine,
+#newtab-search-manage{
+  font-size: 12px!important;
+  border:0px !important;
+  line-height:24px!important
+}
+
+.newtab-customize-panel-item[selected], .newtab-search-panel-engine[selected] {
+    background: transparent url("chrome://userchromejs/content/newtab-images/checked.svg") no-repeat scroll 5px 5px / 15px 15px;
+}
+
+.newtab-search-panel-engine >image {max-height:16px !important;}
+
+/*去除点击时边框*/
+:focus {outline: none !important}
+/*输入框文本*/
+#newtab-search-text::-moz-placeholder { color:transparent!important;}
