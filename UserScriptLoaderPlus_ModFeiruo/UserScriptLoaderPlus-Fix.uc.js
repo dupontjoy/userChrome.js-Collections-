@@ -1456,7 +1456,8 @@
 	USL.loadSetting = function() {
 		try {
 			var aFile = USL.SCRIPTS_FOLDER.clone();
-			aFile.appendRelativePath("Local\\UserScriptLoader.json");
+			aFile.appendRelativePath("Local");
+			aFile.appendRelativePath("UserScriptLoader.json");
 			var data = USL.loadText(aFile);
 			data = JSON.parse(data);
 			USL.database.info = data.info;
@@ -1482,7 +1483,8 @@
 		USL.pref.setValue('DEBUG', USL.DEBUG);
 
 		var aFile = USL.SCRIPTS_FOLDER.clone();
-		aFile.appendRelativePath("Local\\UserScriptLoader.json");
+		aFile.appendRelativePath("Local");
+		aFile.appendRelativePath("UserScriptLoader.json");
 		USL.saveText(aFile, JSON.stringify(USL.database));
 	};
 
