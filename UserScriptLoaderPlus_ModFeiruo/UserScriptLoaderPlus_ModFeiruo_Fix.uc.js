@@ -1,4 +1,4 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @name           UserScriptLoader 特殊用途版
 // @description    Greasemonkey 模拟器。新增 GM_saveFile、GM_download 等 API，个人用于特殊用途
 // @namespace      http://d.hatena.ne.jp/Griever/
