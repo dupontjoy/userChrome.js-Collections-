@@ -1,4 +1,4 @@
-## ![icon](img/icon.jpg) CingFox-2016.03.31 (based on 45.0.1)
+## ![icon](img/icon.jpg) CingFox-2016.05.10 (based on pcxFirefox 46)
 
 一個美觀而實用的Firefox深度定制版，在保證流畅的同時給你以Mac般的視覺享受。界面修攺自RunningCheese V5版.
 
@@ -10,10 +10,9 @@
 | <img width="410" src="img/preview.jpg" > | <img width="410" src="img/preview-2.jpg" > |
 
 ####近期更新
-- 更新AutoProxy至2016.02版
-- 添加RIL(Pocket)扩展
-- 更新FeiruoNet至0322版
-- 更新rebuild_userchrome至Oos大神Lite版
+- 添加FireIE扩展
+- 更新Redirector规则
+- 更新newdownloadplus
 - 其它CSS调整
 
 ####特色：
@@ -61,7 +60,7 @@
 - **Software:** 配套軟件。含一些FQ軟件（賬號不提供），Notepad2編輯器（[設爲默認的方法](https://github.com/dupontjoy/userChromeJS/blob/master/SubScript/setRelativeEditPath.uc.js)）和截圖軟件。
 
 ####說明：
-- 直接运行firefox文件夹中的firefox.exe即可。
+- **直接运行Software > run > Cingfox.exe文件; 或者解压Portable.7z到firefox主程序文件夹, 以启用pcxFirefox原生便携功能.**
 - 請仔细看user.js中參數的说明，酌情删减。
 - 配套軟件都采用相对路径，请严格按照如下文件夹结构使用。会修改的朋友，可以自定义。
 - 界面基于Win10設置，部分CSS值需要修改以適配其它系統。
