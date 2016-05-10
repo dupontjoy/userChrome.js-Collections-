@@ -52,7 +52,11 @@
 | userChromeJS | UC腳本管理擴展 |
 
 ####文件夾結構：
-<p align="left"><img width="650" src="img/folder-structure.jpg"></p>
+
+| | |
+| :-- | :-- |
+| 界面預覧: | 常用功能: |
+| <img width="410" src="img/folder-structure.jpg" > | <img width="410" src="img/run.jpg" > |
 
 - **Firefox:** pcxFirefox主程式。
 - **Profiles:** 完整配置文件夾。
