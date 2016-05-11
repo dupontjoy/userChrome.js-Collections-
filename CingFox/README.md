@@ -5,7 +5,7 @@
 主程序pcxFirefox簡體中文版，原生便攜支持。
 
 | 界面預覧:                                    | 常用功能:                                    |
-| ------ | ----- |
+| :------ | :----- |
 | <img width="410" src="img/preview.jpg" > | <img width="410" src="img/preview-2.jpg" > |
 
 ####近期更新
@@ -33,7 +33,7 @@
 
 ####所用擴展：
 | **擴展名稱:**         | **功能說明:**                        |
-| --- | --- |
+| :------ | :----- |
 | Adblock Plus     | 去除网页广告及弹窗                       |
 | Adblock Plus元素隐藏 | ABP輔助，自定義規則必備                   |
 | Auto Unload Tab  | 逐一载入标签, 2小时后自动卸载标签, 再过1小时自动关闭标签 |
@@ -52,7 +52,7 @@
 ####文件夾結構：
 
 | 文件夹层级:                                   | 如何运行:                                |
-| ---------------------------------------- | ------------------------------------ |
+| :------ | :----- |
 | <img width="410" src="img/folder-structure.jpg" > | <img width="410" src="img/run.jpg" > |
 
 - **Firefox:** pcxFirefox主程式。
@@ -85,7 +85,7 @@
 - ……
 
 | **長期下載地址**           | 链接:http://pan.baidu.com/s/1gepIhKv#r8di  |
-| --- | --- |
+| :------ | :----- |
 |                      | 問題反饋: http://bbs.kafan.cn/thread-1792671-1-1.html |
 | Chrome文件夾(UC腳本集)     | https://github.com/dupontjoy/userChromeJS/ |
 | Flash32位原版提取帶vch和exe | http://pan.baidu.com/s/1sjz92Z7          |
