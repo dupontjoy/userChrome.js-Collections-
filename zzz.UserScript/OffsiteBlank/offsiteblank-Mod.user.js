@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name          Offsite Blank
+// @name          Offsite Blank Mod
 // @namespace     Offsite_Blank
 // @description   force offsite links to open in a new window//强制外站链接在新窗口中打开
 // @version       1
