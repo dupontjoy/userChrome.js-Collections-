@@ -28,7 +28,42 @@
 // @compatible        opera Opera_33.0.1990.115 + TamperMonkey + 脚本_1.1.3 测试通过
 // @compatible        safari 未测试
 
-// @match             *://*/*
+// @include        http*://*.zongheng.com/*
+// @include        http*://*.qidian.com/*
+// @include        http*://*.xxsy.net/books/*
+// @include        http*://novel.hongxiu.com/*
+// @include        http*://*.17k.com/chapter/*
+// @include        http*://*.qdmm.com/*
+// @include        http*://chuangshi.qq.com/*
+// @include        http*://*.hongshu.com/*
+// @include        http*://*.qwsy.com/*
+// @include        http*://*.readnovel.com/*
+// @include        http*://*.xhyd.com/*
+// @include        http*://book.hjsm.tom.com/*
+// @include        http*://dl.dbank.com/*
+// @include        http*://*.fmx.cn/*
+// @include        http*://*.xdyqw.com/*
+// @include        http*://*.huanwenkk.com/*
+// @include        http*://*.tadu.com/*
+// @include        http*://*.3gsc.com.cn/*
+// @include        http*://*.huanxia.com/*
+// @include        http*://*.book.sina.com.cn/*
+// @include        http*://yuedu.163.com/book_reader/*
+// @include        http*://dushu.qq.com/*
+// @include        http*://read.zwskw.com/modules/*
+// @include        http*://*.86zw.org/*
+// @include        http*://*.txtbbs.com/*
+// @include        http*://*.faloo.com/*
+// @include        http*://*.shenmaxiaoshuo.com/*
+// @include        http*://*.ltggg.com/*
+// @include        http*://*.wcxiaoshuo.com/*
+// @include        http*://*.shushuw.cn/*
+// @include        http*://book.aavideo.net/read.php?id=*
+// @include        http*://www.guancha.cn/*.shtml
+// @include        http*://www.buzzhand.com/*
+// @include        http*://www.devicespecifications.com*
+// @include        http*://www.alibaba.com*
+
 // @grant             none
 // @run-at            document-start
 // ==/UserScript==
