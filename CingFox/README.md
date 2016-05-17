@@ -1,4 +1,4 @@
-## ![icon](img/icon.jpg) CingFox-2016.05.13 (based on pcxFirefox 46)
+## ![icon](img/icon.jpg) CingFox-2016.05.17 (based on pcxFirefox 46)
 
 一個美觀而實用的Firefox深度定制版，在保證流畅的同時給你以Mac般的視覺享受。界面修攺自RunningCheese V5版.
 
@@ -10,7 +10,7 @@
 
 ####近期更新
 - 添加FireIE扩展
-- 更新Feiruonet脚本, 替換Autoproxy扩展
+- ~~更新Feiruonet脚本, 替換Autoproxy扩展~~, 換回老版Feiruonet脚本
 - 更新Redirector规则
 - 更新newdownloadplus脚本
 - 找回DestopWallpaper脚本, 每天換壁纸, 天天好心情
@@ -41,7 +41,7 @@
 | Adblock Plus     | 去除网页广告及弹窗                       |
 | Adblock Plus元素隐藏 | ABP輔助，自定義規則必備                   |
 | Auto Unload Tab  | 逐一载入标签, 2小时后自动卸载标签, 再过1小时自动关闭标签 |
-| ~~AutoProxy修改版~~ | ~~你懂的~~                         |
+| AutoProxy修改版     | 你懂的                             |
 | DOM Inspector    | 元素查看器，方便查找菜單及按鈕ID               |
 | DownThemAll!     | 下載辅助，配合FlashGot可自動獲取引用頁         |
 | FlashGot         | 下载网页中的视频和音频文件                   |
