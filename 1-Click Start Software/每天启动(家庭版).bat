@@ -19,7 +19,7 @@ start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfold
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 10
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 start "" "%dir%\BaiduYun\baiduyun.exe"
-start "" "%dir%\CingFox\Software\Image\Winsnap\Winsnap64.exe"
+start "" "%dir%\CingFox\Software\Image\Pickpick\Pickpick.exe"
 ::start "" "%dir%\CingFox\Software\GFW\Shadowsocks\Shadowsocks.exe"
 
 ::完成後退出
