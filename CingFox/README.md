@@ -1,4 +1,4 @@
-## ![icon](img/icon.jpg) CingFox-2016.05.17 (based on pcxFirefox 46)
+## ![icon](img/icon.jpg) CingFox-2016.05.21 (based on pcxFirefox 46)
 
 一個美觀而實用的Firefox深度定制版，在保證流畅的同時給你以Mac般的視覺享受。界面修攺自RunningCheese V5版.
 
@@ -9,6 +9,7 @@
 | <img width="410" src="img/preview.jpg" > | <img width="410" src="img/preview-2.jpg" > |
 
 ####近期更新
+- 更新ABP订阅规则, 终于流畅了
 - 添加FireIE扩展
 - ~~更新Feiruonet脚本, 替換Autoproxy扩展~~, 換回老版Feiruonet脚本
 - 更新Redirector规则
