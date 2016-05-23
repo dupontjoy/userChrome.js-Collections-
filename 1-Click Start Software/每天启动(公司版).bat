@@ -24,7 +24,7 @@ start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 10
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 start "" "%dir%\BaiduYun\baiduyun.exe"
 start "" "%dir%\CingFox\Software\Image\Picpick\Picpick.exe"
-start "" "%dir%\CingFox\Software\GFW\Shadowsocks\SSCap\SSCap64.exe"
+start "" "%dir%\CingFox\Software\GFW\Shadowsocks\SSCap64\SSCap.exe"
 
 ::完成後退出
 goto exit
