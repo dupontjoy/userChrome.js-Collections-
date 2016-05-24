@@ -1,0 +1,14 @@
+//FeiruoTabPlus
+user_pref("userChromeJS.FeiRuoTabplus.ColseToNearTab", 1);//关闭标签转到当前左边
+user_pref("userChromeJS.FeiRuoTabplus.Custom", "1|mTabContainer|dblclick|Tab|0|CloseTargetTab||,1|mTabContainer|MouseScrollUp|Tab|1|MouseScrollTabL||,1|mTabContainer|MouseScrollDown|Tab|1|MouseScrollTabR||,1|mTabContainer|click|TabBar|1|LoadWithIE||");
+user_pref("userChromeJS.FeiRuoTabplus.HomeNewTab", true);//新标签打开主页
+user_pref("userChromeJS.FeiRuoTabplus.ImageNewTab", true);//新标签查看图片
+user_pref("userChromeJS.FeiRuoTabplus.KeepBookmarksOnMiddleClick", true);//中键点击书签菜单不关闭
+user_pref("userChromeJS.FeiRuoTabplus.NewTabNear", 2);//新建标签在当前右边
+user_pref("userChromeJS.FeiRuoTabplus.NewTabUrlbar", true);//新标签打开地址栏
+user_pref("userChromeJS.FeiRuoTabplus.NewTabUrlbar_SH", false);//新标签打开地址栏(域名相同排除:否)
+user_pref("userChromeJS.FeiRuoTabplus.OpenFilesWhenDrop", true);//多文件拖拽连续打开
+user_pref("userChromeJS.FeiRuoTabplus.SideBarNewTab", true);//新标签打开侧栏,书签,历史等
+user_pref("userChromeJS.FeiRuoTabplus.SideBarNewTab_SH", false);//新标签打开侧栏,书签,历史等(域名相同排除:否)
+user_pref("userChromeJS.FeiRuoTabplus.TabFocus", false);//自动聚焦
+user_pref("userChromeJS.FeiRuoTabplus.UndoBtn", false);//撤销按钮
