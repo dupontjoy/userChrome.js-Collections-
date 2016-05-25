@@ -16,7 +16,7 @@ start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfold
 
 ::普通啟動
 ::start "" "%dir%\BingDesktop2\BingDesktop.exe"
-start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 10
+start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 3
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 start "" "%dir%\BaiduYun\baiduyun.exe"
 start "" "%dir%\CingFox\Software\Image\Picpick\Picpick.exe"
