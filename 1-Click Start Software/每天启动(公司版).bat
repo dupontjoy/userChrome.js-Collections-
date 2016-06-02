@@ -27,6 +27,5 @@ start "" "%dir%\CingFox\Software\Image\Picpick\Picpick.exe"
 start "" "%dir%\CingFox\Software\GFW\Shadowsocks\SSCap64\SSCap.exe"
 start "" "%dir%\finalspeedclient\finalspeedclient.exe" /min
 
-
 ::完成後退出
 goto exit
