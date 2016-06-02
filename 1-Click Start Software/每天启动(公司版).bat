@@ -1,4 +1,4 @@
-::2016.05.29
+::2016.06.02
 
 ::最小化运行批处理
 ::From: http://www.jb51.net/article/7347.htm
@@ -25,7 +25,9 @@ start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 start "" "%dir%\BaiduYun\baiduyun.exe"
 start "" "%dir%\CingFox\Software\Image\Picpick\Picpick.exe"
 start "" "%dir%\CingFox\Software\GFW\Shadowsocks\SSCap64\SSCap.exe"
+start "" "%dir%\CingFox\Software\Other\QTTabbar崩溃后自动重启explorer.exe\QT崩溃检测.vbs"
 start "" "%dir%\finalspeedclient\finalspeedclient.exe" /min
+
 
 ::完成後退出
 goto exit
