@@ -25,7 +25,7 @@ start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 start "" "%dir%\BaiduYun\baiduyun.exe"
 start "" "%dir%\CingFox\Software\Image\Picpick\Picpick.exe"
 start "" "%dir%\CingFox\Software\GFW\Shadowsocks\SSCap64\SSCap.exe"
-start "" "%dir%\CingFox\Software\Other\QTTabbar崩溃后自动重启explorer.exe\QT崩溃检测.vbs"
+start "" "%dir%\CingFox\Software\Other\QT-Check\QT-Check.vbs"
 start "" "%dir%\finalspeedclient\finalspeedclient.exe" /min
 
 
