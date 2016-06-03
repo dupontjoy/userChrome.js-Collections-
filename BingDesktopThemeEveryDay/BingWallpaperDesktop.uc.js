@@ -64,10 +64,10 @@ var bingWallpaperDesktop=function(){
 						shell.setDesktopBackground(ni,Ci.nsIShellService["BACKGROUND_STRETCH"]);
 						try{
 							var file=Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile),
-								path=Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\必应美图\\"+enddate+"-"+cp.replace(/ \(.*?\)/g,'')+".jpg";
+								path=Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\BingDesktopTheme\\"+enddate+"-"+cp.replace(/ \(.*?\)/g,'')+".jpg";
 							file.initWithPath(path);
 							file.create(Components.interfaces.nsIFile.NOMAL_FILE_TYPE,0777);
-							Components.classes["@mozilla.org/embedding/browser/nsWebBrowserPersist;1"].createInstance(Components.interfaces.nsIWebBrowserPersist).saveURI(Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService).newURI(imgref,null,null),null,null,null,null,file,null);
+							Components.classes["@mozilla.org/embedding/browser/nsWebBrowserPersist;1"].createInstance(Components.interfaces.nsIWebBrowserPersist).saveURI(Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService).newURI(imgref,null,null),null,null,null,null,null,file,null);
 						}
 						catch(err){
 							return false;

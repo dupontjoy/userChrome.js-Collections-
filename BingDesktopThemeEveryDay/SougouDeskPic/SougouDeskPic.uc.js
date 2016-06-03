@@ -2,6 +2,7 @@
 // @name           SougouDeskPic.uc.js
 // @description    每次启动自动随机获取一张搜狗壁纸
 // @homepageURL    http://bbs.kafan.cn/forum-215-1.html
+// 2016.06.03 更改图片存放地址
 // @note 11.22搜狗壁纸
 // @note 11.22彼岸桌面壁纸
 //==/UserScript==
@@ -111,7 +112,7 @@ function setImg (){
         var shell=Cc["@mozilla.org/browser/shell-service;1"].getService(Ci.nsIShellService);
         shell.setDesktopBackground(image,Ci.nsIShellService["BACKGROUND_STRETCH"]); 
         try{var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-        var path = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfLD", Components.interfaces.nsILocalFile).path + "\\ProfD\\" + "\\sougou\\"+new Date().getTime()+ ".jpg";
+        var path = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfLD", Components.interfaces.nsILocalFile).path + "\\SougouDeskPic\\"+new Date().getTime()+ ".jpg";
         file.initWithPath(path);
         file.create(Components.interfaces.nsIFile.NOMAL_FILE_TYPE, 0777)		
         Components.classes["@mozilla.org/embedding/browser/nsWebBrowserPersist;1"].createInstance(Components.interfaces.nsIWebBrowserPersist).saveURI(Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService).newURI(imgURL, null, null), null,null,null,null,null, file,null);
