@@ -26,7 +26,7 @@ start "" "%dir%\BaiduYun\baiduyun.exe"
 start "" "%dir%\CingFox\Software\Image\Picpick\Picpick.exe"
 start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
 start "" "%dir%\CingFox\Software\Other\QT-Check\QT.lnk"
-start "" "%dir%\finalspeedclient\finalspeedclient.exe" /min
+start "" "%dir%\finalspeedclient\finalspeedclient.exe"
 
 ::完成後退出
 goto exit
