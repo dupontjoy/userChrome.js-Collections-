@@ -24,7 +24,8 @@ start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 3
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 start "" "%dir%\BaiduYun\baiduyun.exe"
 start "" "%dir%\CingFox\Software\Image\Picpick\Picpick.exe"
-start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
+::start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
+start "" "%dir%\CingFox\Software\GFW\Shadowsocks\SSCap64\SSCap.exe"
 start "" "%dir%\CingFox\Software\Other\QT-Check\QT.lnk"
 start "" "%dir%\finalspeedclient\finalspeedclient.exe"
 
