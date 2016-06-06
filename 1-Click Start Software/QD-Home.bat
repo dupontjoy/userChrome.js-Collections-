@@ -1,8 +1,8 @@
 ::2016.06.05
 
+@echo off
 ::最小化运行批处理
 ::From: http://www.jb51.net/article/7347.htm
-@echo off
 ::if "%1"=="h" goto begin
 ::start mshta vbscript:createobject("wscript.shell").run("""%~nx0"" h",0)(window.close)&&exit
 :begin
