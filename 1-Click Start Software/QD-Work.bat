@@ -15,4 +15,4 @@ start "" "C:\Program Files (x86)\XiaoMi\MiWiFi\MiWiFi.exe"
 start "" "%dir%\Jingoal\Jingoal.exe" & ping localhost -n 3
 
 ::完成後退出
-goto exit
+exit

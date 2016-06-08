@@ -26,4 +26,4 @@ start "" "%dir%\CingFox\Software\Other\QT-Check\QT.lnk"
 start "" "%dir%\finalspeedclient\finalspeedclient.exe"
 
 ::完成後退出
-goto exit
+exit
