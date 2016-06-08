@@ -1,4 +1,4 @@
-::2016.06.07
+::2016.06.08
 @echo off
 
 ::最小化运行批处理
@@ -13,6 +13,8 @@ set dir=D:\Program Files
 ::公司用軟件
 start "" "C:\Program Files (x86)\XiaoMi\MiWiFi\MiWiFi.exe"
 start "" "%dir%\Jingoal\Jingoal.exe" & ping localhost -n 3
+::导致内网数据和价格查询不可用
+taskkill /f /im finalspeedclient.exe
 
 ::完成後退出
 exit
