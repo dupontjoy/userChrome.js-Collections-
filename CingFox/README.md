@@ -9,6 +9,7 @@
 | <img width="410" src="img/preview.jpg" > | <img width="410" src="img/preview-2.jpg" > |
 
 ####近期更新
+- 同时发布完整包和配置包
 - 增加FeiruoMouse
 - 換用UBO
 - 启用搜索栏
@@ -36,8 +37,6 @@
 | :--------------- | :------------------------------ |
 | FireIE           | 特定网站用IE引擎打开                     |
 | uBlock Origin     | 去除网页广告及弹窗                       |
-| ~Adblock Plus~     | ~ 去除网页广告及弹窗~                       |
-| ~Adblock Plus元素隐藏 | ABP輔助，自定義規則必備~                   |
 | AutoProxy修改版     | 你懂的                             |
 | DOM Inspector    | 元素查看器，方便查找菜單及按鈕ID               |
 | DownThemAll!     | 下載辅助，配合FlashGot可自動獲取引用頁         |
