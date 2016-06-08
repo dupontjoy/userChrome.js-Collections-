@@ -1,4 +1,4 @@
-## ![icon](img/icon.jpg) CingFox-2016.06.03 (based on pcxFirefox 46)
+## ![icon](img/icon.jpg) CingFox-2016.06.08 (based on pcxFirefox 46)
 
 一個美觀而實用的Firefox深度定制版，在保證流畅的同時給你以Mac般的視覺享受。界面修攺自RunningCheese V5版.
 
@@ -9,11 +9,9 @@
 | <img width="410" src="img/preview.jpg" > | <img width="410" src="img/preview-2.jpg" > |
 
 ####近期更新
+- 增加FeiruoMouse
+- 換用UBO
 - 启用搜索栏
-- 更新ABP订阅规则, 终于流畅了
-- 添加FireIE扩展
-- ~~更新Feiruonet脚本, 替換Autoproxy扩展~~, 換回老版Feiruonet脚本
-- 找回DestopWallpaper脚本, 每天換壁纸, 天天好心情
 - 其它CSS调整
 
 ####特色：
@@ -37,9 +35,9 @@
 | **擴展名稱:**        | **功能說明:**                       |
 | :--------------- | :------------------------------ |
 | FireIE           | 特定网站用IE引擎打开                     |
-| Adblock Plus     | 去除网页广告及弹窗                       |
-| Adblock Plus元素隐藏 | ABP輔助，自定義規則必備                   |
-| Auto Unload Tab  | 逐一载入标签, 2小时后自动卸载标签, 再过1小时自动关闭标签 |
+| uBlock Origin     | 去除网页广告及弹窗                       |
+| ~Adblock Plus~     | ~ 去除网页广告及弹窗~                       |
+| ~Adblock Plus元素隐藏 | ABP輔助，自定義規則必備~                   |
 | AutoProxy修改版     | 你懂的                             |
 | DOM Inspector    | 元素查看器，方便查找菜單及按鈕ID               |
 | DownThemAll!     | 下載辅助，配合FlashGot可自動獲取引用頁         |
