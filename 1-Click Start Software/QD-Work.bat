@@ -13,8 +13,8 @@ set dir=D:\Program Files
 ::公司用軟件
 start "" "C:\Program Files (x86)\XiaoMi\MiWiFi\MiWiFi.exe"
 start "" "%dir%\Jingoal\Jingoal.exe" & ping localhost -n 3
-::导致内网数据和价格查询不可用
-taskkill /f /im finalspeedclient.exe
+start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
+start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
 
 ::完成後退出
 exit
