@@ -11,7 +11,8 @@
 set dir=D:\Program Files
 
 ::家里用
-start "" "%dir%\CingFox\Software\GFW\Shadowsocks\SSCap64\SSCap.exe"
+start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
+::start "" "%dir%\CingFox\Software\GFW\Shadowsocks\SSCap64\SSCap.exe"
 start "" "%dir%\finalspeedclient\finalspeedclient.exe"
 
 ::完成後退出
