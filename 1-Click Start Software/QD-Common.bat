@@ -15,11 +15,10 @@ start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/configf
 start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable" "/logfolder=%dir%\System Tools\ProcessLassoPortable"
 
 ::普通啟動
-::start "" "%dir%\BingDesktop2\BingDesktop.exe"
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 3
 start "" "%dir%\BaiduYun\baiduyun.exe"
 start "" "%dir%\CingFox\Software\Image\Picpick\Picpick.exe"
-start "" "%dir%\CingFox\Software\Other\QT-Check\QT.lnk"
+::start "" "%dir%\CingFox\Software\Other\QT-Check\QT.lnk"
 
 ::完成後退出
 exit
