@@ -1,4 +1,4 @@
-## ![icon](img/icon.jpg) CingFox-2016.06.08 (based on pcxFirefox 46)
+## ![icon](img/icon.jpg) CingFox-2016.06.20 (based on pcxFirefox 46)
 
 一個美觀而實用的Firefox深度定制版，在保證流畅的同時給你以Mac般的視覺享受。界面修攺自RunningCheese V5版.
 
@@ -11,6 +11,7 @@
 
 ####近期更新
 - 同时发布完整包和配置包
+- 增加VimFx(键盘快捷操作Firefox)
 - 增加FeiruoMouse
 - 換用UBO
 - 启用搜索栏
