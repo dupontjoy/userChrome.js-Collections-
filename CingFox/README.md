@@ -1,4 +1,4 @@
-## ![icon](img/icon.jpg) CingFox-2016.06.20 (based on pcxFirefox 46)
+## ![icon](img/icon.jpg) CingFox-2016.06.22 (based on pcxFirefox 46)
 
 一個美觀而實用的Firefox深度定制版，在保證流畅的同時給你以Mac般的視覺享受。界面修攺自RunningCheese V5版.
 
@@ -108,7 +108,7 @@
 ####說明：
 - **直接运行firefox > firefox.exe文件; 或者直接运行Software > run > Cingfox.exe文件.**
 - 請仔细看user.js中參數的说明，酌情删减。
-- UBO默认禁用第三方脚本和第三方框架, 请自行修改设置.
+- **UBO默认禁用第三方脚本和第三方框架, 请自行修改设置.**
 - 配套軟件都采用相对路径，请勿移动位置。会修改的朋友，可以自定义。
 - 界面基于Win10設置，部分CSS值需要修改可以適配其它系統。
 - 饭友反馈包內便携Flash可能有问题(虽然我这里用着挺好), 如有必要, 大家自己更換一下!
@@ -131,7 +131,7 @@
 - ……
 - ……
 
-| **長期下載地址**           | 链接:http://pan.baidu.com/s/1gepIhKv#r8di  |
+| **長期下載地址**           | 链接:http://pan.baidu.com/s/1gepIhKv#r8di 密码: r8di |
 | :------------------- | :--------------------------------------- |
 |                      | 問題反饋: http://bbs.kafan.cn/thread-1792671-1-1.html |
 | Chrome文件夾(UC腳本集)     | https://github.com/dupontjoy/userChromeJS/ |
