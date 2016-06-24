@@ -50,7 +50,7 @@
 | Redirector       | 重定向網址, 可測試規則是否生效                |
 | Stylish          | 用CSS改变浏览器和网页的显示外观               |
 | userChromeJS     | UC腳本管理擴展                        |
-| VimFx     | 像Vim一样用键盘操作Firefox                       |
+| VimFx     | 像Vim一样用键盘操作Firefox(可代替Stylish)                       |
 
 ####VimFx常用快捷方式：
 | **快捷键:**        | **功能說明:**                       |
@@ -128,7 +128,7 @@
 - DannyLee：http://g.mozest.com/thread-43513-1-1
 - Redirector腳本版 by cinhoo：http://bbs.kafan.cn/thread-1621837-1-1.html
 - Google开源库重定向到国內：http://bbs.kafan.cn/thread-1769934-1-1.html
-- ……
+- VimFx教程: http://bbs.kafan.cn/thread-2045063-1-1.html
 - ……
 
 | **長期下載地址**           | 链接:http://pan.baidu.com/s/1gepIhKv#r8di 密码: r8di |
