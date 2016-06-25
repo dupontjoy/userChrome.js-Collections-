@@ -1,4 +1,4 @@
-## ![icon](img/icon.jpg) CingFox-2016.06.22 (based on pcxFirefox 46)
+## ![icon](img/icon.jpg) CingFox-2016.06.25 (based on pcxFirefox 46)
 
 一個美觀而實用的Firefox深度定制版，在保證流畅的同時給你以Mac般的視覺享受。界面修攺自RunningCheese V5版.
 
@@ -48,9 +48,8 @@
 | Lastpass         | 記住你的密碼                          |
 | RIL(Pocket)      | Pocket扩展版, 比Firefox自带的好用些       |
 | Redirector       | 重定向網址, 可測試規則是否生效                |
-| Stylish          | 用CSS改变浏览器和网页的显示外观               |
 | userChromeJS     | UC腳本管理擴展                        |
-| VimFx     | 像Vim一样用键盘操作Firefox(可代替Stylish)                       |
+| VimFx     | 像Vim一样用键盘操作Firefox(可代替Stylish加载CSS)                       |
 
 ####VimFx常用快捷方式：
 | **快捷键:**        | **功能說明:**                       |
