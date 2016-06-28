@@ -1,4 +1,4 @@
-::2016.06.14
+::2016.06.28
 
 @echo off
 ::最小化运行批处理
@@ -19,6 +19,7 @@ start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 3
 start "" "%dir%\BaiduYun\baiduyun.exe"
 start "" "%dir%\CingFox\Software\Image\Picpick\Picpick.exe"
 start "" "%dir%\System Tools\nTrun\Run\QT.lnk"
+start "" "%dir%\MiserWare\Granola Personal\Granola.exe"
 
 ::完成後退出
 exit
