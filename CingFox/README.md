@@ -37,8 +37,8 @@
 |                      | 問題反饋: http://bbs.kafan.cn/thread-1792671-1-1.html |
 
 下载说明:
-1. 下载的压缩包最好保留, 万一Firefox出现问题, 可以重新解压.
-2. 主程序pcxFirefox原生便攜支持, 点击"Firefox\firefox.exe"即可启动.
+- 下载的压缩包最好保留, 万一Firefox出现问题, 可以重新解压.
+- 主程序pcxFirefox原生便攜支持, 点击"Firefox\firefox.exe"即可启动.
 
 ###你可能还需要了解
 | [VimFx的用法](doc/vimfx用法.md) | about:newtab网址及图标 |
