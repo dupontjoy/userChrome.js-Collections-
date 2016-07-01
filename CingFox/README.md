@@ -45,3 +45,17 @@
 | :--- | :--- |
 | UC脚本相对路径的设置 | user.js的设置 |
 
+###參考資料：
+- 官方原版FTP：http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/
+- pcxFirefox主程式：http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/
+- RunningCheese：http://www.runningcheese.com/
+- 阳光盒子：http://bbs.kafan.cn/thread-1704664-1-1.html
+- KingTung：http://www.firefoxfan.com/
+- Y大：https://github.com/ywzhaiqi/userChromeJS
+- Feiruo：https://github.com/feiruo/userChromeJS
+- alice0775：https://github.com/alice0775/userChrome.js
+- DannyLee：http://g.mozest.com/thread-43513-1-1
+- Redirector腳本版 by cinhoo：http://bbs.kafan.cn/thread-1621837-1-1.html
+- Google开源库重定向到国內：http://bbs.kafan.cn/thread-1769934-1-1.html
+- VimFx教程: http://bbs.kafan.cn/thread-2045063-1-1.html
+- ……
