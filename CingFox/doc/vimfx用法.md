@@ -5,8 +5,10 @@ VimFx是一个强大的扩展, 主要功能是模拟Vim的键盘操作方式, �
 ###入门: VimFx与Vimperator/Pentadactyl的比较
 - Vimperator和Pentadactyl默认会把Ctrl+C, Ctrl+V这样常用的快捷键都更改, 对于新手来说并不好用. 与这两个扩展不同的是: 默认VimFx不会更改Firefox自有的快捷键, 这样用户能无缝接入VimFx扩展, 而不用专门去排除一些常的的按键.
 - Vimperator和Pentadactyl的设置文件默认是保存在C盘, 要变更位置还比较麻烦, 至少我没有改成功 . 而VimFx的设置文件位置有一条参数在管理. 我是使用setRelativeEditPath.uc.js这个脚本来设置相对路径的.
-    
+
+```javascript
     extensions.VimFx.config_file_directory
+```
 
 ###进阶篇
 对于有一定动手能力的用户来说, 你也可以自定义规则, 将个性化的设置写入Config.js中. 目前我已将Keychanger.uc.js中的快捷键移植到了VimFx, 配合VimFx自带的Vim化快捷键, 用键盘操作起来更加强大.

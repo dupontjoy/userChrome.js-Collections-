@@ -48,6 +48,8 @@
 | [VimFx的用法](doc/vimfx用法.md) | about:newtab网址及图标 |
 | :--- | :--- |
 | UC脚本相对路径的设置 | user.js的设置 |
+| [文件夹结构](doc/文件夹结构.md) | [所用扩展简介](所用扩展简介.md) |
+| [个人Firefox经历](doc/个人Firefox经历.md) |  |
 
 ###參考資料：
 - 官方原版FTP：http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/
