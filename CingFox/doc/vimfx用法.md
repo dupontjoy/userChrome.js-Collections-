@@ -93,3 +93,6 @@ https://addons.mozilla.org/en-US/firefox/addon/vimfx/
 
 - VimFx Github:
 https://github.com/akhodakivskiy/VimFx
+
+- 几个config.js文件分享:
+https://github.com/akhodakivskiy/VimFx/wiki/Share-your-config-file
