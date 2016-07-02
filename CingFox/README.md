@@ -45,8 +45,9 @@
 - 界面基于Win10設置, 部分CSS值需要修改可以適配其它系統.
 
 ###你可能还需要了解
-| [个人Firefox经历](doc/个人Firefox经历.md) | [文件夹结构](doc/文件夹结构.md) | [所用扩展简介](doc/所用扩展简介.md) |
+| | | |
 | :--- | :--- | :--- |
+| [个人Firefox经历](doc/个人Firefox经历.md) | [文件夹结构](doc/文件夹结构.md) | [所用扩展简介](doc/所用扩展简介.md) |
 | [user.js的设置](doc/user.js.md) | [VimFx的用法](doc/vimfx用法.md) | [about:newtab网址及图标](doc/about-newtab.md) |
 
 ###參考資料：
