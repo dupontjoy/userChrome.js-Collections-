@@ -58,7 +58,7 @@ VimFx是一个强大的扩展, 主要功能是模拟Vim的键盘操作方式, �
 | <kbd>gs</kbd>           | 切换http与https                   |
 
 - 初期不熟悉快捷键时, 可能经常要查询, 你可以键入<kbd>?</kbd>调出上图的快捷键列表
-- 在有的网站Hints太多会互相重叠, 你看不清楚藏在底下的Hints, 这时你可以按<kbd>Space</kdb>将Hints提升到前台
+- 在有的网站Hints太多会互相重叠, 你看不清楚藏在底下的Hints, 这时你可以按<kbd>Space</kbd>将Hints提升到前台
 
 ```javascript
 This is something we cannot fix because all web-sites are different, and there no silver bullet solution. You can use Space and Shift-Space to bring different labels to the foreground.
