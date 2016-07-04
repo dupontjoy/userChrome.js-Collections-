@@ -57,7 +57,12 @@ VimFx是一个强大的扩展, 主要功能是模拟Vim的键盘操作方式, �
 | <kbd>zu</kbd>        | 打开uBlock第三方规则列表                   |
 | <kbd>gs</kbd>           | 切换http与https                   |
 
-初期不熟悉快捷键时, 可能经常要查询, 你可以键入<kbd>?</kbd>调出上图的快捷键列表
+- 初期不熟悉快捷键时, 可能经常要查询, 你可以键入<kbd>?</kbd>调出上图的快捷键列表
+- 在有的网站Hints太多会互相重叠, 你看不清楚藏在底下的Hints, 这时你可以按<kbd>Space</kdb>将Hints提升到前台
+
+```javascript
+This is something we cannot fix because all web-sites are different, and there no silver bullet solution. You can use Space and Shift-Space to bring different labels to the foreground.
+```
 
 ###样式加载: 取代Stylish扩展
 另外, VimFx还能夠加载CSS文件, 而且加载效果非常优秀. 原本我一直在使用UC脚本userCSSLoader.uc.js右载CSS, 但这个脚本有个问题, 加载CSS要比Stylish扩展慢, 再者userCSSLoader.uc.js对部分CSS的支持不夠友好, 导致我还得专门安装Stylish来应付两个特殊的样式. 至少以我的CSS样式加载来看, VimFx完全可以取代Stylish, 我已经这样做了.
