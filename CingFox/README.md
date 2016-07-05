@@ -1,6 +1,6 @@
-## ![icon](img/icon.jpg) CingFox-2016.06.30 (based on pcxFirefox 46)
+## ![icon](img/icon.jpg) CingFox-2016.07.05 (based on pcxFirefox 47.0.1)
 
-一個美觀而實用的Firefox深度定制版, 在保證流畅的同時給你以Mac般的視覺享受. 界面修攺自RunningCheese V5版.
+<font size="20">一</font>個美觀而實用的Firefox深度定制版, 在保證流畅的同時給你以Mac般的視覺享受. 界面修攺自RunningCheese V5版.
 
 ###近期更新
 - 同时发布完整包和配置包
@@ -9,7 +9,7 @@
 - 启用搜索栏, 搜索东西时确实要方便不少
 - 其它CSS调整
 
-| 界面預覧: | 常用功能: |
+| 界面預覧:                                    | 常用功能:                                    |
 | :--------------------------------------- | :--------------------------------------- |
 | <img width="410" src="img/preview.jpg" > | <img width="410" src="img/preview-2.jpg" > |
 
@@ -32,9 +32,9 @@
 
 ###下载与安装
 
-| **長期下載地址**           | 链接:http://pan.baidu.com/s/1gepIhKv#r8di 密码: r8di |
-| :------------------- | :--------------------------------------- |
-|                      | 問題反饋: http://bbs.kafan.cn/thread-1792671-1-1.html |
+| **長期下載地址** | 链接:http://pan.baidu.com/s/1gepIhKv#r8di 密码: r8di |
+| :--------- | :--------------------------------------- |
+|            | 問題反饋: http://bbs.kafan.cn/thread-1792671-1-1.html |
 
 下载说明:
 - 下载的压缩包最好保留, 万一Firefox出现问题, 可以重新解压.
@@ -45,11 +45,11 @@
 - 界面基于Win10設置, 部分CSS值需要修改可以適配其它系統.
 
 ###你可能还需要了解
-| | | |
-| :--- | :--- | :--- |
-| [个人Firefox经历](doc/个人Firefox经历.md) | [文件夹结构](doc/文件夹结构.md) | [所用扩展简介](doc/所用扩展简介.md) |
-| [user.js的设置](doc/user.js.md) | [VimFx的用法](doc/vimfx用法.md) | [about:newtab网址及图标](doc/about-newtab.md) |
-| [searchplugins设置](doc/searchplugins.md) | [uBlock Origin第三方设置](doc/ubo.md)| |
+|                                         |                                  |                                          |
+| :-------------------------------------- | :------------------------------- | :--------------------------------------- |
+| [个人Firefox经历](doc/个人Firefox经历.md)       | [文件夹结构](doc/文件夹结构.md)            | [所用扩展简介](doc/所用扩展简介.md)                  |
+| [user.js的设置](doc/user.js.md)            | [VimFx的用法](doc/vimfx用法.md)       | [about:newtab网址及图标](doc/about-newtab.md) |
+| [searchplugins设置](doc/searchplugins.md) | [uBlock Origin第三方设置](doc/ubo.md) |                                          |
 
 ###參考資料：
 - 官方原版FTP：http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/
