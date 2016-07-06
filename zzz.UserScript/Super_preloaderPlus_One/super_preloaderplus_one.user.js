@@ -4,7 +4,7 @@
 // @namespace    https://github.com/ywzhaiqi
 // @description  预读+翻页..全加速你的浏览体验...
 // @author       ywzhaiqi && NLF(原作者)
-// @version      6.5.0
+// @version      6.5.0-2016.07.06
 // @homepageURL  https://greasyfork.org/scripts/293-super-preloaderplus-one
 
 // @grant        GM_addStyle
@@ -14,28 +14,6 @@
 // @grant        GM_registerMenuCommand
 
 // @include      http*
-// @exclude      http*://mail.google.com/*
-// @exclude      http*://maps.google*
-// @exclude      http*://www.google.com/reader*
-// @exclude      http*://www.google.com/calendar*
-// @exclude      https://docs.google.com/*
-// @exclude      http*://app.yinxiang.com/*
-// @exclude      http*://www.dropbox.com/*
-// @exclude      http*://www.toodledo.com/*
-// @exclude      http://cloud.feedly.com/*
-// @exclude      http://weibo.com/*
-// @exclude      http://w.qq.com/*
-// @exclude      http://web2.qq.com/*
-// @exclude      http://openapi.qzone.qq.com/*
-// @exclude      http://*cloud.vip.xunlei.com/*
-// @exclude      http*://www.wumii.com/*
-// @exclude      http://pan.baidu.com/*
-// @exclude      http://yun.baidu.com/*
-// @exclude      http://www.cnbeta.com/*
-// @exclude      http://www.youku.com/
-// @exclude      http://v.youku.com/*
-// @exclude      http://www.iqiyi.com/*
-// @exclude      http://www.duokan.com/reader/*
 // ==/UserScript==
 
 
@@ -149,7 +127,7 @@ var SITEINFO_D={
     useiframe: GM_getValue('SITEINFO_D.useiframe') || false,           // (预读)是否使用iframe..
     viewcontent: false,         // 查看预读的内容,显示在页面的最下方.
     autopager: {
-        enable: true,           // 启用自动翻页...
+        enable: false,           // 启用自动翻页...
         force_enable: GM_getValue('SITEINFO_D.autopager.force_enable') || false,  //默认启用强制拼接
         manualA: false,         // 手动翻页.
         useiframe: false,       // (翻页)是否使用iframe..
@@ -185,7 +163,7 @@ var SITEINFO=[
         preLink: '//a[@id="pnprev"]',
         //preLink:'//table[@id="nav"]/descendant::a[1][parent::td[@class="b"]]',            //上一页链接 xpath 或者 CSS选择器 或者 函数返回值 (可选)
         autopager:{
-            enable:true ,                                                                                               //启用(自动翻页)(可选)
+            enable:false ,                                                                                               //启用(自动翻页)(可选)
             useiframe:false,                                                                                        //是否使用iframe翻页(可选)
                 iloaded:false,                                                                                      //是否在iframe完全load之后操作..否则在DOM完成后操作.
                 itimeout:0,                                                                                             //延时多少毫秒后,在操作..
