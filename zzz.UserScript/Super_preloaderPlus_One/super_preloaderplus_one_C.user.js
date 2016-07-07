@@ -4,7 +4,7 @@
 // @namespace    https://github.com/ywzhaiqi
 // @description  预读+翻页..全加速你的浏览体验...
 // @author       ywzhaiqi && NLF(原作者)
-// @version      6.5.0-2016.07.06
+// @version      6.5.0-2016.07.07
 // @homepageURL  https://greasyfork.org/scripts/293-super-preloaderplus-one
 
 // @grant        GM_addStyle
@@ -124,16 +124,16 @@ var HashchangeSites = [
 //高级规则的一些默认设置..如果你不知道是什么..请务必不要修改(删除)它.此修改会影响到所有高级规则...
 var SITEINFO_D={
     enable: true,               // 启用
-    useiframe: GM_getValue('SITEINFO_D.useiframe') || false,           // (预读)是否使用iframe..
+    useiframe: GM_getValue('SITEINFO_D.useiframe') || true,           // (预读)是否使用iframe..
     viewcontent: false,         // 查看预读的内容,显示在页面的最下方.
     autopager: {
         enable: false,           // 启用自动翻页...
         force_enable: GM_getValue('SITEINFO_D.autopager.force_enable') || false,  //默认启用强制拼接
         manualA: false,         // 手动翻页.
-        useiframe: false,       // (翻页)是否使用iframe..
+        useiframe: true,       // (翻页)是否使用iframe..
             iloaded: false,     // 是否在iframe完全load后操作..否则在DOM完成后操作
             itimeout: 0,        // 延时多少毫秒后,在操作..
-            newIframe: false,
+            newIframe: true,
         remain: 1,              // 剩余页面的高度..是显示高度的 remain 倍开始翻页..
         maxpage: 99,            // 最多翻多少页..
         ipages: [false, 2],     // 立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.
@@ -149,7 +149,7 @@ var SITEINFO=[
         //url:'wildc;http://www.google.com.hk/search*',
         siteExample:'http://www.google.com',                                                                                                //站点实例...(可选)
         enable:true,                                                                                                                                            //启用.(总开关)(可选)
-        useiframe:false,                                                                                                                                        //是否用iframe预读...(可选)
+        useiframe:true,                                                                                                                                        //是否用iframe预读...(可选)
         viewcontent:false,
 
         nextLink: 'id("pnnext") | id("navbar navcnt nav")//td[span]/following-sibling::td[1]/a | id("nn")/parent::a',                                                                                                                           //查看预读的内容,显示在页面的最下方.(可选)
