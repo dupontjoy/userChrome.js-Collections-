@@ -8,7 +8,7 @@
 // @downloadURL     https://raw.githubusercontent.com/Harv/userChromeJS/master/redirector_ui.uc.js
 // @startup         Redirector.init();
 // @shutdown        Redirector.destroy(true);
-// @version         1.5.5.4
+// @version         1.5.5.4-2016.07.09
 // ==/UserScript==
 (function() {
     Cu.import("resource://gre/modules/XPCOMUtils.jsm");
@@ -210,7 +210,7 @@
                 // update icon state
                 let icon = document.getElementById("redirector-icon");
                 if (icon) {
-                    icon.style.listStyleImage = "url(" + (this.state ? this.enableIcon : this.disableIcon) + ")";
+                    icon.setAttribute("image", (this.state ? this.enableIcon : this.disableIcon));
                 }
                 if (!callfromMessage) {
                     // notify other windows to update
