@@ -32,7 +32,7 @@
 			this.addPrefListener(userChromejs.readLaterPrefListener); // 登录处理
 			this.runMenu();
 
-			$("urlbar-icons").appendChild($C("toolbarbutton", {
+			$("toolbar-menubar").appendChild($C("toolbarbutton", {
 				id: "userChromebtnMenu",
 				label: "userChromeJS 管理器",
 				tooltiptext: "左键：UC 脚本选单\n中键：启用 / 禁用\n右键：重载脚本",
