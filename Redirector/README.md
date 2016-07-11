@@ -139,7 +139,7 @@ http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/s
     },
     {
     name: "百度貼吧|百科 >> 原始大圖",
-    from: /^http:\/\/(imgsrc|[\w]?\.hipho    tos)\.baidu\.com\/(forum|baike)\/[\w].+\/sign=[^\/]+(\/.*).jpg/i,
+    from: /^http:\/\/(imgsrc|[\w]?\.hiphotos)\.baidu\.com\/(forum|baike)\/[\w].+\/sign=[^\/]+(\/.*).jpg/i,
     to: "http://$1.baidu.com/$2/pic/item$3.jpg",
     regex: true
     },
@@ -151,10 +151,10 @@ http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/s
     regex: true
     },
     {
-    //測試：http://i11.    topit.me/m/201103/12/12998645416093.jpg, http://f8.    topit.me/8/69/94/11889296294ef94698m.jpg
-    name: "    topit.me >> 原始大圖",
+    //測試：http://i11.topit.me/m/201103/12/12998645416093.jpg, http://f8.topit.me/8/69/94/11889296294ef94698m.jpg
+    name: "topit.me >> 原始大圖",
     from: /^https?:\/\/(.*)\.    topit\.me\/(.*)?m(.*)?\.jpg$/,
-    to: "http://$1.    topit.me/$2l$3.jpg",
+    to: "http://$1.topit.me/$2l$3.jpg",
     regex: true
     },
     {
