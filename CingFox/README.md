@@ -1,6 +1,6 @@
 ## ![icon](img/icon.jpg) CingFox (based on pcxFirefox)
 
-一個美觀而實用的Firefox深度定制版, 在保證流畅的同時給你以Mac般的視覺享受.
+一個美觀而實用的Firefox深度定制版, 在保證流畅的同時給你以Mac般的視覺享受.<br/>
 界面修攺自RunningCheese V5版.
 
 ###近期更新
