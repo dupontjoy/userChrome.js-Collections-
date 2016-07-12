@@ -2,7 +2,7 @@
 
 预览图:
 
-![](../img/preview.jpg)
+![](../../img/preview.jpg)
 
 想要将about:newtab设置成以上效果, 你需要按照下述步骤来设置.
 
@@ -26,9 +26,14 @@ user_pref("browser.newtabpage.pinned", "[{\"url\":\"http://bbs.kafan.cn/forum-21
 ProfD\extensions\userChromeJS@mozdev.org\content\newtab-images
 ```
 
-![](../img/newtab-images.jpg)
+![](../../img/newtab-images.jpg)
+
+####安装Simple White主题
+由于样式是搭配Simple White主题使用的, 所以...
+
+https://addons.mozilla.org/zh-CN/firefox/addon/simplewhite/?src=search
 
 ####使用Stylish或VimFx加载样式
 !注意, 有些样式使用userCSSLoader.uc.js加载是不行的, about:newtab的样式即是如此.
 
-![](../img/newtab-css.jpg)
+![](../../img/newtab-css.jpg)
