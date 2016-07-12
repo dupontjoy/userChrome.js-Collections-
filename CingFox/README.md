@@ -4,7 +4,7 @@
 界面修攺自RunningCheese V5版.
 
 ###近期更新
-- [CingFox-47.0.1](doc/release/47.0.1.md)
+- **[CingFox-47.0.1]**(doc/release/47.0.1.md)
 
 ###特色：
 - 基于SimpleWhite的全新界面, 如Mac般的細膩視感
