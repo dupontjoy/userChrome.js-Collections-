@@ -1,13 +1,9 @@
-## ![icon](img/icon.jpg) CingFox-2016.07.05 (based on pcxFirefox 47.0.1)
+## ![icon](img/icon.jpg) CingFox (based on pcxFirefox)
 
 一個美觀而實用的Firefox深度定制版, 在保證流畅的同時給你以Mac般的視覺享受. 界面修攺自RunningCheese V5版.
 
 ###近期更新
-- 同时发布完整包和配置包
-- 增加VimFx(键盘快捷操作Firefox)
-- 換用UBO, 自带的禁用第三方脚本功能很好很强大
-- 启用搜索栏, 搜索东西时确实要方便不少
-- 其它CSS调整
+- [CingFox-47.0.1](doc/how-to/release/47.0.1.md)
 
 | 界面預覧: | 常用功能: |
 | :--------------------------------------- | :--------------------------------------- |
@@ -48,9 +44,9 @@
 
 |                                         |                                  |                                          |
 | :-------------------------------------- | :------------------------------- | :--------------------------------------- |
-| [个人Firefox经历](doc/个人Firefox经历.md)       | [文件夹结构](doc/文件夹结构.md)            | [所用扩展简介](doc/所用扩展简介.md)                  |
-| [user.js的设置](doc/user.js.md)            | [VimFx的用法](doc/vimfx用法.md)       | [about:newtab网址及图标](doc/about-newtab.md) |
-| [searchplugins设置](doc/searchplugins.md) | [uBlock Origin第三方设置](doc/ubo.md) |                                          |
+| [个人Firefox经历](doc/how-to/个人Firefox经历.md)       | [文件夹结构](doc/how-to/文件夹结构.md)            | [所用扩展简介](doc/how-to/所用扩展简介.md)                  |
+| [user.js的设置](doc/how-to/user.js.md)            | [VimFx的用法](doc/how-to/vimfx用法.md)       | [about:newtab网址及图标](doc/how-to/about-newtab.md) |
+| [searchplugins设置](doc/how-to/searchplugins.md) | [uBlock Origin第三方设置](doc/how-to/ubo.md) |                                          |
 
 ###參考資料：
 - 官方原版FTP：http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/
