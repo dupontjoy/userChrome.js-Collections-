@@ -1,9 +1,10 @@
 ## ![icon](img/icon.jpg) CingFox (based on pcxFirefox)
 
-一個美觀而實用的Firefox深度定制版, 在保證流畅的同時給你以Mac般的視覺享受. 界面修攺自RunningCheese V5版.
+一個美觀而實用的Firefox深度定制版, 在保證流畅的同時給你以Mac般的視覺享受.
+界面修攺自RunningCheese V5版.
 
 ###近期更新
-- [CingFox-47.0.1](doc/how-to/release/47.0.1.md)
+- [CingFox-47.0.1](doc/release/47.0.1.md)
 
 | 界面預覧: | 常用功能: |
 | :--------------------------------------- | :--------------------------------------- |
@@ -60,5 +61,4 @@
 - DannyLee：http://g.mozest.com/thread-43513-1-1
 - Redirector腳本版 by cinhoo：http://bbs.kafan.cn/thread-1621837-1-1.html
 - Google开源库重定向到国內：http://bbs.kafan.cn/thread-1769934-1-1.html
-- VimFx教程: http://bbs.kafan.cn/thread-2045063-1-1.html
 - ……
