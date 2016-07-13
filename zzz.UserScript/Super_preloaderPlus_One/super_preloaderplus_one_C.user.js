@@ -4,7 +4,7 @@
 // @namespace    https://github.com/ywzhaiqi
 // @description  预读+翻页..全加速你的浏览体验...
 // @author       ywzhaiqi && NLF(原作者)
-// @version      6.5.0-2016.07.08
+// @version      6.5.0-2016.07.12
 // @homepageURL  https://greasyfork.org/scripts/293-super-preloaderplus-one
 
 // @grant        GM_addStyle
@@ -84,7 +84,7 @@ var prefs={
     forceTargetWindow: GM_getValue('forceTargetWindow', true),  // 下一页的链接设置成在新标签页打开
     debug: GM_getValue('debug', false),
     enableHistory: GM_getValue('enableHistory', false),    // 把下一页链接添加到历史记录
-    autoGetPreLink: false,   // 一开始不自动查找上一页链接，改为调用时再查找
+    autoGetPreLink: true,   // 一开始不自动查找上一页链接，改为调用时再查找
     excludes: GM_getValue('excludes', ''),
     custom_siteinfo: GM_getValue('custom_siteinfo', '[]'),
     lazyImgSrc: 'zoomfile|file|original|load-src|_src|imgsrc|real_src|src2|data-lazyload-src|data-ks-lazyload|data-lazyload|data-src|data-original|data-thumb|data-imageurl|data-defer-src|data-placeholder',
@@ -134,7 +134,7 @@ var SITEINFO_D={
             iloaded: false,     // 是否在iframe完全load后操作..否则在DOM完成后操作
             itimeout: 0,        // 延时多少毫秒后,在操作..
             newIframe: true,
-        remain: 1,              // 剩余页面的高度..是显示高度的 remain 倍开始翻页..
+        remain: 0.5,              // 剩余页面的高度..是显示高度的 remain 倍开始翻页..
         maxpage: 99,            // 最多翻多少页..
         ipages: [false, 2],     // 立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.
         separator: true,        // 显示翻页导航..(推荐显示.)
