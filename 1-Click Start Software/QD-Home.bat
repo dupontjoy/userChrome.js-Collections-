@@ -1,4 +1,4 @@
-::2016.06.13
+::2016.07.14
 
 @echo off
 ::最小化运行批处理
@@ -12,8 +12,7 @@ set dir=D:\Program Files
 
 ::家里用
 start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
-::start "" "%dir%\CingFox\Software\GFW\Shadowsocks\SSCap64\SSCap.exe"
-::start "" "%dir%\finalspeedclient\finalspeedclient.exe"
+start "" "%dir%\XiaoMi\MiRouter\MiRouter.exe"
 
 ::完成後退出
 exit
