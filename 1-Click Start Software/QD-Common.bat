@@ -1,4 +1,4 @@
-::2016.06.28
+::2016.07.13
 
 @echo off
 ::最小化运行批处理
@@ -16,6 +16,7 @@ start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfold
 
 ::普通啟動
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 3
+start "" "%dir%\Tencent\WeChat\WeChat.exe"
 start "" "%dir%\BaiduYun\baiduyun.exe"
 start "" "%dir%\CingFox\Software\Image\Picpick\Picpick.exe"
 start "" "%dir%\System Tools\nTrun\Run\QT.lnk"

@@ -1,0 +1,1 @@
+https://github.com/xinggsf/uc/blob/master/videos_skipAd.uc.js
