@@ -1,4 +1,4 @@
-::2016.07.13
+::2016.07.14
 @echo off
 
 ::最小化运行批处理
@@ -11,7 +11,8 @@
 set dir=D:\Program Files
 
 ::公司用軟件
-start "" "C:\Program Files (x86)\XiaoMi\MiWiFi\MiWiFi.exe"
+start "" "%dir%\XiaoMi\MiWiFi\MiWiFi.exe"
+start "" "%dir%\XiaoMi\MiRouter\MiRouter.exe"
 start "" "%dir%\Jingoal\Jingoal.exe" & ping localhost -n 3
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
