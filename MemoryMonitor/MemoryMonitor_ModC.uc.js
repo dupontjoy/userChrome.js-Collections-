@@ -60,7 +60,7 @@ var ucjsMM = {
 			ucjsMM._MemoryValue = Math.round(workingSet / (1024 * 1024));
 			var memoryPanel = document.getElementById('MemoryDisplay');
 			memoryPanel.setAttribute('label', ucjsMM._MemoryValue + ucjsMM._prefix);
-			memoryPanel.setAttribute('onclick', "openUILinkIn('about:addons-memory','tab')");
+			memoryPanel.setAttribute('onclick', "openUILinkIn('about:memory','tab')");
 			if (ucjsMM._MemoryValue > ucjsMM._Warningvalue) {
 				memoryPanel.style.color = ucjsMM._Warningcolor;
 				memoryPanel.style.borderColor = ucjsMM._Warningcolor;
