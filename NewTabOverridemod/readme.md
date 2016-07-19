@@ -1,0 +1,1 @@
+https://github.com/skofkyo/userChromeJS/blob/master/SubScript/NewTabOverridemod.uc.js
