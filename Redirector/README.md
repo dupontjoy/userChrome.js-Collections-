@@ -208,6 +208,7 @@ http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/39.x/39.0/x86/s
 [百度貼吧和百科 原始大圖](http://bbs.kafan.cn/thread-1780442-1-1.html)<br/>
 [500px.com原始大圖](http://bbs.kafan.cn/thread-1783842-1-1.html)<br/>
 [贴吧手机页面定向](http://bbs.kafan.cn/thread-1747112-1-1.html)<br/>
+[链接去跳转](http://bbs.kafan.cn/thread-2047931-1-1.html)<br/>
 
 [1]: http://bbs.kafan.cn/thread-1621837-1-1.html
 [2]: https://github.com/Drager-oos/userChrome/blob/master/MainScript/Redirector.uc.js
