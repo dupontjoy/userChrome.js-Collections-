@@ -5,7 +5,7 @@
 - [Redirector脚本](https://github.com/harv/userChromeJS/blob/master/redirector_ui.uc.js)
 
 ###Link_Direct
-[Link_Direct](link_direct\readme.md)
+[Link_Direct](link_direct/readme.md)
 
 ###其它一些规则备份
 [rules](rules.md)
