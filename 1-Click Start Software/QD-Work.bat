@@ -11,7 +11,6 @@
 set dir=D:\Program Files
 
 ::公司用軟件
-start "" "%dir%\XiaoMi\MiRouter\MiRouter.exe"
 start "" "%dir%\Jingoal\Jingoal.exe" & ping localhost -n 3
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
