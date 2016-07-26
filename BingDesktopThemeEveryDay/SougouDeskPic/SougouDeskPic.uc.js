@@ -6,7 +6,7 @@
 // @note 11.22搜狗壁纸
 // @note 11.22彼岸桌面壁纸
 //==/UserScript==
-var setTime = 0; //表示间隔多少分钟范围【0-60*24*10】-0到10天                     ->越界时间不准,就不好玩了       O_O
+var setTime = 60*24*1; //表示间隔多少分钟范围【0-60*24*10】-0到10天                     ->越界时间不准,就不好玩了       O_O
 
 var userIndex = 1;
 var ALL = [
@@ -117,7 +117,7 @@ function setImg (){
         var shell=Cc["@mozilla.org/browser/shell-service;1"].getService(Ci.nsIShellService);
         shell.setDesktopBackground(image,Ci.nsIShellService["BACKGROUND_STRETCH"]); 
         try{var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-        var path = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfLD", Components.interfaces.nsILocalFile).path + "\\SougouDeskPic\\"+new Date().getTime()+ ".jpg";
+        var path = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfLD", Components.interfaces.nsILocalFile).path + "\\SougouDeskPic\\" + new Date().getTime() + ".jpg";
         file.initWithPath(path);
         file.create(Components.interfaces.nsIFile.NOMAL_FILE_TYPE, 0777)		
         Components.classes["@mozilla.org/embedding/browser/nsWebBrowserPersist;1"].createInstance(Components.interfaces.nsIWebBrowserPersist).saveURI(Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService).newURI(imgURL, null, null), null,null,null,null,null, file,null);

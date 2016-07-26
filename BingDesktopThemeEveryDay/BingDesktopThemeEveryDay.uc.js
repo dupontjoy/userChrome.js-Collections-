@@ -50,7 +50,7 @@ function getDate()
 function init()
 {
 var xhr=new XMLHttpRequest();
-xhr.open('GET','http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&nc='+new Date().getTime(),false);
+xhr.open('GET','http://global.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&nc='+new Date().getTime(),false);
 
 xhr.onload=function()
 			{
