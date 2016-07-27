@@ -7,7 +7,8 @@
 // @note 11.22搜狗壁纸
 // @note 11.22彼岸桌面壁纸
 //==/UserScript==
-var setTime = 60*4; //表示间隔多少分钟范围【0-60*24*10】-0到10天                     ->越界时间不准,就不好玩了       O_O
+(function() {
+var setTime = 60; //表示间隔多少分钟范围【0-60*24*10】-0到10天                     ->越界时间不准,就不好玩了       O_O
 
 var userIndex = 1;
 var ALL = [
@@ -128,3 +129,4 @@ function setImg (){
     image.send();
 }
 window.sougouPIC.setRileGou();
+}());
