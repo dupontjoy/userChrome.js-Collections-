@@ -6,7 +6,8 @@
 // @license               MIT License
 // @compatibility    Firefox 41+
 // @charset              UTF-8
-// @version              0.2.2
+// @version              0.2.3
+// @note                   0.2.3 2016-7-27 取消mouseover事件 參考了alice0775的腳本 改成監視browser.newtab.url的變化立即生效
 // @note                   0.2.2 2016-7-17 修正新視窗 新分頁按鈕mouseover事件無效的問題
 // @note                   2016-7-11 19:48 取消TabClose事件 新增工具選單
 // @note                   透過about:config頁修改 需將鼠標移動到新分頁按鈕才能完成設定 透過工具選單進行設定立即生效
@@ -16,14 +17,18 @@
 // @homepageURL    https://github.com/skofkyo/userChromeJS/blob/master/SubScript/NewTabOverridemod.uc.js
 // ==/UserScript==
 (function() {
-
-    window.BrowserNewtabUrl = {
-
+ 
+    var BrowserNewtabUrl = {
+ 
         init: function() {
+            BrowserNewtabUrl.addPrefListener(BrowserNewtabUrl.BNUPrefListener); // 登録処理
+            window.addEventListener('unload', function() {
+                BrowserNewtabUrl.removePrefListener(BrowserNewtabUrl.BNUPrefListener);
+            }, false);
             this.updateURL();
             this.addmenuitem();
         },
-
+ 
         updateURL: function() {
             try {
                 Services.prefs.getCharPref("browser.newtab.url");
@@ -37,14 +42,14 @@
             else
                 aboutNewTabService.newTabURL = url;
         },
-
+ 
         ntoset: function() {
             var bnu = Services.prefs.getCharPref("browser.newtab.url");
             var text = prompt('輸入要更改的網址。', bnu);
             Services.prefs.setCharPref("browser.newtab.url", text);
-            this.updateURL();
+            //this.updateURL();
         },
-
+ 
         addmenuitem: function() {
             var ins = $("devToolsSeparator");
             ins.parentNode.insertBefore($C("menuitem", {
@@ -55,27 +60,53 @@
                 oncommand: "BrowserNewtabUrl.ntoset();",
             }), ins);
         },
-    };
-
-    let tbtset = {
-        startup: function() {
-            var tbt = $("tabbrowser-tabs");
-            var newTabBtn = document.getAnonymousElementByAttribute(tbt, "class", "tabs-newtab-button");
-            newTabBtn.addEventListener('mouseover', BrowserNewtabUrl.updateURL, false);
+        // 監視を開始する
+        addPrefListener: function(aObserver) {
+            try {
+                var pbi = Components.classes['@mozilla.org/preferences;1'].getService(Components.interfaces.nsIPrefBranch2);
+                pbi.addObserver(aObserver.domain, aObserver, false);
+            } catch (e) {}
         },
+        // 監視を終了する
+        removePrefListener: function(aObserver) {
+            try {
+                var pbi = Components.classes['@mozilla.org/preferences;1'].getService(Components.interfaces.nsIPrefBranch2);
+                pbi.removeObserver(aObserver.domain, aObserver);
+            } catch (e) {}
+        },
+ 
+        BNUPrefListener: {
+            domain: 'browser.newtab.url',
+            observe: function(aSubject, aTopic, aPrefstring) {
+                if (aTopic == 'nsPref:changed') {
+                    BrowserNewtabUrl.updateURL();
+                }
+            }
+        }
+ 
     };
-
-    tbtset.startup();
+ 
+    //let tbtset = {
+    //    startup: function() {
+    //        var tbt = $("tabbrowser-tabs");
+    //        var newTabBtn = document.getAnonymousElementByAttribute(tbt, "class", "tabs-newtab-button");
+    //        newTabBtn.addEventListener('mouseover', BrowserNewtabUrl.updateURL, false);
+    //    },
+    //};
+ 
+    //tbtset.startup();
     BrowserNewtabUrl.init();
-
+    window.BrowserNewtabUrl = BrowserNewtabUrl;
+ 
     function $(id) {
         return document.getElementById(id);
     }
-
+ 
     function $C(name, attr) {
         var el = document.createElement(name);
-        if (attr) Object.keys(attr).forEach(function(n) el.setAttribute(n, attr[n]));
+        if (attr) Object.keys(attr)
+            .forEach(function(n) el.setAttribute(n, attr[n]));
         return el;
     }
-
+ 
 }());
