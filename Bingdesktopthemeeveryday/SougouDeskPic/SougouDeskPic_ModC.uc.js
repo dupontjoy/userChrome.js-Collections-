@@ -18,11 +18,8 @@ var ALL = [
 "<a href=\"([^\"]{0,15})\" target=\"_blank\">", "<img src=\"([^\"]+)\"", "-1366x768.htm", "18"], //-1920x1080.htm
 
 ["http://bizhi.sogou.com", 
-//"http://bizhi.sogou.com/label/index/731",//环游世界
-//"http://bizhi.sogou.com/label/index/44",//周最热
-"http://bizhi.sogou.com/label/index/173",//动漫周最热
-//"http://bizhi.sogou.com/label/index/172",//美女周最热
-//"http://bizhi.sogou.com/label/index/423",//日更新
+//"http://bizhi.sogou.com/label/index/731",//风景-环游世界
+"http://bizhi.sogou.com/label/index/716",//风景-定格美好
 "<a href=\"(/detail/info/[\\d]+)\" target=\"_blank\">", "<img height=\"600\" width=\"950\" src=\"([^\"]+)\"", null, "28"],
 
 ];

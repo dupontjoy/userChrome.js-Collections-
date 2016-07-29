@@ -2,13 +2,15 @@
 // @name           SougouDeskPic.uc.js
 // @description    每次启动自动随机获取一张搜狗壁纸
 // @homepageURL    http://bbs.kafan.cn/forum-215-1.html
-// 2016.06.03 更改图片存放地址
+// @note 2016.7.30 修复设置时间之后并没有成功的情况，原来是记录进pref的时候字段写错了。。。555555
 // @note 11.22搜狗壁纸
 // @note 11.22彼岸桌面壁纸
 //==/UserScript==
-var setTime = 60*24*1; //表示间隔多少分钟范围【0-60*24*10】-0到10天                     ->越界时间不准,就不好玩了       O_O
-
-var userIndex = 1;
+var setTime = 60; //表示间隔多少分钟范围【0-60*24*10】-0到10天                     ->越界时间不准,就不好玩了       O_O
+/**
+注意如果不能成功的话，自己手动去吧 userchromejs.data.MyRiGouTime 设置为0
+*/
+var userIndex = 1; // 0-NetBian壁纸，1-Sougou壁纸
 var ALL = [
 ["http://www.netbian.com", 
 "http://www.netbian.com/jianzhu/",//建筑
@@ -16,15 +18,10 @@ var ALL = [
 "<a href=\"([^\"]{0,15})\" target=\"_blank\">", "<img src=\"([^\"]+)\"", "-1366x768.htm", "18"], //-1920x1080.htm
 
 ["http://bizhi.sogou.com", 
-//"http://bizhi.sogou.com/label/index/731",//环游世界
-//"http://bizhi.sogou.com/label/index/44",//周最热
-"http://bizhi.sogou.com/label/index/173",//动漫周最热
-//"http://bizhi.sogou.com/label/index/172",//美女周最热
-//"http://bizhi.sogou.com/label/index/423",//日更新
+//"http://bizhi.sogou.com/label/index/731",//风景-环游世界
+"http://bizhi.sogou.com/label/index/716",//风景-定格美好
 "<a href=\"(/detail/info/[\\d]+)\" target=\"_blank\">", "<img height=\"600\" width=\"950\" src=\"([^\"]+)\"", null, "28"],
-
 ];
-
 var dirURL;
 var imgURL;
 var site = ALL[userIndex][0];
@@ -53,7 +50,7 @@ function getNow () {
 function getprfDate () {
     var pref=Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
     try {
-        var data=pref.getIntPref('userchromejs.data.MysougouTime');
+        var data=pref.getIntPref('userchromejs.data.MyRiGouTime');
         return data;
     }
     catch(err) {
@@ -88,7 +85,6 @@ function init (){
     xhr.send();
 }
 function initDirURL (){
-    //alert(dirURL);
     var xhr2 = new XMLHttpRequest();
     xhr2.open('GET', dirURL, false);
     dirURL = null;
@@ -106,24 +102,22 @@ function initDirURL (){
 }
 // 使用正则获得到改网页对应的大图的地址
 function setImg (){
-    //alert(imgURL);
     var image = new Image();
     image.src=imgURL;
     image.onload=function() {
-        //alert("image.onload");
         var pref=Components.classes["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
         var currentTime = new Date().getTime() % 1000000000;
         pref.setIntPref('userchromejs.data.MyRiGouTime', currentTime);
         var shell=Cc["@mozilla.org/browser/shell-service;1"].getService(Ci.nsIShellService);
         shell.setDesktopBackground(image,Ci.nsIShellService["BACKGROUND_STRETCH"]); 
-        try{var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-        var path = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfLD", Components.interfaces.nsILocalFile).path + "\\SougouDeskPic\\" + new Date().getTime() + ".jpg";
-        file.initWithPath(path);
-        file.create(Components.interfaces.nsIFile.NOMAL_FILE_TYPE, 0777)		
-        Components.classes["@mozilla.org/embedding/browser/nsWebBrowserPersist;1"].createInstance(Components.interfaces.nsIWebBrowserPersist).saveURI(Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService).newURI(imgURL, null, null), null,null,null,null,null, file,null);
-        imgURL = null;
-        }catch(err){alert(err)};    
+        //try{var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+        //var path = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfLD", Components.interfaces.nsILocalFile).path + "/ProfD/" + "sougou/"+new Date().getTime()+ ".jpg";
+        //alert(path.replace("/\\/g", "/"));
+        //file.initWithPath(path);
+        //file.create(Components.interfaces.nsIFile.NOMAL_FILE_TYPE, 0777)		
+        //Components.classes["@mozilla.org/embedding/browser/nsWebBrowserPersist;1"].createInstance(Components.interfaces.nsIWebBrowserPersist).saveURI(Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService).newURI(imgURL, null, null), null,null,null,null,null, file,null);
+        //imgURL = null;
+        //}catch(err){alert(err)};    
     }
-    image.send();
 }
 window.sougouPIC.setRileGou();
