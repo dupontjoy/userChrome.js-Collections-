@@ -7,7 +7,7 @@
 // @license        MIT License
 // @compatibility  Firefox 18-21
 // @charset        UTF-8
-// @version        2.2.1.5
+// @version        2.2.1.5-2016.07.29
 // @note           2.2.1 2014/03/15 兼容FF29
 // @note           2.2.0 2014/01/21 修复部分网站右键无法自动填表的BUG
 // @note           2.2.0 2014/01/21 修复忽略空白字符的BUG
@@ -470,7 +470,7 @@ window.InformEnterPlus = {
 		var file = Components.classes["@mozilla.org/file/directory_service;1"].
 		           getService(Components.interfaces.nsIProperties).
 		           get("UChrm", Components.interfaces.nsIFile);
-		           get("Local", Components.interfaces.nsIFile);
+		file.append('Local');
 		file.append('InformEnter.Ijson');
 		return file;
 	},
