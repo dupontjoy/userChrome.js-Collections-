@@ -47,7 +47,7 @@ window.InformEnterPlus = {
 		var separator = document.getElementById("context-sep-undo");
 		this.menubtn = document.createElement("menu");
 		this.menubtn.setAttribute("id","ife-context-menu");
-		this.menubtn.setAttribute("label", "InformEnterPlus自动填表");
+		this.menubtn.setAttribute("label", "自动填表");
 		contextMenu.insertBefore(this.menubtn, separator);
 		this.menusetPop = document.createElement("menupopup");
 		this.menusetPop.setAttribute("id","informpopup");
