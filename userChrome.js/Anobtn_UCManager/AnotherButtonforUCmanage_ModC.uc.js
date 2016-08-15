@@ -11,7 +11,7 @@
 // @shutdown       		window.anobtn.unint(true);
 // @reviewURL			http://bbs.kafan.cn/thread-1657589-1-1.html
 // @homepageURL	 		https://github.com/feiruo/userChromeJS/tree/master/anoBtn
-// @version		 		1.3.0.9-2016.08.14 UC细线图标
+// @version		 		1.3.0.9-2016.08.15 UC细线图标
 // @note		 		1.3.0.9	2016.08.12 增加UC腳本管理功能
 // @note		 		1.3.0.8	2016.07.30 搬運addMenuPlus代碼 增加函數功能 text,url 可用 %u返回當前頁面網址 %s返回當前選取的文字 %es%返回當前選取的文字並進行UTF-8 URI編碼 %p返回剪貼簿文字 %ep%返回剪貼簿文字並進行UTF-8 URI編碼
 // @note		 		1.3.0.7	2016.07.17 23:34 修正新視窗無法正常載入選單的問題 by skofkyo
@@ -56,7 +56,7 @@
                 class: "menuitem-iconic",
                 label: "AnotherButton",
                 tooltiptext: "左鍵：重載配置\n右鍵：編輯配置",
-                image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAjUlEQVQ4jeWTQQ7DIAwEfcpn/IR69n3trXkTfCf5QnopEYpSQFyLxA2Pd83agCTpmLlAstniLyCfAJs9LYC7L5JWYLt03iSt7r40AZLeHRvP2xkAycysdI6IqMEREUWJAfl2OB17Q7OrH5XvLupmAHlU3ZDMf7HwKwfA48xBR0EzicCrCah2Yb8U7mUXPmgv3jqIXPj2AAAAAElFTkSuQmCC",
+                image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAY0lEQVQ4jWNgGLbAn4GB4QgDA8N/KD4CFSMKNDEwMDyBahCAYn+oWBMxNj9hYGCQxyIngGQwTkDIqTCv4QT/cdgOA5xQNXgNEKDEAIq9AAtEbK4gKhAZGCiMRnSnkpWQhhgAANGPHQFykfMmAAAAAElFTkSuQmCC",
                 oncommand: "setTimeout(function(){ anobtn.reload(true); }, 10) && anobtn.alert('配置已經重新載入');",
                 onclick: "if (event.button == 2) { event.preventDefault(); closeMenus(event.currentTarget);anobtn.EditFile(anobtn.file); }",
             }), ins);
