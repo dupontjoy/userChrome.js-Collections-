@@ -4,6 +4,7 @@
 界面修攺自RunningCheese V5版.
 
 ###近期更新
+- [**CingFox-47.0.1-2016.08.19**](doc/release/47.0.1-2016.08.19.md)
 - [**CingFox-47.0.1**](doc/release/47.0.1.md) (2016.07.05)
 
 ###特色：
