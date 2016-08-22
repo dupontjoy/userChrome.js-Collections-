@@ -1,4 +1,5 @@
-::2016.07.14
+::2016.08.23
+
 @echo off
 
 ::最小化运行批处理
@@ -15,6 +16,7 @@ start "" "%dir%\Jingoal\Jingoal.exe" & ping localhost -n 3
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
 ::start "" "%dir%\CingFox\Software\GFW\Shadowsocks\SSCap64\SSCap.exe"
+start "" "%dir%\Tencent\WeChat\WeChat.exe"
 
 ::完成後退出
 exit
