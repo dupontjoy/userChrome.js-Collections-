@@ -1,11 +1,12 @@
 ## ![icon](img/icon.jpg) CingFox
 
- (based on pcxFirefox)
+based on [pcxFirefox](http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/)
 
 一個美觀而實用的Firefox深度定制版, 在保證流畅的同時給你以Mac般的視覺享受.<br/>
-界面修攺自RunningCheese V5版.
+界面修攺自RunningCheese V5版.<br/>
+正常來说计划每周五更新一次, 希望能坚持尽量地久.
 
-###近期更新
+###更新历史
 - [**CingFox-48.0.1-2016.08.20**](doc/release/48.0.1-2016.08.20.md)
 - [**CingFox-47.0.1-2016.08.19**](doc/release/47.0.1-2016.08.19.md)
 - [**CingFox-47.0.1**](doc/release/47.0.1.md) (2016.07.05)
@@ -36,15 +37,13 @@
 | [searchplugins设置](doc/how-to/searchplugins.md) | [uBlock Origin第三方设置](doc/how-to/ubo.md) |                                          |
 
 ###參考資料：
-- 官方原版FTP：http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/
-- pcxFirefox主程式：http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/
+- 官方Firefox：http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/
+- pcxFirefox：http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/
 - RunningCheese：http://www.runningcheese.com/
-- 阳光盒子：http://bbs.kafan.cn/thread-1704664-1-1.html
-- KingTung：http://www.firefoxfan.com/
+- 阳光盒子：http://sunbox.cc/
 - Y大：https://github.com/ywzhaiqi/userChromeJS
 - Feiruo：https://github.com/feiruo/userChromeJS
 - alice0775：https://github.com/alice0775/userChrome.js
-- DannyLee：http://g.mozest.com/thread-43513-1-1
 - Redirector腳本版 by cinhoo：http://bbs.kafan.cn/thread-1621837-1-1.html
 - Google开源库重定向到国內：http://bbs.kafan.cn/thread-1769934-1-1.html
 - ……
