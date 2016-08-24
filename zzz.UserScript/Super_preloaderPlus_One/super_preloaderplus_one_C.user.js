@@ -4,7 +4,7 @@
 // @namespace    https://github.com/ywzhaiqi
 // @description  预读+翻页..全加速你的浏览体验...
 // @author       ywzhaiqi && NLF(原作者)
-// @version      6.5.0-2016.07.12
+// @version      6.5.0-2016.08.24
 // @homepageURL  https://greasyfork.org/scripts/293-super-preloaderplus-one
 
 // @grant        GM_addStyle
@@ -103,9 +103,9 @@ blackList = blackList.concat(prefs.excludes.split(/[\n\r]+/).map(function(line) 
 
 //在以下网站上允许在非顶层窗口上加载JS..比如猫扑之类的框架集网页.
 var DIExclude = [
-    ['猫扑帖子', true, /http:\/\/dzh\.mop\.com\/[a-z]{3,6}\/\d{8}\/.*\.shtml$/i],
-    ['铁血社区', true, /^http:\/\/bbs\.tiexue\.net\/.*\.html$/i],
-    ['铁血社区-2', true, /^http:\/\/bbs\.qichelian\.com\/bbsqcl\.php\?fid/i],
+    ['猫扑帖子', true, /https?:\/\/dzh\.mop\.com\/[a-z]{3,6}\/\d{8}\/.*\.shtml$/i],
+    ['铁血社区', true, /^https?:\/\/bbs\.tiexue\.net\/.*\.html$/i],
+    ['铁血社区-2', true, /^https?:\/\/bbs\.qichelian\.com\/bbsqcl\.php\?fid/i],
     // 像 http://so.baiduyun.me/ 内嵌的百度、Google 框架
     ['百度网盘搜索引擎-百度', true, /^https?:\/\/www\.baidu\.com\/baidu/i],
     ['百度网盘搜索引擎-Google', true, /^https?:\/\/74\.125\.128\.147\/custom/i],
@@ -254,7 +254,7 @@ var SITEINFO=[
 
     // =============================== manhua ========================
     {name: '天极动漫频道新闻',
-        url:/http:\/\/comic\.yesky\.com\/\d+\/.+\.shtml/i,
+        url:/https?:\/\/comic\.yesky\.com\/\d+\/.+\.shtml/i,
         siteExample:'http://comic.yesky.com/249/11335749_5.shtml',
         nextLink:'//div[@id="numpage"]/descendant::a[text()="下一页"]',
         autopager:{
@@ -264,14 +264,14 @@ var SITEINFO=[
         }
     },
     {name: '暴走漫画',
-        url: /^http:\/\/(baozou|baozoumanhua)\.com\//i,
+        url: /^https?:\/\/(baozou|baozoumanhua)\.com\//i,
         nextLink: '//div[@class="pagebar"]/a[text()="下一页" or @class="next"] | //a[@class="next" and (text()="下一页")]',
         autopager: {
             pageElement: '//div[@class="main cf"]/div[@class="content-block cf"]/div[1]',
         }
     },
     {name: '动漫之家漫画网',
-        url: "^http://(www|manhua)\\.dmzj\\.com/.+/.+shtml|^http://manhua\\.178\\.com/.+/.+shtml",
+        url: "^https?://(www|manhua)\\.dmzj\\.com/.+/.+shtml|^https?://manhua\\.178\\.com/.+/.+shtml",
         siteExample:'http://manhua.178.com/lansechumoshi/15794.shtml',
         nextLink:'//div[@class="pages2"]/descendant::a[text()="下一页"]',
         autopager:{
@@ -280,7 +280,7 @@ var SITEINFO=[
         }
     },
     {name: '爱漫画',
-        url:/^http:\/\/www\.imanhua\.com\/comic\/.+/i,
+        url:/^https?:\/\/www\.imanhua\.com\/comic\/.+/i,
         siteExample:'http://www.imanhua.com/comic/55/list_39448.html',
         useiframe:true,
         preLink:{
@@ -290,7 +290,7 @@ var SITEINFO=[
         },
         nextLink:{
             startAfter:'?p=',
-            mFails:[/^http:\/\/www\.imanhua\.com\/comic\/.+\.html/i,'?p=1'],
+            mFails:[/^https?:\/\/www\.imanhua\.com\/comic\/.+\.html/i,'?p=1'],
             inc:1,
             isLast:function(doc,win,lhref){
                 var pageSelect=doc.getElementById('pageSelect');
@@ -309,7 +309,7 @@ var SITEINFO=[
         }
     },
     {name: 'CC漫画网',
-        url: "^http://www\\.tuku\\.cc/comic/\\d+/\\d+/",
+        url: "^https?://www\\.tuku\\.cc/comic/\\d+/\\d+/",
         siteExample:'http://www.tuku.cc/comic/6123/1/',
         nextLink:'auto;',
         autopager:{
@@ -318,7 +318,7 @@ var SITEINFO=[
         }
     },
     {name: '新动漫',
-        url:/http:\/\/www\.xindm\.cn\/mh\/.+/i,
+        url:/https?:\/\/www\.xindm\.cn\/mh\/.+/i,
         siteExample:'http://www.xindm.cn/mh/shishangzuiqiangdizi/58784.html?p=2',
         preLink:{
             startAfter:'?p=',
@@ -327,7 +327,7 @@ var SITEINFO=[
         },
         nextLink:{
             startAfter:'?p=',
-            mFails:[/http:\/\/www\.xindm\.cn\/mh\/.+\.html/i,'?p=1'],
+            mFails:[/https?:\/\/www\.xindm\.cn\/mh\/.+\.html/i,'?p=1'],
             inc:1,
             isLast:function(doc,win,lhref){
                 var topSelect=doc.getElementById('topSelect');
@@ -344,11 +344,11 @@ var SITEINFO=[
         }
     },
     {name: '看漫画',
-        url:/^http:\/\/www\.kkkmh\.com\/manhua\/\d+\/\d+\/\d+\.html/i,
+        url:/^https?:\/\/www\.kkkmh\.com\/manhua\/\d+\/\d+\/\d+\.html/i,
         siteExample:'http://www.kkkmh.com/manhua/0710/1011/34412.html?p=2',
         nextLink: {
             startAfter: '?p=',
-            mFails: [/^http:\/\/www\.kkkmh\.com\/manhua\/\d+\/\d+\/\d+\.html/i, '?p=1'],
+            mFails: [/^https?:\/\/www\.kkkmh\.com\/manhua\/\d+\/\d+\/\d+\.html/i, '?p=1'],
             inc: 1,
             isLast: function(doc, gm_win, lhref) {
                 var pic_num = gm_win.pic.length;
@@ -377,7 +377,7 @@ var SITEINFO=[
     },
     // 已失效
     // {name: 'SF在线漫画',
-    //     url:/http:\/\/comic\.sfacg\.com\/HTML\/.+/i,
+    //     url:/https?:\/\/comic\.sfacg\.com\/HTML\/.+/i,
     //     siteExample:'http://comic.sfacg.com/HTML/ZXCHZ/001/#p=2',
     //     preLink:{
     //         startAfter:'#p=',
@@ -386,7 +386,7 @@ var SITEINFO=[
     //     },
     //     nextLink:{
     //         startAfter:'#p=',
-    //         mFails:[/http:\/\/comic\.sfacg\.com\/HTML\/.+\//i,'#p=1'],
+    //         mFails:[/https?:\/\/comic\.sfacg\.com\/HTML\/.+\//i,'#p=1'],
     //         inc:1,
     //         isLast:function(doc,win,lhref){
     //             var pageSel=doc.getElementById('pageSel');
@@ -404,11 +404,11 @@ var SITEINFO=[
     //     }
     // },
     {name: '热血漫画',
-        url: /^http:\/\/www\.rexuedongman\.com\/comic\//i,
+        url: /^https?:\/\/www\.rexuedongman\.com\/comic\//i,
         siteExample: 'http://www.rexuedongman.com/comic/2957/36463/index.html?p=2',
         nextLink: {
             startAfter: '?p=',
-            mFails: [/^http:\/\/www\.rexuedongman\.com\/comic\/.+/i, '?p=1'],
+            mFails: [/^https?:\/\/www\.rexuedongman\.com\/comic\/.+/i, '?p=1'],
             inc: 1,
             isLast: function(doc, win, lhref) {
                 var select = doc.getElementById('pageSelect');
@@ -425,11 +425,11 @@ var SITEINFO=[
         }
     },
     {name: '基德漫画网',
-        url: /^http:\/\/www\.jide123\.net\/manhua\/.*\.html/i,
+        url: /^https?:\/\/www\.jide123\.net\/manhua\/.*\.html/i,
         exampleUrl: 'http://www.jide123.net/manhua/3670/272725.html?p=2',
         nextLink: {
             startAfter: '?p=',
-            mFails: [/^http:\/\/www\.jide123\.net\/manhua\/.*\.html/i, '?p=1'],
+            mFails: [/^https?:\/\/www\.jide123\.net\/manhua\/.*\.html/i, '?p=1'],
             inc: 1,
             isLast: function(doc, win, lhref) {
                 var select = doc.getElementById('qTcms_select_i');
@@ -446,11 +446,11 @@ var SITEINFO=[
         }
     },
     {name: '5652在线漫画',
-        url: /^http:\/\/mh\.5652\.com\/mh\/.*\.shtml/i,
+        url: /^https?:\/\/mh\.5652\.com\/mh\/.*\.shtml/i,
         exampleUrl: 'http://mh.5652.com/mh/20130124/5484/125907.shtml?p=2',
         nextLink: {
             startAfter: '?p=',
-            mFails: [/^http:\/\/mh\.5652\.com\/mh\/.*\.shtml/i, '?p=1'],
+            mFails: [/^https?:\/\/mh\.5652\.com\/mh\/.*\.shtml/i, '?p=1'],
             inc: 1,
             isLast: function(doc, win, lhref) {
                 var select = doc.querySelector('.Directory_bar select');
@@ -467,7 +467,7 @@ var SITEINFO=[
         }
     },
     {name: '汗汗漫画',
-        url: /^http:\/\/\w+\.(?:vs20|3gmanhua|hhcomic)\.(?:com|net)\/\w+\/\w+\.htm/i,
+        url: /^https?:\/\/\w+\.(?:vs20|3gmanhua|hhcomic)\.(?:com|net)\/\w+\/\w+\.htm/i,
         siteExample: 'http://page.vs20.com/1815454/115321.htm?v=2*s=6',
         nextLink: function(doc, win, cplink) {
             // hrefInc 的方式不行因为这个地址最后还有额外的 *s=6
@@ -492,7 +492,7 @@ var SITEINFO=[
         }
     },
     {name: '99漫画old',
-        url: /^http:\/\/(cococomic|dm.99manga|99manga|99comic|www.99comic|www.hhcomic)\.(com|cc)\/.+\.htm/i,
+        url: /^https?:\/\/(cococomic|dm.99manga|99manga|99comic|www.99comic|www.hhcomic)\.(com|cc)\/.+\.htm/i,
         siteExample: 'http://99manga.com/page/168/6481.htm?v=3*s=9',
         nextLink: {
             startAfter: '?v=',
@@ -512,7 +512,7 @@ var SITEINFO=[
         }
     },
     {name: '99漫画new',
-        url: /^http:\/\/(1mh|99mh|mh.99770|www.jmydm)\.(com|cc)\/.+/i,
+        url: /^https?:\/\/(1mh|99mh|mh.99770|www.jmydm)\.(com|cc)\/.+/i,
         siteExample: 'http://99mh.com/comic/8436/117728/?p=1&s=0',
         nextLink: {
             startAfter: '?p=',
@@ -525,7 +525,7 @@ var SITEINFO=[
         }
     },
     {name: '动漫Fans',
-        url: /http:\/\/www\.dm123\.cn\/bbs\/(thread\.php\?fid=|read\.php\?tid=)/i,
+        url: /https?:\/\/www\.dm123\.cn\/bbs\/(thread\.php\?fid=|read\.php\?tid=)/i,
         siteExample: 'http://www.dm123.cn/bbs/read.php?tid=593645',
         nextLink: 'auto;',
         autopager: {
@@ -533,7 +533,7 @@ var SITEINFO=[
         }
     },
     {name: 'KuKu动漫',
-        url:/http:\/\/comic\.kukudm\.com\/comiclist\/\d+\/\d+.*\.htm/i,
+        url:/https?:\/\/comic\.kukudm\.com\/comiclist\/\d+\/\d+.*\.htm/i,
         siteExample:'http://comic.kukudm.com/comiclist/4/17099/3.htm',
         useiframe:true,
         nextLink:'//a[img[contains(@src,"images/d.gif")]]',
@@ -543,7 +543,7 @@ var SITEINFO=[
         }
     },
     {name: '52pk漫画',
-        url:/http:\/\/(op|sishen|narutocn)\.52pk\.com\/manhua\/\d+\/\d+/i,
+        url:/https?:\/\/(op|sishen|narutocn)\.52pk\.com\/manhua\/\d+\/\d+/i,
         siteExample:'http://op.52pk.com/manhua/2010/921364.html',
         nextLink:'//li[@id="page__next"]/a[1]',
         autopager:{
@@ -552,7 +552,7 @@ var SITEINFO=[
         }
     },
     {name: '有妖气漫画',
-        url:/http:\/\/www\.u17\.com\/comic_show\/.+/i,
+        url:/https?:\/\/www\.u17\.com\/comic_show\/.+/i,
         siteExample:'http://www.u17.com/comic_show/c28540_m0.html',
         autopager:{
             pageElement:'//div[@class="mg_auto"]',
@@ -560,7 +560,7 @@ var SITEINFO=[
         }
     },
     {name: '动漫屋',
-        url:/http:\/\/(www|tel)\.dm5\.com\/.+/i,
+        url:/https?:\/\/(www|tel)\.dm5\.com\/.+/i,
         nextLink:'//span[@id="s_next"]/a[1]',
         autopager:{
             pageElement:'//div[@id="showimage"]',
@@ -568,7 +568,7 @@ var SITEINFO=[
         }
     },
     {name: '天使漫画网,TSDM漫画组',
-        url:/^http:\/\/mh\.tsdm\.net\/comic\/.+/i,
+        url:/^https?:\/\/mh\.tsdm\.net\/comic\/.+/i,
         siteExample:'http://mh.tsdm.net/comic/4697/68059.html',
         useiframe:true,
         preLink:{
@@ -578,7 +578,7 @@ var SITEINFO=[
         },
         nextLink:{
             startAfter:'?p=',
-            mFails:[/^http:\/\/mh\.tsdm\.net\/comic\/.+\.html/i,'?p=1'],
+            mFails:[/^https?:\/\/mh\.tsdm\.net\/comic\/.+\.html/i,'?p=1'],
             inc:1,
             isLast:function(doc,win,lhref){
                 var pageSelect=doc.getElementById('qTcms_select_i');
@@ -597,7 +597,7 @@ var SITEINFO=[
         }
     },
     {name: '漫画频道_游侠网',
-        url: /^http:\/\/manhua\.ali213\.net\/comic\/.*\.html/i,
+        url: /^https?:\/\/manhua\.ali213\.net\/comic\/.*\.html/i,
         exampleUrl: 'http://manhua.ali213.net/comic/5257/141336.html',
         nextLink: 'auto;',
         autopager: {
@@ -607,7 +607,7 @@ var SITEINFO=[
         }
     },
     {name: '火影忍者中文网',
-        url:/http:\/\/www\.narutom\.com\/comic\/.+/i,
+        url:/https?:\/\/www\.narutom\.com\/comic\/.+/i,
         siteExample:'http://www.narutom.com/comic/11624.html?p=3',
         preLink:{
             startAfter:'?p=',
@@ -616,7 +616,7 @@ var SITEINFO=[
         },
         nextLink:{
             startAfter:'?p=',
-            mFails:[/http:\/\/www\.narutom\.com\/comic\/.+\.html/i,'?p=1'],
+            mFails:[/https?:\/\/www\.narutom\.com\/comic\/.+\.html/i,'?p=1'],
             inc:1,
             isLast:function(doc,win,lhref){
                 var topSelect=doc.getElementById('topSelect');
@@ -633,7 +633,7 @@ var SITEINFO=[
         }
     },
     {name: '死神中文网',
-        url:/http:\/\/(?:\w+\.)?bleachcn\.net\/manhua\/.+/i,
+        url:/https?:\/\/(?:\w+\.)?bleachcn\.net\/manhua\/.+/i,
         siteExample:'http://naruto.bleachcn.net/manhua/6759.html',
         nextLink:'//div[@id="comic_pages"]/a[text()="下一页"][@href]',
         autopager:{
@@ -641,13 +641,13 @@ var SITEINFO=[
         }
     },
     {name: 'iiikl论坛',
-        url: '^http://bbs\\.iiikl\\.net/forum\\.php\\?forum_id=.*',
+        url: '^https?://bbs\\.iiikl\\.net/forum\\.php\\?forum_id=.*',
         nextLink: '//a[@class="next"]',
         pageElement: '//tr[@class="topic_list_row"]',
         exampleUrl: 'http://bbs.iiikl.net/forum.php?forum_id=82&class_id=0&page=2'
     },
     {name: 'sosg论坛帖子',
-        url:/http:\/\/www\.sosg\.net\/read/i,
+        url:/https?:\/\/www\.sosg\.net\/read/i,
         siteExample:'http://www.sosg.net/read.php?tid=424833',
         nextLink:'//td[@align="left"]/b/following-sibling::a[@href]',
         autopager:{
@@ -655,7 +655,7 @@ var SITEINFO=[
         }
     },
     {name: '澄空贴子内容',
-        url:/http:\/\/bbs\.sumisora\.org\/read\.php\?tid=/i,
+        url:/https?:\/\/bbs\.sumisora\.org\/read\.php\?tid=/i,
         siteExample:'http://bbs.sumisora.org/read.php?tid=11015694',
         nextLink:'auto;',
         autopager:{
@@ -663,7 +663,7 @@ var SITEINFO=[
         }
     },
     {name: '9gal苍雪论坛',
-        url:/http:\/\/bbs\.(9gal|9baka)\.com\/read\.php\?tid=/i,
+        url:/https?:\/\/bbs\.(9gal|9baka)\.com\/read\.php\?tid=/i,
         siteExample:'http://bbs.9gal.com/read.php?tid=299016',
         nextLink:'auto;',
         autopager:{
@@ -672,7 +672,7 @@ var SITEINFO=[
         },
     },
     {name: '和邪社|你的ACG生活 文不在长.内涵则明 图不在色.意淫则灵',
-        url: /^http:\/\/www\.hexieshe\.com\//i,
+        url: /^https?:\/\/www\.hexieshe\.com\//i,
         exampleUrl: 'http://www.hexieshe.com/',
         nextLink: '//div[@class="pagebar"]/a[text()="Next"]',
         autopager: {
@@ -680,21 +680,21 @@ var SITEINFO=[
         }
     },
     {name: 'haruhichan',
-        url: /^http:\/\/haruhichan\.com\//i,
+        url: /^https?:\/\/haruhichan\.com\//i,
         nextLink: '//a[@rel="next"]',
         autopager: {
             pageElement: '//div[@id="postlist"]',
         }
     },
     {name: 'exhentai',
-        url: '^http://exhentai\\.org/s/.*$',
+        url: '^https?://exhentai\\.org/s/.*$',
         nextLink: '//img[@src="http://st.exhentai.net/img/n.png"]/..',
         pageElement: '//body/div[@class="sni"]',
         exampleUrl: 'http://exhentai.org/s/0088446283/653117-4',
         useiframe: true
     },
     {name: 'exhentai gallery',
-        url: /^http:\/\/exhentai\.org\/g\//i,
+        url: /^https?:\/\/exhentai\.org\/g\//i,
         exampleUrl: 'http://exhentai.org/g/514954/d4fcb4973e/?p=1',
         nextLink: '//table[@class="ptt"]//a[text()=">"]',
         autopager: {
@@ -703,7 +703,7 @@ var SITEINFO=[
         }
     },
     {name: 'exhentai frontpage',
-        url: /^http:\/\/exhentai\.org\/(\?[^\/]+)?$/i,
+        url: /^https?:\/\/exhentai\.org\/(\?[^\/]+)?$/i,
         exampleUrl: 'http://exhentai.org/?page=2',
         nextLink: '//table[@class="ptt"]//a[text()=">"]',
         autopager: {
@@ -712,7 +712,7 @@ var SITEINFO=[
         }
     },
     {name: 'Hentai Manga|Read free hentai xxx manga online',
-        url: /^http:\/\/hentai4manga\.com\//i,
+        url: /^https?:\/\/hentai4manga\.com\//i,
         exampleUrl: 'http://hentai4manga.com/',
         nextLink: '//div[@class="pages"]/a[contains(text(), ">")]',
         autopager: {
@@ -720,13 +720,13 @@ var SITEINFO=[
         }
     },
     {name: '1024社区',
-        url: '^http://(www\\.)?t66y\\.com/|^http://cl\\.man\\.lv/',
+        url: '^https?://(www\\.)?t66y\\.com/|^https?://cl\\.man\\.lv/',
         nextLink: '//div[@class="pages"]/b/following-sibling::a[1]',
         pageElement: 'id("ajaxtable") | id("main")',
         exampleUrl: 'http://t66y.com/thread0806.php?fid=15',
     },
     {name: 'DLsite 検索結果',
-        url: /^http:\/\/(?:[^.]+\.)?dlsite\.com\//i,
+        url: /^https?:\/\/(?:[^.]+\.)?dlsite\.com\//i,
         exampleUrl: 'http://www.dlsite.com/home/fsr/=/language/jp/keyword/kon/age_category%5B0%5D/general/per_page/30/show_type/n/page/2',
         nextLink: '//td[@class="page_no"]/ul/li/a[text()="次へ" or text()="Next"]',
         autopager: {
@@ -734,7 +734,7 @@ var SITEINFO=[
         }
     },
     {name: 'Gyutto.com｜の検索結果',
-        url: /^http:\/\/gyutto\.com\/search\/search_list\.php/i,
+        url: /^https?:\/\/gyutto\.com\/search\/search_list\.php/i,
         exampleUrl: 'http://gyutto.com/search/search_list.php?_adult_check=yes&action=perPage&search_keyword=lol&search_type=&mode=search&perPage=30&pageID=2&ref_path=%2Fsearch%2Fsearch_list.php',
         nextLink: '//a[text()="次の30件へ"]',
         autopager: {
@@ -743,7 +743,7 @@ var SITEINFO=[
         }
     },
     {name: 'JAVLibrary',
-        url: /^http:\/\/www\.javlibrary\.com\/cn\//i,
+        url: /^https?:\/\/www\.javlibrary\.com\/cn\//i,
         exampleUrl: 'http://www.javlibrary.com/cn/vl_bestrated.php',
         nextLink: '//div[@class="page_selector"]/a[@class="page next"]',
         autopager: {
@@ -751,7 +751,7 @@ var SITEINFO=[
         }
     },
     {name: 'NyaaTorrents',
-        url: '^http://(?:(?:www|sukebei?)\\.)?nyaa\\.se/',
+        url: '^https?://(?:(?:www|sukebei?)\\.)?nyaa\\.se/',
         nextLink: '//div[@class="pages"]/b/following-sibling::a[1]',
         pageElement: '//table[@class="tlist"]',
         exampleUrl: 'http://www.nyaa.se/',
@@ -882,7 +882,7 @@ var SITEINFO_TP=[
 //所以说尽量不要放规则在这个组里面.
 var SITEINFO_comp=[
     {name: 'discuz论坛通用搜索',
-        url: '^http://[^/]+/f/(?:discuz|search)',
+        url: '^https?://[^/]+/f/(?:discuz|search)',
         nextLink: 'auto;',
         pageElement: 'id("result-items")',
     },
