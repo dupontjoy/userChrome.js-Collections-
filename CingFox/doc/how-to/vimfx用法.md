@@ -40,7 +40,7 @@ VimFx是一个强大的扩展, 主要功能是模拟Vim的键盘操作方式, �
 | <kbd>gxa</kbd>           | 关闭其他标签页                     |
 | <kbd>f</kbd>           | 当前标签打开链接或聚焦输入框或点击按钮                     |
 | <kbd>F</kbd>          | 新标签后台打开链接                     |
-| <kbd>gf</kbd>          | 新标签前台打开链接                     |
+| <kbd>gt</kbd>          | 新标签前台打开链接                     |
 | <kbd>af</kbd>           | 新标签后台打开多个链接                     |
 | <kbd>gi</kbd>           | 聚焦第一个或最后聚焦过的输入框                     |
 | <kbd>?</kbd>           | 显示帮助框                     |
@@ -56,6 +56,7 @@ VimFx是一个强大的扩展, 主要功能是模拟Vim的键盘操作方式, �
 | <kbd>,R</kbd>           | 重启浏览器                   |
 | <kbd>zu</kbd>        | 打开uBlock第三方规则列表                   |
 | <kbd>gs</kbd>           | 切换http与https                   |
+| <kbd>gC</kbd>           | 重载加载配置文件config.js                   |
 
 - 初期不熟悉快捷键时, 可能经常要查询, 你可以键入<kbd>?</kbd>调出上图的快捷键列表
 - 在有的网站Hints太多会互相重叠, 你看不清楚藏在底下的Hints, 这时你可以按<kbd>Space</kbd>将Hints提升到前台
