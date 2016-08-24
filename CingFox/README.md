@@ -32,9 +32,8 @@ based on [pcxFirefox](http://sourceforge.net/projects/pcxfirefox/files/Release/F
 
 | | | |
 | :--- | :--- | :--- |
-| [文件夹结构](doc/how-to/文件夹结构.md)            | [所用扩展简介](doc/how-to/所用扩展简介.md)                  | [user.js的设置](doc/how-to/user.js.md)            | 
-| [VimFx的用法](doc/how-to/vimfx用法.md)       | [about:newtab网址及图标](doc/how-to/about-newtab.md) |
-| [searchplugins设置](doc/how-to/searchplugins.md) |
+| [文件夹结构](doc/how-to/文件夹结构.md) | [所用扩展简介](doc/how-to/所用扩展简介.md) | [user.js的设置](doc/how-to/user.js.md) | 
+| [VimFx的用法](doc/how-to/vimfx用法.md) | [about:newtab网址及图标](doc/how-to/about-newtab.md) | [searchplugins设置](doc/how-to/searchplugins.md) |
 | [uBlock Origin第三方设置](doc/how-to/ubo.md) | [个人Firefox经历](doc/how-to/个人Firefox经历.md) |  |
 
 ###參考資料：
