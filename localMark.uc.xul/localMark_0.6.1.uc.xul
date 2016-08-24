@@ -9,7 +9,8 @@
 // @homepage       www.slimeden.com
 // @version        0.6 - 20110119
 
-// 2015.08.22  調出列表改成\單鍵
+// 2016.08.24  调出标记改为`键
+// 2016.08.22  調出列表改成\單鍵
 
 // ==UserScript==
 -->
@@ -82,7 +83,7 @@
         _status: 0,
 
         markPrefixKey: 77,//m
-        goPrefixKey: 222,//'
+        goPrefixKey: 192,//`
         escapeKey: 27,//escape
         marksListKey: 220,//\
 
