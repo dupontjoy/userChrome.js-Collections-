@@ -10,4 +10,4 @@
 | 赞助点零食? | |
 | :--- | :--- |
 | 微信 | 支付宝 |
-| ![](../../img/donate/donate-weixin.jpg) | ![](../../img/donate/donate-alipay.jpg) | 
+| <img src="../../img/donate/donate-weixin.jpg" width="200px"> | <img src="../../img/donate/donate-alipay.jpg" width="200px"> | 
