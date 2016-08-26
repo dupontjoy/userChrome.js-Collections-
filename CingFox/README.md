@@ -7,6 +7,7 @@ based on [pcxFirefox](http://sourceforge.net/projects/pcxfirefox/files/Release/F
 正常來说计划每周五更新一次, 希望能坚持尽量地久.
 
 ###更新历史
+- [**CingFox-48.0.2-2016.08.26**](doc/release/48.0.2-2016.08.26.md)
 - [**CingFox-48.0.1-2016.08.20**](doc/release/48.0.1-2016.08.20.md)
 - [**CingFox-47.0.1-2016.08.19**](doc/release/47.0.1-2016.08.19.md)
 - [**CingFox-47.0.1**](doc/release/47.0.1.md) (2016.07.05)
