@@ -5,7 +5,7 @@ based on [pcxFirefox](http://sourceforge.net/projects/pcxfirefox/files/Release/F
 一個美觀而實用的Firefox深度定制版, 在保證流畅的同時給你以Mac般的視覺享受.<br/>
 界面修攺自RunningCheese V5版.<br/>
 正常來说计划**每周五**更新一次, 希望能坚持尽量地久. 每次发布含3个压缩包, 一般而言下载Full即可.
-![](img/files.jpg)
+<p align="center"><img src="img/files.jpg" width="600"></p>
 
 
 ###更新历史
