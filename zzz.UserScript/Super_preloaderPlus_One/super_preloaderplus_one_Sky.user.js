@@ -146,7 +146,7 @@ var HashchangeSites = [
 //高級規則的一些默認設置..如果你不知道是什麼..請務必不要修改(刪除)它.此修改會影響到所有高級規則...
 var SITEINFO_D={
     enable: true,               // 啟用
-    useiframe: GM_getValue('SITEINFO_D.useiframe') || true,           // (預讀)是否使用iframe..
+    useiframe: GM_getValue('SITEINFO_D.useiframe') || false,           // (預讀)是否使用iframe..
     viewcontent: false,         // 查看預讀的內容,顯示在頁面的最下方.
     autopager: {
         enable: false,           // 啟用自動翻頁...
@@ -4776,7 +4776,7 @@ var autoMatch={
                 character: [' ', '　', ']','］', '〕', '>', '﹥', '›', '»', '>>', '』', '」', '】', ')', '→', '▸']
             }
         },
-    useiframe: GM_getValue('SITEINFO_D.useiframe') || true,            //(預讀)是否使用iframe..
+    useiframe: GM_getValue('SITEINFO_D.useiframe') || false,            //(預讀)是否使用iframe..
     viewcontent: false,          //查看預讀的內容,顯示在頁面的最下方.
     FA: {                       //強制拼接 選項 功能設置.
         enable:false,           //默認啟用 強制拼接

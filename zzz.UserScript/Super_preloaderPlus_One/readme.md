@@ -4,7 +4,6 @@ https://github.com/ywzhaiqi/userscript/tree/master/Super_preloaderPlus
 
 个人设置:
 - 不启用翻页 (包括第一个Google.com教程)
-- 开启iframe (包括第一个Google.com教程)
 
 ![](img/setting.jpg)
 
