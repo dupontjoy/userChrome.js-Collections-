@@ -2,12 +2,9 @@
 
 based on [pcxFirefox](http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/)
 
-一個美觀而實用的Firefox深度定制版, 在保證流畅的同時給你以Mac般的視覺享受.<br/>
-界面修攺自RunningCheese V5版.<br/>
+一個美觀而實用的Firefox深度定制版, 在保證流畅的同時給你以Mac般的視覺享受. 界面修攺自RunningCheese V5版.<br/>
 正常來说计划**每周五**更新一次, 希望能坚持尽量地久.<br/> 
-每次发布含3个压缩包, 一般而言下载Full即可.
-<img src="img/files.jpg" width="650">
-
+PS: 仅个人配置分享交流, 只接受bug反馈, 其余任何定制需求概不受理.
 
 ###更新历史
 - [**CingFox-48.0.2-2016.09.23**](doc/release/48.0.2-2016.09.23.md)
@@ -34,6 +31,10 @@ based on [pcxFirefox](http://sourceforge.net/projects/pcxfirefox/files/Release/F
 - 配套軟件分享
 - 詳細的備注說明, 有心的朋友可以學到東西
 - …… …… 更多內容等待你去发现
+
+###說明
+每次发布含3个压缩包, 一般而言下载Full即可.
+<img src="img/files.jpg" width="650">
 
 ###你可能还需要了解
 
