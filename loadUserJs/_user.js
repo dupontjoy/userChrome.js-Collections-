@@ -1,13 +1,6 @@
+//2016.09.29
 {
-'devtools.chrome.enabled': true,//VimFx必要
-'devtools.command-button-eyedropper.enabled': true,
-'devtools.command-button-rulers.enabled': true,
-'devtools.selfxss.count': 0,
-'privacy.donottrackheader.enabled': true,
-//VimFx
-'extensions.VimFx.prevent_autofocus': true,//阻止自动聚焦输入框
-'extensions.VimFx.ignore_keyboard_layout': true,//忽略键盘布局
-  /******************************************************************************************
+/******************************************************************************************
  *这里是个人设置。
  *******************************************************************************************/
 //*==========扩展设置==========*//
@@ -66,10 +59,6 @@
 //*==========脚本设置==========*//
 //UC管理器取消延迟加载
 'userChrome.EXPERIMENT': true,
-
-//UserCSSLoader引导器
-'UserCSSLoader.innereditor': false,//使用外部编辑器
-'UserCSSLoader.showtoolbutton': false,//显示为菜单
 
 //InspectElementModY
 'userChromeJS.InspectElement.contentType': 2,//查看页面:Dom Inspector
