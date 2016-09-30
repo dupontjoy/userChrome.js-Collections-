@@ -9,9 +9,7 @@
 // @homepage       www.slimeden.com
 // @version        0.6 - 20110119
 
-// 2016.08.24  调出标记改为`键
-// 2016.08.22  調出列表改成\單鍵
-
+// 2015.06.29  調出列表改成l單鍵
 // ==UserScript==
 -->
 <?xml-stylesheet href="data:text/css,@namespace%20url('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul');@namespace%20html%20url('http://www.w3.org/1999/xhtml');
@@ -83,9 +81,9 @@
         _status: 0,
 
         markPrefixKey: 77,//m
-        goPrefixKey: 192,//`
+        goPrefixKey: 222,//'
         escapeKey: 27,//escape
-        marksListKey: 220,//\
+        marksListKey: 76,//l
 
         keySequence: [],
 
