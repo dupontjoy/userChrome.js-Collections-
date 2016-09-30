@@ -7,6 +7,7 @@ based on [pcxFirefox](http://sourceforge.net/projects/pcxfirefox/files/Release/F
 PS: 仅个人配置分享交流, 只接受bug反馈, 其余任何定制需求概不受理.
 
 ###更新历史
+- [**CingFox-48.0.2-2016.09.30**](doc/release/48.0.2-2016.09.30.md)
 - [**CingFox-48.0.2-2016.09.23**](doc/release/48.0.2-2016.09.23.md)
 - [**CingFox-48.0.2-2016.09.09**](doc/release/48.0.2-2016.09.09.md)
 - [**CingFox-48.0.2-2016.09.02**](doc/release/48.0.2-2016.09.02.md)
@@ -33,7 +34,7 @@ PS: 仅个人配置分享交流, 只接受bug反馈, 其余任何定制需求概
 - …… …… 更多內容等待你去发现
 
 ###說明
-每次发布含3个压缩包, 一般而言下载Full即可. Advanced压缩包有一些个人用脚本和软件, 对大多数人来说没用, 可按需选择.
+每次发布含3个压缩包, 一般而言下载Full即可. Optional压缩包(原名Advanced)有一些个人用脚本和软件, 对大多数人来说没用, 可按需选择.
 <img src="img/files.jpg" width="650">
 
 ###你可能还需要了解
