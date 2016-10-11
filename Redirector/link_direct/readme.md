@@ -26,5 +26,14 @@ regex: true
 - 方法1: Redirector扩展
 - 方法2: Redirector脚本
 
+####测试:
+- http://www.jobui.com/tips/redirect.php?link=http%3A%2F%2Fjobs.51job.com%2Fshenzhen-nsq%2F58889341.html
+- https://link.zhihu.com/?target=https%3A//addons.mozilla.org/zh-cn/firefox/addon/linkchecker/%3Fsrc%3Dsearch
+- https://www.douban.com/link2/?url=https%3A%2F%2Fcode.google.com%2Fp%2Fchromium%2Fissues%2Fdetail%3Fid%3D51084
+- https://outgoing.mozilla.org/v1/5c2a5620285210f7267fdf87cfd39943f03f42538d2d98eec0b0cf5565dbca23/http%3A//vimium.github.io/
+- https://www.google.com/imgres?imgurl=https%3A%2F%2Flh4.ggpht.com%2FwKrDLLmmxjfRG2-E-k5L5BUuHWpCOe4lWRF7oVs1Gzdn5e5yvr8fj-ORTlBF43U47yI%3Dw300&imgrefurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dde.lotumapps.vibes&docid=Udigcj5zvVFziM&tbnid=D_y2y56rjrSoKM%3A&w=300&h=300&ved=0ahUKEwiywYaM0-rNAhWHfywKHdI0BSMQMwglKAAwAA&iact=mrc&uact=8&biw=1366&bih=659
+- http://www.so.com/link?url=http%3A%2F%2Fbaike.so.com%2Fdoc%2F4368934-4574777.html&q=Firefox&ts=1469089830&t=8d126c3df745e90727a2acb3821708d&src=haosou
+- https://www.douban.com/link2/?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fspm%3Da1z10.3-c.w4002-10457397471.62.F3nDNI%26id%3D526991279756
+
 ####反馈:
 http://bbs.kafan.cn/thread-2047931-1-1.html
