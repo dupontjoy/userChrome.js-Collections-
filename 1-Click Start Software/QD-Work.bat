@@ -1,4 +1,4 @@
-::2016.08.23
+::2016.10.11
 
 @echo off
 
@@ -12,11 +12,11 @@
 set dir=D:\Program Files
 
 ::公司用軟件
-start "" "%dir%\Jingoal\Jingoal.exe" & ping localhost -n 3
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
 ::start "" "%dir%\CingFox\Software\GFW\Shadowsocks\SSCap64\SSCap.exe"
-start "" "%dir%\Tencent\WeChat\WeChat.exe"
+start "" "%dir%\Tencent\WeChat\WeChat.exe" & ping localhost -n 3
+start "" "%dir%\Jingoal\Jingoal.exe"
 
 ::完成後退出
 exit

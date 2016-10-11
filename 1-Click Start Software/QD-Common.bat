@@ -1,4 +1,4 @@
-::2016.10.09
+::2016.10.11
 
 @echo off
 ::最小化运行批处理
@@ -15,11 +15,11 @@ start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/configf
 start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable" "/logfolder=%dir%\System Tools\ProcessLassoPortable"
 
 ::普通啟動
-start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 3
 start "" "%dir%\BaiduYun\baiduyun.exe"
 start "" "%dir%\CingFox\Software\Image\Picpick\Picpick.exe"
 start "" "%dir%\System Tools\nTrun\Run\QT.lnk"
 start "" "%dir%\System Tools\nTrun\Run\SD.lnk"
+start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 3
 
 ::完成後退出
 exit
