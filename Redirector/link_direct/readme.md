@@ -17,7 +17,6 @@
 name: "去跳轉",
 from:/^https?:\/\/.*\.(?:jobui|zhihu|douban|mozilla|google|so|)\.(?:com|org|)\/(.*(\?link|\?target|\?url|\?imgurl)=)?(http[^&]+).*/i,
 to: "$3",
-decode: true,
 regex: true
 },
 ```
