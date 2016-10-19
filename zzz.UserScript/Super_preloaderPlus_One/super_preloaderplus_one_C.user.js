@@ -4,7 +4,7 @@
 // @namespace    https://github.com/ywzhaiqi
 // @description  预读+翻页..全加速你的浏览体验...
 // @author       ywzhaiqi && NLF(原作者)
-// @version      6.5.0-2016.08.24
+// @version      6.5.0-2016.10.19
 // @homepageURL  https://greasyfork.org/scripts/293-super-preloaderplus-one
 
 // @grant        GM_addStyle
@@ -14,6 +14,28 @@
 // @grant        GM_registerMenuCommand
 
 // @include      http*
+// @exclude      http*://mail.google.com/*
+// @exclude      http*://maps.google*
+// @exclude      http*://www.google.com/reader*
+// @exclude      http*://www.google.com/calendar*
+// @exclude      http*://docs.google.com/*
+// @exclude      http*://app.yinxiang.com/*
+// @exclude      http*://www.dropbox.com/*
+// @exclude      http*://www.toodledo.com/*
+// @exclude      http*://cloud.feedly.com/*
+// @exclude      http*://weibo.com/*
+// @exclude      http*://w.qq.com/*
+// @exclude      http*://web2.qq.com/*
+// @exclude      http*://openapi.qzone.qq.com/*
+// @exclude      http*://*cloud.vip.xunlei.com/*
+// @exclude      http*://www.wumii.com/*
+// @exclude      http*://pan.baidu.com/*
+// @exclude      http*://yun.baidu.com/*
+// @exclude      http*://www.cnbeta.com/*
+// @exclude      http*://www.youku.com/
+// @exclude      http*://v.youku.com/*
+// @exclude      http*://www.iqiyi.com/*
+// @exclude      http*://www.duokan.com/reader/*
 // ==/UserScript==
 
 
@@ -59,8 +81,8 @@ gmCompatible();
 /////////////////////设置(请注意开关的缩进关系..子开关一般在父开关为true的时候才会生效.)//////////////////////
 var prefs={
     floatWindow: true,       // 显示悬浮窗
-        FW_position: 2,         // 1:出现在左上角;2:出现在右上角;3：出现在右下角;4：出现在左下角;
-        FW_offset: [20, 38],    // 偏离版边的垂直和水平方向的数值..(单位:像素)
+        FW_position: 1,         // 1:出现在左上角;2:出现在右上角;3：出现在右下角;4：出现在左下角;
+        FW_offset: [10, 10],    // 偏离版边的垂直和水平方向的数值..(单位:像素)
         FW_RAS: true,           // 点击悬浮窗上的保存按钮..立即刷新页面;
     pauseA: true,            // 快速停止自动翻页(当前模式为翻页模式的时候生效.);
         Pbutton: [2, 0, 0],     // 需要按住的键.....0: 不按住任何键;1: shift鍵;2: ctrl鍵; 3: alt鍵;(同时按3个键.就填 1 2 3)(一个都不按.就填 0 0 0)

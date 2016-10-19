@@ -17,8 +17,8 @@ start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfold
 ::普通啟動
 start "" "%dir%\BaiduYun\baiduyun.exe"
 start "" "%dir%\CingFox\Software\Image\Picpick\Picpick.exe"
-start "" "%dir%\System Tools\nTrun\Run\QT.lnk"
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 3
+start "" "%dir%\System Tools\nTrun\Run\QT.lnk"
 
 ::完成後退出
 exit
