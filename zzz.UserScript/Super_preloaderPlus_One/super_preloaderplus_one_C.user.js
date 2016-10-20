@@ -159,7 +159,7 @@ var SITEINFO=[
         //url:'wildc;http://www.google.com.hk/search*',
         siteExample:'http://www.google.com',                                                                                                //站点实例...(可选)
         enable:true,                                                                                                                                            //启用.(总开关)(可选)
-        useiframe:false,                                                                                                                                        //是否用iframe预读...(可选)
+        useiframe:true,                                                                                                                                        //是否用iframe预读...(可选)
         viewcontent:false,
 
         nextLink: 'id("pnnext") | id("navbar navcnt nav")//td[span]/following-sibling::td[1]/a | id("nn")/parent::a',                                                                                                                           //查看预读的内容,显示在页面的最下方.(可选)
@@ -173,7 +173,7 @@ var SITEINFO=[
         preLink: '//a[@id="pnprev"]',
         //preLink:'//table[@id="nav"]/descendant::a[1][parent::td[@class="b"]]',            //上一页链接 xpath 或者 CSS选择器 或者 函数返回值 (可选)
         autopager:{
-            enable:true ,                                                                                               //启用(自动翻页)(可选)
+            enable:false ,                                                                                               //启用(自动翻页)(可选)
             useiframe:false,                                                                                        //是否使用iframe翻页(可选)
                 iloaded:false,                                                                                      //是否在iframe完全load之后操作..否则在DOM完成后操作.
                 itimeout:0,                                                                                             //延时多少毫秒后,在操作..
