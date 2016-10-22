@@ -33,7 +33,7 @@
 
 		//一些设置...
 		var prefs={
-			iframeD:false						,//默认在无高级规则的网站上使用 iframe预读(不推荐);
+			iframeD:true						,//默认在无高级规则的网站上使用 iframe预读(不推荐);
 			keymatch:true							,//给没有规则的网站使用..关键字匹配模式寻找下一页(不建议关闭)..
 					cases:false					,//关键字区分大小写....
 					digitalCheck:true			,//对数字连接进行检测,从中找出下一页的链接
@@ -61,12 +61,12 @@
 							character:[' ','　',']','］','>','﹥','›','»','>>','』','」','】',')','→']
 						}
 					},
-			linkOutline:true,//给链接外边框.
+			linkOutline:false,//给链接外边框.
 					specialstyle:{//找到的那个链接的特殊样式..[粗细,样式,颜色];
 						previous:['2px','solid','#0000FF'],//上页链接
 						next:['2px','solid','#00FF00']//下页链接
 					},
-					allalert:true,//给其他上页,下页链接边框.
+					allalert:false,//给其他上页,下页链接边框.
 							alertstyle:{//其他链接边框样式..[粗细,样式,颜色];
 								previous:['1px','solid','#0000FF'],//上页链接
 								next:['1px','solid','#00FF00']//下页链接
