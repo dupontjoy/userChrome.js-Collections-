@@ -1,13 +1,14 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @name Super_prefetcher
 // @author NLF
 // @description  方便的前进,后退并且预读...#^_^#...(Support Opera 10.1+ ,Fx3.6+(need GreaseMonkey) ,Chrome5.0+)..
 // @create 2010-7-12
 // @lastmodified 2010-12-21
 // @namespace  http://userscripts.org/users/NLF
-// @version 2.1.0.0
+// @version 2.1.0.0-2016.10.22
 // @download  http://bbs.operachina.com/viewtopic.php?f=41&t=82513
 // @include http*
+// @grant   none
 // ==/UserScript==
 
 /*
@@ -203,6 +204,7 @@
 		];
 
 		var CUS_prePageKey=[
+		'prev'
 		];
 //////////////////////////-------------规则结束-------////////////////
 
