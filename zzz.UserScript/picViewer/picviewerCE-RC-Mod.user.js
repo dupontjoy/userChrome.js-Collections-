@@ -2,9 +2,9 @@
 // @name           picviewerCE-RC-Mod
 // @author         NLF && ywzhaiqi
 // @description    NLF 的围观图修改版
-// @version        2016.09.13
+// @version        2016.10.28
 
-// version         2015.7.10.0 / 4.2.6.1
+// version         2015.7.10.0 / 4.2.6.1  //@RunningCheese
 // @lastUpdated    2013-5-29 / @created        2011-6-15
 // @namespace      http://userscripts.org/users/NLF
 // @homepage       https://github.com/ywzhaiqi/userscript/tree/master/picviewerCE
@@ -24,6 +24,8 @@
 // @exclude       http*://maps.google.com*/*
 // @exclude       *://www.google.*/_/chrome/newtab*
 
+// @note          2016.10.28 修正京东主图, 添加aliexpress主图
+// @note          2016.10.19 添加Wish主图
 // @note          2016.09.13 添加1号店主图
 // @note          2016.01.31 添加Ligtinginthebox 主图, GSM Reviews 主图
 // @note          2015.12.29 添加Mobilefun 主图
@@ -170,6 +172,30 @@ var siteInfo=[
 	},
 	
 // ====== Cing新增的 ======
+	{name: 'Aliexpress 主图',
+		siteExample: 'https://www.aliexpress.com/store/product/Luxury-Leather-Case-For-iPhone-6-6S-4-7-Phone-Bag-Back-Cover-For-iPhone-6Plus/424588_32581060276.html',
+		url: /^https?:\/\/.*.aliexpress.com/i,
+		getImage: function() {
+			var oldsrc = this.src,
+				newsrc;
+			var pic = /(.+?\.alicdn\.com\/(.*))\_(.*)/;
+			if (pic.test(oldsrc)) {
+				return oldsrc.replace(pic, '$1');
+			}
+		}
+	},
+	{name: 'Wish 主图',
+		siteExample: 'https://www.wish.com/c/55d73deac1d2711043627d1e',
+		url: /^https?:\/\/.*.wish.com/i,
+		getImage: function() {
+			var oldsrc = this.src,
+				newsrc;
+			var pic = /(.+?\.wish\.com\/api\/webimage\/(.*))\-(.*)/;
+			if (pic.test(oldsrc)) {
+				return oldsrc.replace(pic, '$1-original');
+			}
+		}
+	},
 	{name: '1号店 主图',
 		siteExample: 'http://item.yhd.com/item/64726869',
 		url: /^https?:\/\/.*.yhd.com/i,
@@ -284,9 +310,9 @@ var siteInfo=[
 		getImage: function() {
 			var oldsrc = this.src,
 				newsrc;
-			var pic = /(.+?360buyimg\.com\/)n[\d]\/(.+)/;
+			var pic = /(.+?360buyimg\.com\/)n[\d]\/(.+)\_(.+)\/(.+)/;
 			if (pic.test(oldsrc)) {
-				return oldsrc.replace(pic, '$1imgzone/$2');
+				return oldsrc.replace(pic, '$1imgzone/$3/$4');
 			}
 		}
 	},
