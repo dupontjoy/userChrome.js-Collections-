@@ -17,7 +17,6 @@ start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
 ::start "" "%dir%\CingFox\Software\GFW\Shadowsocks\SSCap64\SSCap.exe"
 start "" "%dir%\Tencent\WeChat\WeChat.exe" & ping localhost -n 3
 start "" "%dir%\Jingoal\Jingoal.exe"
-start "" "%dir%\System Tools\DesktopBird.exe"
 
 ::完成後退出
 exit
