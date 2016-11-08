@@ -1,9 +1,9 @@
 ﻿// ==UserScript==
 // @name        Auto F5 reload window 
 // @namespace   http://userscripts.org/scripts/show/41891
-// @version     0.53-20151121
+// @version     0.53-2016.11.08
 // @author      paulonkey 
-// @include 	  http://ic.sjlpj.cn/*
+// @include 	  http://ic.sjlpj.cn/*UpShelf/OperationManageList
 // @grant		    GM_deleteValue 
 // @grant		    GM_getValue
 // @grant		    GM_setValue 
@@ -94,7 +94,7 @@ var hotkey = GM_getValue('hotkey','T');
 
 var separators_incl = GM_getValue('separators_incl',true);
 var autoclose = GM_getValue('autoclose',true);
-var click_extend = GM_getValue('click_extend',false);
+var click_extend = GM_getValue('click_extend',true);
 var refresh_all = GM_getValue('refresh_all',false);
 
 var separators_incl_text = separators_incl ? 'checked="checked"' : '';
