@@ -33,12 +33,12 @@
 // @exclude       http*://maps.google.com*/*
 // @exclude       *://www.google.*/_/chrome/newtab*
 
+// @note          2016.11.19 修正1688 主图
 // @note          2016.10.28 修正京东主图, 添加aliexpress主图
 // @note          2016.10.19 添加Wish主图
 // @note          2016.09.13 添加1号店主图
 // @note          2016.01.31 添加Ligtinginthebox 主图, GSM Reviews 主图
 // @note          2015.12.29 添加Mobilefun 主图
-// @note          2015.11.11 修正1688 主图
 // @note          2015.09.06 在RunnighCheese版上修改
 // @note          2015.08.11 添加sunsky 主图
 // @note          2015.08.10 添加Banggood 主图
@@ -261,7 +261,7 @@
 		getImage: function() {
 			var oldsrc = this.src,
 				newsrc;
-			var pic = /(.+?\.(aliimg|alibaba)\.com\/.+)\/(.+)\.(.+x.+).jpg(.*)/;
+			var pic = /(.+?\.(aliimg|alibaba|alicdn)\.com\/.+)\/(.+)\.(.+x.+).jpg(.*)/;
 			if (pic.test(oldsrc)) {
 				return oldsrc.replace(pic, '$1/$3.jpg');
 			}
