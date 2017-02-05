@@ -15,8 +15,8 @@ start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/configf
 start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable" "/logfolder=%dir%\System Tools\ProcessLassoPortable"
 
 ::普通啟動
-::start "" "%dir%\BaiduYun\baiduyun.exe"
-start "" "%dir%\Tencent\weiyundisk\Bin\wydrive.exe"
+start "" "%dir%\BaiduYun\baiduyun.exe"
+::start "" "%dir%\Tencent\weiyundisk\Bin\wydrive.exe"
 ::start "" "%dir%\CingFox\Software\Image\Picpick\Picpick.exe"
 start "" "%dir%\CingFox\Software\ShareX\ShareX.exe"
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 3
