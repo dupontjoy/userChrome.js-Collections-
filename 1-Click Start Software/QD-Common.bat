@@ -1,4 +1,4 @@
-::2016.11.14
+::2017.02.06
 
 @echo off
 ::最小化运行批处理
@@ -16,10 +16,10 @@ start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfold
 
 ::普通啟動
 start "" "%dir%\BaiduYun\baiduyun.exe"
-::start "" "%dir%\Tencent\weiyundisk\Bin\wydrive.exe"
-::start "" "%dir%\CingFox\Software\Image\Picpick\Picpick.exe"
-start "" "%dir%\CingFox\Software\ShareX\ShareX.exe"
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe" & ping localhost -n 3
+start "" "%dir%\CingFox\Software\ShareX\ShareX.exe"
+start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
+
 
 ::完成後退出
 exit
