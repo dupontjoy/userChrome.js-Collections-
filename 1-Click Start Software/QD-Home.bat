@@ -11,7 +11,7 @@
 set dir=D:\Program Files
 
 ::家里用
-start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
+
 
 ::完成後退出
 exit

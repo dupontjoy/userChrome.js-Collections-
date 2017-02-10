@@ -15,10 +15,11 @@ start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/configf
 start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable" "/logfolder=%dir%\System Tools\ProcessLassoPortable"
 
 ::普通啟動
+start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
 start "" "%dir%\BaiduYun\baiduyun.exe"
 start "" "%dir%\CingFox\Software\ShareX\ShareX.exe"
-start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
+start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
 
 
 ::完成後退出
