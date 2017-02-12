@@ -1,4 +1,4 @@
-::2017.02.06
+::2017.02.12
 
 @echo off
 ::最小化运行批处理
@@ -17,6 +17,7 @@ start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfold
 ::普通啟動
 start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
 start "" "%dir%\BaiduYun\baiduyun.exe"
+start "" "%dir%\Nutstore\Nutstore.exe"
 start "" "%dir%\CingFox\Software\picpick\picpick.exe"
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
 start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
