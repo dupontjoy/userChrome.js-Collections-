@@ -16,7 +16,7 @@ start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfold
 
 ::普通啟動
 start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
-start "" "%dir%\BaiduYun\baiduyun.exe"
+::start "" "%dir%\BaiduYun\baiduyun.exe"
 start "" "%dir%\Nutstore\Nutstore.exe"
 ::start "" "%dir%\CingFox\Software\picpick\picpick.exe"
 start "" "%dir%\CingFox\Software\ShareX\ShareX.exe"
