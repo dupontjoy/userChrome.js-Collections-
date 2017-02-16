@@ -9,19 +9,18 @@
 
 ::設置程序文件夾位置
 set dir=D:\Program Files
-set dir1=E:\Program Files
 
 ::Processlaso特殊处理
-start "" "%dir1%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable" "/logfolder=%dir%\System Tools\ProcessLassoPortable"
-start "" "%dir1%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable" "/logfolder=%dir%\System Tools\ProcessLassoPortable"
+start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable" "/logfolder=%dir%\System Tools\ProcessLassoPortable"
+start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable" "/logfolder=%dir%\System Tools\ProcessLassoPortable"
 
 ::普通啟動
 start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
 ::start "" "%dir%\BaiduYun\baiduyun.exe"
-start "" "%dir1%\Nutstore\Nutstore.exe"
+start "" "%dir%\Nutstore\Nutstore.exe"
 ::start "" "%dir%\CingFox\Software\picpick\picpick.exe"
 start "" "%dir%\CingFox\Software\ShareX\ShareX.exe"
-start "" "%dir1%\Tencent\QQ\Bin\QQ.exe"
+start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
 start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
 
 
