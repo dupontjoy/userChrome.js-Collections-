@@ -7,13 +7,9 @@ based on [pcxFirefox](http://sourceforge.net/projects/pcxfirefox/files/Release/F
 PS: 仅个人配置分享交流, 只接受bug反馈, 其余任何定制需求概不受理.
 
 ###更新历史
+- [**CingFox-52.0-2017.03.12**](doc/release/52.0-2017.03.12.md)
 - [**CingFox-51.0.1-2017.02.09**](doc/release/51.0.1-2017.02.09.md)
 - [**CingFox-49.0.2-2016.12.09**](doc/release/49.0.2-2016.12.09.md)
-- [**CingFox-49.0.2-2016.11.04**](doc/release/49.0.2-2016.11.04.md)
-- [**CingFox-48.0.2-2016.10.14**](doc/release/48.0.2-2016.10.14.md)
-- [**CingFox-48.0.1-2016.08.20**](doc/release/48.0.1-2016.08.20.md)
-- [**CingFox-47.0.1-2016.08.19**](doc/release/47.0.1-2016.08.19.md)
-- [**CingFox-47.0.1-2016.07.05**](doc/release/47.0.1.md)
 
 ###特色：
 - 基于SimpleWhite的全新界面, 如Mac般的細膩視感
