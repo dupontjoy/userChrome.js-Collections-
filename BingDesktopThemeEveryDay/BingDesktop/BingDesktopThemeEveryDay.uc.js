@@ -4,85 +4,87 @@
 // @author       527836355
 // @include      main
 // @charset      utf-8
-// @version      1.0
-// @downloadURL  https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BingDesktopThemeEveryDay/BingDesktopThemeEveryDay.uc.js
+// @version      1.1
+// @mod          http://bbs.kafan.cn/forum.php?mod=redirect&goto=findpost&ptid=2080368&pid=39498368
 // @homepageURL  https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/BingDesktopThemeEveryDay
 
-//2015.04.02 09:00 必应美图改到配置文件夹下
+//2017.03.13 必应美图改到配置文件夹下
 
-function  setBingTheme()
-{
-
-var now=getNow();
-var history=getDate();
-if(now>history)
-	{
-	init();
-	
-	
-	}
-
-function getNow()
-	{
-	var t=new Date();
-	var y=t.getFullYear();
-	var m=t.getMonth()+1;if(m<10) m='0'+m;
-	var d=t.getDate();if(d<10) d='0'+d;
-	n=parseInt(''+y+m+d);
-	return n;
-	}
-function getDate()
-	{
-	
-	var p=Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
-	try
-	{
-	var d=p.getIntPref('userchromejs.data.BingDesktopTheme');
-	return d;
-	}
-	catch(err)
-	{
-	p.setIntPref('userchromejs.data.BingDesktopTheme',0);
-	return 0;
-	}
-
-	}
-function init()
-{
-var xhr=new XMLHttpRequest();
-xhr.open('GET','http://global.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&nc='+new Date().getTime(),false);
-
-xhr.onload=function()
-			{
-			var mes=JSON.parse(xhr.responseText);
-			var enddate=parseInt(mes.images[0].enddate);
-			var ddd=mes.images[0].url;
-			var name=mes.images[0].copyright;
-			var p=Components.classes["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
-			p.setIntPref('userchromejs.data.BingDesktopTheme',enddate);
-			var t=new Image();
-			t.src=ddd;
-			t.onload=function()
-				{
-				
-				var shell=Cc["@mozilla.org/browser/shell-service;1"].getService(Ci.nsIShellService);
-			shell.setDesktopBackground(t,Ci.nsIShellService["BACKGROUND_STRETCH"]);
-				
-				
-				try{var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-				var path = /*Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfLD", Components.interfaces.nsILocalFile).path*/ Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\BingDesktopTheme\\" + enddate+'-'+name.replace(/ \(.*?\)/g,'')+ ".jpg";
-				file.initWithPath(path);
-				file.create(Components.interfaces.nsIFile.NOMAL_FILE_TYPE, 0777)		
-				Components.classes["@mozilla.org/embedding/browser/nsWebBrowserPersist;1"].createInstance(Components.interfaces.nsIWebBrowserPersist).saveURI(Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService).newURI(ddd.replace('1366x768','1920x1080'), null, null), null, null, null, null, null, file, null);
-				}catch(err){alert(err)};
-				
-				}
-
-				
-			}
-xhr.send();
-
-}
-
-};
-setBingTheme();
+var bingWallpaperDesktop=function(){
+    var prefManager=Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
+    return{
+        fixDate:function(d){
+            if(d<10)
+                d='0'+d;
+            return d;
+        },
+        getNow:function(){
+            var d=new Date(),
+                dt=d.getDate()+1,
+                y,
+                m;
+            d.setDate(dt);
+            y=d.getFullYear();
+            m=this.fixDate(d.getMonth()+1);
+            dt=this.fixDate(d.getDate());
+            return parseInt(''+y+m+dt);
+        },
+        getDDate:function(){
+            var pref;
+            try{
+                pref=prefManager.getIntPref('extensions.bingwallpaperdesktop.datadate');
+                return pref;
+            }
+            catch(e){
+                prefManager.setIntPref('extensions.bingwallpaperdesktop.datadate',0);
+                return 0;
+            }
+        },
+        init:function(){
+            var ths=this;
+            var xhr=new XMLHttpRequest();
+            xhr.open('GET','http://cn.bing.com/HPImageArchive.aspx?format=js&idx=-1&n=1&nc='+new Date().getTime(),false);
+            xhr.onload=function(){
+                var response=JSON.parse(this.responseText),
+                    images=response.images[0],
+                    enddate=parseInt(images.enddate),
+                    imgref=images.url,
+                    cp=images.copyright,
+                    ni=new Image();
+                imgref='http://cn.bing.com'+imgref; 
+                if(ths.getDDate()<enddate){
+                    prefManager.setIntPref('extensions.bingwallpaperdesktop.datadate',enddate);
+                    ni.src=imgref;
+                    ni.onload=function(){
+                        var shell=Cc["@mozilla.org/browser/shell-service;1"].getService(Ci.nsIShellService);
+                        shell.setDesktopBackground(ni,Ci.nsIShellService["BACKGROUND_STRETCH"]);
+                        try{
+                            var file=Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile),
+                                //path="C:\\必应美图\\"+enddate+"-"+cp.replace(/ \(.*?\)/g,'')+".jpg";                
+                            path=Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\BingDesktopTheme\\"+enddate+"-"+cp.replace(/ \(.*?\)/g,'')+".jpg"; 
+                            file.initWithPath(path);
+                            file.create(Components.interfaces.nsIFile.NOMAL_FILE_TYPE,0777);
+                            Components.classes["@mozilla.org/embedding/browser/nsWebBrowserPersist;1"].createInstance(Components.interfaces.nsIWebBrowserPersist).saveURI(Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService).newURI(imgref,null,null),null,null,null,null,null,file,null);
+                        }
+                        catch(err){
+                            return false;
+                        }
+                    };
+                }
+            };
+            xhr.send();
+        },
+        run:function(){
+            var ths=this,
+                runs=function(){
+                    var now=ths.getNow(),
+                        datadate=ths.getDDate();
+                    if(now>datadate)
+                        ths.init();
+                };
+            runs();
+            setInterval(runs,120000);
+        }
+    };
+}();
+bingWallpaperDesktop.run();
