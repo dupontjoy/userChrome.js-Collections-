@@ -1,4 +1,4 @@
-::2017.01.07
+::2017.03.15
 
 @echo off
 
@@ -15,6 +15,7 @@ set dir2=C:\Program Files (x86)
 ::公司用軟件
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 ::start "" "%dir%\CingFox\Software\GFW\Shadowsocks\SSCap64\SSCap.exe"
+start "" "%dir%\DingDing\main\current\DingTalk.exe"
 start "" "%dir%\Tencent\WeChat\WeChat.exe" & ping localhost -n 3
 start "" "%dir2%\XiaoMi\MiWiFi\MiWiFi.exe"
 
