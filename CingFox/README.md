@@ -7,6 +7,7 @@ based on [pcxFirefox](http://sourceforge.net/projects/pcxfirefox/files/Release/F
 PS: 仅个人配置分享交流, 只接受bug反馈, 不接受任何定制需求.
 
 ###更新历史
+- [**CingFox-52.0.2-2017.04.03**](doc/release/52.0.2-2017.04.03.md)
 - [**CingFox-52.0-2017.03.12**](doc/release/52.0-2017.03.12.md)
 - [**CingFox-51.0.1-2017.02.09**](doc/release/51.0.1-2017.02.09.md)
 - [**CingFox-49.0.2-2016.12.09**](doc/release/49.0.2-2016.12.09.md)
