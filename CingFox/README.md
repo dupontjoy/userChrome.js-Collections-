@@ -2,7 +2,7 @@
 
 based on [pcxFirefox](http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/)
 
-一個美觀而實用的Firefox深度定制版, 在保證流畅的同時給你以Mac般的視覺享受. 界面修攺自RunningCheese V5版.<br/>
+一個美觀而實用的Firefox深度定制版, 在保證流畅的同時給你以Mac般的視覺享受. 界面修攺自RunningCheese V8版.<br/>
 正常來说计划**每周五**更新一次, 希望能坚持尽量地久.<br/> 
 PS: 仅个人配置分享交流, 只接受bug反馈, 不接受任何定制需求.
 
