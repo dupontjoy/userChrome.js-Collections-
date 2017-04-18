@@ -1,4 +1,4 @@
-###Redirector擴展版
+### Redirector擴展版
 
 下載地址: https://addons.mozilla.org/en-US/firefox/addon/redirector/
 

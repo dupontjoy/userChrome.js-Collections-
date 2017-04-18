@@ -1,10 +1,10 @@
-##TabPlus_ModCing
+## TabPlus_ModCing
 
 標籤增強
 
 基於[open_in_new_tab](http://g.mozest.com/thread-26649-1-1) by **GOLF-AT**
 
-####新增功能：
+#### 新增功能：
 
 - 開閉標籤後激活左側標籤
 

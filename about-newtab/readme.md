@@ -1,8 +1,8 @@
-##about:newtab美化
+## about:newtab美化
 
 by RunningCheese
 
-###使用方法：
+### 使用方法：
 第1步、解压后，把newtab-images整个文件夹复制到content文件夹下面，如图：<br/> 
 <p align="center"><img width="650" src="img/position.jpg"></p>
 

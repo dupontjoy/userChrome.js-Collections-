@@ -1,4 +1,4 @@
-##单功能版
+## 单功能版
 
 截至2015.07.13日
 
@@ -17,14 +17,14 @@ Mod by **Cing**
 備份配置修改自：http://bbs.kafan.cn/thread-1726407-1-1.html<br/>
 一键提取 32位Flash插件 批处理为原创
 
-###特点：<br/>
+### 特点：<br/>
 - 自定义需要备份的「文件夹」和「文件」，二者表达有小差別，已分组便于查找和修改
 - 添加完整的时间，支持24小時制，精确到：日期+时+分+秒。如：20150607-202728
 - 支持获取Firefox版本号，配置包名称格式：名称+时间+版本。如：Profiles_20150607-202728_38.0.5.7z
 - 添加备份进行之前/之后的提示语句，便于取消操作
 - 备份结束后重启Firefox
 
-###更新歷史：<br/>
+### 更新歷史：<br/>
 - 2015.07.11 提取32位Flash插件加入選項
 - 2015.07.02 添加刪除項，其它小調整
 - 2015.06.25 實現獲取Flash版本號
@@ -41,7 +41,7 @@ Mod by **Cing**
 ![打包结束](/BackupProfiles_7z/img/BackupProfiles-End.jpg)
 ![打包结束-2](/BackupProfiles_7z/img/BackupFullProfiles-End.jpg)
 
-###注意：<br/>
+### 注意：<br/>
 **我的配置文件夹结构：**<br/>
 <img width="650" src="https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/CingFox/img/folder-structure.jpg">
 

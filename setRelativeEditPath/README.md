@@ -1,4 +1,4 @@
-##setRelativeEditPath
+## setRelativeEditPath
 
 转换相对路径并设置这个值
 

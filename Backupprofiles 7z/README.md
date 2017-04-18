@@ -1,4 +1,4 @@
-##Backup_7z整合版
+## Backup_7z整合版
 
 by Cing
 
@@ -12,14 +12,14 @@ by Cing
 
 **注意：**文件夹相对结构要调整好。不会调整的就只能按我的结构来了。
 
-###特点：
+### 特点：
 - 自定义需要备份的「文件夹」和「文件」，二者表达有小差別，已分组便于查找和修改
 - 添加完整的时间，支持24小時制，精确到：日期+时+分+秒。如：20150607-202728
 - 支持获取Firefox版本号，配置包名称格式：名称+时间+版本。如：Profiles_20150607-202728_38.0.5.7z
 - 添加备份进行之前/之后的提示语句，便于取消操作
 - 备份结束后重启Firefox
 
-###更新歷史：
+### 更新歷史：
 - 2016.10.22 加入Speedyfox优化
 - 2016.01.27 實現下載到指定文件夾
 - 2016.01.02 優化輸出與臨時文件夾地址
@@ -39,7 +39,7 @@ by Cing
 | 示意圖: | Firefox文件夾結構: |
 | <img width="410" src="img/backup_7z-1.jpg"> | <img width="410" src="https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/CingFox/img/folder-structure.jpg"> |
 
-###注意：
+### 注意：
 
 **1. 关于批处理与配置的相对位置：**<br/>
 从批处理所在位置到配置文件夹（Profiles），共跨了3层，所以批处理中会这样定义：

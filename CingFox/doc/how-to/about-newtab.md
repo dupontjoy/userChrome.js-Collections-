@@ -1,4 +1,4 @@
-####about:newtab设置
+#### about:newtab设置
 
 预览图:
 
@@ -6,7 +6,7 @@
 
 想要将about:newtab设置成以上效果, 你需要按照下述步骤来设置.
 
-####将如下参数写入user.js中
+#### 将如下参数写入user.js中
 
 ```javascript
 user_pref("browser.startup.homepage", "about:newtab");//首頁
@@ -18,7 +18,7 @@ user_pref("browser.newtabpage.pinned", "[{\"url\":\"http://bbs.kafan.cn/forum-21
 
 共需要6x3=18个网址及图标, 网址格式参照已有的来改, 顺序也是这条参数中固定死的. 最好先在记事本中一条网址写一行, 方便调顺序, 最后再将所有网址合并成一行展示.
 
-####找图标或PS图标
+#### 找图标或PS图标
 
 建议图标大小152x152, 做好后放入
 
@@ -28,12 +28,12 @@ ProfD\extensions\userChromeJS@mozdev.org\content\newtab-images
 
 <img src="../../img/newtab-images.jpg" width="600">
 
-####安装Simple White主题
+#### 安装Simple White主题
 由于样式是搭配Simple White主题使用的, 所以...
 
 https://addons.mozilla.org/zh-CN/firefox/addon/simplewhite/?src=search
 
-####使用Stylish或VimFx加载样式
+#### 使用Stylish或VimFx加载样式
 !注意, 有些样式使用userCSSLoader.uc.js加载是不行的, about:newtab的样式即是如此.
 
 <img src="../../img/newtab-css.jpg" width="600">

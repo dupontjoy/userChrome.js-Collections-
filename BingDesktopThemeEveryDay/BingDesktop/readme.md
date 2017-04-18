@@ -1,4 +1,4 @@
-##BingDesktopThemeEveryDay.uc.js
+## BingDesktopThemeEveryDay.uc.js
 每日必应缤纷桌面，自动同步更新桌面壁纸<br/>
 by 527836355
 
@@ -9,7 +9,7 @@ by 527836355
 
 <p align="center"><img width="650" src="img/preview.jpg"></p>
 
-###BingWallpaperDesktop.uc.js
+### BingWallpaperDesktop.uc.js
 Mod by chromeexe
 
 - 壁纸设置为必应第二天备用的那张

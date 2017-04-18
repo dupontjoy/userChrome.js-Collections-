@@ -1,4 +1,4 @@
-##MemoryMonitor_Mod.uc.js
+## MemoryMonitor_Mod.uc.js
 
 简单的FF内存监视器
 

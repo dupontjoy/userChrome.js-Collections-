@@ -6,13 +6,13 @@ based on [pcxFirefox](http://sourceforge.net/projects/pcxfirefox/files/Release/F
 正常來说计划**每周五**更新一次, 希望能坚持尽量地久.<br/> 
 PS: 仅个人配置分享交流, 只接受bug反馈, 不接受任何定制需求.
 
-###更新历史
+### 更新历史
 - [**CingFox-52.0.2-2017.04.03**](doc/release/52.0.2-2017.04.03.md)
 - [**CingFox-52.0-2017.03.12**](doc/release/52.0-2017.03.12.md)
 - [**CingFox-51.0.1-2017.02.09**](doc/release/51.0.1-2017.02.09.md)
 - [**CingFox-49.0.2-2016.12.09**](doc/release/49.0.2-2016.12.09.md)
 
-###特色：
+### 特色：
 - 基于SimpleWhite的全新界面, 如Mac般的細膩視感
 - 美觀的快速拨號
 - 廣告過濾：帶個人維護規則, 屏蔽常用網站彈窗及色情圖片
@@ -29,7 +29,7 @@ PS: 仅个人配置分享交流, 只接受bug反馈, 不接受任何定制需求
 - 詳細的備注說明, 有心的朋友可以學到東西
 - …… …… 更多內容等待你去发现
 
-###說明
+### 說明
 (1) 每次发布含2个压缩包, 一般而言下载Full即可. <br/>
 Optional压缩包有一些个人用脚本和软件, 对大多数人来说没用, 可按需选择.
 <img src="img/files.jpg" width="650">
@@ -38,7 +38,7 @@ Optional压缩包有一些个人用脚本和软件, 对大多数人来说没用,
 https://userstyles.org/styles/133307/cingfox-version
 <img src="img/version.jpg" width="650">~~
 
-###你可能还需要了解
+### 你可能还需要了解
 
 | | | |
 | :--- | :--- | :--- |
@@ -46,7 +46,7 @@ https://userstyles.org/styles/133307/cingfox-version
 | [VimFx的用法](doc/how-to/vimfx用法.md) | [about:newtab网址及图标](doc/how-to/about-newtab.md) | [searchplugins设置](doc/how-to/searchplugins.md) |
 | [uBlock Origin第三方设置](doc/how-to/ubo.md) | [个人Firefox经历](doc/how-to/个人Firefox经历.md) |  |
 
-###參考資料：
+### 參考資料：
 - 官方Firefox：http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/
 - pcxFirefox：http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/
 - RunningCheese：http://www.runningcheese.com/

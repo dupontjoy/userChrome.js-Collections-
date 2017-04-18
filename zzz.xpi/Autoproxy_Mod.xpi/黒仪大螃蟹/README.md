@@ -1,4 +1,4 @@
-##install.rdf
+## install.rdf
 
 (1)修改Mod版本号便于查找辩认;
 

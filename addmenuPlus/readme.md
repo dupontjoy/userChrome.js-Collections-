@@ -129,7 +129,7 @@ addMenuPlus 是一个非常强大的定制菜单的 uc 脚本。通过配置文�
     css('.addMenu .menu-iconic-accel[value="window"] { display: none; }');
     css('.addMenu .menu-iconic-accel[value="current"] { display: none; }');
 
-###自定義規則
+### 自定義規則
 
 示例：用新分頁開啟鏈結左中右鍵<br/>
 <p align="center"><img src="img/link.jpg"></p>
