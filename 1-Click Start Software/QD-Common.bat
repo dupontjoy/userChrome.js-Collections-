@@ -1,4 +1,4 @@
-::2017.04.04
+::2017.04.21
 
 @echo off
 ::最小化运行批处理
@@ -11,7 +11,7 @@
 set dir=D:\Program Files
 
 ::初始化Listary历史记录
-::del "%dir%\CingFox\Software\Listary Pro\UserData\DiskSearch.db"  /s /q
+del "%dir%\CingFox\Software\Listary Pro\UserData\DiskSearch.db"  /s /q
 del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite"  /s /q
 del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite-journal"  /s /q
 del "%dir%\CingFox\Software\Listary Pro\UserData\listary_log.log"  /s /q
