@@ -1,40 +1,7 @@
 {
-  "version": "2014.9.17",
-  "licenseKey": "",
-  "runAtStartup": true,
-  "hideInactiveTabs": true,
-  "enableTabbingByDefault": true,
-  "combineIconsInTaskbar": true,
-  "replaceAltTab": true,
-  "groupWindowsInSwitcher": true,
-  "includedPaths": [],
-  "excludedPaths": [],
-  "autoGroupingPaths": [
-    "C:\\Windows\\System32\\dllhost.exe",
-    "D:\\Program Files\\CingFox\\Software\\PicPick\\picpick.exe",
-    "D:\\Program Files\\Tencent\\QQ\\Bin\\QQ.exe",
-    "C:\\Program Files\\Microsoft Office\\Office15\\EXCEL.EXE",
-    "C:\\Windows\\explorer.exe",
-    "D:\\Program Files\\DingDing\\main\\current_new\\DingTalk.exe",
-    "D:\\Program Files\\CingFox\\Software\\TotalCMD64\\Totalcmd64.exe",
-    "D:\\Program Files\\CingFox\\firefox\\firefox.exe",
-    "C:\\Users\\cing\\AppData\\Local\\Apps\\2.0\\R9V63P8N.87K\\9W9RCOEE.5KZ\\gith..tion_317444273a93ac29_0002.000b_04ef7acd6b4fcd50\\GitHub.exe",
-    "D:\\Program Files\\Tencent\\Foxmail\\Foxmail.exe",
-    "D:\\Program Files\\Netease\\CloudMusic\\cloudmusic.exe",
-    "C:\\Windows\\System32\\ApplicationFrameHost.exe"
-  ],
-  "tabAppearance": {
-    "tabHeight": 25,
-    "tabMaxWidth": 200,
-    "tabOverlap": 20,
-    "tabNormalBgColor": "9FC4F0",
-    "tabHighlightBgColor": "BDD5F4",
-    "tabActiveBgColor": "FAFCFE",
-    "tabFlashBgColor": "FFBBBB",
-    "tabBorderColor": "3A70B1",
-    "tabHeightOffset": 1,
-    "tabIndentFlipped": 80,
-    "tabIndentNormal": 3
+  "hotKeys": {
+    "nextTab": 2855,
+    "prevTab": 2853
   },
   "workspaces": [
     {
@@ -205,8 +172,43 @@
       ]
     }
   ],
-  "hotKeys": {
-    "nextTab": 2855,
-    "prevTab": 2853
+  "version": "2014.9.17",
+  "licenseKey": "",
+  "runAtStartup": true,
+  "hideInactiveTabs": true,
+  "enableTabbingByDefault": true,
+  "combineIconsInTaskbar": true,
+  "replaceAltTab": true,
+  "groupWindowsInSwitcher": true,
+  "includedPaths": [],
+  "excludedPaths": [
+    "C:\\Users\\Cing\\AppData\\Local\\Apps\\2.0\\02PWGV61.Q1G\\VOYBGJ2E.D9K\\gith..tion_317444273a93ac29_0002.000b_680dec63062527d1\\GitHub.exe",
+    "C:\\Windows\\System32\\ApplicationFrameHost.exe"
+  ],
+  "autoGroupingPaths": [
+    "C:\\Windows\\System32\\dllhost.exe",
+    "D:\\Program Files\\CingFox\\Software\\PicPick\\picpick.exe",
+    "D:\\Program Files\\Tencent\\QQ\\Bin\\QQ.exe",
+    "C:\\Program Files\\Microsoft Office\\Office15\\EXCEL.EXE",
+    "C:\\Windows\\explorer.exe",
+    "D:\\Program Files\\DingDing\\main\\current_new\\DingTalk.exe",
+    "D:\\Program Files\\CingFox\\Software\\TotalCMD64\\Totalcmd64.exe",
+    "D:\\Program Files\\CingFox\\firefox\\firefox.exe",
+    "C:\\Users\\cing\\AppData\\Local\\Apps\\2.0\\R9V63P8N.87K\\9W9RCOEE.5KZ\\gith..tion_317444273a93ac29_0002.000b_04ef7acd6b4fcd50\\GitHub.exe",
+    "D:\\Program Files\\Tencent\\Foxmail\\Foxmail.exe",
+    "D:\\Program Files\\Netease\\CloudMusic\\cloudmusic.exe"
+  ],
+  "tabAppearance": {
+    "tabHeight": 25,
+    "tabMaxWidth": 200,
+    "tabOverlap": 20,
+    "tabNormalBgColor": "9FC4F0",
+    "tabHighlightBgColor": "BDD5F4",
+    "tabActiveBgColor": "FAFCFE",
+    "tabFlashBgColor": "FFBBBB",
+    "tabBorderColor": "3A70B1",
+    "tabHeightOffset": 1,
+    "tabIndentFlipped": 80,
+    "tabIndentNormal": 3
   }
 }
