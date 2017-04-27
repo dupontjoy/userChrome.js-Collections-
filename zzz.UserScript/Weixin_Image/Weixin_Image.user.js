@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        图片源链接更改
+// @name        Weixin_Image
 // @namespace   微信, 得到图片反盗链
 // @description 设置data-src等于src. 需要配合Referchange使用, 设置qpic.cn和qlogo.cn为@Block.
 // @include     *
