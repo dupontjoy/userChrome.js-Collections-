@@ -25,7 +25,8 @@ start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
 start "" "%dir%\Nutstore\Nutstore.exe" /min
 start "" "%dir%\CingFox\Software\picpick\picpick.exe"
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
-start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
+::start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
+start "" "%dir%\CingFox\Software\GFW\Shadowsocks\Shadowsocks.exe"
 
 
 ::完成後退出
