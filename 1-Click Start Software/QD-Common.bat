@@ -1,4 +1,4 @@
-::2017.04.21
+::2017.05.12
 
 @echo off
 ::最小化运行批处理
@@ -17,8 +17,8 @@ del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite-journal"  /s 
 del "%dir%\CingFox\Software\Listary Pro\UserData\listary_log.log"  /s /q
 
 ::Processlaso特殊处理
-start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable" "/logfolder=%dir%\System Tools\ProcessLassoPortable"
-start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable" "/logfolder=%dir%\System Tools\ProcessLassoPortable"
+start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable\config" "/logfolder=%dir%\System Tools\ProcessLassoPortable\config"
+start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable\config" "/logfolder=%dir%\System Tools\ProcessLassoPortable\config"
 
 ::普通啟動
 start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
