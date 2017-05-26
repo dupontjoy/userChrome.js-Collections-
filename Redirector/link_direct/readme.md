@@ -14,10 +14,37 @@
 
 ```javascript
 {
-name: "去跳轉",
-from:/^https?:\/\/.*\.(?:jobui|zhihu|douban|mozilla|google|so|)\.(?:com|org|)\/(.*(\?link|\?target|\?url|\?imgurl)=)?(http[^&]+).*/i,
-to: "$3",
-regex: true
+    //https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector/link_direct
+    name: "去跳转",
+    from: /^https?:\/\/.*\.(?:jobui|google|so|)\.(?:com|org|)\/(.*(\?link|\?target|\?url|\?imgurl)=)?(http[^&]+).*/i,
+    to: "$3",
+    regex: true
+},
+{
+    name: "豆瓣链接去跳转",
+    from: /^https?:\/\/www\.douban\.com\/.*\?url=(http.*)/i,
+    to: "$1",
+    regex: true
+},{
+    name: "知乎链接去跳转",
+    from: /^https?:\/\/(link|www)\.zhihu\.com\/(\?target=|question\/.*)(http.*)/i,
+    to: "$3",
+    regex: true
+},{
+    name: "好搜链接去跳转",
+    from: /^https?:\/\/www\.so\.com\/link\?url=http([^&]+).*/i,
+    to: "$1",
+    regex: true
+},{
+    name: "WordPress博客外链去跳转",
+    from: /^https?:\/\/.*\/go\.php\?url=(http.*)/i,
+    to: "$1", 
+    regex: true
+},{
+    name: "Pixiv外链去跳转",
+    from: /^https?:\/\/www\.pixiv\.net\/jump\.php\?(http.*)/i,
+    to: "$1", 
+    regex: true
 },
 ```
 
