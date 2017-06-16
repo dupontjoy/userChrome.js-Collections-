@@ -1,4 +1,4 @@
-::2017.06.15
+::2017.06.16
 
 @echo off
 ::最小化运行批处理
@@ -25,8 +25,8 @@ start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
 start "" "%dir%\Nutstore\Nutstore.exe" /min
 start "" "%dir%\CingFox\Software\picpick\picpick.exe"
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
-start "" "%dir%\CingFox\Software\GFW\MEOW\MEOW.exe"
 start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
+::start "" "%dir%\CingFox\Software\GFW\MEOW\MEOW.exe"
 
 ::完成後退出
 exit
