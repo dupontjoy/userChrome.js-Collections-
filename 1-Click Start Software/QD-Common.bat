@@ -1,4 +1,4 @@
-::2017.04.04
+::2017.06.16
 
 @echo off
 ::最小化运行批处理
@@ -11,24 +11,23 @@
 set dir=D:\Program Files
 
 ::初始化Listary历史记录
-::del "%dir%\CingFox\Software\Listary Pro\UserData\DiskSearch.db"  /s /q
+del "%dir%\CingFox\Software\Listary Pro\UserData\DiskSearch.db"  /s /q
 del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite"  /s /q
 del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite-journal"  /s /q
 del "%dir%\CingFox\Software\Listary Pro\UserData\listary_log.log"  /s /q
 
 ::Processlaso特殊处理
-start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable" "/logfolder=%dir%\System Tools\ProcessLassoPortable"
-start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable" "/logfolder=%dir%\System Tools\ProcessLassoPortable"
+start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable\config" "/logfolder=%dir%\System Tools\ProcessLassoPortable\config"
+start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable\config" "/logfolder=%dir%\System Tools\ProcessLassoPortable\config"
 
 ::普通啟動
 start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
-::start "" "%dir%\BaiduYun\baiduyun.exe"
 start "" "%dir%\Nutstore\Nutstore.exe" /min
 start "" "%dir%\CingFox\Software\picpick\picpick.exe"
-::start "" "%dir%\CingFox\Software\ShareX\ShareX.exe"
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
-start "" "%dir%\CingFox\Software\GFW\Shadowsocks\ShadowsocksR-dotnet4.0.exe"
-
+::start "" "%dir%\Tencent\Tim\Bin\Tim.exe"
+start "" "%dir%\CingFox\Software\GFW\SSR\ShadowsocksR-dotnet4.0.exe"
+start "" "%dir%\CingFox\Software\GFW\MEOW\MEOW.exe"
 
 ::完成後退出
 exit
