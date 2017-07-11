@@ -1,4 +1,4 @@
-###去链接重定向, 直接访问目标网站
+### 去链接重定向, 直接访问目标网站
 
 目前已重定向网站:
 - 职友集
@@ -10,7 +10,7 @@
 
 自1.5版Redirector支持解码后, 功能又强大了不少, 关键是开启**decode**
 
-####规则:
+#### 规则:
 
 ```javascript
 {
@@ -48,11 +48,11 @@
 },
 ```
 
-####用法: 
+#### 用法: 
 - 方法1: Redirector扩展
 - 方法2: Redirector脚本
 
-####测试:
+#### 测试:
 - http://www.jobui.com/tips/redirect.php?link=http%3A%2F%2Fjobs.51job.com%2Fshenzhen-nsq%2F58889341.html
 - https://link.zhihu.com/?target=https%3A//addons.mozilla.org/zh-cn/firefox/addon/linkchecker/%3Fsrc%3Dsearch
 - https://www.douban.com/link2/?url=https%3A%2F%2Fcode.google.com%2Fp%2Fchromium%2Fissues%2Fdetail%3Fid%3D51084
@@ -61,5 +61,5 @@
 - http://www.so.com/link?url=http%3A%2F%2Fbaike.so.com%2Fdoc%2F4368934-4574777.html&q=Firefox&ts=1469089830&t=8d126c3df745e90727a2acb3821708d&src=haosou
 - https://www.douban.com/link2/?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fspm%3Da1z10.3-c.w4002-10457397471.62.F3nDNI%26id%3D526991279756
 
-####反馈:
+#### 反馈:
 http://bbs.kafan.cn/thread-2047931-1-1.html

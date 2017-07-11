@@ -1,4 +1,4 @@
-##AutoHideBar
+## AutoHideBar
 Create by **Defpt**<br/>
 <img width="650" src="img/autohidebar.gif">
 

@@ -1,16 +1,16 @@
-##Redirector重定向
+## Redirector重定向
 
-###工具
+### 工具
 - [Redirector扩展](https://addons.mozilla.org/en-US/firefox/addon/redirector/)
 - [Redirector脚本](https://github.com/harv/userChromeJS/blob/master/redirector_ui.uc.js)
 
-###Link_Direct
+### Link_Direct
 [Link_Direct](link_direct/readme.md)
 
-###其它一些规则备份
+### 其它一些规则备份
 [rules](rules.md)
 
-####部分規則卡飯發佈地址：
+#### 部分規則卡飯發佈地址：
 [Google开源库重定向到国内](http://bbs.kafan.cn/thread-1769934-1-1.html)<br/>
 [百度云盘分享页，手机版 重定向至 电脑版](http://bbs.kafan.cn/thread-1814510-1-1.html)<br/>
 [鳳凰網 只顯示首圖修正](http://bbs.kafan.cn/thread-1822205-1-1.html)<br/>

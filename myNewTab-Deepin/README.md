@@ -1,4 +1,4 @@
-##myNewTab-Deepin
+## myNewTab-Deepin
 Create by **Defpt & ywzhaiqi**<br/>
 Deepin Mod by **12101111**<br/>
 Fix image download by **Cing**<br/>
@@ -10,7 +10,7 @@ Fix image download by **Cing**<br/>
 - 修复下載圖片爲0KB的問題
 - **媽媽再也不用擔心我被升級了**
 
-###使用方法：
+### 使用方法：
 第1步、解压后，把myNewTab整个文件夹复制到content文件夹下面，如图：<br/> 
 <img width="650" src="https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/myNewTab-Classic/img/position.jpg">
 

@@ -1,4 +1,4 @@
-##userChrome.js(Collections)
+## userChrome.js(Collections)
 
 包括：
 
@@ -7,7 +7,7 @@
 
 **用途：** 主要是方便以後查找
 
-##參考資料
+## 參考資料
 
 一些UC腳本作者（原作及修改）發佈地址：
 

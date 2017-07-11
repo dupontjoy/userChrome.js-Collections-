@@ -1,4 +1,4 @@
-##Simple Proxy
+## Simple Proxy
 一個简單的代理設置/切換器。
 
 by [jc3213](https://github.com/jc3213/SimpleProxy)

@@ -1,4 +1,4 @@
-####searchplugins
+#### searchplugins
 
 Firefox的搜索引擎列表是保存在<kbd>search.json.mozlz4</kbd>这个文件中的.
 你可以通过xml文件来拓展Firefox的搜索栏, 但请注意按以下步骤来操作:

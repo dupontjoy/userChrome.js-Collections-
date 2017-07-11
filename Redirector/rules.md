@@ -1,10 +1,10 @@
-##Redirector.uc.js及規則
+## Redirector.uc.js及規則
 Script create by **[cinhoo][1]** 参照Redirector扩展和AdBlock Plus扩展创作此神级腳本<br/>
 Script mod by **[Oos][2]** 完善按钮与菜单切换版<br/>
 **個人規則：** https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js<br/>
 ![Redirector-Rules](img/Redirector-Rules.jpg)
 
-###示例：
+### 示例：
 示例：鳳凰網 只顯示首圖修正<br/>
 http://news.ifeng.com/a/ydzx/20150413/43541233_0.shtml 重定向到 http://news.ifeng.com/a/20150413/43541233_0.shtml
 

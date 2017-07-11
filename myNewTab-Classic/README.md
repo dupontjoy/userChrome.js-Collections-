@@ -1,4 +1,4 @@
-##myNewTab-Classic
+## myNewTab-Classic
 by **Defpt & ywzhaiqi**<br/>
 
 [NewTabOverride.uc.js](https://github.com/GH-Kelo/userChromeJS/blob/master/NewTabOverride/NewTabOverride.uc.js): 类似于 New Tab Override 扩展，用脚本实现 by Kelo
@@ -17,7 +17,7 @@ by **Defpt & ywzhaiqi**<br/>
     http://cn.bing.com
     http://global.bing.com
 
-###使用方法：
+### 使用方法：
 第1步、解压后，把myNewTab整个文件夹复制到content文件夹下面，如图：<br/> 
 <img width="650" src="img/position.jpg">
 

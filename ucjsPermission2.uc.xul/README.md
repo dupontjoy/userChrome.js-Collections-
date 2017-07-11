@@ -1,4 +1,4 @@
-##ucjsPermission2.uc.xul
+## ucjsPermission2.uc.xul
 
 ![](img/ucjsPermission2-icon.jpg)
 
@@ -12,7 +12,7 @@ by **Alice0775 & dannylee**
 
 <img width="650" src="img/ucjsPermission2.jpg">
 
-###使用方法：
+### 使用方法：
 
 第一步、将两个uc.xul文件复制到『chrome\xul』文件夹下面
 
@@ -22,7 +22,7 @@ by **Alice0775 & dannylee**
 
 至此，脚本安装完成！
 
-###操作步骤：
+### 操作步骤：
 
 **左键单击**图标，选择要放行的脚本（或其他元素）
 
@@ -30,7 +30,7 @@ by **Alice0775 & dannylee**
 
 <img width="650" src="img/ucjsPermission2-list.jpg">
 
-###建議使用方法：
+### 建議使用方法：
 默認禁止第三方腳本、對象和框架。<br/>
 
 ![](img/ucjsPermission2-setting.jpg)
