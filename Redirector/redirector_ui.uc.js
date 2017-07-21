@@ -8,7 +8,7 @@
 // @downloadURL     https://raw.githubusercontent.com/Harv/userChromeJS/master/redirector_ui.uc.js
 // @startup         Redirector.init();
 // @shutdown        Redirector.destroy(true);
-// @version         1.5.5.5
+// @version         1.5.5.8-2017.07.21改图标
 // ==/UserScript==
 (function() {
     Cu.import("resource://gre/modules/XPCOMUtils.jsm");
@@ -17,11 +17,10 @@
 
     function RedirectorUI() {
         this.rules = "local/_redirector.js".split("/"); // 规则文件路径
-        this.addIcon = true;                            // 是否添加按钮/菜单
-        this.iconStyle = 1;                             // 0 按钮，1 菜单
         this.state = true;                              // 是否启用脚本
-        this.enableIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeUlEQVQ4je2SQQqAMAwEPfUzeYLOvs/e9KH1Ca2XCrZEKHgSDOQ2GZIlk5kFSTuQgCRpN7MwdfXISdokla7XXvDIVVtZajlQ03cOSI0AmEcEFwckdzUgjpwAxHs4GcgDIfrcZe0HnU187sOC1yH+n9h84gEcAyE23AmfDQAU98LFlwAAAABJRU5ErkJggg==";
-        this.disableIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jdWSwQ2FIBBEPdkMJegsNwsw7Nb0vWlxlvDxBA2Y4L+gUcTI9W8yCYfHwE6mUkrVRDQBcAAcEU1KqbpK5pEjopGItkSf1OCRi25bGycDXXTmALiLAYCmxGDnALjs1wAMJSsAGM7hBADhLcRO67XTer1xu2t6MZ1FZFtE7twfG5SGODPX1phpYQ4Lc7DGTDNzeRMt87i/fsiYfBM7rdcbHGWZW8vcxnO+iW8G375vDoPSJmZXELk00QPwbyFaEW9F/B7iD60oLMm8clpxAAAAAElFTkSuQmCC";
+        this.addIcon = 3;                               // 添加到 0 不添加 1 地址栏图标 2 导航栏按钮 3 工具栏菜单
+        this.enableIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAOElEQVQ4jWNgGErgPxomywBsbNoagMvZJBlAsQtINoAYZxM0gGIXkGwAqc7GagDFLqDYAFIxdQAAx4M+wgxDj78AAAAASUVORK5CYII=";
+        this.disableIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiElEQVQ4jbWQzQmAMAyFv026hcfiNA7gBs7h3Rncxj28xEsraWn6gxgIhNe8j5dCX0nWwyXG/C/Aij0E+JxgGNATuwlIZgEHbKWd8GYDBJzAvcOi9DMseoG7GTsuCvigr0qba/fpqC8kN3cBgEkZE3PphLwv4MgAnpHSsQt/0m32Nc0yO2sxQh5X1nXCNPg+6gAAAABJRU5ErkJggg==";
     }
     RedirectorUI.prototype = {
         hash: new Date().getTime(),
@@ -62,6 +61,7 @@
             if (this.state) {
                 this.redirector.init(window);
             }
+            this.loadRule();
             this.drawUI();
             // register self as a messagelistener
             this.mm.addMessageListener("redirector:toggle", this);
@@ -78,13 +78,13 @@
             // this.mm.removeMessageListener("redirector:reload", this);
         },
         drawUI: function() {
-            if (this.addIcon && !document.getElementById("redirector-icon")) {
+            if (this.addIcon > 0 && !document.getElementById("redirector-icon")) {
                 // add menu
                 let xml = '\
                     <menupopup id="redirector-menupopup">\
-                        <menuitem label="Enable" id="redirector-toggle" type="checkbox" autocheck="false" key="redirector-toggle-key" checked="' + this.state + '" oncommand="Redirector.toggle();" />\
-                        <menuitem label="Reload" id="redirector-reload" oncommand="Redirector.reload();"/>\
-                        <menuitem label="Edit" id="redirector-edit" oncommand="Redirector.edit();"/>\
+                        <menuitem label="启用" id="redirector-toggle" type="checkbox" autocheck="false" key="redirector-toggle-key" checked="' + this.state + '" oncommand="Redirector.toggle();" />\
+                        <menuitem label="重载" id="redirector-reload" oncommand="Redirector.reload();"/>\
+                        <menuitem label="编辑" id="redirector-edit" oncommand="Redirector.edit();"/>\
                         <menuseparator id="redirector-sepalator"/>\
                     </menupopup>\
                 ';
@@ -94,19 +94,28 @@
                 range.insertNode(range.createContextualFragment(xml.replace(/\n|\t/g, "")));
                 range.detach();
                 // add icon
-                if (this.iconStyle == 0) {
+                if (this.addIcon == 1) {
                     let icon = document.getElementById("urlbar-icons").appendChild(document.createElement("image"));
                     icon.setAttribute("id", "redirector-icon");
                     icon.setAttribute("context", "redirector-menupopup");
                     icon.setAttribute("onclick", "Redirector.iconClick(event);");
                     icon.setAttribute("tooltiptext", "Redirector");
-                    icon.setAttribute("style", "padding: 0px 2px; list-style-image: url(" + (this.state ? this.enableIcon : this.disableIcon) + ")");
-                } else if (this.iconStyle == 1) {
-                    let icon = document.getElementById("menu_preferences").parentNode.appendChild(document.createElement("menu"));
+                    icon.setAttribute("style", "list-style-image: url(" + (this.state ? this.enableIcon : this.disableIcon) + ")");
+                } else if (this.addIcon == 2) {
+                    let icon = document.getElementById("nav-bar-customization-target").appendChild(document.createElement("toolbarbutton"));
+                    icon.setAttribute("id", "redirector-icon");
+                    icon.setAttribute("class", "toolbarbutton-1 chromeclass-toolbar-additional");
+                    icon.setAttribute("label", "Redirector");
+                    icon.setAttribute("tooltiptext", "Redirector");
+                    icon.setAttribute("removable", true);
+                    icon.setAttribute("popup", "redirector-menupopup");
+                    icon.setAttribute("style", "list-style-image: url(" + (this.state ? this.enableIcon : this.disableIcon) + ")");
+                } else if (this.addIcon == 3) {
+                    let icon = document.getElementById("devToolsSeparator").parentNode.appendChild(document.createElement("menu"));
                     icon.setAttribute("id", "redirector-icon");
                     icon.setAttribute("class", "menu-iconic");
                     icon.setAttribute("label", "Redirector");
-                    icon.setAttribute("style", "padding: 0px 2px; list-style-image: url(" + (this.state ? this.enableIcon : this.disableIcon) + ")");
+                    icon.setAttribute("style", "list-style-image: url(" + (this.state ? this.enableIcon : this.disableIcon) + ")");
                     icon.appendChild(document.getElementById("redirector-menupopup"));
                 }
                 // add rule items
@@ -138,10 +147,7 @@
                 delete key;
             }
         },
-        buildItems: function(forceLoadRule) {
-            if (forceLoadRule || this.redirector.rules.length == 0) {
-                this.loadRule();
-            }
+        buildItems: function() {
             let menu = document.getElementById("redirector-menupopup");
             if (!menu) return;
             for (let i = 0; i < this.redirector.rules.length; i++) {
@@ -164,7 +170,10 @@
                 menu.removeChild(menuitem);
             }
         },
-        loadRule: function() {
+        loadRule: function(forceLoadRule) {
+            if (!forceLoadRule && this.redirector.rules.length > 0) {
+                return;
+            }
             var aFile = FileUtils.getFile("UChrm", this.rules, false);
             if (!aFile.exists() || !aFile.isFile()) return null;
             var fstream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
@@ -232,7 +241,8 @@
                 this.redirector.clearCache();
             }
             this.clearItems();
-            this.buildItems(true);
+            this.loadRule(true);
+            this.buildItems();
             if (!callfromMessage) {
                 // notify other windows to update
                 this.ppmm.broadcastAsyncMessage("redirector:reload", {hash: this.hash});
@@ -289,7 +299,6 @@
             }
         }
     };
-
     function Redirector() {
         this.rules = [];
     }
