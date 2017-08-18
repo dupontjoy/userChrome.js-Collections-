@@ -1,4 +1,4 @@
-::2017.06.16
+::2017.08.18
 
 @echo off
 ::最小化运行批处理
@@ -26,7 +26,7 @@ start "" "%dir%\Nutstore\Nutstore.exe" /min
 start "" "%dir%\CingFox\Software\picpick\picpick.exe"
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
 ::start "" "%dir%\Tencent\Tim\Bin\Tim.exe"
-::start "" "%dir%\CingFox\Software\GFW\SSR\ShadowsocksR-dotnet4.0.exe"
+start "" "%dir%\CingFox\Software\GFW\SSR\ShadowsocksR-dotnet4.0.exe"
 ::start "" "%dir%\CingFox\Software\GFW\MEOW\MEOW.exe"
 start "" "%dir%\CingFox\Software\GFW\SocksCap64\SocksCap64.exe"  /min
 
