@@ -28,7 +28,7 @@ start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
 ::start "" "%dir%\Tencent\Tim\Bin\Tim.exe"
 start "" "%dir%\CingFox\Software\GFW\SSR\ShadowsocksR-dotnet4.0.exe"
 ::start "" "%dir%\CingFox\Software\GFW\MEOW\MEOW.exe"
-start "" "%dir%\CingFox\Software\GFW\SocksCap64\SocksCap64.exe"  /min
+::start "" "%dir%\CingFox\Software\GFW\SocksCap64\SocksCap64.exe"  /min
 
 ::完成後退出
 exit
