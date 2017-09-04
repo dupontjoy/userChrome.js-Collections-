@@ -1,3 +1,13 @@
+## CingNightly
+
+based on [Nightly](https://www.mozilla.org/en-US/firefox/nightly/all/) version
+
+### 更新历史
+- [**CingNightly-57.0a1-2017.09.03**](doc/release/57.0a1-2017.09.03.md)
+- [**CingNightly-57.0a1-2017.08.25**](doc/release/57.0a1-2017.08.25.md)
+- [**CingNightly-57.0a1-2017.08.10**](doc/release/57.0a1-2017.08.10.md)
+
+
 ## ![icon](img/icon.jpg) CingFox
 
 based on [pcxFirefox](http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/)
@@ -7,9 +17,6 @@ based on [pcxFirefox](http://sourceforge.net/projects/pcxfirefox/files/Release/F
 PS: 仅个人配置分享交流, 只接受bug反馈, 不接受任何定制需求.
 
 ### 更新历史
-- [**CingFox-57.0a1-2017.09.03**](doc/release/57.0a1-2017.09.03.md)
-- [**CingFox-57.0a1-2017.08.25**](doc/release/57.0a1-2017.08.25.md)
-- [**CingFox-57.0a1-2017.08.10**](doc/release/57.0a1-2017.08.10.md)
 - [**CingFox-54.0.1-2017.07.11**](doc/release/54.0.1-2017.07.11.md)
 - [**CingFox-54.0-2017.06.23**](doc/release/54.0-2017.06.23.md)
 - [**CingFox-53.0.3-2017.06.13**](doc/release/53.0.3-2017.06.13.md)
