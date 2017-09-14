@@ -14,7 +14,7 @@
 
 ```javascript
 {
-    //https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector/link_direct
+    //https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector.uc.js/link_direct
     name: "去跳转",
     from: /^https?:\/\/.*\.(?:jobui|google|so|)\.(?:com|org|)\/(.*(\?link|\?target|\?url|\?imgurl)=)?(http[^&]+).*/i,
     to: "$3",
