@@ -9,9 +9,22 @@
 // ==/UserScript==
 (function(){
 //微信文章
-var wxIMGs=document.querySelectorAll('img[data-src][data-original]');for(i=0;i<wxIMGs.length;i++){wxIMGs[i].src=wxIMGs[i].getAttribute('data-src');}void(0);
+var wxIMGs = document.querySelectorAll('img[data-src][data-original]');
+for (i = 0; i < wxIMGs.length; i++) {
+    wxIMGs[i].src = wxIMGs[i].getAttribute('data-src');
+}
+void(0);
 //得到分享
-var dedaoIMGs=document.querySelectorAll('img[src][data-url]');for(i=0;i<dedaoIMGs.length;i++){dedaoIMGs[i].src=dedaoIMGs[i].getAttribute('data-url');}void(0);
+var dedaoIMGs = document.querySelectorAll('img[src][data-url]');
+for (i = 0; i < dedaoIMGs.length; i++) {
+    dedaoIMGs[i].src = dedaoIMGs[i].getAttribute('data-url');
+}
+void(0);
 //网易
-document.querySelector('.more-article');var IMGs = document.querySelectorAll('figure[data-echo],aside[data-echo]');[].forEach.call(IMGs,function(x){x.outerHTML=x.outerHTML.replace(/figure|aside/,'img').replace('data-echo','src');});void(0);
+document.querySelector('.more-article');
+var IMGs = document.querySelectorAll('figure[data-echo],aside[data-echo]'); [].forEach.call(IMGs,
+function(x) {
+    x.outerHTML = x.outerHTML.replace(/figure|aside/, 'img').replace('data-echo', 'src');
+});
+void(0);
 })()
