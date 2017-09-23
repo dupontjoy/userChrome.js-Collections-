@@ -11,10 +11,10 @@
 set dir=D:\Program Files
 
 ::初始化Listary历史记录
-del "%dir%\CingFox\Software\Listary Pro\UserData\DiskSearch.db"  /s /q
-del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite"  /s /q
-del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite-journal"  /s /q
-del "%dir%\CingFox\Software\Listary Pro\UserData\listary_log.log"  /s /q
+::del "%dir%\CingFox\Software\Listary Pro\UserData\DiskSearch.db"  /s /q
+::del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite"  /s /q
+::del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite-journal"  /s /q
+::del "%dir%\CingFox\Software\Listary Pro\UserData\listary_log.log"  /s /q
 
 ::Processlaso特殊处理
 start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable\config" "/logfolder=%dir%\System Tools\ProcessLassoPortable\config"
