@@ -11,10 +11,10 @@
 set dir=D:\Program Files
 
 ::初始化Listary历史记录
-::del "%dir%\CingFox\Software\Listary Pro\UserData\DiskSearch.db"  /s /q
-::del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite"  /s /q
-::del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite-journal"  /s /q
-::del "%dir%\CingFox\Software\Listary Pro\UserData\listary_log.log"  /s /q
+del "%dir%\CingFox\Software\Listary Pro\UserData\DiskSearch.db"  /s /q
+del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite"  /s /q
+del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite-journal"  /s /q
+del "%dir%\CingFox\Software\Listary Pro\UserData\listary_log.log"  /s /q
 
 ::Processlaso特殊处理
 start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable\config" "/logfolder=%dir%\System Tools\ProcessLassoPortable\config"
@@ -25,7 +25,6 @@ start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
 start "" "%dir%\Nutstore\Nutstore.exe" /min
 start "" "%dir%\CingFox\Software\picpick\picpick.exe"
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
-::start "" "%dir%\Tencent\Tim\Bin\Tim.exe"
 start "" "%dir%\CingFox\Software\GFW\SSR\ShadowsocksR-dotnet4.0.exe"
 ::start "" "%dir%\CingFox\Software\GFW\MEOW\MEOW.exe"
 ::start "" "%dir%\CingFox\Software\GFW\SocksCap64\SocksCap64.exe"  /min
