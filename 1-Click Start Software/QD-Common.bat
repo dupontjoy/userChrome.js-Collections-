@@ -26,7 +26,7 @@ start "" "%dir%\Nutstore\Nutstore.exe" /min
 start "" "%dir%\CingFox\Software\picpick\picpick.exe"
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
 start "" "%dir%\CingFox\Software\GFW\SSR\ShadowsocksR-dotnet4.0.exe"
-start "" "%dir%\CingFox\Software\Capslock\Capslock+.exe"
+start "" "%dir%\CingFox\Software\Capslock\Capslock+.exe"  "/configfolder=%dir%\CingFox\Software\Capslock\" 
 start "" "%dir%\CingFox\Software\Ditto\Ditto.exe"  /min
 
 ::完成後退出
