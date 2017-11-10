@@ -3,6 +3,7 @@
 based on [Nightly](https://www.mozilla.org/en-US/firefox/nightly/all/) version
 
 ### 更新历史
+- [**CingQuantum-57beta-2017.11.10**](doc/release/57beta-2017.11.10.md)
 - [**CingNightly-58.0a1-2017.10.24**](doc/release/58.0a1-2017.10.24.md)
 - [**CingNightly-58.0a1-2017.09.23**](doc/release/58.0a1-2017.09.23.md)
 - [**CingNightly-57.0a1-2017.09.12**](doc/release/57.0a1-2017.09.12.md)
