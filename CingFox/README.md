@@ -1,6 +1,6 @@
-## CingNightly
+## CingQuantum
 
-based on [Nightly](https://www.mozilla.org/en-US/firefox/nightly/all/) version
+based on Firefox Quantum: [Beta](https://www.mozilla.org/en-US/firefox/beta/all/), [Nightly](https://www.mozilla.org/en-US/firefox/nightly/all/)
 
 ### 更新历史
 - [**CingQuantum-57beta-2017.11.10**](doc/release/57beta-2017.11.10.md)
