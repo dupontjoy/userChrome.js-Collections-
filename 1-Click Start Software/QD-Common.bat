@@ -26,6 +26,7 @@ start "" "%dir%\Nutstore\Nutstore.exe" /min
 start "" "%dir%\CingFox\Software\picpick\picpick.exe"
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
 start "" "%dir%\CingFox\Software\GFW\SSR\ShadowsocksR-dotnet4.0.exe"
+start "" "%dir%\Tencent\WeChat\WeChat.exe"
 
 ::完成後退出
 exit

@@ -16,7 +16,7 @@ set dir2=C:\Program Files (x86)
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 ::start "" "%dir%\CingFox\Software\GFW\Shadowsocks\SSCap64\SSCap.exe"
 start "" "%dir%\DingDing\main\current\DingTalk.exe"
-start "" "%dir%\Tencent\WeChat\WeChat.exe" & ping localhost -n 3
+
 ::start "" "%dir2%\XiaoMi\MiWiFi\MiWiFi.exe"
 
 ::完成後退出
