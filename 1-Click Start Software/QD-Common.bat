@@ -1,4 +1,4 @@
-::2017.12.15
+::2018.01.22
 
 @echo off
 ::最小化运行批处理
@@ -29,6 +29,7 @@ start "" "%dir%\CingFox\Software\Ditto\Ditto.exe"
 start "" "%dir%\Nutstore\Nutstore.exe" /min
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
 start "" "%dir%\Tencent\WeChat\WeChat.exe"
+start "" "%dir%\System Tools\dnschooser\dnschooser-winclient.exe"
 
 ::完成後退出
 exit
