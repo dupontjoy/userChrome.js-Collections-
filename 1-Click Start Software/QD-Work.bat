@@ -14,7 +14,7 @@ set dir2=C:\Program Files (x86)
 
 ::公司用軟件
 start "" "%dir%\DingDing\main\current\DingTalk.exe"
-start "" "%dir%\Tencent\WeChat\WeChat.exe"
+::start "" "%dir%\Tencent\WeChat\WeChat.exe"
 
 ::完成後退出
 exit
