@@ -20,7 +20,7 @@
 // @updateURL         https://cat7373.github.io/remove-web-limits/remove_web_limits.user.js
 
 // @author            Cat73
-// @version           1.3-2018.01.16
+// @version           1.3-2018.04.07
 // @license           LGPLv3
 
 // @compatible        chrome Chrome_46.0.2490.86 + TamperMonkey + 脚本_1.3 测试通过
@@ -28,6 +28,7 @@
 // @compatible        opera Opera_33.0.1990.115 + TamperMonkey + 脚本_1.1.3 测试通过
 // @compatible        safari 未测试
 
+// @include        http*://*.shejipi.com/*
 // @include        http*://*.zhihu.com/*
 // @include        http*://*.terapeak.com/*
 // @include        http*://*.zongheng.com/*
