@@ -29,7 +29,6 @@
 // @compatible        safari 未测试
 
 // @include        http*://*.shejipi.com/*
-// @include        http*://*.zhihu.com/*
 // @include        http*://*.terapeak.com/*
 // @include        http*://*.zongheng.com/*
 // @include        http*://*.qidian.com/*
