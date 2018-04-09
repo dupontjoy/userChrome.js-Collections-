@@ -3,6 +3,7 @@
 based on Firefox Quantum: [Beta](https://www.mozilla.org/en-US/firefox/beta/all/), [Nightly](https://www.mozilla.org/en-US/firefox/nightly/all/)
 
 ### 更新历史
+- [**CingQuantum-60.0-2018.04.09*](doc/release/60.0-2018.04.09.md)
 - [**CingQuantum-60.0a1-2018.02.08**](doc/release/60.0a1-2018.02.08.md)
 - [**CingQuantum-59.0a1-2017.12.18**](doc/release/59.0a1-2017.12.18.md)
 - [**CingQuantum-59.0a1-2017.12.01**](doc/release/59.0a1-2017.12.01.md)
