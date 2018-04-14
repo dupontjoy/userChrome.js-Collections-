@@ -1,4 +1,4 @@
-::2018.01.22
+::2018.04.15
 
 @echo off
 ::最小化运行批处理
@@ -16,10 +16,6 @@ del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite"  /s /q
 del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite-journal"  /s /q
 del "%dir%\CingFox\Software\Listary Pro\UserData\listary_log.log"  /s /q
 
-::Processlaso特殊处理
-start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable\config" "/logfolder=%dir%\System Tools\ProcessLassoPortable\config"
-start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable\config" "/logfolder=%dir%\System Tools\ProcessLassoPortable\config"
-
 ::普通啟動
 start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
 start "" "%dir%\CingFox\Software\picpick\picpick.exe"
@@ -29,6 +25,12 @@ start "" "%dir%\CingFox\Software\Ditto\Ditto.exe"
 start "" "%dir%\Nutstore\Nutstore.exe" /min
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
+
+::Processlaso特殊处理
+start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable\config" "/logfolder=%dir%\System Tools\ProcessLassoPortable\config"
+start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable\config" "/logfolder=%dir%\System Tools\ProcessLassoPortable\config"
+
+
 
 ::完成後退出
 exit
