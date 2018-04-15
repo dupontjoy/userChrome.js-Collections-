@@ -10,10 +10,8 @@
 ::設置程序文件夾位置
 set dir=D:\Program Files
 
-::初始化Listary磁盘扫描,历史记录,日志
+::初始化Listary磁盘扫描,日志(解决5.x版U盘弹出后还有文件记录)
 del "%dir%\CingFox\Software\Listary Pro\UserData\DiskSearch.db"  /s /q
-::del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite"  /s /q
-::del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite-journal"  /s /q
 del "%dir%\CingFox\Software\Listary Pro\UserData\listary_log.log"  /s /q
 
 ::普通啟動
