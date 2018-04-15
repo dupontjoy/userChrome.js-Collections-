@@ -11,10 +11,10 @@
 set dir=D:\Program Files
 
 ::初始化Listary磁盘扫描,历史记录,日志
-::del "%dir%\CingFox\Software\Listary Pro\UserData\DiskSearch.db"  /s /q
-del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite"  /s /q
-del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite-journal"  /s /q
-::del "%dir%\CingFox\Software\Listary Pro\UserData\listary_log.log"  /s /q
+del "%dir%\CingFox\Software\Listary Pro\UserData\DiskSearch.db"  /s /q
+::del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite"  /s /q
+::del "%dir%\CingFox\Software\Listary Pro\UserData\History_v2.sqlite-journal"  /s /q
+del "%dir%\CingFox\Software\Listary Pro\UserData\listary_log.log"  /s /q
 
 ::普通啟動
 start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
