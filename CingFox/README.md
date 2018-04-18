@@ -3,19 +3,12 @@
 based on Firefox Quantum: [Beta](https://www.mozilla.org/en-US/firefox/beta/all/), [Nightly](https://www.mozilla.org/en-US/firefox/nightly/all/)
 
 ### 更新历史
-- [**CingQuantum-60.0-2018.04.09**](doc/release/60.0-2018.04.09.md)
-- [**CingQuantum-60.0a1-2018.02.08**](doc/release/60.0a1-2018.02.08.md)
-- [**CingQuantum-59.0a1-2017.12.18**](doc/release/59.0a1-2017.12.18.md)
-- [**CingQuantum-59.0a1-2017.12.01**](doc/release/59.0a1-2017.12.01.md)
-- [**CingQuantum-59.0a1-2017.11.17**](doc/release/59.0a1-2017.11.17.md)
-- [**CingQuantum-57beta-2017.11.10**](doc/release/57beta-2017.11.10.md)
-- [**CingNightly-58.0a1-2017.10.24**](doc/release/58.0a1-2017.10.24.md)
-- [**CingNightly-58.0a1-2017.09.23**](doc/release/58.0a1-2017.09.23.md)
-- [**CingNightly-57.0a1-2017.09.12**](doc/release/57.0a1-2017.09.12.md)
-- [**CingNightly-57.0a1-2017.09.03**](doc/release/57.0a1-2017.09.03.md)
-- [**CingNightly-57.0a1-2017.08.25**](doc/release/57.0a1-2017.08.25.md)
-- [**CingNightly-57.0a1-2017.08.10**](doc/release/57.0a1-2017.08.10.md)
-
+ - CingQuantum-60.0-2018.04.09
+ - CingQuantum-60.0a1-2018.02.08
+ - CingQuantum-59.0a1-2017.12.18
+ - CingQuantum-59.0a1-2017.12.01
+ - CingQuantum-59.0a1-2017.11.17
+ - CingQuantum-57beta-2017.11.10
 
 ## ![icon](img/icon.jpg) CingFox
 
