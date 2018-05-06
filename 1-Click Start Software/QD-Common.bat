@@ -16,7 +16,7 @@ del "%dir%\CingFox\Software\Listary Pro\UserData\listary_log.log"  /s /q
 
 ::普通啟動
 start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
-start "" "%dir%\CingFox\Software\picpick\picpick.exe"
+start "" "%dir%\CingFox\Software\FSCapture\FSCapture.exe"
 start "" "%dir%\CingFox\Software\GFW\SSR\ShadowsocksR-dotnet4.0.exe"
 start "" "%dir%\CingFox\Software\Ditto\Ditto.exe"
 start "" "%dir%\CingFox\Software\Wizmouse\WizMouseLaunch.exe"
