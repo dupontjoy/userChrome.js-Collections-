@@ -1,10 +1,16 @@
-::2018.04.15
+::2018.05.26
 
 @echo off
 ::最小化运行批处理
 ::From: http://www.jb51.net/article/7347.htm
 ::if "%1"=="h" goto begin
 ::start mshta vbscript:createobject("wscript.shell").run("""%~nx0"" h",0)(window.close)&&exit
+
+::自动以管理员身份运行bat文件
+cd /d %~dp0
+%1 start "" mshta vbscript:createobject("shell.application").shellexecute("""%~0""","::",,"runas",1)(window.close)&exit
+::完
+
 :begin
 
 ::設置程序文件夾位置
