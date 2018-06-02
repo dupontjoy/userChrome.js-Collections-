@@ -15,3 +15,6 @@ based on Firefox Quantum:
  
 ### 下载地址
 链接: https://pan.baidu.com/s/1c1XzeQs 密码: qnh3
+
+### 卡饭地址
+https://bbs.kafan.cn/thread-1792671-1-1.html
