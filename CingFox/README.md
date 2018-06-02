@@ -5,6 +5,7 @@ based on Firefox Quantum:
 - [Nightly](https://www.mozilla.org/en-US/firefox/nightly/all/)
 
 ### 更新历史
+ - CingQuantum-60.0.1-2018.06.02
  - CingQuantum-60.0-2018.04.09
  - CingQuantum-60.0a1-2018.02.08
  - CingQuantum-59.0a1-2017.12.18
