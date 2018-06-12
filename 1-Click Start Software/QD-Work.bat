@@ -1,4 +1,4 @@
-::2017.12.15
+::2018.06.12
 
 @echo off
 
@@ -14,6 +14,7 @@ set dir2=C:\Program Files (x86)
 
 ::公司用軟件
 start "" "%dir%\DingDing\main\current\DingTalk.exe"
+start "" "%dir%\CloudHubX\CloudHubX.exe"
 ::start "" "%dir%\Tencent\WeChat\WeChat.exe"
 
 ::完成後退出
