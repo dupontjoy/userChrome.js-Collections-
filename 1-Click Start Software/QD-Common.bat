@@ -32,8 +32,8 @@ start "" "%dir%\CingFox\Software\Ditto\Ditto.exe"
 start "" "%dir%\CingFox\Software\Wizmouse\WizMouseLaunch.exe"
 
 start "" "%dir%\Nutstore\Nutstore.exe" /min
-::start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
-start "" "%dir%\Tencent\TIM\Bin\TIM.exe"
+start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
+::start "" "%dir%\Tencent\TIM\Bin\TIM.exe"
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 
 ::完成後退出
