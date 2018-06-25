@@ -1,4 +1,4 @@
-::2018.05.26
+::2018.06.25
 
 @echo off
 ::最小化运行批处理
@@ -16,6 +16,10 @@ cd /d %~dp0
 ::設置程序文件夾位置
 set dir=D:\Program Files
 
+::Processlaso特殊处理
+start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable\config" "/logfolder=%dir%\System Tools\ProcessLassoPortable\config"
+start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable\config" "/logfolder=%dir%\System Tools\ProcessLassoPortable\config"
+
 ::初始化Listary磁盘扫描,日志(解决5.x版U盘弹出后还有文件记录)
 del "%dir%\CingFox\Software\Listary Pro\UserData\DiskSearch.db"  /s /q
 del "%dir%\CingFox\Software\Listary Pro\UserData\listary_log.log"  /s /q
@@ -28,14 +32,9 @@ start "" "%dir%\CingFox\Software\Ditto\Ditto.exe"
 start "" "%dir%\CingFox\Software\Wizmouse\WizMouseLaunch.exe"
 
 start "" "%dir%\Nutstore\Nutstore.exe" /min
-start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
+::start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
+start "" "%dir%\Tencent\TIM\Bin\TIM.exe"
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
-
-::Processlaso特殊处理
-start "" "%dir%\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable\config" "/logfolder=%dir%\System Tools\ProcessLassoPortable\config"
-start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfolder=%dir%\System Tools\ProcessLassoPortable\config" "/logfolder=%dir%\System Tools\ProcessLassoPortable\config"
-
-
 
 ::完成後退出
 exit
