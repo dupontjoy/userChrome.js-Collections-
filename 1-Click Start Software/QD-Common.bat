@@ -25,7 +25,7 @@ del "%dir%\CingFox\Software\Listary Pro\UserData\DiskSearch.db"  /s /q
 del "%dir%\CingFox\Software\Listary Pro\UserData\listary_log.log"  /s /q
 
 ::普通啟動
-::start "" "%dir%\RimeIME Portable\install.bat"
+start "" "%dir%\RimeIME Portable\install.bat"
 start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
 start "" "%dir%\CingFox\Software\FSCapture\FSCapture.exe"
 start "" "%dir%\CingFox\Software\GFW\SSR\ShadowsocksR-dotnet4.0.exe"
