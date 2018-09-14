@@ -35,6 +35,7 @@ start "" "%dir%\Nutstore\Nutstore.exe" /min
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
 ::start "" "%dir%\Tencent\TIM\Bin\TIM.exe"
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
+start "" "%dir%\RimeIME Portable\install.bat"
 
 ::完成後退出
 exit

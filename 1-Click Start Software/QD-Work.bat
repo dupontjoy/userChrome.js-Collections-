@@ -15,7 +15,7 @@ set dir2=C:\Program Files (x86)
 ::公司用軟件
 ::start "" "%dir%\CloudHubX\CloudHubX.exe"
 start "" "%dir%\Tencent\WeChat\WeChat.exe"
-start "" "%dir%\RimeIME Portable\install.bat"
+
 
 ::完成後退出
 exit
