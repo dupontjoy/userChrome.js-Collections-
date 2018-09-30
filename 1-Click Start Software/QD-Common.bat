@@ -1,4 +1,4 @@
-::2018.06.25
+::2018.09.30
 
 @echo off
 ::最小化运行批处理
@@ -35,7 +35,7 @@ start "" "%dir%\Nutstore\Nutstore.exe" /min
 start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
 ::start "" "%dir%\Tencent\TIM\Bin\TIM.exe"
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
-::start "" "%dir%\RimeIME Portable\install.bat"
+start "" "%dir%\RimeIME Portable\weasel\WeaselServer.exe"
 
 ::完成後退出
 exit
