@@ -36,7 +36,8 @@
                     localStorage.ifClose = localStorage.ifClose || confirm('请问是否关闭当前页面？点击【确定】，当前页面2秒后自动关闭！');
                     localStorage.ifClose && setTimeout(window.close, 2000);
                     let url = encodeURIComponent(location.href);
-                    url = 'http://superov.com?encodeURLAddr='+ btoa(url);
+                    //url = 'http://superov.com?encodeURLAddr='+ btoa(url);
+                    url = 'http://v.renrenfabu.com/jiexi.php?url='+ btoa(url);
                     GM_openInTab(url, { active: true });
             }
     }
