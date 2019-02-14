@@ -31,8 +31,8 @@ start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
 ::start "" "%dir%\CingFox\Software\Listary\listary.exe"
 
 start "" "%dir%\CingFox\Software\Snipaste\Snipaste.exe"
-::start "" "%dir%\CingFox\Software\GFW\SSR\ShadowsocksR-dotnet4.0.exe"
-start "" "%dir%\CingFox\Software\GFW\v2ray-windows-64\v2rayN.exe"
+start "" "%dir%\CingFox\Software\GFW\SSR\ShadowsocksR-dotnet4.0.exe"
+::start "" "%dir%\CingFox\Software\GFW\v2ray-windows-64\v2rayN.exe"
 start "" "%dir%\CingFox\Software\Ditto\Ditto.exe"
 start "" "%dir%\CingFox\Software\Wizmouse\WizMouseLaunch.exe"
 start "" "%dir%\Nutstore\Nutstore.exe" /min
