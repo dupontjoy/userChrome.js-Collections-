@@ -37,8 +37,7 @@ start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 start "" "%dir%\RimeIME Portable\weasel\WeaselServer.exe"
 ::五代
 start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
-::六代
-::start "" "%dir%\CingFox\Software\Listary\listary.exe"
+start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
 
 
 ::完成後退出
