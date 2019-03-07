@@ -24,6 +24,9 @@ start "" "%dir%\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/configfold
 del "%dir%\CingFox\Software\Listary Pro\UserData\DiskSearch.db"  /s /q
 del "%dir%\CingFox\Software\Listary Pro\UserData\listary_log.log"  /s /q
 
+::五代
+start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
+
 ::普通啟動
 start "" "%dir%\CingFox\Software\Snipaste\Snipaste.exe"
 start "" "%dir%\CingFox\Software\GFW\SSR\ShadowsocksR-dotnet4.0.exe"
@@ -35,9 +38,6 @@ start "" "%dir%\Tencent\QQ\Bin\QQ.exe"
 ::start "" "%dir%\Tencent\TIM\Bin\TIM.exe"
 start "" "%dir%\Tencent\Foxmail\Foxmail.exe" /min
 start "" "%dir%\RimeIME Portable\weasel\WeaselServer.exe"
-::五代
-start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
-start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
 
 
 ::完成後退出
