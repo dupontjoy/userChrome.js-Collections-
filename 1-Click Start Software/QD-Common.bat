@@ -25,7 +25,9 @@ del "%dir%\CingFox\Software\Listary Pro\UserData\DiskSearch.db"  /s /q
 del "%dir%\CingFox\Software\Listary Pro\UserData\listary_log.log"  /s /q
 
 ::五代
-start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
+::start "" "%dir%\CingFox\Software\Listary Pro\listary.exe"
+::六代
+start "" "%dir%\CingFox\Software\Listary\listary.exe"
 
 ::普通啟動
 start "" "%dir%\CingFox\Software\Snipaste\Snipaste.exe"
