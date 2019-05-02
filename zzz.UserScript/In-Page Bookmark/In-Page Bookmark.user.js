@@ -207,7 +207,7 @@ moduleBookmark.prototype = {
 	transition: width .3s ease;
 	
 	-- 定位, 永远居中于页面
-	top: 5.5%;
+	top: 5.6%;
 	height: 20px;
 	margin-top: -40px;
 	-- 定位, 固定到右边
