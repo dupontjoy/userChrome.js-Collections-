@@ -190,6 +190,7 @@ moduleBookmark.prototype = {
 	font-family: Ubuntu, 'Microsoft JHengHei UI', 'Microsoft YaHei UI', sans-serif;
 
 	font-size: 12px;
+    font-weight: bold;
 	border: 0px solid #aaa;
 	border-right: 0;
 
@@ -213,7 +214,7 @@ moduleBookmark.prototype = {
 	-- 定位, 固定到右边
 	right: 5px;
 	position: fixed;
-    opacity: 0.4;
+    opacity: 0.3;
 }
 #jjwtBookMark:hover {
 	-- 重置定位至右边, 填满整个高度
