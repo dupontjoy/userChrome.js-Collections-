@@ -3,7 +3,7 @@
 // @namespace   org.jixun.bookmark
 // @description 页内书签, 改写自: Tieba#3114763315 & GreasyFork#2676
 // @include     *
-// @version     1.0.2
+// @version     1.0.2-2019.05.02
 // @grant       unsafeWindow
 // @run-at      document-start
 // ==/UserScript==
@@ -213,7 +213,7 @@ moduleBookmark.prototype = {
 	-- 定位, 固定到右边
 	right: 30px;
 	position: fixed;
-    opacity: 0.6;
+    opacity: 0.4;
 }
 #jjwtBookMark:hover {
 	-- 重置定位至右边, 填满整个高度
@@ -221,6 +221,7 @@ moduleBookmark.prototype = {
 	top: 0;
 	width: 10em;
 	height: 100%;
+    opacity: 1;
 
 	-- 悬浮, 上下两条边不需要
 	border-top: 0;
