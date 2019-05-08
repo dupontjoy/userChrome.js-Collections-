@@ -215,6 +215,7 @@ moduleBookmark.prototype = {
 	right: 5px;
 	position: fixed;
     opacity: .5;
+    border-radius:3px;
 }
 #jjwtBookMark:hover {
 	-- 重置定位至右边, 填满整个高度
