@@ -195,7 +195,7 @@ moduleBookmark.prototype = {
 	border-right: 0;
 
 	z-index: 9999999999;
-	background: #fcfcb8;
+	background: #ffffbb;
 	text-align:left !important;
 	word-break: break-all;
 	overflow: hidden;
