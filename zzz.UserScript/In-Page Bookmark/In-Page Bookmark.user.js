@@ -3,7 +3,7 @@
 // @namespace   org.jixun.bookmark
 // @description 页内书签, 改写自: Tieba#3114763315 & GreasyFork#2676
 // @include     *
-// @version     1.0.2-2019.05.02
+// @version     1.0.2-2019.05.08
 // @grant       unsafeWindow
 // @run-at      document-start
 // ==/UserScript==
@@ -27,10 +27,10 @@ moduleBookmark.prototype = {
 				for (var x in name)
 					if (name.hasOwnProperty (x))
 						node.setAttribute (x, name[x]);
-				
+
 				return ;
 			}
-		
+
 			var ret = node.getAttribute (name);
 			try {
 				return JSON.parse (ret);
@@ -38,7 +38,7 @@ moduleBookmark.prototype = {
 				return ret;
 			}
 		}
-		
+
 		if (val instanceof Object)
 			val = JSON.stringify (val);
 
@@ -48,11 +48,11 @@ moduleBookmark.prototype = {
 	create: function (el, text, attr) {
 		var r = document.createElement (el || 'div');
 		if (text) r.textContent = text;
-		
+
 		// 快速配置属性
 		if (attr instanceof Object)
 			this.attr (r, attr);
-		
+
 		return r;
 	},
 
@@ -67,12 +67,12 @@ moduleBookmark.prototype = {
 			return [];
 		}
 	},
-	
+
 	// 添加并储存书签
 	addMark: function (yPos, name) {
 		var bm = this.getBookmarks(),
 			defName = '未命名书签 #' + bm.length;
-		
+
 		if (!name) {
 			name = prompt ('请输入新的书签名, 留空使用默认:', defName);
 
@@ -84,21 +84,21 @@ moduleBookmark.prototype = {
 			if (!name)
 				name = defName;
 		}
-		
+
 		bm.push ([
 			typeof yPos == 'number' ?
 				yPos : unsafeWindow.pageYOffset,
-			
+
 			name
 		]);
 		this.setBookmarks (bm);
 		this.updMark ();
 	},
-	
+
 	updMark: function () {
 		// 重新构建书签
 		this.lstBookmark.innerHTML = '';
-		
+
 		var that = this;
 		this.getBookmarks ().forEach (function (mark, i) {
 			// [位置, 名称]
@@ -111,7 +111,7 @@ moduleBookmark.prototype = {
 				type: 'rm',
 				line: i
 			});
-			
+
 			[	linkGo,
 				document.createTextNode (' [ '),
 				linkDel,
@@ -126,48 +126,48 @@ moduleBookmark.prototype = {
 		this.bm  = this.create ();
 		this.nav = this.create ();
 		this.main= this.create ();
-		
+
 		this.bm.id = 'jjwtBookMark';
 		this.nav .className = 'bmNav';
 		this.main.className = 'bmMain';
-		
+
 		//增加 [页内书签]
 		this.h3  = this.create ('h3', 'M');
 		this.main.appendChild (this.h3 );
 		this.h3a = this.create ('span', 'M');
 		this.nav .appendChild (this.h3a);
-		
+
 		// 增加 [添加书签] 按钮
 		this.btnAddBookmark = this.create ('button', '此处添加');
 		this.btnAddBookmark.onclick = this.addMark.bind (this, null, null);
 		this.main.appendChild(this.btnAddBookmark);
-		
+
 		// 增加 [书签列表]
 		this.lstBookmark = this.create ('ul');
 		this.main.appendChild(this.lstBookmark);
-		
+
 		this.bm.appendChild (this.nav );
 		this.bm.appendChild (this.main);
 		document.body.appendChild (this.bm);
-		
+
 		// 增加 默认标签
 		if (this.getBookmarks().length === 0)
 			this.addMark (0, '页面顶部');
-		
+
 		// 刷新标签栏
 		this.updMark ();
-		
+
 		this.lstBookmark
 			.addEventListener ('click', this.markClick.bind (this), false);
 
 		this.addStyle ();
 	},
-	
+
 	markClick: function (eve) {
 		var el = eve.target;
 		if (el.tagName !== 'A' || !el.hasAttribute ('type'))
 			return ;
-		
+
 		switch (this.attr (el, 'type')) {
 			case 'go':
 				unsafeWindow.scrollTo (0, parseInt(this.attr (el, 'ypos')));
@@ -180,10 +180,10 @@ moduleBookmark.prototype = {
 				break;
 		}
 	},
-	
+
 	addStyle: function () {
 		if (this.css) return ;
-		
+
 		this.css = document.createElement ('style');
 		this.css.textContent = this.extract (function () {/*
 #jjwtBookMark {
@@ -195,7 +195,7 @@ moduleBookmark.prototype = {
 	border-right: 0;
 
 	z-index: 9999999999;
-	background: #FFD;
+	background: #fcfcb8;
 	text-align:left !important;
 	word-break: break-all;
 	overflow: hidden;
@@ -206,7 +206,7 @@ moduleBookmark.prototype = {
 
 	-- 鼠标移开, 回收列表的时长为 0.3s
 	transition: width .3s ease;
-	
+
 	-- 定位, 永远居中于页面
 	top: 11%;
 	height: 20px;
@@ -214,7 +214,7 @@ moduleBookmark.prototype = {
 	-- 定位, 固定到右边
 	right: 5px;
 	position: fixed;
-    opacity: 0.3;
+    opacity: .5;
 }
 #jjwtBookMark:hover {
 	-- 重置定位至右边, 填满整个高度
@@ -272,7 +272,7 @@ moduleBookmark.prototype = {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	user-select: none;
-} 
+}
 #jjwtBookMark li {
 	list-style: inherit;
 }
@@ -282,7 +282,7 @@ moduleBookmark.prototype = {
 		*/});
 		document.head.appendChild (this.css);
 	},
-	
+
 };
 
 addEventListener ('DOMContentLoaded', function () {
