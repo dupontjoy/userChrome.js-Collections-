@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        In-Page Bookmark
+// @name        In-Page Bookmark (icon)
 // @namespace   org.jixun.bookmark
 // @description 页内书签, 改写自: Tieba#3114763315 & GreasyFork#2676
 // @include     *
