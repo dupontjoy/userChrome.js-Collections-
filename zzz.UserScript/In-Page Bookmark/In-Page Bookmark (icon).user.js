@@ -3,7 +3,7 @@
 // @namespace   org.jixun.bookmark
 // @description 页内书签, 改写自: Tieba#3114763315 & GreasyFork#2676
 // @include     *
-// @version     1.0.2-2019.05.08
+// @version     1.0.2-2019.05.09
 // @grant       unsafeWindow
 // @run-at      document-start
 // ==/UserScript==
@@ -212,7 +212,7 @@ moduleBookmark.prototype = {
 	height: 20px;
 	margin-top: -40px;
 	-- 定位, 固定到右边
-	right: 5px;
+	right: .4%;
 	position: fixed;
     opacity: .5;
     border-radius:3px;
