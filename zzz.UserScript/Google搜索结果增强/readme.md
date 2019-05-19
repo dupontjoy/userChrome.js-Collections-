@@ -1,1 +1,0 @@
-From: http://bbs.kafan.cn/thread-1859966-1-1.html
